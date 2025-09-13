@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: 'photo-booth-gallery', component: PhotoBoothGalleryComponent },
   { path: 'blog/:id', component: BlogComponent },
   { path: 'addevent', component: AddeventComponent },
-  { path: 'music-request', component: MusicRequestComponent },
   { path: '**', redirectTo: '' }
 ];
 
