@@ -36,5 +36,5 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/geek2go/
-        server-dir: ./public_html/
+        server-dir: ./home/hamilton/geek2go.ca/
         dangerous-clean-slate: true
