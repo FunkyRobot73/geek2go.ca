@@ -1,0 +1,191 @@
+
+   
+   <div class="container">
+    <div class="card mt-1 p-3 bg-card">
+        <div class="row ">
+            
+            <div class="col-lg-2"><img class="logo" src="assets/logo2.webp" width="50%"></div>
+            <div class="col-lg-6"><h2 class="">Create New Event/Customer</h2></div>
+            <div class="col-lg-2"><img class="logo" src="assets/logo1.png" width="60%"></div>
+            
+            
+        </div>
+    
+<div class="row mt-3 bg-card">
+
+     <div class="col-md-2">
+        <label>First Name:</label>
+       <input class="form-control" [(ngModel)]="fName" type="text" placeholder="First Name" required  name="fName">
+     </div>
+     <div class="col-md-2">
+        <label>Last Name:</label>
+       <input class="form-control" [(ngModel)]="lName" type="text" placeholder="Last Name" required name="lName">
+     </div>
+     <div class="col-md-2">
+        <label>Event Name:</label>
+       <input class="form-control" [(ngModel)]="company" placeholder="Company/Bride & Groom" name="company">
+     </div>
+
+     <div class="col-md-2"><label>Event Type:</label>
+        <select class="form-control" [(ngModel)]="event" name="event">
+            <option>Wedding</option>
+            <option>Birthday</option>
+            <option>Holiday Party</option>
+            <option>Family/Religious Event</option>
+            <option>BBQ/Picnic</option>
+            <option>Office Party</option>
+            <option>Grand Opening</option>
+            <option>Customer Appreciation</option>
+            <option>Awards Ceremony</option>
+          </select>
+      </div>
+
+     <div class="col-md-2">
+        <label>Date:</label>
+       <input type="date" class="form-control" [(ngModel)]="newDate">
+     </div>
+     <div class="col-md-2">
+        <label>Email:</label>
+       <input class="form-control" [(ngModel)]="newEmail" placeholder="carlos@funkyrobot.ca">
+     </div>
+     <div class="col-md-2">
+        <label>Phone:</label>
+       <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
+     </div>
+     <div class="col-md-2">
+        <label>Venue Name:</label>
+       <input class="form-control" [(ngModel)]="newVenueName" placeholder="800 Elms St.">
+     </div>
+     <div class="col-md-2">
+        <label>Venue Address:</label>
+       <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+     </div>
+     
+     <div class="col-md-2">
+        <label>Venue City:</label>
+       <input class="form-control" [(ngModel)]="newVenueCity" placeholder="Burlington, Ontario">
+     </div>
+     <div class="col-md-2">
+        <label>Indoor or Outdoor?</label>
+       <input class="form-control" [(ngModel)]="newIndoor" placeholder="750">
+     </div>
+              
+     <div class="col-md-4"><label>Service:</label>
+      <select class="form-control" [(ngModel)]="newService">
+        <option>DJ Service</option>
+        <option>Photo Booth</option>
+        <option>DJ & Photo Booth Combo</option>
+        
+        </select>
+    </div>
+
+    <div class="col-md-4"><label>Package:</label>
+        <select class="form-control" [(ngModel)]="newPackage">
+            <option *ngFor="let item of djPackages">{{ item.title }}</option>
+          
+          </select>
+      </div>
+
+    
+
+    <div class="col-md-4">
+      <label>Time Start:</label>
+     <input class="form-control" [(ngModel)]="newTimeStart"  type="text">
+    </div>
+    <div class="col-md-4">
+        <label>Time End:</label>
+       <input class="form-control" [(ngModel)]="newTimeEnd"  type="text">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details 1:</label>
+       <input class="form-control" [(ngModel)]="newDetails01">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details 2:</label>
+       <input class="form-control" [(ngModel)]="newDetails02">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details 3:</label>
+       <input class="form-control" [(ngModel)]="newDetails03">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details 4:</label>
+       <input class="form-control" [(ngModel)]="newDetails04">
+      </div>
+
+     <div class="col-md-12">
+        <label>Note:</label>
+       <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
+     </div>
+
+     <div class="col-md-6"><label>Quote or Invoice:</label>
+        <select class="form-control" [(ngModel)]="newQuoteOrInvoice">
+          <option>Quote</option>
+          <option>Invoice</option>
+          
+          
+          </select>
+      </div>
+      <div class="col-md-6"><label>Status:</label>
+        <select class="form-control" [(ngModel)]="newStatus">
+          <option>Quote Pending</option>
+          <option>Booked</option>
+          <option>Done & Paid</option>
+          <option>Done & Unpaid</option>
+          
+          </select>
+      </div>
+
+      <div class="col-md-3">
+        <label>Cost:</label>
+           <input class="form-control" [(ngModel)]="newCost">
+      </div>
+      
+      <div class="col-md-3">
+        <label>Payment:</label>
+           <input class="form-control" [(ngModel)]="newPayment">
+      </div>
+
+      <div class="col-md-3">
+        <label>Balance:</label>
+           <input class="form-control" [(ngModel)]="newBalance">
+      </div>
+      
+
+      <div class="col-md-3"><label>Payment Type:</label>
+        <select class="form-control" [(ngModel)]="newPaymentType">
+          <option>Cash</option>
+          <option>e-Transfer</option>
+          <option>VISA</option>
+          
+          </select>
+      </div>
+
+
+     <div class="col-md-2 mt-2">
+       <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
+       </div>
+      
+      <div></div>
+       
+   </div>
+ </div>
+
+ 
+ 
+
+<!-- TABLE  to Show several Customers-->
+     
+
+
+</div>
+
+
+
+
+
+

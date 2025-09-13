@@ -1,0 +1,34 @@
+<!-- photo-booth-gallery.component.html -->
+<div class="gallery-container">
+    <h1 class="gallery-title">DJ Gallery</h1>
+    <p class="gallery-subtitle">Capturing Fun Moments at Your Events</p>
+    
+    <div *ngIf="loading" class="loading-spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+      Loading photos...
+    </div>
+  
+    <div *ngIf="!loading" class="photo-grid">
+      <div class="photo-item animate__animated animate__fadeIn" 
+           *ngFor="let image of galleryImages; let i = index"
+           [style.animation-delay]="i * 0.05 + 's'">
+        <img [src]="image.src" [alt]="image.alt" (click)="openLightbox(image)">
+        <div class="photo-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Lightbox Modal -->
+    <div class="lightbox-overlay" *ngIf="showLightbox" (click)="closeLightbox()">
+      <div class="lightbox-content" (click)="$event.stopPropagation()">
+        <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+        <button class="lightbox-nav prev" (click)="navigateLightbox(-1)">‹</button>
+        
+        <img [src]="selectedImage?.src" [alt]="selectedImage?.alt" class="lightbox-image">
+        
+        <button class="lightbox-nav next" (click)="navigateLightbox(1)">›</button>
+        <div class="lightbox-caption">{{selectedImage?.alt}}</div>
+      </div>
+    </div>
+  </div>

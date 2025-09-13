@@ -1,0 +1,82 @@
+<!-- contact.component.html -->
+<div class="contact-container">
+    <div class="header-section">
+    
+      <h1>Contact {{profile.businessName}}</h1>
+      <p class="tagline">{{profile.tagline}}</p>
+    </div>
+  
+    <div class="contact-grid">
+      <!-- Contact Info Card -->
+      <div class="contact-card">
+        <h2><i class="fas fa-info-circle"></i> Get In Touch</h2>
+        <div class="contact-info">
+          <p><i class="fas fa-user"></i> {{profile.nameFull}}</p>
+          <p><i class="fas fa-map-marker-alt"></i> {{profile.address}}</p>
+          <p><i class="fas fa-phone"></i> {{profile.phone}}</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+        </div>
+        
+        <div class="social-links">
+          <a [href]="profile.facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a [href]="profile.instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a [href]="profile.twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a [href]="profile.tiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a [href]="profile.youtubeChannel" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      <div class="social-links">
+        <img [src]="profile.logo" alt="Funky Robot Logo" class="logo" style="width: 50%; height: auto;">
+      </div>
+      </div>
+  
+      <!-- Contact Form -->
+      <div class="form-group contact-card form-card">
+        <h2><i class="fas fa-paper-plane"></i> Send Us a Message</h2>
+        <form 
+  action="https://formsubmit.co/carlos@funkyrobot.ca" 
+  method="POST">
+  <div class="form-group">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+  <div class="form-group">
+    <input type="text" name="subject" placeholder="Subject">
+  </div>
+  <div class="form-group">
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="submit-btn">Send Message</button>
+</form>
+      </div>
+  
+      <!-- Services Offered -->
+      <div class="contact-card services-card">
+        <h2><i class="fas fa-list-alt"></i> Our Services</h2>
+        <ul>
+          <li *ngFor="let service of profile.services">
+            <i class="fas fa-check-circle"></i> {{service}}
+          </li>
+        </ul>
+      </div>
+  
+      <!-- About Section -->
+      <div class="contact-card about-card">
+        <h2><i class="fas fa-robot"></i> About {{profile.businessName}}</h2>
+        <p>{{profile.shortBlurb}}</p>
+        <div class="video-container" *ngIf="profile.youtubeVideo">
+          <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
+                  frameborder="0" 
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="contact-card about-card">
+        <h2><i class="fas fa-music"></i> About {{profile.businessName}}</h2>
+        <p>{{profile.longBlurb}}</p>
+        
+      </div>
+
+    </div>
+  </div>

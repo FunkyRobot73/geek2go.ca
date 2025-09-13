@@ -1,0 +1,350 @@
+/* ===== Base Styles ===== */
+:root {
+    --dj-primary: #6C0BAB;  /* Deep purple */
+    --dj-accent: #FF00E6;   /* Neon pink */
+    --dj-dark: #1A1A2E;     /* Dark blue-black */
+    --dj-text: #333333;     /* Dark gray for text */
+    --dj-light-bg: #F8F9FA; /* Light background */
+    --dj-card-bg: #FFFFFF;   /* White for cards */
+  }
+  
+  body {
+    background-color: var(--dj-light-bg);
+    color: var(--dj-text);
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  a {
+    color: var(--dj-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    color: var(--dj-accent);
+  }
+
+/* ===== Utility Classes ===== */
+.deco { text-decoration: none; }
+.no-gutters { margin-right: 0; margin-left: 0; }
+.no-gutters > .col, .no-gutters > [class*="col-"] { padding-right: 0; padding-left: 0; }
+.spacer { display: flex; justify-content: space-between; }
+.profile-photo { align-items: center; }
+
+/* ===== Card & Button Styles ===== */
+.card {
+    background-color: var(--dj-card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(108, 11, 171, 0.2);
+  }
+  
+  .title {
+    color: #666;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  button {
+    background-color: var(--dj-primary);
+    color: #0e0d0d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--dj-accent);
+    transform: translateY(-2px);
+  }
+
+.container1 {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* ===== Image Styles ===== */
+.story-image { 
+    width: 50%; 
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.story-image:hover {
+    transform: scale(1.02);
+}
+
+.avatar { 
+    width: 100%; 
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ===== Text Styles ===== */
+.slider-text .breadcrumbs {
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.slider-text .breadcrumbs a {
+  color: var(--dj-primary);
+}
+
+.slider-text .bread {
+  color: var(--dj-text);
+  font-weight: 600;
+}
+
+/* ===== Section & Layout Styles ===== */
+.ftco-section {
+    padding: 3em 0;
+    position: relative;
+    background: linear-gradient(135deg, #0F0A31 0%, #1E0B4D 100%);
+}
+
+/* ===== Tag Cloud ===== */
+.tagcloud a {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 8px;
+    margin-right: 5px;
+    border-radius: 20px;
+    color: #0e0d0d;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tagcloud a:hover { 
+    background: rgba(108, 99, 255, 0.2);
+    border: 1px solid #6C63FF;
+}
+
+/* ===== Sidebar Styles ===== */
+.sidebar-box {
+    margin-bottom: 30px;
+    font-size: 15px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-box *:last-child { margin-bottom: 0; }
+.sidebar-box .border { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
+.sidebar-box .company-wrap { display: block; }
+
+.sidebar-box .text h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.sidebar-box .text h3 a { color: #FFFFFF; }
+.sidebar-box .text h3 a:hover { color: #B8B8FF; }
+
+.sidebar-box .text p .number {
+    font-size: 16px;
+    background: #6C63FF;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.sidebar-box h3.heading-2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.sidebar-box h3.heading-3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #B8B8FF;
+}
+
+/* ===== List Styles ===== */
+.categories li, .sidelink li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+}
+
+.categories li:last-child, .sidelink li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.categories li a, .sidelink li a {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.categories li a:hover, .sidelink li a:hover {
+    color: #B8B8FF;
+    padding-left: 5px;
+}
+
+.categories li a span, .sidelink li a span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.categories li.active a, .sidelink li.active a {
+    color: #6C63FF;
+    font-weight: 500;
+}
+
+/* ===== Comic Book Theme (Subtle Update) ===== */
+.comic-theme {
+    font-family: 'Rajdhani', 'Arial', sans-serif;
+    color: black;
+}
+
+.comic-header { position: relative; text-align: center; }
+.comic-title {
+    font-size: 2.5rem;
+    color: #6C63FF;
+    text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.comic-underline { 
+    border-bottom: 2px solid #6C63FF; 
+    padding-bottom: 2px;
+    width: 100px;
+    margin: 10px auto;
+}
+
+.comic-bubble, .comic-panel, .comic-sidebar, .comic-speech-bubble, .comic-text-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+
+.comic-bubble {
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #0e0d0d;
+}
+
+.comic-panel, .comic-sidebar {
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.comic-avatar, .comic-thumbnail {
+    border: 2px solid rgba(108, 99, 255, 0.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.comic-avatar {
+    border-radius: 50%;
+    max-width: 200px;
+}
+
+.comic-thumbnail {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.comic-thumbnail:hover { 
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+}
+
+.comic-badge {
+    display: inline-block;
+    background: #6C63FF;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.comic-button, .comic-read-more {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    border: none;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #6C63FF 0%, #9D4EDD 100%);
+}
+
+.comic-button {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+}
+
+.comic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.6);
+}
+
+.comic-read-more {
+    background: transparent;
+    color: #B8B8FF;
+    padding: 8px 15px;
+    border: 1px solid rgba(184, 184, 255, 0.3);
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.comic-read-more:hover {
+    background: rgba(184, 184, 255, 0.1);
+    color: black;
+}
+
+.comic-post-title {
+    font-size: 1.5rem;
+    color: #0e0d0d;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 767.98px) {
+    .ftco-section { padding: 2em 0; }
+    .comic-title { font-size: 2rem; }
+    .comic-avatar { max-width: 150px; }
+    .story-image { width: 100%; }
+    .container1 { flex-direction: column; }
+}

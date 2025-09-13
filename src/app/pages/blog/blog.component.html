@@ -1,0 +1,62 @@
+<div class="container comic-theme my-5">
+    <!-- Comic Book Style Header -->
+    <div class="comic-header mb-4">
+      <h1 class="comic-title">The <span class="comic-underline">FunkyRobot!</span> Blog</h1>
+      <div class="comic-bubble">"Excelsior! Read all about it!"</div>
+      
+      <!-- Category Dropdown Menu -->
+      <div ngbDropdown class="dropdown comic-dropdown mb-4 mt-2">
+        <button class="btn comic-dropdown-toggle dropdown-toggle" id="categoryDropdown" ngbDropdownToggle>
+          Filter by Category: {{selectedCategory}}
+        </button>
+        <div ngbDropdownMenu aria-labelledby="categoryDropdown">
+          <button ngbDropdownItem *ngFor="let category of categories" (click)="filterByCategory(category)">
+            {{category}}
+          </button>
+        </div>
+      </div>
+  
+    <div class="row">
+      <!-- Main Content Column -->
+      <div class="col-lg-12 order-lg-1 order-2">
+        <div *ngFor="let comic of filteredBlogs | slice: (filteredBlogs.length > 9 ? filteredBlogs.length - 9 : 0); index as i" 
+             class="comic-panel p-3 mb-4">
+          <div class="row align-items-center">
+            <!-- Blog Image -->
+            <div class="col-md-3">
+              <img [src]="'https://back.funkyrobot.ca/public/' + comic.image" 
+                   alt="{{comic.titleBlog}}"
+                   class="comic-thumbnail img-fluid"/>
+            </div>
+            
+            <!-- Blog Content -->
+            <div class="col-md-9">
+              <div class="comic-speech-bubble p-3 mb-2">
+                <h3 class="comic-post-title">{{comic.titleBlog}} 
+                  <span class="comic-badge">{{comic.catBlog}}</span>
+                </h3>
+              </div>
+              
+              <div class="comic-text-box p-3">
+                <p class="comic-text" [innerHTML]="(comic.bodyBlog | slice:0:200).slice(0, (comic.bodyBlog | slice:0:200).lastIndexOf(' ')) + '...'"></p>
+                
+                <a *ngIf="comic.bodyBlog.length > 200" 
+                   href="/blog/{{comic}}" 
+                   class="comic-read-more">
+                  <span class="comic-read-text">Read more</span>
+                  <span class="comic-read-icon">➤</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar Column -->
+      <div class="col-lg-3 order-lg-2 order-1 mb-4 mb-lg-0">
+        <div class="sidebar">
+          
+        </div>
+      </div>
+    </div>
+  </div>

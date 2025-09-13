@@ -1,0 +1,146 @@
+<section class="py-5">
+    <div class="container">
+      <h1 class="text-center mb-5">DJ Packages</h1>
+      
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+        <div class="col" *ngFor="let pkg of packages">
+          <div class="card h-100 package-card" [class.border-primary]="selectedPackage?.id === pkg.id">
+            <div class="card-header bg-primary text-white">
+              <h3 class="mb-0">{{ pkg.title }}</h3>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title pricing-card-title">${{ pkg.base_price }}</h4>
+              <p class="text-muted">{{ pkg.duration_hours }} Hours...  </p>
+              
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.sound }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.microphone }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.music }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.lights }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.emcee }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.details1 }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.details2 }}
+                </li>
+                <li>
+                  <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.details3 }}
+                </li>
+              </ul>
+              
+              <!-- <div *ngIf="pkg.addOns?.length" class="mb-3">
+                <h5>Add-ons:</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let addOn of pkg.addOns">
+                    {{ addOn.description }}
+                    <span class="badge bg-primary rounded-pill">+${{ addOn.price }}</span>
+                  </li>
+                </ul>
+              </div> -->
+             <p class="text-muted"><small>{{pkg.description}}</small></p>
+              <p class="text-muted" *ngIf="pkg.recommended_for">
+                <small>Recommended for: {{ pkg.recommended_for }}</small>
+              </p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <button class="btn btn-outline-primary w-100" (click)="selectPackage(pkg)">
+                Select Package
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Selected Package Details -->
+      <div class="mt-5" *ngIf="selectedPackage">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">You Selected: {{ selectedPackage.title }}</h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Package Details</h3>
+                <p><strong>Duration:</strong> {{ selectedPackage.duration_hours }}</p>
+                <p><strong>Base Price:</strong> ${{ selectedPackage.base_price }}</p>
+                
+                <h4 class="mt-4">Features</h4>
+                <ul class="list-unstyled ms-3">
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.sound }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.microphone }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.music }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.lights }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.emcee }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.details1 }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.details2 }}                  
+                  </li>
+                  <li class="">
+                    <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.details1 }}                  
+                  </li>
+                </ul>
+                <div>
+                  <!-- <img *ngIf="selectedPackage.imageSample" [src]="selectedPackage.imageSample" alt="{{ selectedPackage.title }}" class="img-fluid mt-3"> -->
+                <img [src]="'https://back.funkyrobot.ca/public/' + selectedPackage.imageSample" alt="{{ selectedPackage.title }}" class="img-fluid mt-3" width="75%" height="auto">
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <h3>Customize Your Package</h3>
+                <div class="mb-3" *ngIf="addOns">
+                  <h5>Available Add-ons</h5>
+                  <div class="form-check" *ngFor="let addOn of addOns; let i = index">
+                    <input class="form-check-input" type="checkbox" [id]="'addon-' + i" [name]="'addon-' + i">
+                    <label class="form-check-label" [for]="'addon-' + i">
+                      {{ addOn.description }} (+${{ addOn.price }})
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="d-grid gap-2 mt-4">
+                  <app-booking-form 
+                    *ngIf="showBookingForm && selectedPackage"
+                    [package]="selectedPackage"
+                    (bookingSubmitted)="onBookingSubmit($event)"
+                    (cancel)="showBookingForm = false">
+                  </app-booking-form>
+                  
+                  <button *ngIf="!showBookingForm" class="btn btn-success btn-lg" (click)="startBooking()">
+                    <i class="fas fa-calendar-check me-2"></i> Book This Package
+                  </button>
+                  
+                  <button class="btn btn-outline-secondary" (click)="selectedPackage = null">
+                    Back to Packages
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

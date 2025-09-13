@@ -1,0 +1,67 @@
+<form action="https://formsubmit.co/carlos@funkyrobot.ca" 
+method="POST">
+    <div class="card form-group">
+      <div class="card-header bg-primary text-white">
+        <h3>Book {{package?.title}}</h3>
+      </div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" name="firstName">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" name="lastName">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" name="email">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" formControlName="phone" name="phone">
+          </div> 
+          <div class="col-md-6">
+            <label class="form-label">Event Date</label>
+            <input type="date" class="form-control" formControlName="eventDate" name="eventDate">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Event Type</label>
+            <select class="form-select" formControlName="eventType" name="eventType">
+              <option value="">Select...</option>
+              <option value="wedding">Wedding</option>
+              <option value="birthday">Birthday</option>
+              <option value="corporate">Corporate</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Venue</label>
+            <input type="text" class="form-control" formControlName="venue" name="venue">
+          </div>
+           <div class="col-md-6">
+            <label class="form-label">Package</label>
+            <select class="form-select" formControlName="package" name="package">
+                <option *ngIf="package?.title && package?.base_price" [value]="package.title">{{package?.title + " ($" + (package.base_price) + ")"}}</option>
+                <option *ngIf="package?.titlePB && package?.base_pricePB" [value]="package.titlePB">{{package?.titlePB + " ($" + (package.base_pricePB) + ")"}}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Guest Count</label>
+            <input type="number" class="form-control" formControlName="guestCount" name="guestCount" min="50">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Special Requests</label>
+            <textarea class="form-control" formControlName="specialRequests" name="specialRequests">
+              {{ package?.title ? (package?.title + " ($" + (package.base_price) + ")") : (package?.titlePB + " ($" + (package.base_pricePB) + ")") }}
+            </textarea>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit Booking</button>
+      </div>
+    </div>
+  </form>
