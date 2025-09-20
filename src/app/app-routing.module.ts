@@ -11,12 +11,14 @@ import { PhotoBoothGalleryComponent } from './pages/photo-booth-gallery/photo-bo
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { AddeventComponent } from './pages/addevent/addevent.component';
 import { MusicRequestComponent } from './components/music-request/music-request.component';
+import { ItservicesService } from './services/itservices.service';
+import { ServicesComponent } from './pages/services/services.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'dj-packages', component: DjPackagesComponent },
+  { path: 'services', component: ServicesComponent },
   { path: 'photo-booth-packages', component: PhotoBoothPackagesComponent },
   { path: 'blogs', component: BlogComponent },
   { path: 'gallery', component: GalleryComponent },
