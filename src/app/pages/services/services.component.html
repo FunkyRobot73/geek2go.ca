@@ -31,7 +31,7 @@
             <p class="text-muted">{{ pkg.details1 }}</p>
 
             <div *ngIf="pkg.imageSample" class="mb-3">
-              <img [src]="pkg.imageSample" alt="Sample" class="img-fluid rounded">
+              <img [src]="pkg.imageSample" alt="{{pkg.title}}" class="img-fluid rounded card-img-top">
             </div>
 
             <ul class="list-unstyled mt-3 mb-4">
