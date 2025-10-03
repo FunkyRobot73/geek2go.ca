@@ -6,7 +6,7 @@
         <div class="container comic-theme my-5" *ngIf="blogPost">
           <div class="comic-header mb-4">
             <h1 class="comic-title">{{blogPost.titleBlog}}</h1>
-            
+
           </div>
 
           <div class="row">
@@ -53,45 +53,121 @@
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-         
+
       </div>
-     
+
     </div>
 
     <!-- Second Column: Side Blog -->
     <div class="col-lg-3">
-       <div class="comic-sidebar mt-2">
-    <div class="container mt-1">
-        <div class="row">
+      <div class="comic-sidebar mt-2">
+        <div class="container mt-1">
+          <div class="row">
             <div class="col-lg-12 my-auto ">
-                <a routerLink="/blogs" class="form-background card text-decoration-none">
-                    <h3><span>Latest Stories <i class="fa-solid fa-angles-right"></i></span></h3>
-                </a>
-                <p class="body-text">
-                    i have <span class="text-danger">{{recentBlogs.length}}</span>
-                    Topics to discuss!
-                </p>
+              <a routerLink="/blogs" class="form-background card text-decoration-none">
+                <h3><span>Latest Stories <i class="fa-solid fa-angles-right"></i></span></h3>
+              </a>
+              <p class="body-text">
+                i have <span class="text-danger">{{recentBlogs.length}}</span>
+                Blogs to Read!
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-    
-    <div class="card-container mt-2">
-        <div *ngFor="let comic of recentBlogs  | slice: (recentBlogs.length > 8 ? recentBlogs.length - 8 : 0); index as i" class="col-md-12">
-    
+
+        <div class="card-container mt-2">
+          <div
+            *ngFor="let comic of recentBlogs  | slice: (recentBlogs.length > 8 ? recentBlogs.length - 8 : 0); index as i"
+            class="col-md-12">
+
             <div class="card rounder mb-1">
-                <a href="/blog-single/{{comic.idBlog}}"  class="text-decoration-none text-dark">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img [src]="'https://back.funkyrobot.ca/public/' + comic.image" alt="{{comic.titleBlog}}"
-                                class="img-fluid m-1"/>
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="fw-bolder">{{comic.titleBlog}}</h6>
-                        </div>
-                    </div>
-                </a>
+              <a href="/blog-single/{{comic.idBlog}}" class="text-decoration-none text-dark">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img [src]="'https://back.funkyrobot.ca/public/' + comic.image" alt="{{comic.titleBlog}}"
+                      class="img-fluid m-1" />
+                  </div>
+                  <div class="col-md-8">
+                    <h6 class="fw-bolder">{{comic.titleBlog}}</h6>
+                  </div>
+                </div>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
+
+      <!-- GREAT LINKS -->
+
+      <div class="comic-sidebar mt-4">
+        <div class="container mt-1">
+          <div class="row">
+            <div class="col-lg-12 my-auto ">
+              <a href="https://www.funkyrobot.ca" target="_blank" rel="noopener"
+                class="form-background card text-decoration-none">
+                <h3><span>FunkyRobot <i class="fa-solid fa-angles-right"></i></span></h3>
+              </a>
+              <p class="body-text">
+                Your Premier DJ and Photo Booth Service in the Area!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container mt-2">
+          <div class="card rounder mb-1">
+            <a href="https://www.funkyrobot.ca" target="_blank" rel="noopener" class="text-decoration-none text-dark">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="/assets/logo.png" alt="FunkyRobot Logo" class="img-fluid m-1" />
+                </div>
+                <div class="col-md-8">
+                  <div class="d-flex flex-column justify-content-center align-items-center h-100"
+                    style="min-height: 50px;">
+                    <h6 class="fw-bolder">FunkyRobot.ca</h6>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="comic-sidebar mt-4">
+        <div class="container mt-1">
+          <div class="row">
+            <div class="col-lg-12 my-auto ">
+              <a href="https://www.isellcomics.ca" target="_blank" rel="noopener"
+                class="form-background card text-decoration-none">
+                <h3><span>iSellComics <i class="fa-solid fa-angles-right"></i></span></h3>
+              </a>
+              <p class="body-text">
+                Your Premier Comic Book Store in the Area!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container mt-2">
+          <div class="card rounder mb-1">
+            <a href="https://www.isellcomics.ca" target="_blank" rel="noopener" class="text-decoration-none text-dark">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="/assets/logo1.png" alt="iSellComics Logo" class="img-fluid m-1" />
+                </div>
+                <div class="col-md-8">
+                  <div class="d-flex flex-column justify-content-center align-items-center h-100"
+                    style="min-height: 50px;">
+                    <h6 class="fw-bolder">iSellComics.ca</h6>
+                  </div>
+                </div>
+
+
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-      </div>    
