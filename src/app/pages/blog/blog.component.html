@@ -41,7 +41,7 @@
                 <p class="comic-text" [innerHTML]="(comic.bodyBlog | slice:0:200).slice(0, (comic.bodyBlog | slice:0:200).lastIndexOf(' ')) + '...'"></p>
                 
                 <a *ngIf="comic.bodyBlog.length > 200" 
-                   href="/blog/{{comic.idBlog}}" 
+                   href="/blog-single/{{comic.idBlog}}" 
                    class="comic-read-more">
                   <span class="comic-read-text">Read more</span>
                   <span class="comic-read-icon">➤</span>

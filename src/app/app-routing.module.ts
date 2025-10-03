@@ -13,6 +13,7 @@ import { AddeventComponent } from './pages/addevent/addevent.component';
 import { MusicRequestComponent } from './components/music-request/music-request.component';
 import { ItservicesService } from './services/itservices.service';
 import { ServicesComponent } from './pages/services/services.component';
+import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'dj-gallery', component: DjGalleryComponent },
   { path: 'photo-booth-gallery', component: PhotoBoothGalleryComponent },
-  { path: 'blog/:id', component: BlogComponent },
+  { path: 'blog-single/:id', component: BlogSingleComponent },
   { path: 'addevent', component: AddeventComponent },
   { path: '**', redirectTo: '' }
 ];

@@ -18,8 +18,18 @@ export class BlogSingleComponent implements OnInit {
   blogPost: Blog | null = null;
   loading: boolean = true;
   error: string | null = null;
+recentBlogs: Blog[] = []; // For sidebar recent posts
 
-  constructor(private route: ActivatedRoute, private blogService: BlogService) { }
+  constructor(private route: ActivatedRoute, private blogService: BlogService) {
+    this.blogService.viewBlog().subscribe({
+      next: (data) => {
+        this.recentBlogs = data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -35,6 +45,7 @@ export class BlogSingleComponent implements OnInit {
     this.blogService.getBlogPost(+id).subscribe({
       next: (post) => {
         this.blogPost = post;
+       
         this.loading = false;
       },
       error: (err) => {
