@@ -6,11 +6,11 @@
         <div class="container comic-theme my-5" *ngIf="blogPost">
           <div class="comic-header mb-4">
             <h1 class="comic-title">{{blogPost.titleBlog}}</h1>
-            <div class="comic-badge">{{blogPost.catBlog}}</div>
+            
           </div>
 
           <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-lg-12">
               <div class="comic-panel p-4 mb-4">
                 <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.image" alt="{{blogPost.titleBlog}}"
                   class="img-fluid mb-4 comic-featured-image" />
