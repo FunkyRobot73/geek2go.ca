@@ -1,0 +1,366 @@
+/* ===== Base Styles ===== */
+a {
+    text-decoration: none;
+  }
+  
+  /* ===== Utility Classes ===== */
+  .deco { text-decoration: none; }
+  .no-gutters { margin-right: 0; margin-left: 0; }
+  .no-gutters > .col, .no-gutters > [class*="col-"] { padding-right: 0; padding-left: 0; }
+  .spacer { display: flex; justify-content: space-between; }
+  .profile-photo { align-items: center; }
+  
+  /* ===== Card & Button Styles ===== */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    text-align: center;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    background-color: #6C63FF;
+    border: none;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+  
+  .container1 {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* ===== Image Styles ===== */
+  .story-image { width: 50%; }
+  .avatar { width: 100%; height: auto; }
+  
+  /* ===== Text Styles ===== */
+  .slider-text .breadcrumbs {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    z-index: 99;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+  }
+  
+  .slider-text .breadcrumbs span { color: rgba(0, 0, 0, 0.7); }
+  .slider-text .breadcrumbs span a { color: #000000; }
+  .slider-text .bread { font-weight: 900; color: #000000 !important; }
+  
+  /* ===== Section & Layout Styles ===== */
+  .ftco-section {
+    padding: 3em 0;
+    position: relative;
+  }
+  
+  /* ===== Tag Cloud ===== */
+  .tagcloud a {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 7px;
+    margin-right: 4px;
+    border-radius: 4px;
+    color: #000000;
+    border: 1px solid #ccc;
+    font-size: 11px;
+  }
+  
+  .tagcloud a:hover { border: 1px solid #000; }
+  
+  /* ===== Sidebar Styles ===== */
+  .sidebar-box {
+    margin-bottom: 30px;
+    font-size: 15px;
+    width: 100%;
+  }
+  
+  .sidebar-box *:last-child { margin-bottom: 0; }
+  .sidebar-box .border { border: 1px solid rgba(0, 0, 0, 0.08) !important; }
+  .sidebar-box .company-wrap { display: block; }
+  
+  .sidebar-box .text h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  
+  .sidebar-box .text h3 a { color: #000000; }
+  
+  .sidebar-box .text p .number {
+    font-size: 16px;
+    background: #ffb9ad;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 5px;
+  }
+  
+  .sidebar-box h3.heading-2 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-box h3.heading-3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  /* ===== List Styles ===== */
+  .categories li, .sidelink li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+    list-style: none;
+  }
+  
+  .categories li:last-child, .sidelink li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .categories li a, .sidelink li a {
+    display: block;
+    color: #1a1a1a;
+  }
+  
+  .categories li a span, .sidelink li a span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ccc;
+  }
+  
+  .categories li.active a, .sidelink li.active a {
+    color: #000000;
+    font-style: italic;
+  }
+  
+  /* ===== Comic Book Theme ===== */
+  .comic-theme {
+    font-family: 'Bangers', 'Arial Black', sans-serif;
+    color: #333;
+  }
+  
+  /* Shared Comic Components */
+  [class^="comic-"], [class*=" comic-"] {
+    transition: all 0.3s ease;
+  }
+  
+  .comic-header { position: relative; text-align: center; }
+  .comic-title {
+    font-size: 2.5rem;
+    color: #e63946;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    letter-spacing: 2px;
+  }
+  
+  .comic-underline { border-bottom: 4px solid #000; padding-bottom: 2px; }
+  
+  .comic-bubble, .comic-panel, .comic-sidebar, .comic-speech-bubble, .comic-text-box {
+    background-color: #fff;
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+  }
+  
+  .comic-bubble {
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .comic-panel, .comic-sidebar {
+    border: 4px solid #000;
+    border-radius: 10px;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .comic-sidebar { padding: 15px; }
+  
+  .comic-avatar, .comic-thumbnail {
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+  }
+  
+  .comic-avatar {
+    border-radius: 50%;
+    max-width: 200px;
+  }
+  
+  .comic-thumbnail {
+    border-radius: 5px;
+  }
+  
+  .comic-thumbnail:hover { transform: scale(1.05) rotate(2deg); }
+  
+  .comic-badge {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 2px solid #000;
+    font-weight: bold;
+  }
+  
+  .comic-speech-bubble {
+    border-radius: 20px;
+    position: relative;
+  }
+  
+  .comic-speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #000 transparent;
+  }
+  
+  .comic-text-box {
+    background-color: #f1faee;
+    border: 3px dashed #000;
+    border-radius: 10px;
+  }
+  
+  .comic-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .comic-social-bar { gap: 15px; }
+  .comic-social-link {
+    color: #000;
+    transition: transform 0.3s;
+  }
+  
+  .comic-social-link:hover {
+    transform: scale(1.2) rotate(5deg);
+    color: #e63946;
+  }
+  
+  .comic-button, .comic-read-more {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    border: 3px solid #000;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .comic-button {
+    background-color: #e63946;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-transform: uppercase;
+  }
+  
+  .comic-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 rgba(0,0,0,0.2);
+  }
+  
+  .comic-button-text { letter-spacing: 1px; }
+  .comic-button-bang {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    animation: bang 0.5s infinite alternate;
+  }
+  
+  .comic-read-more {
+    background-color: #ffd166;
+    color: #000;
+    padding: 5px 15px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  
+  .comic-read-more:hover {
+    background-color: #e63946;
+    color: white;
+    transform: translateX(5px);
+  }
+  
+  .comic-read-text { letter-spacing: 1px; }
+  .comic-read-icon {
+    margin-left: 8px;
+    font-size: 1.2rem;
+  }
+  
+  .comic-read-more:hover .comic-read-icon { transform: translateX(3px); }
+  
+  .comic-post-title {
+    font-size: 1.5rem;
+    color: #e63946;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  /* Animations */
+  @keyframes bang {
+    from { transform: rotate(-15deg); }
+    to { transform: rotate(15deg); }
+  }
+  
+  /* ===== Responsive Adjustments ===== */
+  @media (max-width: 767.98px) {
+    .ftco-section { padding: 1em 0; }
+    
+    .comic-title { font-size: 2rem; }
+    .comic-avatar { max-width: 150px; }
+    .comic-post-title { font-size: 1.3rem; }
+    .comic-thumbnail { margin-bottom: 15px; }
+    .comic-read-more { padding: 4px 12px; font-size: 0.9rem; }
+  }
+
+  /* Add these styles to your existing CSS */
+.comic-dropdown-toggle {
+  background-color: #FFD700;
+  color: #000;
+  border: 2px solid #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.comic-dropdown-toggle:hover {
+  background-color: #FFC000;
+}
+
+.comic-dropdown-menu {
+  border: 2px solid #000;
+  background-color: #fff;
+}
+
+.comic-dropdown-item {
+  font-weight: bold;
+  color: #000;
+}
+
+.comic-dropdown-item:hover {
+  background-color: #FFD700;
+  color: #000;
+}

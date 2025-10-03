@@ -24,4 +24,12 @@ private handleError(error: any) {
   console.error('An error occurred:', error);
   return throwError(() => new Error('Something went wrong!'));
 }
+
+getBlogPost(id: number) {
+    return this.http.get<any>(`${this.apiUrl01}/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  
 }
