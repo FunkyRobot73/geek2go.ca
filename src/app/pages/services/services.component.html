@@ -3,21 +3,31 @@
   <div class="container">
     <h1 class="text-center mb-5">Service Examples</h1>
 
-    <p class="lead text-center mb-4">
-      Imagine that you need an IT Guy for your home or business but you don't know where to start.  
-      You might not even know what you need.  You might just need someone to come over and take a loook.  I offer a very unique service where I come to your home or business for a day
-      and you have my expertise at your disposal.  I can help you with anything from setting up a new computer, to troubleshooting a network issue, to installing new software, to just answering your questions.</p> 
-    <p class="lead text-center mb-4">  I can also help you with more complex issues like setting up a home office, or a small business network.
-    </p>
+   
 
     <div class="alert alert-info mb-4">
-      <p class="mb-1"><strong>All packages include:</strong></p>
-      <ul class="mb-0">
-        <li>Professional service</li>
-        <li>Customized solutions</li>
-        <li>On-site support</li>
-        <li>Flexible scheduling</li>
-      </ul>
+      <div class="row">
+        <div class="col-md-9">
+ <p class="lead text-center mb-4">
+      Imagine that you need an IT Guy for your home or business but you don't know where to start.
+      You might not even know what you need. You might just need someone to come over and take a loook. I offer a very
+      unique service where I come to your home or business for a day
+      and you have my expertise at your disposal. I can help you with anything from setting up a new computer, to
+      troubleshooting a network issue, to installing new software, to just answering your questions.</p>
+    <p class="lead text-center mb-4"> I can also help you with more complex issues like setting up a home office, or a
+      small business network.
+    </p>
+        </div>
+        <div class="mb-3 col-md-3">
+          <p class="mb-1"><strong>All packages include:</strong></p>
+          <ul class="mb-0">
+            <li>Professional service</li>
+            <li>Customized solutions</li>
+            <li>On-site support</li>
+            <li>Flexible scheduling</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -27,7 +37,7 @@
             <h3 class="mb-0">{{ pkg.title }}</h3>
           </div>
           <div class="card-body">
-            <h4 class="card-title pricing-card-title">${{ pkg.price }}/Per Hour</h4>
+            <h4 class="card-title pricing-card-title">${{ pkg.price }}/Per Day (8 Hours)</h4>
             <p class="text-muted">{{ pkg.details1 }}</p>
 
             <div *ngIf="pkg.imageSample" class="mb-3">
@@ -57,7 +67,7 @@
                 </ul>
               </div> -->
             <p class="text-muted"><small>{{pkg.description}}</small></p>
-           
+
 
           </div>
           <div class="card-footer bg-transparent">
@@ -93,20 +103,18 @@
                 <li class="">
                   <i class="fas fa-check-circle text-primary me-2"></i>{{ selectedPackage.details3 | titlecase  }}
                 </li>
-                
+
               </ul>
-              
+
             </div>
 
-              <div class="mt-3 col-md-3">
-                <h5>Sample:</h5>
-                <img
-                  [src]="selectedPackage.imageSample"
-                  alt="Sample" class="img-fluid rounded">
-                    <div class="mt-2">
-                    <a class="nav-link" routerLink="/gallery" routerLinkActive="active">More Pics in Gallery</a>.
-                    </div>
+            <div class="mt-3 col-md-3">
+              <h5>Sample:</h5>
+              <img [src]="selectedPackage.imageSample" alt="Sample" class="img-fluid rounded">
+              <div class="mt-2">
+                <a class="nav-link" routerLink="/gallery" routerLinkActive="active">More Pics in Gallery</a>.
               </div>
+            </div>
 
             <div class="col-md-5">
               <h3>Customize Your Package</h3>

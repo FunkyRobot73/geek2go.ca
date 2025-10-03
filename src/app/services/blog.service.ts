@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,11 @@ export class BlogService {
   private apiUrl01 = "https://back.funkyrobot.ca/viewblog";
 
   viewBlog() {
-    return this.http.get<any>(this.apiUrl01).pipe(catchError(this.handleError));
+    return this.http.get<any[]>(this.apiUrl01).pipe(
+      map(blogs => blogs.filter(blog => blog.catBlog?.toLowerCase() !== 'journal')),
+      catchError(this.handleError)
+    );
+    
   }
 
 private handleError(error: any) {

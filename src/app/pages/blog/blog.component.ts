@@ -14,7 +14,7 @@ export class BlogComponent {
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];
   categories = ['All', 'Comics', 'Music', 'Rants', 'Tech'];
-  selectedCategory = 'All';
+  selectedCategory = '';
 
   constructor() {
     this.viewBlogService.viewBlog().subscribe({
@@ -31,10 +31,14 @@ export class BlogComponent {
   filterByCategory(category: string) {
     this.selectedCategory = category;
     if (category === 'All') {
-      this.filteredBlogs = [...this.blogs];
+      // Filter out 'journal' category when showing all
+      this.filteredBlogs = this.blogs.filter(blog =>
+        blog.catBlog.toLowerCase() !== 'journal'
+      );
     } else {
-      this.filteredBlogs = this.blogs.filter(blog => 
-        blog.catBlog.toLowerCase() === category.toLowerCase()
+      this.filteredBlogs = this.blogs.filter(blog =>
+        blog.catBlog.toLowerCase() === category.toLowerCase() &&
+        blog.catBlog.toLowerCase() !== 'journal'
       );
     }
   }
