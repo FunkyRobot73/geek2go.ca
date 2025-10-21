@@ -13,7 +13,7 @@ export class BlogComponent {
   viewBlogService = inject(BlogService);
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];
-  categories = ['All', 'Comics', 'Music', 'Rants', 'Tech'];
+  categories = ['All', 'Comics', 'Music', 'Rants', 'Tech', 'Media'];
   selectedCategory = '';
 
   constructor() {

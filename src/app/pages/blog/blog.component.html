@@ -1,14 +1,14 @@
 <div class="container comic-theme my-5">
     <!-- Comic Book Style Header -->
     <div class="comic-header mb-4">
-      <h1 class="comic-title">The <span class="comic-underline">FunkyRobot!</span> Blog</h1>
-      <div class="comic-bubble">"Excelsior! Read all about it!"</div>
+      <h1 class="comic-title">The <span class="comic-underline">Geek2Go!</span> Blog</h1>
+      <div class="comic-bubble">"Cause Everyone needs a Blog for some reason!"</div>
       
       <!-- Category Dropdown Menu -->
       <div ngbDropdown class="dropdown comic-dropdown mb-4 mt-2">
-        <button class="btn comic-dropdown-toggle dropdown-toggle" id="categoryDropdown" ngbDropdownToggle>
+        <!-- <button class="btn comic-dropdown-toggle dropdown-toggle" id="categoryDropdown" ngbDropdownToggle>
           Filter by Category: {{selectedCategory}}
-        </button>
+        </button> -->
         <div ngbDropdownMenu aria-labelledby="categoryDropdown">
           <button ngbDropdownItem *ngFor="let category of categories" (click)="filterByCategory(category)">
             {{category}}
