@@ -59,7 +59,10 @@ export class AppComponent {
     { src: "assets/sq/gallery7.jpg", alt: "Gallery Image 7" },
     { src: "assets/sq/gallery8.jpg", alt: "Gallery Image 8" },
     { src: "assets/sq/gallery9.jpg", alt: "Gallery Image 9" },
-    { src: "assets/sq/gallery10.jpg", alt: "Gallery Image 10" }],
+    { src: "assets/sq/gallery10.jpg", alt: "Gallery Image 10" },
+    { src: "assets/sq/gallery11.jpg", alt: "Gallery Image 11" },
+    { src: "assets/sq/gallery12.jpg", alt: "Gallery Image 12" }
+  ],
   longBlurb: "Geek2go.ca is your one-stop shop for all things tech. Whether you're an individual looking for personal tech support or a business in need of comprehensive IT solutions, we've got you covered. Our team of experienced professionals is dedicated to providing top-notch services that meet your unique needs. From website development and SEO to data security and cloud services, we offer a wide range of solutions designed to help you succeed in today's digital world. At Geek2go.ca, we believe that technology should be accessible to everyone, and we're committed to making that a reality. Contact us today to learn more about how we can help you achieve your tech goals.",
   aboutUs: "Funky Robot is a premier DJ and photo booth service based in Toronto, Canada. With years of experience in the industry, we know how to make your event unforgettable. Our team is passionate about music and entertainment, and we pride ourselves on our professionalism and attention to detail. We work closely with our clients to understand their vision and bring it to life. From weddings to corporate events, we have the expertise to make your event a success.",
   mission: "Our mission is to provide exceptional DJ and photo booth services that create unforgettable memories for our clients and their guests. We strive to exceed expectations with every event we handle, ensuring a fun and engaging atmosphere.",

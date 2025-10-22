@@ -63,26 +63,25 @@
                       *ngFor="let addOn of pkg.addOns | slice:4:7">
                     {{ addOn.description }}
                     <span class="badge bg-primary rounded-pill">+${{ addOn.price }}</span>
-                  </li>
-                </ul>
-              </div> -->
-            <p class="text-muted"><small>{{pkg.description}}</small></p>
+                  </ul>
+                  </div> -->
+                <p class="text-muted"><small>{{pkg.description}}</small></p>
 
 
-          </div>
-          <div class="card-footer bg-transparent">
-            <button class="btn btn-outline-primary w-100" (click)="selectPackage(pkg)">
-              Select Package
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                <a href="/contact" class="btn btn-outline-primary w-100">
+                  Contact Me
+                </a>
+                </div>
+              </div>
+              </div>
+            </div>
 
-    Selected Package Details
-    <div class="mt-5" *ngIf="selectedPackage">
-      <div class="card">
-        <div class="card-header bg-primary text-white">
+            Selected Package Details
+            <div class="mt-5" *ngIf="selectedPackage">
+              <div class="card">
+              <div class="card-header bg-primary text-white">
           <h2 class="mb-0">Customize: {{ selectedPackage.title }}</h2>
         </div>
         <div class="card-body">
