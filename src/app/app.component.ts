@@ -50,8 +50,8 @@ export class AppComponent {
   testimonials: [ ],
   reviews: [],
   galleryRandom: [
-    { src: "assets/sq/gallery1.jpg", alt: "Gallery Image 1" },
-    { src: "assets/sq/gallery2.jpg", alt: "Gallery Image 2" },
+    { src: "assets/sq/gallery01.png", alt: "Gallery Image 1" },
+    { src: "assets/sq/gallery02.jpg", alt: "Gallery Image 2" },
     { src: "assets/sq/gallery3.jpg", alt: "Gallery Image 3" },
     { src: "assets/sq/gallery4.jpg", alt: "Gallery Image 4" },
     { src: "assets/sq/gallery5.jpg", alt: "Gallery Image 5" },
