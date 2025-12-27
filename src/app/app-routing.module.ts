@@ -10,6 +10,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ItservicesService } from './services/itservices.service';
 import { ServicesComponent } from './pages/services/services.component';
 import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
+import { HardwareComponent } from './pages/hardware/hardware.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'dj-gallery', component: DjGalleryComponent },
   { path: 'photo-booth-gallery', component: PhotoBoothGalleryComponent },
   { path: 'blog-single/:id', component: BlogSingleComponent },
+  { path: 'hardware', component: HardwareComponent },
   { path: '**', redirectTo: '' }
 ];
 

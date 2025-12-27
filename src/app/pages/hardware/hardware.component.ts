@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ItService } from 'src/app/services/itservices.service';
+import { ServicesComponent } from "../services/services.component";
 
 @Component({
   selector: 'app-hardware',
-  imports: [CommonModule],
+  imports: [CommonModule, ServicesComponent],
   templateUrl: './hardware.component.html',
   styleUrl: './hardware.component.scss'
 })
