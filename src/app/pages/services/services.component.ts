@@ -15,6 +15,12 @@ export class ServicesComponent {
   showBookingForm = false;
 
   addOns: { description: string; price: number }[] = [];
+  services = [  "Hardware",
+    "Software",
+      "WebDev",
+      "Recycling",
+      "Resale",
+      "3D Printing"];
 
     ngOnInit() {
       this.packages = [
@@ -26,6 +32,7 @@ export class ServicesComponent {
       details3: 'SEO-friendly structure to improve search engine rankings.',
       imageSample: 'assets/services/webdev01.jpg',
       icon: 'fas fa-laptop-code',
+      service: 'WebDev',
       price: 399
     },
     {id: 2, title: 'Wordpress Development',
@@ -35,6 +42,7 @@ export class ServicesComponent {
       details3: 'Regular updates and maintenance for security and performance.',
       imageSample: 'assets/services/webdev02.jpg',
       icon: 'fab fa-wordpress',
+       service: 'WebDev',
       price: 399
     },
     {id: 3, title: 'SEO Services',
@@ -44,6 +52,7 @@ export class ServicesComponent {
       details3: 'Regular performance reports and analytics.',
       imageSample: 'assets/services/webdev03.jpg',
       icon: 'fas fa-search',
+       service: 'WebDev',
       price: 399
     },
     {id: 4, title: 'Google Ranking Improvement',
@@ -53,6 +62,7 @@ export class ServicesComponent {
       details3: 'Continuous monitoring and adjustments for optimal results.',
       imageSample: 'assets/services/webdev04.jpg',
       icon: 'fas fa-chart-line',
+       service: 'WebDev',
       price: 399
     },
     {id: 5, title: 'Virus Protection & Removal',
@@ -62,6 +72,7 @@ export class ServicesComponent {
       details3: 'Ongoing protection and security updates.',
       imageSample: 'assets/services/webdev06.jpg',
       icon: 'fas fa-shield-alt',
+       service: 'Software',
       price: 399
     },
     {id: 6, title: 'Data Security',
@@ -71,6 +82,7 @@ export class ServicesComponent {
       details3: 'Regular security audits and assessments.',
       imageSample: 'assets/services/webdev08.jpg',
       icon: 'fas fa-lock',
+      service: 'Software',
       price: 399
     },
     {id: 7, title: 'Data Backup & Recovery',
@@ -80,6 +92,7 @@ export class ServicesComponent {
       details3: 'Regular backup testing and verification.',
       imageSample: 'assets/services/webdev09.jpg',
       icon: 'fas fa-database',
+      service: 'Software',
       price: 399
     },
     {id: 8, title: 'General Tech Support',
@@ -89,6 +102,7 @@ export class ServicesComponent {
       details3: 'Remote and on-site assistance options.',
       imageSample: 'assets/services/webdev10.jpg',
       icon: 'fas fa-headset',
+      service: 'Software',
       price: 399
     },
     {id: 9, title: 'Graphic Design',
@@ -98,6 +112,7 @@ export class ServicesComponent {
       details3: 'Digital and print design solutions.',
       imageSample: 'assets/services/webdev11.jpg',
       icon: 'fas fa-paint-brush',
+      service: 'WebDev',
       price: 399
     },
     {id: 10, title: 'Social Media Management',
@@ -107,6 +122,7 @@ export class ServicesComponent {
       details3: 'Performance tracking and analytics.',
       imageSample: 'assets/services/webdev12.jpg',
       icon: 'fas fa-thumbs-up',
+      service: 'WebDev',
       price: 399
     },
     {id: 11, title: 'IT Consulting',
@@ -116,6 +132,7 @@ export class ServicesComponent {
       details3: 'Ongoing guidance and advisory services.',
       imageSample: 'assets/services/webdev13.jpg',
       icon: 'fas fa-lightbulb',
+      service: 'Software',
       price: 399
     },
     {id: 12, title: 'E-commerce Solutions',
@@ -125,6 +142,7 @@ export class ServicesComponent {
       details3: 'Inventory management and order processing.',
       imageSample: 'assets/services/webdev14.jpg',
       icon: 'fas fa-shopping-cart',
+      service: 'WebDev',
       price: 399
     },  
     {id: 13, title: 'Custom Software Development',
@@ -134,6 +152,7 @@ export class ServicesComponent {
       details3: 'Ongoing support and maintenance.',
       imageSample: 'assets/services/webdev01.jpg',
       icon: 'fas fa-code',
+      service: 'Software',
       price: 399
     },
     {id: 14, title: 'Network Setup & Maintenance',
@@ -143,6 +162,7 @@ export class ServicesComponent {
       details3: 'Troubleshooting and support services.',
       imageSample: 'assets/services/webdev02.jpg',
       icon: 'fas fa-network-wired',
+      service: 'Hardware',
       price: 399
     },
     {id: 15, title: 'Cloud Services',
@@ -152,6 +172,7 @@ export class ServicesComponent {
       details3: 'Ongoing cloud management and support.',
       imageSample: 'assets/services/webdev03.jpg',
       icon: 'fas fa-cloud',
+      service: 'Software',
       price: 399
     },  
     {id: 16, title: 'Tech Training & Support',
@@ -161,6 +182,7 @@ export class ServicesComponent {
       details3: 'Hands-on learning and practical applications.',
       imageSample: 'assets/services/webdev04.jpg',
       icon: 'fas fa-chalkboard-teacher',
+      service: 'Software',
       price: 399
     },  
     {id: 17, title: 'More...!',
@@ -170,6 +192,7 @@ export class ServicesComponent {
       details3: 'Dedicated support and customer service.',
       imageSample: 'assets/services/webdev06.jpg',
       icon: 'fas fa-ellipsis-h',
+      service: 'Software',
       price: 399
     }
       ]

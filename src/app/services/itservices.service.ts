@@ -9,6 +9,7 @@ export interface ItService {
   details3: string;
   imageSample: string;
   icon: string;
+  service?: string;
   price: number;
   }
 
