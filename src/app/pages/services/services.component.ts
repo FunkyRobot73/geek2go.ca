@@ -20,7 +20,9 @@ export class ServicesComponent {
     "WebDev",
     "Recycling",
     "Resale",
-    "3D Printing"
+    "3D Printing",
+    "Software",
+    "Training"
   ];
   activeTab: string = 'Hardware';
 
