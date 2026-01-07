@@ -29,17 +29,18 @@
         </div>
       </div>
     </div>
-     <div class="row row-cols-1 row-cols-md-5 g-4">
-      <h2>Hardware</h2>
-      <h2>WebDev</h2>
-      <h2>Recycling</h2>
-      <h2>Resale</h2>
-      <h2>3D Printing</h2>
-    
+     <div class="d-flex justify-content-center flex-wrap mb-4 gap-2 service-tabs">
+       <button *ngFor="let service of services" 
+               class="btn btn-lg rounded-pill px-4"
+               [class.btn-primary]="activeTab === service"
+               [class.btn-outline-primary]="activeTab !== service"
+               (click)="setActiveTab(service)">
+         {{ service }}
+       </button>
      </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" *ngFor="let pkg of packages">
+      <div class="col" *ngFor="let pkg of filteredPackages">
         <div class="card h-100 package-card" [class.border-primary]="selectedPackage?.id === pkg.id">
           <div class="card-header bg-primary text-white">
             <h3 class="mb-0">{{ pkg.title }}</h3>

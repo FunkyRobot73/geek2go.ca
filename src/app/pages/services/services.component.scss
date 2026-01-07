@@ -1,0 +1,16 @@
+.service-tabs {
+  .btn {
+    transition: all 0.3s ease;
+    border-width: 2px;
+    font-weight: 500;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    &.btn-primary {
+      box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.3);
+    }
+  }
+}
