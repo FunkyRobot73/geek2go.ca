@@ -269,6 +269,28 @@ export class ServicesComponent {
         service: 'Resale',
         price: 49
       },
+      {
+        id: 22, title: 'Personal Tech Support',
+        description: 'Here is something that we can do for you.  3 Hour Personal Training or Tech Support for $99.  Imagine an all-purpose Tech Handyman that can help you with anything tech related.',
+        details1: 'Setting Up just about anything!!!',
+        details2: 'Get that damn software to work!!!',
+        details3: 'From Basic to Advanced.',
+        imageSample: 'assets/services/webdev10.jpg',
+        icon: 'fas fa-headset',
+        service: 'Training',
+        price: 99
+      },
+      {
+        id: 23, title: 'Want to Learn 3D Printing?',
+        description: 'Here is something that we can do for you.  3 Hour Personal Training on how to 3D Print almost anything.',
+        details1: 'From Basic to Advanced.',
+        details2: 'Where to get the 3D Models.',
+        details3: 'How to troubleshoot common issues.',
+        imageSample: 'assets/services/webdev10.jpg',
+        icon: 'fas fa-3d-printer',
+        service: '3D Printing',
+        price: 99
+      },
     ]
   }
 
