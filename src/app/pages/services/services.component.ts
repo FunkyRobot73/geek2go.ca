@@ -17,12 +17,12 @@ export class ServicesComponent {
   addOns: { description: string; price: number }[] = [];
   services = [
     "Hardware",
+    "Software",
     "WebDev",
     "Recycling",
     "Resale",
-    "3D Printing",
-    "Software",
-    "Training"
+    "Training",
+    "3D Printing"
   ];
   activeTab: string = 'Hardware';
 
@@ -123,7 +123,7 @@ export class ServicesComponent {
         details3: 'Remote and on-site assistance options.',
         imageSample: 'assets/services/webdev10.jpg',
         icon: 'fas fa-headset',
-        service: 'Software',
+        service: 'Training',
         price: 399
       },
       {
@@ -224,7 +224,18 @@ export class ServicesComponent {
         icon: 'fas fa-ellipsis-h',
         service: 'Software',
         price: 399
-      }
+      },
+      {
+        id: 18, title: 'Format & Reinstall OS',
+        description: 'A great thing to do when your computer is not working properly is to format and reinstall the operating system.  What does that mean?  It means that we will remove all the files and programs from your computer and install a new operating system.  Your PC will be like new!  ',
+        details1: 'Your PC will be like new!',
+        details2: 'You can sell it now or give it to a friend.',
+        details3: 'Why throw it away when you can just format it?',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-hard-drive',
+        service: 'Hardware',
+        price: 399
+      },
     ]
   }
 
