@@ -22,7 +22,7 @@ export class ServicesComponent {
     "Recycling",
     "Resale",
     "Training",
-    "3D Printing"
+    "AI Help"
   ];
   activeTab: string = 'Hardware';
 
@@ -281,14 +281,14 @@ export class ServicesComponent {
         price: 99
       },
       {
-        id: 23, title: 'Want to Learn 3D Printing?',
-        description: 'Here is something that we can do for you.  3 Hour Personal Training on how to 3D Print almost anything.',
-        details1: 'From Basic to Advanced.',
-        details2: 'Where to get the 3D Models.',
-        details3: 'How to troubleshoot common issues.',
+        id: 23, title: 'Want to Learn some basic AI?',
+        description: 'Here is something that we can do for you.  3 Hour Personal Training on how to get started with AI.  You won\'t be some AI Guru at the end but you will know how to use it and how it can help you.',
+        details1: 'Stop using it like it\'s google.',
+        details2: 'Where to get started.',
+        details3: 'How it can help you right now.',
         imageSample: 'assets/services/webdev10.jpg',
-        icon: 'fas fa-3d-printer',
-        service: '3D Printing',
+        icon: 'fas fa-robot',
+        service: 'AI Help',
         price: 99
       },
     ]
