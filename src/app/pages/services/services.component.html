@@ -46,7 +46,7 @@
             <h3 class="mb-0">{{ pkg.title }}</h3>
           </div>
           <div class="card-body">
-            <h4 class="card-title pricing-card-title">${{ pkg.price }}/Per Day (8 Hours)</h4>
+            <h4 class="card-title pricing-card-title">${{ pkg.price }} <small class="text-muted fw-light">{{ pkg.price < 300 ? 'Flat Rate' : 'per Day (8 Hours)' }}</small></h4>
             <p class="text-muted">{{ pkg.details1 }}</p>
 
             <div *ngIf="pkg.imageSample" class="mb-3">
@@ -64,7 +64,7 @@
                 <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.details3 | titlecase }} Props
               </li>
               <li>
-                <i class="fas fa-check-circle text-success me-2"></i>{{ pkg.service}}.
+                <i class="fas fa-check-circle text-success me-2"></i>No Nonsense & Bullshit.
               </li>
             </ul>
 

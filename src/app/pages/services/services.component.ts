@@ -156,7 +156,7 @@ export class ServicesComponent {
         details3: 'Ongoing guidance and advisory services.',
         imageSample: 'assets/services/webdev13.jpg',
         icon: 'fas fa-lightbulb',
-        service: 'Software',
+        service: 'Training',
         price: 399
       },
       {
@@ -211,7 +211,7 @@ export class ServicesComponent {
         details3: 'Hands-on learning and practical applications.',
         imageSample: 'assets/services/webdev04.jpg',
         icon: 'fas fa-chalkboard-teacher',
-        service: 'Software',
+        service: 'Training',
         price: 399
       },
       {
@@ -234,7 +234,40 @@ export class ServicesComponent {
         imageSample: 'assets/services/webdev02.jpg',
         icon: 'fas fa-hard-drive',
         service: 'Hardware',
-        price: 399
+        price: 49
+      },
+      {
+        id: 19, title: 'Data Recovery',
+        description: 'Data recovery is the process of retrieving lost or deleted data from a storage device.  Not all data can be recovered, but we will try our best to recover your data.',
+        details1: 'Recover lost or deleted data.',
+        details2: 'Not all data can be recovered.',
+        details3: 'Sometimes it takes several days to recover your data.',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-hard-drive',
+        service: 'Hardware',
+        price: 99
+      },
+      {
+        id: 20, title: 'Laptop Recycling',
+        description: 'Have and old laptop?  We can help you recycle it.  Specifically we can format it, reinstall an OS, and give it a new for someone else to use.',
+        details1: 'Reduce Waste.',
+        details2: 'Donate to a kid or charity.',
+        details3: 'Use it as a spare or gaming PC.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-hard-drive',
+        service: 'Recycling',
+        price: 49
+      },
+      {
+        id: 21, title: 'Resell your Old hardware',
+        description: 'You would be surprised how much money you can get for your old hardware.  From old computers to printers and scanners.',
+        details1: 'Reduce Waste.',
+        details2: 'Some older hardware can indeed just be old and worthless but often it can be resold for a good price.',
+        details3: 'Parts are often reusable.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-hard-drive',
+        service: 'Resale',
+        price: 49
       },
     ]
   }
