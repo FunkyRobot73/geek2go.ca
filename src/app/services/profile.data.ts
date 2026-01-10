@@ -11,7 +11,7 @@ export const PROFILE_DATA = {
   ownerPhoto: "/assets/owner.jpg",
   ownerPhoto1: "/assets/owner2.jpg",
   ownerPhoto2: "/assets/owner1.jpg",
-  bgPhoto: "assets/hero-background.jpg",
+  bgPhoto: "assets/hero-background01.jpg",
   bgCTA: "assets/bg.jpg",
   logo: "assets/Geek2go-02.png",
   logo1: "assets/Geek2go-01.png",
