@@ -29,7 +29,7 @@ export const PROFILE_DATA = {
   tiktok: "https://www.tiktok.com/@funkyrobot73",
   youtube: "https://www.youtube.com/@funkyrobot73",
   youtubeChannel: "https://www.youtube.com/@funkyrobot73",
-  youtubeVideo: "https://www.youtube.com/watch?v=j5sPFH7E02A",
+  youtubeVideo: "https://www.youtube.com/watch?v=_V8h76WyLSw",
   github: "https://www.github.com/funkyrobot73",
   linkedin: "https://www.linkedin.com/in/carlos-sousa-web/",  
   shortBlurb: "Geek2go.ca provides top-notch IT services for individuals and businesses in Burlington, Ontario. From website development to tech support, we have you covered.",
