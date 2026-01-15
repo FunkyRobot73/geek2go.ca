@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark cool-navbar sticky-top">
     <div class="container">
       <a class="navbar-brand" routerLink="/">Geek2Go.ca</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -7,51 +7,28 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
-          </li>
-        
-          <li class="nav-item">
-            <a class="nav-link">|</a>
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="services" routerLinkActive="active">Services</a>
+            <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
           </li>
-          
-          <li class="nav-item">
-            <a class="nav-link">|</a>
-          </li>
-          
-        
           <li class="nav-item">
             <a class="nav-link" routerLink="/gallery" routerLinkActive="active">Gallery</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link">|</a>
-          </li>
-          
           <li class="nav-item">
             <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link">|</a>
-          </li>
-
           <li class="nav-item">
             <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
           </li>
-          
         </ul>
-        <div class="d-flex">
-          <a href="https://www.fb.com/funkyrobot73" class="btn btn-outline-light me-2" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/funkyrobot73" class="btn btn-outline-light me-2" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.x.com/funkyrobot73" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.chess.com/member/funkyrobot73" target="_blank" class="btn btn-outline-light me-2"><i class="fa-solid fa-chess-knight"></i></a>
-          <a routerLink="/blogs"  routerLinkActive="active" class="btn btn-outline-light"><i class="fa-solid fa-blog"></i></a>
-         
+        <div class="d-flex social-icons">
+          <a href="https://www.fb.com/funkyrobot73" class="social-btn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/funkyrobot73" class="social-btn" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.x.com/funkyrobot73" target="_blank" class="social-btn"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.chess.com/member/funkyrobot73" target="_blank" class="social-btn"><i class="fa-solid fa-chess-knight"></i></a>
+          <a routerLink="/blogs" routerLinkActive="active" class="social-btn"><i class="fa-solid fa-blog"></i></a>
         </div>
-        
       </div>
     </div>
   </nav>

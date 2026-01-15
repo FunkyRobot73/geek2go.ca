@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 // Custom variables
-$primary: #6f42c1; // Funky purple color - adjust to match your brand
-$secondary: #ff6b6b; // Funky accent color
+$primary: #304FFE; // Deep Accent Blue
+$secondary: #00E5FF; // Cyan/Turquoise
 
 // Import Bootstrap after variables to override defaults
 // @import 'bootstrap/scss/bootstrap';
@@ -9,8 +9,8 @@ $secondary: #ff6b6b; // Funky accent color
 // Custom styles
 .hero-section {
   .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                      url('assets/hero-background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('assets/hero-background.jpg');
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -22,6 +22,7 @@ $secondary: #ff6b6b; // Funky accent color
 
 .card {
   transition: transform 0.3s;
+
   &:hover {
     transform: translateY(-5px);
   }

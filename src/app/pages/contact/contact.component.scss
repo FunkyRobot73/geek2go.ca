@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
+$primary: #304FFE; // Deep Accent Blue
+$secondary: #00E5FF; // Cyan/Turquoise
+
 .contact-container {
   font-family: 'Poppins', sans-serif;
   max-width: 1200px;
@@ -13,18 +16,18 @@
 .header-section {
   text-align: center;
   margin-bottom: 3rem;
-  
+
   .logo {
     height: 120px;
     margin-bottom: 1rem;
   }
-  
+
   h1 {
     font-size: 2.5rem;
-    color: #4a2c82;
+    color: $primary;
     margin-bottom: 0.5rem;
   }
-  
+
   .tagline {
     font-size: 1.2rem;
     color: #666;
@@ -42,23 +45,23 @@
   background: white;
   border-radius: 10px;
   padding: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-5px);
   }
-  
+
   h2 {
-    color: #4a2c82;
+    color: $primary;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
-    
+
     i {
       margin-right: 10px;
-      color: #ff6b6b;
+      color: $secondary;
     }
   }
 }
@@ -68,18 +71,18 @@
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    
+
     i {
       margin-right: 10px;
-      color: #4a2c82;
+      color: $primary;
       width: 20px;
       text-align: center;
     }
-    
+
     a {
-      color: #4a2c82;
+      color: $primary;
       text-decoration: none;
-      
+
       &:hover {
         text-decoration: underline;
       }
@@ -92,10 +95,10 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
-  
+
   a {
     color: white;
-    background: #4a2c82;
+    background: $primary;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -104,9 +107,9 @@
     justify-content: center;
     font-size: 1.2rem;
     transition: all 0.3s ease;
-    
+
     &:hover {
-      background: #ff6b6b;
+      background: $secondary;
       transform: scale(1.1);
     }
   }
@@ -118,24 +121,26 @@
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .form-group {
-    input, textarea {
+
+    input,
+    textarea {
       width: 100%;
       padding: 0.8rem;
       border: 1px solid #ddd;
       border-radius: 5px;
       font-family: 'Poppins', sans-serif;
-      
+
       &:focus {
         outline: none;
-        border-color: #4a2c82;
+        border-color: $primary;
       }
     }
   }
-  
+
   .submit-btn {
-    background: #4a2c82;
+    background: $primary;
     color: white;
     border: none;
     padding: 0.8rem;
@@ -143,9 +148,9 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease;
-    
+
     &:hover {
-      background: #ff6b6b;
+      background: $secondary;
     }
   }
 }
@@ -154,14 +159,14 @@
   ul {
     list-style: none;
     padding: 0;
-    
+
     li {
       margin-bottom: 0.8rem;
       display: flex;
       align-items: center;
-      
+
       i {
-        color: #4a2c82;
+        color: $primary;
         margin-right: 10px;
       }
     }
@@ -177,10 +182,11 @@
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
   overflow: hidden;
-  
+
   iframe {
     position: absolute;
     top: 0;
@@ -195,7 +201,7 @@
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .header-section {
     h1 {
       font-size: 2rem;

@@ -1,0 +1,119 @@
+$primary: #304FFE;
+$secondary: #00E5FF;
+
+.cool-navbar {
+    background: rgba(10, 25, 110, 0.85); // Deep Blue Glass
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+
+    &.sticky-top {
+        top: 0;
+        z-index: 1020;
+    }
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #fff, $secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        background: linear-gradient(45deg, $secondary, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.navbar-nav {
+    .nav-item {
+        margin: 0 5px;
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 50%;
+                background: $secondary;
+                transition: all 0.3s ease;
+                transform: translateX(-50%);
+            }
+
+            &:hover,
+            &.active {
+                color: #fff !important;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.social-icons {
+    align-items: center;
+    margin-left: 1rem;
+
+    .social-btn {
+        color: rgba(255, 255, 255, 0.7);
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-right: 0.5rem;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background: rgba(255, 255, 255, 0.05);
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        i {
+            font-size: 1rem;
+        }
+
+        &:hover {
+            color: #fff;
+            background: $primary;
+            border-color: $primary;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(111, 66, 193, 0.4);
+        }
+
+        &.active {
+            // For blog link if active
+            color: #fff;
+            background: $primary;
+            border-color: $primary;
+        }
+    }
+}
+
+// Mobile toggler styling
+.navbar-toggler {
+    border: none;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
