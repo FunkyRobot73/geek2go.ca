@@ -33,14 +33,16 @@
         </div>
       </div>
     </div>
-     <div class="d-flex justify-content-center flex-wrap mb-4 gap-2 service-tabs">
-       <button *ngFor="let service of services" 
-               class="btn btn-lg rounded-pill px-4"
-               [class.btn-primary]="activeTab === service"
-               [class.btn-outline-primary]="activeTab !== service"
-               (click)="setActiveTab(service)">
-         {{ service }}
-       </button>
+     <div class="service-tabs-container mb-4">
+       <div class="d-flex flex-wrap service-tabs">
+         <button *ngFor="let service of services" 
+                 class="btn tab-button"
+                 [class.active]="activeTab === service"
+                 (click)="setActiveTab(service)">
+           {{ service }}
+         </button>
+       </div>
+       <div class="tab-border"></div>
      </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">

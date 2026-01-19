@@ -1,16 +1,56 @@
+.service-tabs-container {
+  position: relative;
+  
+  .tab-border {
+    height: 1px;
+    background-color: #dee2e6; // Bootstrap gray-300
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
 .service-tabs {
-  .btn {
-    transition: all 0.3s ease;
-    border-width: 2px;
+  gap: 0.5rem;
+  padding-left: 1rem; // Give some space from the left edge
+  
+  .tab-button {
+    border-radius: 10px 10px 0 0;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background-color: #f8f9fa; // Bootstrap light gray
+    color: #6c757d; // Bootstrap secondary text
+    padding: 0.75rem 1.5rem;
     font-weight: 500;
-    
+    position: relative;
+    z-index: 2; // Above the border line
+    margin-bottom: -1px; // Overlap the border
+    transition: all 0.2s ease-in-out;
+    border-color: #dee2e6;
+
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      background-color: #e9ecef;
+      color: #495057;
     }
 
-    &.btn-primary {
-      box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.3);
+    &.active {
+      background-color: #fff;
+      color: var(--bs-primary);
+      border-color: #dee2e6;
+      border-bottom: 1px solid #fff; // "Erase" the border line below
+      font-weight: 600;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: white;
+      }
     }
   }
 }
