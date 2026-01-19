@@ -159,17 +159,7 @@ export class ServicesComponent {
         service: 'Training',
         price: 399
       },
-      {
-        id: 12, title: 'E-commerce Solutions',
-        description: 'Comprehensive e-commerce solutions to help you build and manage a successful online store.',
-        details1: 'Custom e-commerce website development.',
-        details2: 'Secure payment gateway integration.',
-        details3: 'Inventory management and order processing.',
-        imageSample: 'assets/services/webdev14.jpg',
-        icon: 'fas fa-shopping-cart',
-        service: 'WebDev',
-        price: 399
-      },
+
       {
         id: 13, title: 'Custom Software Development',
         description: 'Tailored software development services to meet your unique business needs.',
@@ -290,6 +280,193 @@ export class ServicesComponent {
         icon: 'fas fa-robot',
         service: 'AI Help',
         price: 99
+      },
+      {
+        id: 24, title: 'Custom PC Building',
+        description: 'We build custom PCs tailored to your specific needs, whether for gaming, workstation use, or general home use.',
+        details1: 'Component selection advice.',
+        details2: 'Professional assembly and cable management.',
+        details3: 'Stress testing and optimization.',
+        imageSample: 'assets/services/webdev13.jpg',
+        icon: 'fas fa-tools',
+        service: 'Hardware',
+        price: 149
+      },
+      {
+        id: 25, title: 'Printer Repair',
+        description: 'Expert repair services for all types of printers, from inkjet to laser.',
+        details1: 'Paper jam removal.',
+        details2: 'Printhead cleaning and replacement.',
+        details3: 'Connectivity troubleshooting.',
+        imageSample: 'assets/services/webdev13.jpg',
+        icon: 'fas fa-print',
+        service: 'Hardware',
+        price: 89
+      },
+      {
+        id: 26, title: 'Hardware Upgrades',
+        description: 'Boost your computer\'s performance with hardware upgrades.',
+        details1: 'RAM memory installation.',
+        details2: 'SSD hard drive upgrades.',
+        details3: 'Graphics card installation.',
+        imageSample: 'assets/services/webdev13.jpg',
+        icon: 'fas fa-microchip',
+        service: 'Hardware',
+        price: 59
+      },
+      {
+        id: 27, title: 'Smartphone Recycling',
+        description: 'Responsible recycling for old smartphones and mobile devices.',
+        details1: 'Data wiping included.',
+        details2: 'Environmentally safe disposal.',
+        details3: 'Accepting all major brands.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-mobile-alt',
+        service: 'Recycling',
+        price: 0
+      },
+      {
+        id: 28, title: 'Battery Disposal',
+        description: 'Safe disposal of rechargeable and non-rechargeable batteries.',
+        details1: 'Prevents environmental contamination.',
+        details2: 'Compliant with local regulations.',
+        details3: 'Bulk drop-off available.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-battery-full',
+        service: 'Recycling',
+        price: 5
+      },
+      {
+        id: 29, title: 'Office Equipment Removal',
+        description: 'We clear out old office electronics including fax machines and copiers.',
+        details1: 'Pickup service available.',
+        details2: 'Certificate of recycling provided.',
+        details3: 'Heavy lifting included.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-truck-loading',
+        service: 'Recycling',
+        price: 99
+      },
+      {
+        id: 30, title: 'Data Destruction Services',
+        description: 'Secure destruction of hard drives and storage media before recycling.',
+        details1: 'Physical drive shredding.',
+        details2: 'DoD standard data wipe.',
+        details3: 'Verification report.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-eraser',
+        service: 'Recycling',
+        price: 29
+      },
+      {
+        id: 31, title: 'Eco-Friendly Disposal',
+        description: 'General electronics recycling with a focus on zero landfill.',
+        details1: 'Recovering precious metals.',
+        details2: 'Plastic recycling.',
+        details3: 'Supporting green initiatives.',
+        imageSample: 'assets/services/webdev03.jpg',
+        icon: 'fas fa-leaf',
+        service: 'Recycling',
+        price: 10
+      },
+      {
+        id: 32, title: 'Refurbished Laptops',
+        description: 'High-quality refurbished laptops at affordable prices.',
+        details1: 'Thoroughly tested and cleaned.',
+        details2: 'Fresh OS installation.',
+        details3: 'Warranty included.',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-laptop',
+        service: 'Resale',
+        price: 299
+      },
+      {
+        id: 33, title: 'Used Monitors',
+        description: 'Various sizes of used monitors in great condition.',
+        details1: 'No dead pixels guarantee.',
+        details2: 'Cables included.',
+        details3: 'Wide range of brands.',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-desktop',
+        service: 'Resale',
+        price: 79
+      },
+      {
+        id: 34, title: 'Second-hand Peripherals',
+        description: 'Keyboards, mice, webcams, and more.',
+        details1: 'Sanitized and tested.',
+        details2: 'Gaming gear available.',
+        details3: 'Bundle discounts.',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-mouse',
+        service: 'Resale',
+        price: 15
+      },
+      {
+        id: 35, title: 'Network Gear Resale',
+        description: 'Used routers, switches, and modems.',
+        details1: 'Enterprise and consumer grade.',
+        details2: 'Reset to factory settings.',
+        details3: 'Firmware updated.',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-wifi',
+        service: 'Resale',
+        price: 45
+      },
+      {
+        id: 36, title: 'Server Components',
+        description: 'Parts for servers including ECC RAM and SAS drives.',
+        details1: 'Hard-to-find legacy parts.',
+        details2: 'Tested for reliability.',
+        details3: 'Bulk purchasing options.',
+        imageSample: 'assets/services/webdev02.jpg',
+        icon: 'fas fa-server',
+        service: 'Resale',
+        price: 120
+      },
+      {
+        id: 37, title: 'Microsoft Office Mastery',
+        description: 'Learn the ins and outs of Word, Excel, and PowerPoint.',
+        details1: 'Creating professional documents.',
+        details2: 'Advanced Excel formulas.',
+        details3: 'Effective presentations.',
+        imageSample: 'assets/services/webdev04.jpg',
+        icon: 'fab fa-microsoft',
+        service: 'Training',
+        price: 129
+      },
+      {
+        id: 38, title: 'Cybersecurity Awareness',
+        description: 'Training on how to stay safe online and recognize threats.',
+        details1: 'Identifying phishing emails.',
+        details2: 'Password best practices.',
+        details3: 'Safe browsing habits.',
+        imageSample: 'assets/services/webdev04.jpg',
+        icon: 'fas fa-user-shield',
+        service: 'Training',
+        price: 99
+      },
+      {
+        id: 39, title: 'AI for Small Business',
+        description: 'How to leverage AI tools to automate tasks and grow your business.',
+        details1: 'Marketing automation.',
+        details2: 'Customer support chatbots.',
+        details3: 'Data analysis with AI.',
+        imageSample: 'assets/services/webdev10.jpg',
+        icon: 'fas fa-robot',
+        service: 'AI Help',
+        price: 199
+      },
+      {
+        id: 40, title: 'Prompt Engineering Basics',
+        description: 'Learn how to write effective prompts for AI models like ChatGPT.',
+        details1: 'Getting the results you want.',
+        details2: 'Context and formatting.',
+        details3: 'Avoiding hallucinations.',
+        imageSample: 'assets/services/webdev10.jpg',
+        icon: 'fas fa-terminal',
+        service: 'AI Help',
+        price: 149
       },
     ]
   }
