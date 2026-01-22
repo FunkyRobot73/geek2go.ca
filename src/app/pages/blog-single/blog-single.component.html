@@ -5,7 +5,7 @@
       <div class="">
         <div class="container comic-theme my-5" *ngIf="blogPost">
           <div class="comic-header mb-4">
-            <h1 class="comic-title">{{blogPost.titleBlog}}</h1>
+            <h1 class="comic-title h1">{{blogPost.titleBlog}}</h1>
 
           </div>
 
@@ -16,26 +16,26 @@
                   class="img-fluid mb-4 comic-featured-image" />
 
                 <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog" class="comic-post-content mb-2"></div>
+                  <div [innerHTML]="blogPost.subtitleBlog" class="h2 comic-post-content mb-2"></div>
                   <div [innerHTML]="blogPost.bodyBlog" class="comic-post-content"></div>
                 </div>
 
                 <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog02" class="comic-post-content mb-2"></div>
+                  <div [innerHTML]="blogPost.subtitleBlog02" class="h3 comic-post-content mb-2"></div>
                   <div [innerHTML]="blogPost.bodyBlog02" class="comic-post-content"></div>
                 </div>
                 <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.thumbnail" alt="{{blogPost.titleBlog}}"
                   class="img-fluid story-image mb-4" />
                 <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog03" class="comic-post-content mb-2"></div>
+                  <div [innerHTML]="blogPost.subtitleBlog03" class="h3 comic-post-content mb-2"></div>
                   <div [innerHTML]="blogPost.bodyBlog03" class="comic-post-content"></div>
                 </div>
                 <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog04" class="comic-post-content mb-2"></div>
+                  <div [innerHTML]="blogPost.subtitleBlog04" class="h3 comic-post-content mb-2"></div>
                   <div [innerHTML]="blogPost.bodyBlog04" class="comic-post-content"></div>
                 </div>
                 <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog05" class="comic-post-content mb-2"></div>
+                  <div [innerHTML]="blogPost.subtitleBlog05" class="h3 comic-post-content mb-2"></div>
                   <div [innerHTML]="blogPost.bodyBlog05" class="comic-post-content"></div>
                 </div>
               </div>
