@@ -24,7 +24,7 @@ export class LatestArticlesComponent implements OnInit {
                 const techBlogs = blogs.filter(blog => blog.catBlog?.toLowerCase() === 'tech');
 
                 // Take the latest 2
-                this.latestBlogs = techBlogs.slice(0, 2);
+                this.latestBlogs = techBlogs.slice(-2).reverse();
                 this.isLoading = false;
             },
             error: (err) => {
