@@ -1,0 +1,25 @@
+<section class="gallery-preview mb-5" *ngIf="!isLoading && latestBlogs.length > 0">
+    <div class="container">
+      <h2 class="text-center mb-4">Latest Articles</h2>
+      <div class="row">
+        @for (blog of latestBlogs; track blog.idBlog) {
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+             <!-- Assuming image is a full URL or needs a prefix. 
+                  The static code used assets/ai-sample.jpg. 
+                  If blog.image is a filename like 'img.jpg', we might need to know the base path.
+                  If it comes from the funkyrobot backend, it might be a relative path or full URL.
+                  I'll blindly use `blog.image` for now, but if it breaks I'll check. -->
+            <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+                   alt="{{blog.titleBlog}}"
+                 onerror="this.src='assets/ai-sample.jpg'"> 
+            <div class="card-body">
+              <h3>{{ blog.titleBlog }}</h3>
+                <a [routerLink]="['/blog-single', blog.idBlog]" class="btn btn-primary" [ariaLabel]="'View latest ' + blog.titleBlog">View Article</a>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </section>
