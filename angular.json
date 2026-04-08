@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "funky-robot": {
+    "geek2go": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "funky-robot:build:production"
+              "buildTarget": "geek2go:build:production"
             },
             "development": {
-              "buildTarget": "funky-robot:build:development"
+              "buildTarget": "geek2go:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "funky-robot:build"
+            "buildTarget": "geek2go:build"
           }
         },
         "test": {
