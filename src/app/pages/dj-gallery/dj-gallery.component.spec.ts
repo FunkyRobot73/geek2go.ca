@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { DjGalleryComponent } from './dj-gallery.component';
 
 describe('DjGalleryComponent', () => {
@@ -8,7 +8,10 @@ describe('DjGalleryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DjGalleryComponent]
+      imports: [DjGalleryComponent],
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

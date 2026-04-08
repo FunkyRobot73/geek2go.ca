@@ -1,16 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { ProfileService } from 'src/app/services/profile.service';
+import { PROFILE_DATA } from 'src/app/services/profile.data';
 import { ContactComponent } from './contact.component';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
   let fixture: ComponentFixture<ContactComponent>;
+  let profileService: ProfileService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactComponent]
+      imports: [ContactComponent],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        ProfileService
+      ]
     })
     .compileComponents();
+
+    profileService = TestBed.inject(ProfileService);
+    profileService.setProfile(PROFILE_DATA);
 
     fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;

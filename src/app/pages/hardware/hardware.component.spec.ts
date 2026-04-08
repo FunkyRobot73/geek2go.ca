@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { HardwareComponent } from './hardware.component';
 
 describe('HardwareComponent', () => {
@@ -8,7 +8,10 @@ describe('HardwareComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HardwareComponent]
+      imports: [HardwareComponent],
+      providers: [
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

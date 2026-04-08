@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { ProfileService } from 'src/app/services/profile.service';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-footer',
-  imports: [BrowserModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
