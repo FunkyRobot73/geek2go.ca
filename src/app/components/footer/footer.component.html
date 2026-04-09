@@ -1,32 +1,14 @@
-<footer class="cool-footer py-4 mt-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5><a href="https://www.funkyrobot.ca" class="footer-link" target="_blank" rel="noopener">FunkyRobot</a></h5>
-          <p>Your premier DJ and Photo Booth service in the area.</p>
-          <hr>
-          <h5><a href="https://www.isellcomics.ca" class="footer-link" target="_blank" rel="noopener">iSellComics</a></h5>
-          <p>My tiny little side hustle.</p>
-        </div>
-
-       
-        <div class="col-md-4">
-          <h5>Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a routerLink="/home" class="footer-link">Home</a></li>
-            <li><a routerLink="/about" class="footer-link">About Us</a></li>
-            <li><a routerLink="/contact" class="footer-link">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5>Contact Us</h5>
-          <p><i class="fas fa-phone me-2"></i>{{profile.phone}}</p>
-            <p><i class="fas fa-envelope me-2"></i><a href="mailto:{{profile.email}}" class="footer-link">{{profile.email}}</a></p>
-        </div>
-      </div>
-      <hr>
-      <div class="text-center">
-        <p>&copy; 2026 {{profile.businessName}}. All rights reserved.</p>
-      </div>
+<footer class="chess-footer py-2 mt-5">
+  <div class="container-fluid">
+    <div class="footer-links d-flex justify-content-center flex-wrap gap-4 mb-2">
+      <a routerLink="/" class="smallest text-decoration-none">Home</a>
+      <a routerLink="/about" class="smallest text-decoration-none">About</a>
+      <a routerLink="/contact" class="smallest text-decoration-none">Contact</a>
+      <a href="https://www.funkyrobot.ca" target="_blank" class="smallest text-decoration-none">FunkyRobot</a>
+      <a href="https://www.isellcomics.ca" target="_blank" class="smallest text-decoration-none">iSellComics</a>
     </div>
-  </footer>
+    <div class="text-center">
+      <p class="smallest text-muted mb-0">&copy; 2026 {{profile?.businessName}}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

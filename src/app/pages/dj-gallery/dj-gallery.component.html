@@ -1,34 +1,44 @@
-<!-- photo-booth-gallery.component.html -->
-<div class="gallery-container">
-    <h1 class="gallery-title">Just For Fun Gallery</h1>
-    <p class="gallery-subtitle">Random Geek & Nerd Stuff</p>
-    
-    <div *ngIf="loading" class="loading-spinner">
-      <i class="fas fa-spinner fa-spin"></i>
-      Loading photos...
-    </div>
+<div class="dashboard-page animate__animated animate__fadeIn">
   
-    <div *ngIf="!loading" class="photo-grid">
-      <div class="photo-item animate__animated animate__fadeIn" 
-           *ngFor="let image of galleryImages; let i = index"
-           [style.animation-delay]="i * 0.05 + 's'">
-        <img [src]="image.src" [alt]="image.alt" (click)="openLightbox(image)">
+  <header class="section-header mb-4">
+    <h1 class="h2">Just For Fun Gallery</h1>
+    <p class="text-muted smallest">Random Geek & Nerd Stuff</p>
+  </header>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-green" role="status">
+       <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!loading" class="chess-grid photo-grid">
+    <div class="photo-item chess-card p-1" 
+         *ngFor="let image of galleryImages; let i = index"
+         (click)="openLightbox(image)">
+      <div class="image-inner">
+        <img [src]="image.src" [alt]="image.alt">
         <div class="photo-overlay">
-          <i class="fas fa-search-plus"></i>
+          <i class="fa-solid fa-magnifying-glass-plus text-green"></i>
         </div>
       </div>
     </div>
-  
-    <!-- Lightbox Modal -->
-    <div class="lightbox-overlay" *ngIf="showLightbox" (click)="closeLightbox()">
-      <div class="lightbox-content" (click)="$event.stopPropagation()">
-        <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
-        <button class="lightbox-nav prev" (click)="navigateLightbox(-1)">‹</button>
-        
-        <img [src]="selectedImage?.src" [alt]="selectedImage?.alt" class="lightbox-image">
-        
-        <button class="lightbox-nav next" (click)="navigateLightbox(1)">›</button>
-        <div class="lightbox-caption">{{selectedImage?.alt}}</div>
+  </div>
+
+  <!-- Lightbox Modal (Chess Themed) -->
+  <div class="lightbox-overlay" *ngIf="showLightbox" (click)="closeLightbox()">
+    <div class="lightbox-content-chess" (click)="$event.stopPropagation()">
+      <button class="lightbox-btn close-btn" (click)="closeLightbox()">&times;</button>
+      
+      <div class="img-container">
+        <img [src]="selectedImage?.src" [alt]="selectedImage?.alt" class="lightbox-img-chess">
+        <button class="lightbox-btn nav-btn prev" (click)="navigateLightbox(-1)">‹</button>
+        <button class="lightbox-btn nav-btn next" (click)="navigateLightbox(1)">›</button>
+      </div>
+      
+      <div class="lightbox-meta text-center mt-3">
+        <p class="smallest text-white mb-0">{{selectedImage?.alt}}</p>
       </div>
     </div>
   </div>
+
+</div>

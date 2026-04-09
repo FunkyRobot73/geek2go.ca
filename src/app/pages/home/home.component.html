@@ -1,83 +1,75 @@
-<section class="hero-section mb-2">
-    <div class="hero-image d-flex align-items-center">
-      <div class="container text-white">
-        <h1 class="display-3 fw-bold">Geek2Go.ca</h1>
-        <p class="lead">IT Solutions in Aldershot & Burlington</p>
-        <p class="lead">I Like To Do The Nerdy Stuff</p>
-        <a routerLink="/contact" class="btn btn-primary btn-lg">Contact Now</a>
+<div class="dashboard-grid">
+  <!-- MAIN CHANNEL (70%) -->
+  <div class="main-channel">
+    
+    <!-- Hero Widget -->
+    <div class="chess-card hero-widget mb-4">
+      <div class="hero-content">
+        <h1 class="display-4 fw-bold">Geek2Go.ca</h1>
+        <p class="lead text-muted">{{ profile?.tagline || 'IT Services in Aldershot & Burlington' }}</p>
+        <div class="hero-actions mt-3">
+          <a routerLink="/contact" class="btn-chess-primary">Contact Now</a>
+          <a routerLink="/services" class="btn btn-outline-secondary ms-2" style="border-radius: 4px;">View Services</a>
+        </div>
       </div>
     </div>
-  </section>
-  
-  <section class="services mb-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Our Services</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <i class="fa-brands fa-html5 mb-3 text-primary fa-3x fas"></i>
-              <!-- <i class="fas fa-html5 fa-3x mb-3 text-primary"></i> -->
-              <h3>Website & Wordpress</h3>
-              <p>Simple Solutions.</p>
-              <a routerLink="/blog-single/166" class="btn btn-outline-primary" aria-label="More info about Website & Wordpress">Website Help</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body text-center">
-            <i class="fa-regular fa-circle-user mb-3 text-primary fa-3x fas"></i>
-              <h3>SEO & Rankings</h3>
-              <p>Help people find you.</p>
-              <a routerLink="/services" class="btn btn-outline-primary" aria-label="More info about SEO & Rankings">SEO & Rankings</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-solid fa-shield-virus fa-3x mb-3 text-primary"></i>
-              
-              <h3>Virus Protection </h3>
-              <p>Avoid Problems before they start.</p>
-              <a routerLink="/services" class="btn btn-outline-primary" aria-label="More info about Virus Protection">Virus Protection</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-solid fa-user-shield fa-3x mb-3 text-primary"></i>
-              <h3>Security</h3>
-              <p>Protect your Data.</p>
-              <a routerLink="/services" class="btn btn-outline-primary" aria-label="More info about Security">Security</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-solid fa-database fa-3x mb-3 text-primary"></i>
-              <h3>Data Backup & Recovery</h3>
-              <p>Simple Solutions for your Data.</p>
-              <a routerLink="/services" class="btn btn-outline-primary" aria-label="More info about Data Backup & Recovery">Data Backup & Recovery</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-solid fa-microchip fa-3x mb-3 text-primary"></i>
-              
-              <h3>General Tech</h3>
-              <p>I'm literally an Expert.</p>
-              <a routerLink="/services" class="btn btn-outline-primary" aria-label="More info about General Tech">General Tech</a>
+
+    <!-- Services Widget Group -->
+    <div class="services-widget-group">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Our Services</h2>
+        <a routerLink="/services" class="text-green text-decoration-none small">See all <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="row g-3">
+        <div class="col-md-6" *ngFor="let service of profile?.services_more?.slice(0, 4)">
+          <div class="chess-card hoverable h-100">
+            <div class="d-flex align-items-start">
+              <div class="service-icon-box me-3">
+                <i [class]="service.icon + ' fa-2x text-green'"></i>
+              </div>
+              <div>
+                <h3 class="h5 mb-1">{{ service.title }}</h3>
+                <p class="small text-muted mb-0">{{ service.description }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  
-  <app-latest-articles></app-latest-articles>
+
+  </div>
+
+  <!-- SIDE CHANNEL (30%) -->
+  <div class="side-channel">
+    
+    <!-- About Widget -->
+    <div class="chess-card mb-4">
+      <h3 class="h5 border-bottom border-dark pb-2 mb-3">About Me</h3>
+      <div class="about-widget-content">
+        <div class="d-flex align-items-center mb-3">
+          <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" class="rounded-circle me-3" width="60" height="60" alt="Carlos Sousa">
+          <div>
+            <h4 class="h6 mb-0">{{ profile?.nameFull }}</h4>
+            <span class="text-muted smallest">{{ profile?.ownerTitle }}</span>
+          </div>
+        </div>
+        <p class="small text-muted">{{ profile?.aboutUs }}</p>
+        <a routerLink="/about" class="btn btn-dark btn-sm w-100 mt-2">Read My Story</a>
+      </div>
+    </div>
+
+    <!-- Latest Articles Widget -->
+    <div class="articles-widget">
+        <app-latest-articles></app-latest-articles>
+    </div>
+
+    <!-- Quick Contact Widget -->
+    <div class="chess-card mt-4">
+        <h3 class="h5 border-bottom border-dark pb-2 mb-3">Fast Support</h3>
+        <p class="smallest text-muted">Need help right away? Drop me a line and I'll get back to you ASAP.</p>
+        <a [href]="'mailto:' + profile?.email" class="btn btn-outline-success btn-sm w-100">Email Me</a>
+    </div>
+
+  </div>
+</div>

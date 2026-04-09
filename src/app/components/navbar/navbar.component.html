@@ -1,34 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-dark cool-navbar sticky-top">
-    <div class="container">
-      <a class="navbar-brand" routerLink="/">Geek2Go.ca</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/gallery" routerLinkActive="active">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
-          </li>
-        </ul>
-        <div class="d-flex social-icons">
-          <a href="https://www.fb.com/funkyrobot73" class="social-btn" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/funkyrobot73" class="social-btn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.x.com/funkyrobot73" target="_blank" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.chess.com/member/funkyrobot73" target="_blank" class="social-btn" aria-label="Chess.com Profile"><i class="fa-solid fa-chess-knight"></i></a>
-          <a routerLink="/blogs" routerLinkActive="active" class="social-btn" aria-label="Blogs"><i class="fa-solid fa-blog"></i></a>
-        </div>
-      </div>
-    </div>
+<div class="sidebar-container">
+  <div class="sidebar-header">
+    <a class="sidebar-logo" routerLink="/">
+      <span class="logo-text">Geek2Go</span>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fa-solid fa-house"></i>
+          <span class="link-label">Home</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/services" routerLinkActive="active">
+          <i class="fa-solid fa-gears"></i>
+          <span class="link-label">Services</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+          <i class="fa-solid fa-images"></i>
+          <span class="link-label">Gallery</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/blogs" routerLinkActive="active">
+          <i class="fa-solid fa-newspaper"></i>
+          <span class="link-label">Articles</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">
+          <i class="fa-solid fa-user-astronaut"></i>
+          <span class="link-label">About</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="link-label">Contact</span>
+        </a>
+      </li>
+    </ul>
   </nav>
+
+  <div class="sidebar-footer">
+    <div class="social-grid">
+      <a href="https://www.fb.com/funkyrobot73" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/funkyrobot73" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.chess.com/member/funkyrobot73" target="_blank" aria-label="Chess.com"><i class="fa-solid fa-chess-knight"></i></a>
+    </div>
+  </div>
+</div>

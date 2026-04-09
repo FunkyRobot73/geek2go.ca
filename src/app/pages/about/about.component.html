@@ -1,114 +1,97 @@
-<!-- about.component.html -->
-<div class="about-container">
-    <!-- Hero Card -->
-    <div class="hero-card animate__animated animate__fadeIn">
-      <div class="hero-content">
-        <div class="row">
-            <div class="col-lg-4"><img [src]="profile.logo1" alt="Geek2Go Logo" class="hero-logo"></div>
-            <div class="col-lg-4">  <h1>{{profile.businessName}}</h1>
-                <p class="tagline">{{profile.tagline}}</p></div>
-            <div class="col-lg-4"><img [src]="profile.logo2" alt="Geek2Go Logo" class="hero-logo rounded-circle"></div>
-        </div>
-        <!-- <img [src]="profile.logo4" alt="Geek2Go Logo" class="hero-logo rounded-circle"> -->
-        <!-- <img [src]="profile.logo" alt="Geek2Go Logo" class="hero-logo"> -->
-        
-        
-        <!-- <img [src]="profile.logo3" alt="Geek2Go Logo" class="hero-logo rounded-circle"> -->
-      
-      
-      </div>
-    </div>
+<div class="dashboard-page animate__animated animate__fadeIn">
   
-    <!-- Owner Card -->
-    <div class="card owner-card animate__animated animate__fadeInUp">
-      <div class="card-grid">
-        <div class="owner-image">
-          <img src="assets/owner.jpg" alt="{{profile.nameFull}}">
-          <img src="assets/owner1.jpg" alt="{{profile.nameFull}}">
-          <img src="assets/owner2.jpg" alt="{{profile.nameFull}}">
+  <header class="section-header mb-4">
+    <h1 class="h2">About Geek2Go.ca</h1>
+    <p class="text-muted smallest">{{ profile?.tagline }}</p>
+  </header>
+
+  <div class="row g-4">
+    <!-- LEFT COLUMN: The Story -->
+    <div class="col-lg-8">
+      <div class="chess-card mb-4 profile-bio">
+        <h2 class="h4 mb-3 text-green border-bottom border-dark pb-2">The Founder's Log</h2>
+        <div class="bio-text">
+          <p class="lead">{{ profile?.bio }}</p>
+          <hr class="border-dark">
+          <p>{{ profile?.bio1 }}</p>
+          <p>{{ profile?.bio2 }}</p>
+          <p class="mb-0">{{ profile?.bio3 }}</p>
         </div>
-        <div class="owner-info">
-          <h2>Meet {{profile.nameShort}}</h2>
-          <p class="title">{{profile.ownerTitle}}</p>
-          <p>{{profile.bio}}</p>
-          <p>{{profile.bio1}}</p>
-          <p>{{profile.bio2}}</p>
-          <p>{{profile.bio3}}</p>
-          <div class="social-links">
-            <a *ngFor="let social of socialPlatforms" 
-               [href]="profile[social.platform]" 
-               target="_blank"
-               class="animate__animated animate__pulse animate__infinite">
-              <i [class]="social.icon"></i>
-            </a>
+      </div>
+
+      <!-- Services Preview Widget in About -->
+      <div class="row g-3">
+        <div class="col-md-6" *ngFor="let service of servicesData">
+          <div class="chess-card hoverable">
+            <div class="d-flex align-items-center mb-2">
+              <i [class]="service.icon + ' text-green me-3 h4 mb-0'"></i>
+              <h3 class="h6 mb-0">{{ service.title }}</h3>
+            </div>
+            <p class="smallest text-muted mb-0">{{ service.description }}</p>
           </div>
         </div>
       </div>
     </div>
-  
-    <!-- Services Cards -->
-    <h2 class="section-title">Our Services</h2>
-    <div class="card-grid services-grid">
-      <div class="card service-card animate__animated animate__flipInX" 
-           *ngFor="let service of profile.services_more; let i = index"
-           [style.animation-delay]="i * 0.1 + 's'">
-        <div class="card-icon">
-          <i [class]="service.icon"></i>
+
+    <!-- RIGHT COLUMN: Stats & Meta -->
+    <div class="col-lg-4">
+      
+      <!-- Profile Widget -->
+      <div class="chess-card text-center mb-4">
+        <div class="profile-frame mb-3">
+          <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" class="img-fluid rounded-circle border border-dark p-1" alt="Carlos Sousa">
         </div>
-        <h3>{{service.title}}</h3>
-        <p>{{service.description}}</p>
-      </div>
-    </div>
-  
-    <!-- Mission/Vision Cards -->
-    <div class="card-grid mission-grid">
-      <div class="card mission-card animate__animated animate__fadeInLeft">
-        <i class="fas fa-bullseye"></i>
-        <h3>Our Mission</h3>
-        <p>{{profile.mission}}</p>
-      </div>
-      <div class="card vision-card animate__animated animate__fadeInRight">
-        <i class="fas fa-eye"></i>
-        <h3>Our Vision</h3>
-        <p>{{profile.vision}}</p>
-      </div>
-    </div>
-  
-    <!-- Compact Gallery -->
-    <h2 class="section-title">Old School Technology</h2>
-    <div class="compact-gallery">
-      <div class="gallery-item animate__animated animate__zoomIn" 
-           *ngFor="let item of profile.galleryRandom; let i = index"
-           [style.animation-delay]="i * 0.05 + 's'">
-        <img [src]="item.src" [alt]="item.alt">
-        <div class="gallery-overlay">
-          <i class="fas fa-search-plus"></i>
+        <h4 class="mb-1">{{ profile?.nameFull }}</h4>
+        <p class="smallest text-green mb-3">{{ profile?.ownerTitle }}</p>
+        
+        <div class="social-widget d-flex justify-content-center gap-3 mb-3">
+          <a *ngFor="let social of socialPlatforms" 
+             [href]="profile[social.platform]" 
+             target="_blank"
+             class="social-icon-btn">
+            <i [class]="social.icon"></i>
+          </a>
         </div>
+        <a [href]="profile?.linkedin" target="_blank" class="btn btn-dark btn-sm w-100">Professional Profile</a>
       </div>
-    </div>
-  
-    <!-- Values Cards -->
-    <h2 class="section-title">Our Values</h2>
-    <div class="card-grid values-grid">
-      <div class="card value-card animate__animated animate__flipInY" 
-           *ngFor="let value of profile.values; let i = index"
-           [style.animation-delay]="i * 0.1 + 's'">
-        <i class="fas fa-star"></i>
-        <h3>{{value}}</h3>
+
+      <!-- Mission Widget -->
+      <div class="chess-card mb-4 bg-dark-subtle">
+        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Mission</h3>
+        <p class="small mb-0">{{ profile?.mission }}</p>
       </div>
-    </div>
-  
-    <!-- Video Card -->
-    <div class="card video-card animate__animated animate__fadeIn">
-      <h2>See Us In Action</h2>
-      <div class="video-wrapper" *ngIf="profile.youtubeVideo">
-        <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
-                frameborder="0" 
-                allowfullscreen></iframe>
+
+      <!-- Vision Widget -->
+      <div class="chess-card mb-4 border-green-faint">
+        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Vision</h3>
+        <p class="small mb-0">{{ profile?.vision }}</p>
       </div>
-      <p>{{profile.videoBlurb}}</p>
-      <a [href]="profile.youtubeChannel" target="_blank" class="btn youtube-btn">
-        <i class="fab fa-youtube"></i> Watch More
-      </a>
+
+      <!-- Value List -->
+      <div class="chess-card">
+        <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Core Values</h3>
+        <ul class="list-unstyled mb-0 smallest">
+          <li *ngFor="let value of profile?.values" class="mb-2">
+            <i class="fa-solid fa-circle-check text-green me-2"></i> {{ value }}
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
+
+  <!-- Video Section as full-width widget -->
+  <div class="row mt-4" *ngIf="profile?.youtubeVideo">
+    <div class="col-12">
+      <div class="chess-card video-widget">
+        <h3 class="h4 mb-3">See Geek2Go in Action</h3>
+        <div class="ratio ratio-16x9 mb-3">
+          <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
+                  allowfullscreen></iframe>
+        </div>
+        <p class="smallest text-muted">{{ profile?.videoBlurb }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

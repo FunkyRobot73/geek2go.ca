@@ -1,173 +1,108 @@
-<div class="container mt-4">
-  <div class="row">
-    <!-- First Column: Cards -->
-    <div class="col-lg-9">
-      <div class="">
-        <div class="container comic-theme my-5" *ngIf="blogPost">
-          <div class="comic-header mb-4">
-            <h1 class="comic-title h1">{{blogPost.titleBlog}}</h1>
-
-          </div>
-
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="comic-panel p-4 mb-4">
-                <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.image" alt="{{blogPost.titleBlog}}"
-                  class="img-fluid mb-4 comic-featured-image" />
-
-                <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog" class="h2 comic-post-content mb-2"></div>
-                  <div [innerHTML]="blogPost.bodyBlog" class="comic-post-content"></div>
-                </div>
-
-                <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog02" class="h3 comic-post-content mb-2"></div>
-                  <div [innerHTML]="blogPost.bodyBlog02" class="comic-post-content"></div>
-                </div>
-                <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.thumbnail" alt="{{blogPost.titleBlog}}"
-                  class="img-fluid story-image mb-4" />
-                <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog03" class="h3 comic-post-content mb-2"></div>
-                  <div [innerHTML]="blogPost.bodyBlog03" class="comic-post-content"></div>
-                </div>
-                <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog04" class="h3 comic-post-content mb-2"></div>
-                  <div [innerHTML]="blogPost.bodyBlog04" class="comic-post-content"></div>
-                </div>
-                <div class="comic-text-box p-4 mb-3">
-                  <div [innerHTML]="blogPost.subtitleBlog05" class="h3 comic-post-content mb-2"></div>
-                  <div [innerHTML]="blogPost.bodyBlog05" class="comic-post-content"></div>
-                </div>
-              </div>
-
-              <a [routerLink]="['/blogs']" class="btn comic-btn">
-                ← Back to All Posts
-              </a>
-
-            </div>
-          </div>
-        </div>
-
-        <div *ngIf="!blogPost" class="container text-center my-5">
-          <div class="spinner-border comic-spinner" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- Second Column: Side Blog -->
-    <div class="col-lg-3">
-      <div class="comic-sidebar mt-2">
-        <div class="container mt-1">
-          <div class="row">
-            <div class="col-lg-12 my-auto ">
-              <a routerLink="/blogs" class="form-background card text-decoration-none">
-                <h3><span>Latest Stories <i class="fa-solid fa-angles-right"></i></span></h3>
-              </a>
-              <p class="body-text">
-                i have <span class="text-danger">{{recentBlogs.length}}</span>
-                Blogs to Read!
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container mt-2">
-          <div
-            *ngFor="let comic of recentBlogs  | slice: (recentBlogs.length > 8 ? recentBlogs.length - 8 : 0); index as i"
-            class="col-md-12">
-
-            <div class="card rounder mb-1">
-              <a href="/blog-single/{{comic.idBlog}}" class="text-decoration-none text-dark">
-                <div class="row">
-                  <div class="col-md-4">
-                    <img [src]="'https://back.funkyrobot.ca/public/' + comic.image" alt="{{comic.titleBlog}}"
-                      class="img-fluid m-1" />
-                  </div>
-                  <div class="col-md-8">
-                    <h6 class="fw-bolder">{{comic.titleBlog}}</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- GREAT LINKS -->
-
-      <div class="comic-sidebar mt-4">
-        <div class="container mt-1">
-          <div class="row">
-            <div class="col-lg-12 my-auto ">
-              <a href="https://www.funkyrobot.ca" target="_blank" rel="noopener"
-                class="form-background card text-decoration-none">
-                <h3><span>FunkyRobot <i class="fa-solid fa-angles-right"></i></span></h3>
-              </a>
-              <p class="body-text">
-                Your Premier DJ and Photo Booth Service in the Area!
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container mt-2">
-          <div class="card rounder mb-1">
-            <a href="https://www.funkyrobot.ca" target="_blank" rel="noopener" class="text-decoration-none text-dark">
-              <div class="row">
-                <div class="col-md-4">
-                  <img src="/assets/logo.png" alt="FunkyRobot Logo" class="img-fluid m-1" />
-                </div>
-                <div class="col-md-8">
-                  <div class="d-flex flex-column justify-content-center align-items-center h-100"
-                    style="min-height: 50px;">
-                    <h6 class="fw-bolder">FunkyRobot.ca</h6>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="comic-sidebar mt-4">
-        <div class="container mt-1">
-          <div class="row">
-            <div class="col-lg-12 my-auto ">
-              <a href="https://www.isellcomics.ca" target="_blank" rel="noopener"
-                class="form-background card text-decoration-none">
-                <h3><span>iSellComics <i class="fa-solid fa-angles-right"></i></span></h3>
-              </a>
-              <p class="body-text">
-                Your Premier Comic Book Store in the Area!
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container mt-2">
-          <div class="card rounder mb-1">
-            <a href="https://www.isellcomics.ca" target="_blank" rel="noopener" class="text-decoration-none text-dark">
-              <div class="row">
-                <div class="col-md-4">
-                  <img src="/assets/logo1.png" alt="iSellComics Logo" class="img-fluid m-1" />
-                </div>
-                <div class="col-md-8">
-                  <div class="d-flex flex-column justify-content-center align-items-center h-100"
-                    style="min-height: 50px;">
-                    <h6 class="fw-bolder">iSellComics.ca</h6>
-                  </div>
-                </div>
-
-
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+<div class="dashboard-page animate__animated animate__fadeIn">
+  
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-green" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
   </div>
+
+  <div *ngIf="!loading && blogPost" class="row g-4">
+    <!-- MAIN ARTICLE CHANNEL -->
+    <div class="col-lg-8">
+      <div class="chess-card article-view">
+        <header class="article-header mb-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+             <span class="badge rounded-pill bg-dark border border-dark text-green smallest">{{ blogPost.catBlog }}</span>
+             <span class="smallest text-muted"><i class="fa-regular fa-clock me-1"></i> Read Log</span>
+          </div>
+          <h1 class="h2 mb-4">{{ blogPost.titleBlog }}</h1>
+          
+          <div class="article-featured-img-wrapper mb-4">
+            <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.image" 
+                 alt="{{blogPost.titleBlog}}"
+                 class="img-fluid rounded border border-dark"
+                 onerror="this.src='assets/ai-sample.jpg'" />
+          </div>
+        </header>
+
+        <section class="article-content">
+          <!-- Main Body -->
+          <div class="content-block mb-4">
+            <div [innerHTML]="blogPost.subtitleBlog" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.bodyBlog" class="body-text"></div>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="content-block mb-4" *ngIf="blogPost.bodyBlog02">
+            <div [innerHTML]="blogPost.subtitleBlog02" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.bodyBlog02" class="body-text"></div>
+          </div>
+
+          <!-- Mid-article image -->
+          <div class="article-inner-img mb-4 text-center" *ngIf="blogPost.thumbnail">
+             <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.thumbnail" 
+                  alt="Tech Detail"
+                  class="img-fluid rounded border border-dark" />
+          </div>
+
+          <!-- Section 3 -->
+          <div class="content-block mb-4" *ngIf="blogPost.bodyBlog03">
+            <div [innerHTML]="blogPost.subtitleBlog03" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.bodyBlog03" class="body-text"></div>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="content-block mb-4" *ngIf="blogPost.bodyBlog04">
+            <div [innerHTML]="blogPost.subtitleBlog04" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.bodyBlog04" class="body-text"></div>
+          </div>
+        </section>
+
+        <footer class="mt-5 pt-4 border-top border-dark">
+          <a routerLink="/blogs" class="btn btn-dark btn-sm">
+            <i class="fa-solid fa-arrow-left me-2"></i> Back to Feed
+          </a>
+        </footer>
+      </div>
+    </div>
+
+    <!-- SIDEBAR CHANNEL -->
+    <div class="col-lg-4">
+      
+      <!-- Related Feed Widget -->
+      <div class="chess-card mb-4">
+        <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Latest in Archive</h3>
+        <div class="related-list">
+          <a *ngFor="let recent of recentBlogs.slice(0, 5)" 
+             [routerLink]="['/blog-single', recent.idBlog]"
+             class="related-item d-flex align-items-center mb-3 text-decoration-none">
+            <img [src]="'https://back.funkyrobot.ca/public/' + recent.image" 
+                 class="rounded me-2" width="48" height="36" style="object-fit: cover;"
+                 onerror="this.src='assets/ai-sample.jpg'">
+            <div class="related-info overflow-hidden">
+               <h4 class="smallest text-white mb-0 text-truncate">{{ recent.titleBlog }}</h4>
+               <span class="smallest text-muted">{{ recent.catBlog }}</span>
+            </div>
+          </a>
+        </div>
+        <a routerLink="/blogs" class="btn btn-dark btn-sm w-100 mt-2">Browse All</a>
+      </div>
+
+      <!-- Quick Action Widget -->
+      <div class="chess-card bg-dark-subtle border-green-faint">
+        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Questions?</h3>
+        <p class="smallest text-muted mb-3">Have an inquiry about this topic? Let's chat.</p>
+        <a routerLink="/contact" class="btn-chess-primary btn-sm w-100">Contact Carlos</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="chess-card text-center py-5">
+    <i class="fa-solid fa-triangle-exclamation h1 text-danger mb-3"></i>
+    <p>{{ error }}</p>
+    <a routerLink="/blogs" class="btn btn-dark btn-sm">Back to Feed</a>
+  </div>
+
 </div>

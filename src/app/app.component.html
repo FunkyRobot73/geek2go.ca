@@ -1,7 +1,12 @@
-<app-navbar></app-navbar>
+<div class="chess-layout">
+  <aside class="sidebar-column">
+    <app-navbar></app-navbar>
+  </aside>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
-
-<app-footer></app-footer>
+  <main class="main-content-column">
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </main>
+</div>

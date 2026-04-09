@@ -1,228 +1,137 @@
-// photo-booth-gallery.component.scss
-// @import 'animate.css';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-
-.gallery-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-.gallery-title {
-  text-align: center;
-  color: #304FFE; // Deep Blue
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.gallery-subtitle {
-  text-align: center;
-  color: #666;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.loading-spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  color: #304FFE; // Deep Blue
-  font-size: 1.2rem;
-
-  i {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+.dashboard-page {
+  padding: 10px 0;
 }
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 2rem;
-
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
 }
 
 .photo-item {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  aspect-ratio: 1;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  // Glint effect setup
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
-    transform: skewX(-25deg);
-    transition: none;
-    z-index: 2;
+  overflow: hidden;
+  
+  .image-inner {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 2px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
   }
 
   &:hover {
-    transform: scale(1.03);
-
-    // Trigger glint
-    &::before {
-      animation: glint 0.8s;
+    border-color: #81b64c;
+    
+    img {
+      transform: scale(1.05);
     }
-
+    
     .photo-overlay {
       opacity: 1;
     }
   }
+}
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(48, 79, 254, 0.7); // Deep Blue Overlay
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 3; // Above glint
-
-    i {
-      color: white;
-      font-size: 2rem;
-    }
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  
+  i {
+    font-size: 1.5rem;
   }
 }
 
-// Keyframes for glint
-@keyframes glint {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 200%;
-  }
-}
-
-/* Lightbox styles would go here */
-/* Lightbox Styles */
+// Lightbox
 .lightbox-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2000;
 }
 
-.lightbox-content {
+.lightbox-content-chess {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.lightbox-image {
-  max-height: 80vh;
   max-width: 90vw;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  max-height: 90vh;
+  
+  .img-container {
+    position: relative;
+    border: 1px solid #3d3b38;
+    background-color: #000;
+    line-height: 0;
+  }
 }
 
-.lightbox-close {
+.lightbox-img-chess {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-btn {
+  background: rgba(38, 36, 33, 0.8);
+  border: 1px solid #3d3b38;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: #81b64c;
+    border-color: #81b64c;
+  }
+}
+
+.close-btn {
   position: absolute;
   top: -40px;
   right: 0;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
-  padding: 0 10px;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
 }
 
-.lightbox-nav {
+.nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(48, 79, 254, 0.8); // Deep Blue Hover
-  }
-
-  &.prev {
-    left: -60px;
-  }
-
-  &.next {
-    right: -60px;
-  }
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  
+  &.prev { left: -60px; }
+  &.next { right: -60px; }
 }
 
-.lightbox-caption {
-  color: white;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 1.2rem;
-}
-
-@media (max-width: 768px) {
-  .lightbox-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-
-    &.prev {
-      left: 10px;
-    }
-
-    &.next {
-      right: 10px;
-    }
-  }
-
-  .lightbox-close {
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
+@media (max-width: 992px) {
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+    &.prev { left: 10px; }
+    &.next { right: 10px; }
   }
 }

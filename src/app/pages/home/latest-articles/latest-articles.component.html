@@ -1,25 +1,20 @@
-<section class="gallery-preview mb-5" *ngIf="!isLoading && latestBlogs.length > 0">
-    <div class="container">
-      <h2 class="text-center mb-4">Latest Articles</h2>
-      <div class="row">
-        @for (blog of latestBlogs; track blog.idBlog) {
-        <div class="col-md-6 mb-4">
-          <div class="card h-100">
-             <!-- Assuming image is a full URL or needs a prefix. 
-                  The static code used assets/ai-sample.jpg. 
-                  If blog.image is a filename like 'img.jpg', we might need to know the base path.
-                  If it comes from the funkyrobot backend, it might be a relative path or full URL.
-                  I'll blindly use `blog.image` for now, but if it breaks I'll check. -->
-            <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
-                   alt="{{blog.titleBlog}}"
-                 onerror="this.src='assets/ai-sample.jpg'"> 
-            <div class="card-body">
-              <h3>{{ blog.titleBlog }}</h3>
-                <a [routerLink]="['/blog-single', blog.idBlog]" class="btn btn-primary" [ariaLabel]="'View latest ' + blog.titleBlog">View Article</a>
-            </div>
-          </div>
+<div class="chess-card latest-articles-widget" *ngIf="!isLoading && latestBlogs.length > 0">
+  <h3 class="h5 border-bottom border-dark pb-2 mb-3">Recent Activity</h3>
+  
+  <div class="articles-list">
+    <div class="article-item mb-3 pb-3 border-bottom border-dark-subtle" *ngFor="let blog of latestBlogs.slice(0, 3)">
+      <div class="d-flex align-items-center">
+        <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+             class="article-thumb rounded me-3" 
+             alt="{{blog.titleBlog}}"
+             onerror="this.src='assets/ai-sample.jpg'">
+        <div class="article-info">
+          <h4 class="h6 mb-1 text-truncate" style="max-width: 150px;">{{ blog.titleBlog }}</h4>
+          <a [routerLink]="['/blog-single', blog.idBlog]" class="btn btn-link p-0 text-green smallest text-decoration-none">Read Game Log</a>
         </div>
-        }
       </div>
     </div>
-  </section>
+  </div>
+  
+  <a routerLink="/blogs" class="btn btn-dark btn-sm w-100">View News Feed</a>
+</div>

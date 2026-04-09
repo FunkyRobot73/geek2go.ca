@@ -1,36 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
-// Custom variables
-$primary: #304FFE; // Deep Accent Blue
-$secondary: #00E5FF; // Cyan/Turquoise
+// --- CHESS.COM DESIGN SYSTEM ---
+$chess-bg: #312e2b;
+$chess-panel: #262421;
+$chess-green: #81b64c;
+$chess-green-hover: #95bb4a;
+$chess-border: #3d3b38;
+$chess-text: #d5d4d3;
+$chess-text-muted: #bab9b8;
+$sidebar-width: 144px;
 
-// Import Bootstrap after variables to override defaults
-// @import 'bootstrap/scss/bootstrap';
+// --- GLOBAL DEFAULTS ---
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: $chess-bg;
+  color: $chess-text;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden; // We handle scrolling in main content
+}
 
-// Custom styles
-.hero-section {
-  .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('assets/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    min-height: 400px;
-    width: 100%;
-    margin-top: 0;
+h1, h2, h3, h4, .navbar-brand {
+  font-family: 'Outfit', sans-serif;
+  color: #fff;
+}
+
+// --- LAYOUT WRAPPER ---
+.chess-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  
+  .sidebar-column {
+    width: $sidebar-width;
+    flex-shrink: 0;
+    background-color: $chess-panel;
+    border-right: 1px solid $chess-border;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  
+  .main-content-column {
+    flex-grow: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 24px;
+    background-color: $chess-bg;
+    
+    // Custom scrollbar
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $chess-bg;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #4d4b4a;
+      border-radius: 4px;
+    }
   }
 }
 
-.card {
-  transition: transform 0.3s;
+// --- SHARED CHESS COMPONENT STYLES ---
+.chess-card {
+  background-color: $chess-panel;
+  border: 1px solid $chess-border;
+  border-radius: 4px;
+  padding: 20px;
+  transition: background-color 0.2s;
+  height: 100%;
+  
+  &.hoverable:hover {
+    background-color: lighten($chess-panel, 3%);
+  }
+}
 
+.btn-chess-primary {
+  background-color: $chess-green;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 darken($chess-green, 15%);
+  transition: all 0.1s;
+  
   &:hover {
-    transform: translateY(-5px);
+    background-color: $chess-green-hover;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 0 darken($chess-green, 15%);
+  }
+  
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 darken($chess-green, 15%);
   }
 }
 
-// Responsive adjustments
-@media (max-width: 768px) {
-  .hero-section .hero-image {
-    height: 50vh;
-  }
+// Sub-page Dashboard styling
+.dashboard-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.text-green {
+  color: $chess-green !important;
+}
+
+// Override Bootstrap
+.card {
+  background-color: $chess-panel !important;
+  border-color: $chess-border !important;
+  color: $chess-text !important;
+}
+
+.alert-info {
+  background-color: rgba(129, 182, 76, 0.1) !important;
+  border: 1px solid rgba(129, 182, 76, 0.2) !important;
+  color: #fff !important;
 }

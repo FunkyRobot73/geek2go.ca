@@ -1,82 +1,99 @@
-<!-- contact.component.html -->
-<div class="contact-container">
-    <div class="header-section">
-    
-      <h1>Contact {{profile.businessName}}</h1>
-      <p class="tagline">{{profile.tagline}}</p>
-    </div>
+<div class="dashboard-page animate__animated animate__fadeIn">
   
-    <div class="contact-grid">
-      <!-- Contact Info Card -->
-      <div class="contact-card">
-        <h2><i class="fas fa-info-circle"></i> Get In Touch</h2>
-        <div class="contact-info">
-          <p><i class="fas fa-user"></i> {{profile.nameFull}}</p>
-          <p><i class="fas fa-map-marker-alt"></i> {{profile.address}}</p>
-          <p><i class="fas fa-phone"></i> {{profile.phone}}</p>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
-        </div>
-        
-        <div class="social-links">
-          <a [href]="profile.facebook" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a [href]="profile.instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a [href]="profile.twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a [href]="profile.tiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
-          <a [href]="profile.youtubeChannel" target="_blank"><i class="fab fa-youtube"></i></a>
-        </div>
-      <div class="social-links">
-        <img [src]="profile.logo" alt="Geek2Go Logo" class="logo" style="width: 50%; height: auto;">
-      </div>
-      </div>
-  
-      <!-- Contact Form -->
-      <div class="form-group contact-card form-card">
-        <h2><i class="fas fa-paper-plane"></i> Send Us a Message</h2>
-        <form 
-  action="https://formsubmit.co/carlos@geek2go.ca" 
-  method="POST">
-  <div class="form-group">
-    <input type="text" name="name" placeholder="Your Name" required>
-  </div>
-  <div class="form-group">
-    <input type="email" name="email" placeholder="Your Email" required>
-  </div>
-  <div class="form-group">
-    <input type="text" name="subject" placeholder="Subject">
-  </div>
-  <div class="form-group">
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-  </div>
-  <button type="submit" class="submit-btn">Send Message</button>
-</form>
-      </div>
-  
-      <!-- Services Offered -->
-      <div class="contact-card services-card">
-        <h2><i class="fas fa-list-alt"></i> Our Services</h2>
-        <ul>
-          <li *ngFor="let service of profile.services">
-            <i class="fas fa-check-circle"></i> {{service}}
-          </li>
-        </ul>
-      </div>
-  
-      <!-- About Section -->
-      <div class="contact-card about-card">
-        <h2><i class="fas fa-laptop-code"></i> About {{profile.businessName}}</h2>
-        <p>{{profile.shortBlurb}}</p>
-        <div class="video-container" *ngIf="profile.youtubeVideo">
-          <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
-                  frameborder="0" 
-                  allowfullscreen></iframe>
+  <header class="section-header mb-4">
+    <h1 class="h2">Support Center</h1>
+    <p class="text-muted smallest">Get direct assistance from your local IT Guy</p>
+  </header>
+
+  <div class="row g-4">
+    <!-- INFO COLUMN -->
+    <div class="col-lg-5">
+      
+      <!-- Direct Contact Stats Widget -->
+      <div class="chess-card mb-4 bg-dark-subtle border-green-faint">
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Status: Online</h2>
+        <div class="contact-reach-out">
+          <div class="d-flex align-items-center mb-3">
+            <div class="contact-icon-box me-3">
+              <i class="fa-solid fa-phone text-green"></i>
+            </div>
+            <div>
+              <p class="smallest text-muted mb-0">Direct Line</p>
+              <h3 class="h6 mb-0">{{ profile?.phone }}</h3>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="contact-icon-box me-3">
+              <i class="fa-solid fa-envelope text-green"></i>
+            </div>
+            <div>
+              <p class="smallest text-muted mb-0">Primary Email</p>
+              <h3 class="h6 mb-0">{{ profile?.email }}</h3>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <div class="contact-icon-box me-3">
+              <i class="fa-solid fa-location-dot text-green"></i>
+            </div>
+            <div>
+              <p class="smallest text-muted mb-0">Service Area</p>
+              <h3 class="h6 mb-0">{{ profile?.address }}</h3>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="contact-card about-card">
-        <h2><i class="fas fa-info-circle"></i> About {{profile.businessName}}</h2>
-        <p>{{profile.longBlurb}}</p>
-        
+      <!-- Social Widget -->
+      <div class="chess-card">
+        <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Community & Feeds</h3>
+        <div class="d-flex flex-wrap gap-2">
+          <a [href]="profile?.facebook" target="_blank" class="social-btn-small" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a [href]="profile?.instagram" target="_blank" class="social-btn-small" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a [href]="profile?.twitter" target="_blank" class="social-btn-small" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a [href]="profile?.youtubeChannel" target="_blank" class="social-btn-small" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
 
     </div>
+
+    <!-- FORM COLUMN -->
+    <div class="col-lg-7">
+      <div class="chess-card">
+        <h2 class="h4 mb-3 border-bottom border-dark pb-2">Open a Support Ticket</h2>
+        <p class="smallest text-muted mb-4">Send a message directly to my console and I'll get back to you ASAP.</p>
+        
+        <form action="https://formsubmit.co/carlos@geek2go.ca" method="POST" class="chess-form">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="smallest text-muted text-uppercase mb-1">Your Name</label>
+                <input type="text" name="name" class="form-control-chess" placeholder="Player 1" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="smallest text-muted text-uppercase mb-1">Your Email</label>
+                <input type="email" name="email" class="form-control-chess" placeholder="carlos@example.com" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label class="smallest text-muted text-uppercase mb-1">Regarding</label>
+            <input type="text" name="subject" class="form-control-chess" placeholder="e.g. PC Repair / Web Help">
+          </div>
+          
+          <div class="mb-4">
+            <label class="smallest text-muted text-uppercase mb-1">The Issue / Inquiry</label>
+            <textarea name="message" class="form-control-chess" rows="5" placeholder="Tell me what's happening..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-chess-primary w-100 py-3">Submit System Report</button>
+        </form>
+      </div>
+    </div>
   </div>
+
+</div>

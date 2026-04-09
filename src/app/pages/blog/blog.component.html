@@ -1,62 +1,67 @@
-<div class="container comic-theme my-5">
-    <!-- Comic Book Style Header -->
-    <div class="comic-header mb-4">
-      <h1 class="comic-title">The <span class="comic-underline">Geek2Go!</span> Blog</h1>
-      <div class="comic-bubble">"Cause Everyone needs a Blog for some reason!"</div>
-      
-      <!-- Category Dropdown Menu -->
-      <div ngbDropdown class="dropdown comic-dropdown mb-4 mt-2">
-        <!-- <button class="btn comic-dropdown-toggle dropdown-toggle" id="categoryDropdown" ngbDropdownToggle>
-          Filter by Category: {{selectedCategory}}
-        </button> -->
-        <div ngbDropdownMenu aria-labelledby="categoryDropdown">
-          <button ngbDropdownItem *ngFor="let category of categories" (click)="filterByCategory(category)">
-            {{category}}
-          </button>
-        </div>
-      </div>
+<div class="dashboard-page animate__animated animate__fadeIn">
   
-    <div class="row">
-      <!-- Main Content Column -->
-      <div class="col-lg-12 order-lg-1 order-2">
-        <div *ngFor="let comic of filteredBlogs | slice: (filteredBlogs.length > 9 ? filteredBlogs.length - 9 : 0); index as i" 
-             class="comic-panel p-3 mb-4">
-          <div class="row align-items-center">
-            <!-- Blog Image -->
+  <header class="section-header mb-4 d-flex justify-content-between align-items-end">
+    <div>
+      <h1 class="h2">The Nerd Feed</h1>
+      <p class="text-muted smallest">Code, Comics, and Everything In-Between</p>
+    </div>
+    
+    <!-- Filter Dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-dark btn-sm dropdown-toggle border border-dark" type="button" data-bs-toggle="dropdown">
+        Category: {{ selectedCategory || 'All' }}
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark bg-chess-panel border-dark">
+        <li *ngFor="let cat of categories">
+          <a class="dropdown-item smallest" (click)="filterByCategory(cat)">{{ cat }}</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Article Feed Container -->
+      <div class="article-feed">
+        <div *ngFor="let blog of filteredBlogs" class="chess-card hoverable mb-3 article-feed-item">
+          <div class="row align-items-center g-3">
+            <!-- Thumbnail -->
             <div class="col-md-3">
-              <img [src]="'https://back.funkyrobot.ca/public/' + comic.image" 
-                   alt="{{comic.titleBlog}}"
-                   class="comic-thumbnail img-fluid"/>
+              <div class="article-thumb-wrapper">
+                <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+                     alt="{{blog.titleBlog}}"
+                     class="img-fluid rounded"
+                     onerror="this.src='assets/ai-sample.jpg'"/>
+              </div>
             </div>
             
-            <!-- Blog Content -->
+            <!-- Content -->
             <div class="col-md-9">
-              <div class="comic-speech-bubble p-3 mb-2">
-                <h3 class="comic-post-title">{{comic.titleBlog}} 
-                  <span class="comic-badge">{{comic.catBlog}}</span>
-                </h3>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge rounded-pill bg-dark border border-dark text-green smallest">{{ blog.catBlog }}</span>
+                <span class="smallest text-muted">Posted recently</span>
               </div>
               
-              <div class="comic-text-box p-3">
-                <p class="comic-text" [innerHTML]="(comic.bodyBlog | slice:0:200).slice(0, (comic.bodyBlog | slice:0:200).lastIndexOf(' ')) + '...'"></p>
-                
-                <a *ngIf="comic.bodyBlog.length > 200" 
-                   href="/blog-single/{{comic.idBlog}}" 
-                   class="comic-read-more">
-                  <span class="comic-read-text">Read more</span>
-                  <span class="comic-read-icon">➤</span>
-                </a>
-              </div>
+              <h3 class="h5 mb-2">{{ blog.titleBlog }}</h3>
+              
+              <p class="smallest text-muted mb-3 line-clamp-2" 
+                 [innerHTML]="(blog.bodyBlog | slice:0:180) + '...'"></p>
+              
+              <a [href]="'/blog-single/' + blog.idBlog" class="btn btn-link p-0 text-green smallest text-decoration-none fw-bold">
+                Read Full Story <i class="fa-solid fa-arrow-right list-icon"></i>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Sidebar Column -->
-      <div class="col-lg-3 order-lg-2 order-1 mb-4 mb-lg-0">
-        <div class="sidebar">
-          
+
+        <!-- Empty State -->
+        <div *ngIf="filteredBlogs.length === 0" class="chess-card text-center py-5">
+          <i class="fa-solid fa-folder-open h1 text-muted mb-3 d-block"></i>
+          <p class="text-muted">No logs found in this category.</p>
+          <button class="btn btn-dark btn-sm" (click)="filterByCategory('All')">Clear Filters</button>
         </div>
       </div>
     </div>
   </div>
+
+</div>

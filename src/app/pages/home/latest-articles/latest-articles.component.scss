@@ -1,4 +1,28 @@
-.card-img-top {
-    height: 180px;
+.latest-articles-widget {
+  .article-thumb {
+    width: 60px;
+    height: 45px;
     object-fit: cover;
+    background-color: #312e2b;
+  }
+  
+  .article-item {
+    &:last-child {
+      border-bottom: none !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+.text-green {
+  color: #81b64c;
+}
+
+.smallest {
+  font-size: 0.7rem;
+}
+
+.border-dark-subtle {
+    border-color: #3d3b38 !important;
 }
