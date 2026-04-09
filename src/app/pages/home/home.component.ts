@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LatestArticlesComponent } from './latest-articles/latest-articles.component';
@@ -12,7 +12,7 @@ import { Blog } from 'src/app/interfaces/blog';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   profile: any;
   mainFeedArticles: Blog[] = [];
   featuredOps: any[] = [];
@@ -20,10 +20,24 @@ export class HomeComponent implements OnInit {
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
 
+  ngAfterViewInit() {
+    // Re-initialize Twitter widgets if script is loaded
+    if ((window as any).twttr && (window as any).twttr.widgets) {
+      (window as any).twttr.widgets.load();
+    }
+  }
+
   ngOnInit() {
     this.profileService.profile$.subscribe(data => {
       this.profile = data;
       this.initializeFeaturedOps();
+      
+      // Trigger Twitter load after data arrives and DOM updates
+      setTimeout(() => {
+        if ((window as any).twttr && (window as any).twttr.widgets) {
+          (window as any).twttr.widgets.load();
+        }
+      }, 100);
     });
 
     this.blogService.viewBlog().subscribe({

@@ -1,31 +1,60 @@
-.dashboard-page {
-  padding: 10px 0;
-}
-
-.bg-chess-panel {
-  background-color: #262421 !important;
-}
-
 .article-feed-item {
   transition: all 0.2s ease;
+  background-color: rgba(0,0,0,0.2) !important;
   
   &:hover {
     border-color: #81b64c;
-    transform: translateX(4px);
+    background-color: rgba(129, 182, 76, 0.02) !important;
   }
 }
 
 .article-thumb-wrapper {
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   overflow: hidden;
-  border-radius: 4px;
-  background-color: #312e2b;
+  background-color: #000;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.2s;
   }
+}
+
+.article-feed-item:hover {
+    img {
+        opacity: 1;
+    }
+    .list-icon {
+        transform: translateX(4px);
+    }
+}
+
+// Vertical Navigation
+.nav-vertical-item {
+    color: #bab9b8;
+    transition: all 0.2s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
+
+    &:last-child {
+        border-bottom: none !important;
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: #fff;
+    }
+
+    &.active {
+        background-color: rgba(129, 182, 76, 0.05) !important;
+        color: #fff;
+        box-shadow: inset 3px 0 0 #81b64c;
+    }
+}
+
+.status-box {
+    background-color: rgba(129, 182, 76, 0.05) !important;
 }
 
 .line-clamp-2 {
@@ -37,25 +66,7 @@
 
 .list-icon {
   font-size: 0.7rem;
-  margin-left: 4px;
   transition: transform 0.2s;
-}
-
-.article-feed-item:hover .list-icon {
-  transform: translateX(4px);
-}
-
-.dropdown-menu {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  
-  .dropdown-item {
-    cursor: pointer;
-    
-    &:hover {
-      background-color: #312e2b;
-      color: #81b64c;
-    }
-  }
 }
 
 .smallest {

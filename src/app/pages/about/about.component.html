@@ -1,28 +1,32 @@
-<div class="dashboard-page animate__animated animate__fadeIn">
+<div class="dashboard-grid animate__animated animate__fadeIn">
   
-  <header class="section-header mb-4">
-    <h1 class="h2">About Geek2Go.ca</h1>
-    <p class="text-muted smallest">{{ profile?.tagline }}</p>
-  </header>
-
-  <div class="row g-4">
-    <!-- LEFT COLUMN: The Story -->
-    <div class="col-lg-8">
-      <div class="chess-card mb-4 profile-bio">
-        <h2 class="h4 mb-3 text-green border-bottom border-dark pb-2">The Founder's Log</h2>
-        <div class="bio-text">
-          <p class="lead">{{ profile?.bio }}</p>
-          <hr class="border-dark">
-          <p>{{ profile?.bio1 }}</p>
-          <p>{{ profile?.bio2 }}</p>
-          <p class="mb-0">{{ profile?.bio3 }}</p>
-        </div>
+  <!-- MAIN CHANNEL (70%) -->
+  <div class="main-channel">
+    
+    <!-- Founder's Log (Bio) -->
+    <div class="chess-card mb-4 profile-bio">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0 text-green border-bottom border-dark pb-2 flex-grow-1">Founder's Log</h2>
+        <span class="smallest text-muted text-uppercase ms-3">Clearance: Level 5</span>
       </div>
+      <div class="bio-text">
+        <p class="lead fw-bold mb-4">{{ profile?.bio }}</p>
+        <div class="mission-briefing p-3 bg-dark-subtle border-start border-green mb-4">
+           <p class="smallest text-muted text-uppercase mb-1">Primary Objective</p>
+           <p class="mb-0">{{ profile?.mission }}</p>
+        </div>
+        <p>{{ profile?.bio1 }}</p>
+        <p>{{ profile?.bio2 }}</p>
+        <p class="mb-0">{{ profile?.bio3 }}</p>
+      </div>
+    </div>
 
-      <!-- Services Preview Widget in About -->
+    <!-- Expertise Grid -->
+    <div class="Expertise-Archives section-group mb-4">
+      <h3 class="h5 mb-3"><i class="fa-solid fa-microchip text-green me-2"></i> Field Expertise</h3>
       <div class="row g-3">
         <div class="col-md-6" *ngFor="let service of servicesData">
-          <div class="chess-card hoverable">
+          <div class="chess-card hoverable h-100">
             <div class="d-flex align-items-center mb-2">
               <i [class]="service.icon + ' text-green me-3 h4 mb-0'"></i>
               <h3 class="h6 mb-0">{{ service.title }}</h3>
@@ -33,65 +37,75 @@
       </div>
     </div>
 
-    <!-- RIGHT COLUMN: Stats & Meta -->
-    <div class="col-lg-4">
+    <!-- Media Log (Video) -->
+    <div class="video-log section-group" *ngIf="profile?.youtubeVideo">
+        <h3 class="h5 mb-3"><i class="fa-solid fa-play text-green me-2"></i> Visual Briefing</h3>
+        <div class="chess-card video-widget p-3">
+          <div class="ratio ratio-16x9 mb-3">
+            <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
+                    allowfullscreen></iframe>
+          </div>
+          <p class="smallest text-muted mb-0">{{ profile?.videoBlurb }}</p>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- SIDE CHANNEL (30%) -->
+  <div class="side-channel">
+    
+    <!-- Personnel Portrait -->
+    <div class="chess-card text-center mb-4 profile-portrait-widget">
+      <div class="profile-frame mb-3 position-relative d-inline-block">
+        <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" 
+             class="img-fluid border border-dark p-1" 
+             alt="Carlos Sousa"
+             style="border-radius: 4px;">
+        <div class="status-badge-mini">ONLINE</div>
+      </div>
+      <h4 class="h6 fw-bold mb-1">{{ profile?.nameFull }}</h4>
+      <p class="smallest text-green mb-3 text-uppercase fw-bold">{{ profile?.ownerTitle }}</p>
       
-      <!-- Profile Widget -->
-      <div class="chess-card text-center mb-4">
-        <div class="profile-frame mb-3">
-          <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" class="img-fluid rounded-circle border border-dark p-1" alt="Carlos Sousa">
-        </div>
-        <h4 class="mb-1">{{ profile?.nameFull }}</h4>
-        <p class="smallest text-green mb-3">{{ profile?.ownerTitle }}</p>
-        
-        <div class="social-widget d-flex justify-content-center gap-3 mb-3">
-          <a *ngFor="let social of socialPlatforms" 
-             [href]="profile[social.platform]" 
-             target="_blank"
-             class="social-icon-btn">
-            <i [class]="social.icon"></i>
-          </a>
-        </div>
-        <a [href]="profile?.linkedin" target="_blank" class="btn btn-dark btn-sm w-100">Professional Profile</a>
+      <div class="social-widget d-flex justify-content-center gap-2 mb-3">
+        <a *ngFor="let social of socialPlatforms" 
+           [href]="profile[social.platform]" 
+           target="_blank"
+           class="social-icon-btn smallest">
+          <i [class]="social.icon"></i>
+        </a>
       </div>
-
-      <!-- Mission Widget -->
-      <div class="chess-card mb-4 bg-dark-subtle">
-        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Mission</h3>
-        <p class="small mb-0">{{ profile?.mission }}</p>
-      </div>
-
-      <!-- Vision Widget -->
-      <div class="chess-card mb-4 border-green-faint">
-        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Vision</h3>
-        <p class="small mb-0">{{ profile?.vision }}</p>
-      </div>
-
-      <!-- Value List -->
-      <div class="chess-card">
-        <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Core Values</h3>
-        <ul class="list-unstyled mb-0 smallest">
-          <li *ngFor="let value of profile?.values" class="mb-2">
-            <i class="fa-solid fa-circle-check text-green me-2"></i> {{ value }}
-          </li>
-        </ul>
-      </div>
-
+      <a [href]="profile?.linkedin" target="_blank" class="btn btn-dark btn-sm w-100 smallest border-dark">Signal Intelligence (LinkedIn)</a>
     </div>
-  </div>
 
-  <!-- Video Section as full-width widget -->
-  <div class="row mt-4" *ngIf="profile?.youtubeVideo">
-    <div class="col-12">
-      <div class="chess-card video-widget">
-        <h3 class="h4 mb-3">See Geek2Go in Action</h3>
-        <div class="ratio ratio-16x9 mb-3">
-          <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
-                  allowfullscreen></iframe>
-        </div>
-        <p class="smallest text-muted">{{ profile?.videoBlurb }}</p>
-      </div>
+    <!-- Vision Widget -->
+    <div class="chess-card mb-4 border-green-faint">
+      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Future Outlook</h3>
+      <p class="smallest mb-0">{{ profile?.vision }}</p>
     </div>
-  </div>
 
+    <!-- Value Matrix -->
+    <div class="chess-card">
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Operational Values</h3>
+      <ul class="list-unstyled mb-0 smallest">
+        <li *ngFor="let value of profile?.values" class="mb-2 d-flex align-items-start">
+          <i class="fa-solid fa-square-check text-green me-2 mt-1"></i> 
+          <span>{{ value }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Location Stats -->
+    <div class="chess-card mt-4 bg-dark-subtle border-dark">
+        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Deployment</h3>
+        <div class="d-flex justify-content-between smallest">
+            <span class="text-muted">Sector:</span>
+            <span class="text-white">Burlington / Aldershot</span>
+        </div>
+        <div class="d-flex justify-content-between smallest mt-1">
+            <span class="text-muted">Status:</span>
+            <span class="text-green fw-bold">Active</span>
+        </div>
+    </div>
+
+  </div>
 </div>

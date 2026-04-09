@@ -1,26 +1,26 @@
-<div class="dashboard-page animate__animated animate__fadeIn">
+<div class="dashboard-grid animate__animated animate__fadeIn">
   
-  <div *ngIf="loading" class="text-center py-5">
+  <div *ngIf="loading" class="text-center py-5 w-100">
     <div class="spinner-border text-green" role="status">
-      <span class="visually-hidden">Loading...</span>
+      <span class="visually-hidden">Syncing Archive...</span>
     </div>
   </div>
 
-  <div *ngIf="!loading && blogPost" class="row g-4">
-    <!-- MAIN ARTICLE CHANNEL -->
-    <div class="col-lg-8">
+  <ng-container *ngIf="!loading && blogPost">
+    <!-- MAIN ARTICLE CHANNEL (70%) -->
+    <div class="main-channel">
       <div class="chess-card article-view">
-        <header class="article-header mb-4">
-          <div class="d-flex align-items-center gap-3 mb-3">
+        <header class="article-header mb-4 border-bottom border-dark pb-3">
+          <div class="d-flex align-items-center justify-content-between mb-3">
              <span class="badge rounded-pill bg-dark border border-dark text-green smallest">{{ blogPost.catBlog }}</span>
-             <span class="smallest text-muted"><i class="fa-regular fa-clock me-1"></i> Read Log</span>
+             <span class="smallest text-muted">Node: ARCHIVE_LOG_{{ blogPost.idBlog }}</span>
           </div>
-          <h1 class="h2 mb-4">{{ blogPost.titleBlog }}</h1>
+          <h1 class="h2 mb-4 fw-bold text-white">{{ blogPost.titleBlog }}</h1>
           
-          <div class="article-featured-img-wrapper mb-4">
+          <div class="article-featured-img-wrapper mb-4 overflow-hidden rounded border border-dark">
             <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.image" 
                  alt="{{blogPost.titleBlog}}"
-                 class="img-fluid rounded border border-dark"
+                 class="img-fluid"
                  onerror="this.src='assets/ai-sample.jpg'" />
           </div>
         </header>
@@ -28,13 +28,13 @@
         <section class="article-content">
           <!-- Main Body -->
           <div class="content-block mb-4">
-            <div [innerHTML]="blogPost.subtitleBlog" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.subtitleBlog" class="h5 text-green mb-3 fw-bold"></div>
             <div [innerHTML]="blogPost.bodyBlog" class="body-text"></div>
           </div>
 
           <!-- Section 2 -->
           <div class="content-block mb-4" *ngIf="blogPost.bodyBlog02">
-            <div [innerHTML]="blogPost.subtitleBlog02" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.subtitleBlog02" class="h5 text-green mb-3 fw-bold"></div>
             <div [innerHTML]="blogPost.bodyBlog02" class="body-text"></div>
           </div>
 
@@ -47,62 +47,74 @@
 
           <!-- Section 3 -->
           <div class="content-block mb-4" *ngIf="blogPost.bodyBlog03">
-            <div [innerHTML]="blogPost.subtitleBlog03" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.subtitleBlog03" class="h5 text-green mb-3 fw-bold"></div>
             <div [innerHTML]="blogPost.bodyBlog03" class="body-text"></div>
           </div>
 
           <!-- Section 4 -->
           <div class="content-block mb-4" *ngIf="blogPost.bodyBlog04">
-            <div [innerHTML]="blogPost.subtitleBlog04" class="h4 text-green mb-3"></div>
+            <div [innerHTML]="blogPost.subtitleBlog04" class="h5 text-green mb-3 fw-bold"></div>
             <div [innerHTML]="blogPost.bodyBlog04" class="body-text"></div>
           </div>
         </section>
 
         <footer class="mt-5 pt-4 border-top border-dark">
-          <a routerLink="/blogs" class="btn btn-dark btn-sm">
-            <i class="fa-solid fa-arrow-left me-2"></i> Back to Feed
+          <a routerLink="/blogs" class="btn btn-dark btn-sm border-dark">
+            <i class="fa-solid fa-arrow-left me-2"></i> Return to Feed Archive
           </a>
         </footer>
       </div>
     </div>
 
-    <!-- SIDEBAR CHANNEL -->
-    <div class="col-lg-4">
+    <!-- SIDEBAR CHANNEL (30%) -->
+    <div class="side-channel">
       
       <!-- Related Feed Widget -->
-      <div class="chess-card mb-4">
-        <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Latest in Archive</h3>
-        <div class="related-list">
+      <div class="chess-card mb-4 p-0 overflow-hidden">
+        <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Latest Intel</h3>
+        <div class="related-list p-2">
           <a *ngFor="let recent of recentBlogs.slice(0, 5)" 
              [routerLink]="['/blog-single', recent.idBlog]"
-             class="related-item d-flex align-items-center mb-3 text-decoration-none">
+             class="related-item d-flex align-items-center p-2 mb-2 text-decoration-none hover-bg-dark rounded">
             <img [src]="'https://back.funkyrobot.ca/public/' + recent.image" 
-                 class="rounded me-2" width="48" height="36" style="object-fit: cover;"
+                 class="rounded me-3" width="56" height="42" style="object-fit: cover;"
                  onerror="this.src='assets/ai-sample.jpg'">
             <div class="related-info overflow-hidden">
-               <h4 class="smallest text-white mb-0 text-truncate">{{ recent.titleBlog }}</h4>
-               <span class="smallest text-muted">{{ recent.catBlog }}</span>
+               <h4 class="smallest fw-bold text-white mb-0 text-truncate">{{ recent.titleBlog }}</h4>
+               <span class="smallest text-muted text-uppercase">{{ recent.catBlog }}</span>
             </div>
           </a>
         </div>
-        <a routerLink="/blogs" class="btn btn-dark btn-sm w-100 mt-2">Browse All</a>
+        <div class="p-3 pt-0">
+            <a routerLink="/blogs" class="btn btn-dark btn-sm w-100 border-dark smallest">Browse Full Archive</a>
+        </div>
       </div>
 
       <!-- Quick Action Widget -->
-      <div class="chess-card bg-dark-subtle border-green-faint">
+      <div class="chess-card mb-4 border-green-faint bg-dark-subtle">
         <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Questions?</h3>
-        <p class="smallest text-muted mb-3">Have an inquiry about this topic? Let's chat.</p>
+        <p class="smallest text-muted mb-3">Does this intel require clarification? Dispatch a direct inquiry.</p>
         <a routerLink="/contact" class="btn-chess-primary btn-sm w-100">Contact Carlos</a>
       </div>
 
+      <!-- Author Card (Mini) -->
+      <div class="chess-card text-center border-dark">
+          <div class="avatar-mini-circle mb-2 mx-auto">
+              <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" class="img-fluid rounded-circle border border-dark" width="40">
+          </div>
+          <h5 class="smallest fw-bold mb-0">{{ profile?.nameFull }}</h5>
+          <span class="smallest text-green">{{ profile?.ownerTitle }}</span>
+      </div>
+
     </div>
-  </div>
+  </ng-container>
 
   <!-- Error State -->
-  <div *ngIf="error" class="chess-card text-center py-5">
-    <i class="fa-solid fa-triangle-exclamation h1 text-danger mb-3"></i>
-    <p>{{ error }}</p>
-    <a routerLink="/blogs" class="btn btn-dark btn-sm">Back to Feed</a>
+  <div *ngIf="error" class="main-channel">
+      <div class="chess-card text-center py-5">
+        <i class="fa-solid fa-triangle-exclamation h1 text-danger mb-3"></i>
+        <p class="text-white">{{ error }}</p>
+        <a routerLink="/blogs" class="btn btn-dark btn-sm">Return to Archive</a>
+      </div>
   </div>
-
 </div>

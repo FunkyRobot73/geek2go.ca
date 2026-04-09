@@ -4,6 +4,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from '../../interfaces/blog';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ProfileService } from 'src/app/services/profile.service';
 
 
 @Component({
@@ -15,12 +16,20 @@ import { RouterModule } from '@angular/router';
 export class BlogSingleComponent implements OnInit {
 
   
+  profile: any;
   blogPost: Blog | null = null;
   loading: boolean = true;
   error: string | null = null;
 recentBlogs: Blog[] = []; // For sidebar recent posts
 
-  constructor(private route: ActivatedRoute, private blogService: BlogService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private blogService: BlogService,
+    private profileService: ProfileService
+  ) {
+    this.profileService.profile$.subscribe(data => {
+      this.profile = data;
+    });
     this.blogService.viewBlog().subscribe({
       next: (data) => {
         this.recentBlogs = data;

@@ -8,6 +8,46 @@ $chess-text: #d5d4d3;
 $chess-text-muted: #bab9b8;
 $sidebar-width: 144px;
 
+// --- DASHBOARD SYSTEM ---
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.main-channel {
+  min-width: 0;
+}
+
+.side-channel {
+  .chess-card {
+    height: auto !important;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .side-channel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-channel {
+    grid-template-columns: 1fr;
+  }
+}
+
 // --- GLOBAL DEFAULTS ---
 body, html {
   height: 100%;
@@ -67,7 +107,6 @@ h1, h2, h3, h4, .navbar-brand {
   border-radius: 4px;
   padding: 20px;
   transition: background-color 0.2s;
-  height: 100%;
   
   &.hoverable:hover {
     background-color: lighten($chess-panel, 3%);

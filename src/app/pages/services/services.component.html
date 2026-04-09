@@ -1,73 +1,110 @@
-<div class="dashboard-page animate__animated animate__fadeIn">
-  
-  <header class="section-header mb-4">
-    <h1 class="h2">Service Marketplace</h1>
-    <p class="text-muted smallest">Expert IT Solutions for Aldershot & Burlington</p>
-  </header>
-
-  <!-- Intro Widget -->
-  <div class="chess-card mb-4 bg-dark-subtle border-green-faint">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-8">
-        <h2 class="h5 text-green">The "Human IT" Experience</h2>
-        <p class="small mb-0">
-          Imagine needing an expert to just "take a look" without the corporate overhead. 
-          I offer a unique service where I come to your home or business for a day, 
-          putting 25+ years of expertise at your disposal. No jargon, no nonsense—just results.
-        </p>
+<div class="dashboard-grid animate__animated animate__fadeIn">
+  <!-- MAIN CHANNEL (70%) -->
+  <div class="main-channel">
+    
+    <header class="section-header mb-4 d-flex justify-content-between align-items-end">
+      <div>
+        <h1 class="h2 mb-0">Service Marketplace</h1>
+        <p class="text-muted smallest mb-0">Operational Solutions for Aldershot & Burlington</p>
       </div>
-      <div class="col-lg-4 border-start border-dark pl-lg-4">
-        <h3 class="smallest text-muted text-uppercase mb-2">Key Questions</h3>
-        <ul class="list-unstyled smallest mb-0">
-          <li><i class="fa-solid fa-bolt text-green me-1"></i> Can I do this faster?</li>
-          <li><i class="fa-solid fa-bolt text-green me-1"></i> Can AI help me?</li>
-          <li><i class="fa-solid fa-bolt text-green me-1"></i> Do I need advice?</li>
-          <li class="mt-2 text-white">The answer is almost always <strong>YES.</strong></li>
-        </ul>
+      <div class="status-box smallest p-2 bg-dark-subtle border border-dark rounded">
+        <span class="text-muted">Active Node:</span> <span class="text-green fw-bold">MARKETPLACE_ALPHA</span>
+      </div>
+    </header>
+
+    <!-- Intro Widget -->
+    <div class="chess-card mb-4 bg-dark-subtle border-green-faint">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-12">
+          <h2 class="h5 text-green"><i class="fa-solid fa-headset me-2"></i> The "Human IT" Experience</h2>
+          <p class="small mb-0">
+            Imagine needing an expert to just "take a look" without the corporate overhead. 
+            I offer a unique service where I come to your home or business for a day, 
+            putting 25+ years of expertise at your disposal. No jargon, no nonsense—just results.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Service Sub-Nav -->
-  <div class="service-nav-wrapper mb-4 animate__animated animate__fadeInUp">
-    <div class="nav-scroll-container">
-      <button *ngFor="let service of services" 
-              class="nav-tab-item"
-              [class.active]="activeTab === service"
-              (click)="setActiveTab(service)">
-        {{ service }}
-      </button>
-    </div>
-  </div>
-
-  <!-- Package Grid -->
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div class="col" *ngFor="let pkg of filteredPackages">
-      <div class="chess-card package-card h-100 hoverable d-flex flex-column">
-        <div class="package-header mb-3">
-          <div class="d-flex justify-content-between align-items-start">
-            <i [class]="pkg.icon + ' h3 text-green mb-0'"></i>
-            <span class="badge rounded-pill bg-dark border border-dark-subtle text-green smallest">${{ pkg.price }}</span>
+    <!-- Package Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+      <div class="col" *ngFor="let pkg of filteredPackages">
+        <div class="chess-card package-card h-100 hoverable d-flex flex-column">
+          <div class="package-header mb-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <i [class]="pkg.icon + ' h3 text-green mb-0'"></i>
+              <span class="badge rounded-pill bg-dark border border-dark-subtle text-green smallest">${{ pkg.price }}</span>
+            </div>
+            <h3 class="h6 mt-3 mb-1 fw-bold">{{ pkg.title }}</h3>
+            <span class="smallest text-muted">{{ pkg.price < 300 ? 'Flat Rate' : 'Per Day (8 Hours)' }}</span>
           </div>
-          <h3 class="h5 mt-3 mb-1">{{ pkg.title }}</h3>
-          <span class="smallest text-muted">{{ pkg.price < 300 ? 'Flat Rate' : 'Per Day (8 Hours)' }}</span>
-        </div>
-        
-        <div class="package-body flex-grow-1">
-          <p class="smallest text-muted mb-3">{{ pkg.description }}</p>
-          <ul class="list-unstyled smallest mb-0">
-            <li class="mb-1"><i class="fa-solid fa-check-double text-green me-2"></i> {{ pkg.details1 }}</li>
-            <li class="mb-1"><i class="fa-solid fa-check-double text-green me-2"></i> {{ pkg.details2 }}</li>
-            <li><i class="fa-solid fa-check-double text-green me-2"></i> {{ pkg.details3 }}</li>
-          </ul>
-        </div>
-        
-        <div class="package-footer mt-4 gap-2 d-flex">
-          <a routerLink="/contact" class="btn btn-chess-primary btn-sm flex-grow-1">Book Solution</a>
-          <!-- <button class="btn btn-dark btn-sm"><i class="fa-solid fa-info-circle"></i></button> -->
+          
+          <div class="package-body flex-grow-1">
+            <p class="smallest text-muted mb-3">{{ pkg.description }}</p>
+            <ul class="list-unstyled smallest mb-0">
+              <li class="mb-1 d-flex align-items-start">
+                <i class="fa-solid fa-check text-green me-2 mt-1"></i> 
+                <span>{{ pkg.details1 }}</span>
+              </li>
+              <li class="mb-1 d-flex align-items-start">
+                <i class="fa-solid fa-check text-green me-2 mt-1"></i> 
+                <span>{{ pkg.details2 }}</span>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="fa-solid fa-check text-green me-2 mt-1"></i> 
+                <span>{{ pkg.details3 }}</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="package-footer mt-4">
+            <a routerLink="/contact" class="btn btn-chess-primary btn-sm w-100">Initialize Solution</a>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
+  <!-- SIDE CHANNEL (30%) -->
+  <div class="side-channel">
+    
+    <!-- Category Navigation Card -->
+    <div class="chess-card mb-4 p-0 overflow-hidden">
+      <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Sectors</h3>
+      <div class="vertical-nav">
+        <button *ngFor="let service of services" 
+                class="nav-vertical-item w-100 text-start border-0 bg-transparent py-3 px-3 d-flex align-items-center"
+                [class.active]="activeTab === service"
+                (click)="setActiveTab(service)">
+          <i class="fa-solid fa-chevron-right smallest me-2" [class.text-green]="activeTab === service"></i>
+          <span class="smallest fw-bold">{{ service }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Stats Widget -->
+    <div class="chess-card mb-4 border-green-faint">
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Logistics Meta</h3>
+      <div class="d-flex justify-content-between smallest mb-2">
+        <span class="text-muted">Response:</span>
+        <span class="text-white">< 4 Hours</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-2">
+        <span class="text-muted">Radius:</span>
+        <span class="text-white">25km (Burlington)</span>
+      </div>
+      <div class="d-flex justify-content-between smallest">
+        <span class="text-muted">Expertise:</span>
+        <span class="text-green fw-bold">Professional</span>
+      </div>
+    </div>
+
+    <!-- Support Link -->
+    <div class="chess-card bg-dark-subtle border-dark text-center">
+        <p class="smallest text-muted mb-3">Custom logic needed? Request a unique mission briefing.</p>
+        <a routerLink="/contact" class="btn btn-outline-secondary btn-sm w-100 smallest">Custom Request</a>
+    </div>
+
+  </div>
 </div>
