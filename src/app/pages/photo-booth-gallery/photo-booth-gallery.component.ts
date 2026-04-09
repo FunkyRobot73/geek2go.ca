@@ -29,7 +29,7 @@ export class PhotoBoothGalleryComponent implements OnInit {
     
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
-        src: `${basePath}pb${i}.jpg`, // Adjust naming pattern as needed
+        src: `${basePath}pb${i}.webp`, // Adjust naming pattern as needed
         alt: `Photo Booth Image ${i}`
       });
     }

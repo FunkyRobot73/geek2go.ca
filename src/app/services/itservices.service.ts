@@ -25,7 +25,7 @@ packages: ItService[] = [
       details1: 'Custom website design tailored to your brand.',
       details2: 'Responsive design for optimal viewing on all devices.',
       details3: 'SEO-friendly structure to improve search engine rankings.',
-      imageSample: 'assets/services/webdev.jpg',
+      imageSample: 'assets/services/webdev.webp',
       icon: 'fas fa-laptop-code',
       price: 399
     },
@@ -34,7 +34,7 @@ packages: ItService[] = [
       details1: 'Custom WordPress themes and plugins.',
       details2: 'Easy-to-use content management system.',
       details3: 'Regular updates and maintenance for security and performance.',
-      imageSample: 'assets/services/wordpress.jpg',
+      imageSample: 'assets/services/wordpress.webp',
       icon: 'fab fa-wordpress',
       price: 399
     },
@@ -43,7 +43,7 @@ packages: ItService[] = [
       details1: 'Keyword research and optimization.',
       details2: 'On-page and off-page SEO strategies.',
       details3: 'Regular performance reports and analytics.',
-      imageSample: 'assets/services/seo.jpg',
+      imageSample: 'assets/services/seo.webp',
       icon: 'fas fa-search',
       price: 399
     },
@@ -52,7 +52,7 @@ packages: ItService[] = [
       details1: 'Advanced SEO techniques and strategies.',
       details2: 'Content optimization and link building.',
       details3: 'Continuous monitoring and adjustments for optimal results.',
-      imageSample: 'assets/services/google-ranking.jpg',
+      imageSample: 'assets/services/google-ranking.webp',
       icon: 'fas fa-chart-line',
       price: 399
     },
@@ -61,7 +61,7 @@ packages: ItService[] = [
       details1: 'Comprehensive virus and malware scans.',
       details2: 'Effective removal of threats and infections.',
       details3: 'Ongoing protection and security updates.',
-      imageSample: 'assets/services/virus-protection.jpg',
+      imageSample: 'assets/services/virus-protection.webp',
       icon: 'fas fa-shield-alt',
       price: 399
     },
@@ -70,7 +70,7 @@ packages: ItService[] = [
       details1: 'Encryption and secure data storage.',
       details2: 'Access control and authentication measures.',
       details3: 'Regular security audits and assessments.',
-      imageSample: 'assets/services/data-security.jpg',
+      imageSample: 'assets/services/data-security.webp',
       icon: 'fas fa-lock',
       price: 399
     },
@@ -79,7 +79,7 @@ packages: ItService[] = [
       details1: 'Automated backup solutions for peace of mind.',
       details2: 'Quick and efficient data recovery processes.',
       details3: 'Regular backup testing and verification.',
-      imageSample: 'assets/services/data-backup.jpg',
+      imageSample: 'assets/services/data-backup.webp',
       icon: 'fas fa-database',
       price: 399
     },
@@ -88,7 +88,7 @@ packages: ItService[] = [
       details1: 'Troubleshooting and problem resolution.',
       details2: 'Software and hardware support.',
       details3: 'Remote and on-site assistance options.',
-      imageSample: 'assets/services/tech-support.jpg',
+      imageSample: 'assets/services/tech-support.webp',
       icon: 'fas fa-headset',
       price: 399
     },
@@ -97,7 +97,7 @@ packages: ItService[] = [
       details1: 'Custom logo and branding design.',
       details2: 'Marketing materials and promotional graphics.',
       details3: 'Digital and print design solutions.',
-      imageSample: 'assets/services/graphic-design.jpg',
+      imageSample: 'assets/services/graphic-design.webp',
       icon: 'fas fa-paint-brush',
       price: 399
     },
@@ -106,7 +106,7 @@ packages: ItService[] = [
       details1: 'Content creation and scheduling.',
       details2: 'Audience engagement and community management.',
       details3: 'Performance tracking and analytics.',
-      imageSample: 'assets/services/social-media.jpg',
+      imageSample: 'assets/services/social-media.webp',
       icon: 'fas fa-thumbs-up',
       price: 399
     },
@@ -115,7 +115,7 @@ packages: ItService[] = [
       details1: 'Technology assessments and recommendations.',
       details2: 'Strategic planning and implementation support.',
       details3: 'Ongoing guidance and advisory services.',
-      imageSample: 'assets/services/it-consulting.jpg',
+      imageSample: 'assets/services/it-consulting.webp',
       icon: 'fas fa-lightbulb',
       price: 399
     },
@@ -124,7 +124,7 @@ packages: ItService[] = [
       details1: 'Custom e-commerce website development.',
       details2: 'Secure payment gateway integration.',
       details3: 'Inventory management and order processing.',
-      imageSample: 'assets/services/ecommerce.jpg',
+      imageSample: 'assets/services/ecommerce.webp',
       icon: 'fas fa-shopping-cart',
       price: 399
     },  
@@ -133,7 +133,7 @@ packages: ItService[] = [
       details1: 'Custom application design and development.',
       details2: 'Integration with existing systems and platforms.',
       details3: 'Ongoing support and maintenance.',
-      imageSample: 'assets/services/custom-software.jpg',
+      imageSample: 'assets/services/custom-software.webp',
       icon: 'fas fa-code',
       price: 399
     },
@@ -142,7 +142,7 @@ packages: ItService[] = [
       details1: 'Network design and installation.',
       details2: 'Ongoing monitoring and maintenance.',
       details3: 'Troubleshooting and support services.',
-      imageSample: 'assets/services/network-setup.jpg',
+      imageSample: 'assets/services/network-setup.webp',
       icon: 'fas fa-network-wired',
       price: 399
     },
@@ -151,7 +151,7 @@ packages: ItService[] = [
       details1: 'Cloud migration and deployment.',
       details2: 'Cloud storage and backup solutions.',
       details3: 'Ongoing cloud management and support.',
-      imageSample: 'assets/services/cloud-services.jpg',
+      imageSample: 'assets/services/cloud-services.webp',
       icon: 'fas fa-cloud',
       price: 399
     },  
@@ -160,7 +160,7 @@ packages: ItService[] = [
       details1: 'Customized training programs and workshops.',
       details2: 'Ongoing support and resources.',
       details3: 'Hands-on learning and practical applications.',
-      imageSample: 'assets/services/tech-training.jpg',
+      imageSample: 'assets/services/tech-training.webp',
       icon: 'fas fa-chalkboard-teacher',
       price: 399
     },  
@@ -169,7 +169,7 @@ packages: ItService[] = [
       details1: 'Tailored solutions for your unique requirements.',
       details2: 'Flexible service options to fit your budget.',
       details3: 'Dedicated support and customer service.',
-      imageSample: 'assets/services/more.jpg',
+      imageSample: 'assets/services/more.webp',
       icon: 'fas fa-ellipsis-h',
       price: 399
     }

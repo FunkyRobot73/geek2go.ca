@@ -36,7 +36,7 @@ export class DjGalleryComponent implements OnInit{
     
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
-        src: `${basePath}dj${i}.jpg`, // Adjust naming pattern as needed
+        src: `${basePath}dj${i}.webp`, // Adjust naming pattern as needed
         alt: `DJ Party Image ${i}`
       });
     }
