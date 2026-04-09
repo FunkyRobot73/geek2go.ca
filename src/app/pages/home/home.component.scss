@@ -98,10 +98,9 @@
   }
 }
 
-.tactical-terminal {
+.tactical-terminal, .twitter-timeline-container {
     background-color: #1a1917;
-    min-height: 300px;
-    max-height: 500px;
+    max-height: 480px;
     overflow-y: auto;
     
     &::-webkit-scrollbar {
@@ -111,6 +110,16 @@
         background-color: #3d3b38;
         border-radius: 4px;
     }
+}
+
+.twitter-feed-wrapper {
+    background-color: #262421 !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.avatar-frame {
+  width: 48px;
+  height: 48px;
 }
 
 .monospace {
