@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-dj-gallery',
@@ -17,9 +18,14 @@ export class DjGalleryComponent implements OnInit{
   selectedImage: {src: string, alt: string} | null = null;
   showLightbox = false;
 
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService, private seo: SeoService) {}
 
   ngOnInit() {
+    this.seo.setPage({
+      title: 'Geek Gallery — Events & Community Photos',
+      description: 'Browse the Geek2Go Geek Gallery — photos from community events and tech moments in Burlington, Aldershot and the surrounding area.',
+      path: '/geek-gallery'
+    });
     this.profileService.profile$.subscribe(data => {
       this.profile = data;
     });

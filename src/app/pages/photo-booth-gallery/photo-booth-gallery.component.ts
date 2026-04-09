@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-photo-booth-gallery',
@@ -15,7 +16,14 @@ export class PhotoBoothGalleryComponent implements OnInit {
   selectedImage: {src: string, alt: string} | null = null;
   showLightbox = false;
 
+  constructor(private seo: SeoService) {}
+
   ngOnInit() {
+    this.seo.setPage({
+      title: 'Social Gallery — Community Snapshots',
+      description: 'Browse the Geek2Go Social Gallery — community event photos and social moments from Burlington, Aldershot and the Hamilton area.',
+      path: '/social-gallery'
+    });
     this.loadGalleryImages();
   }
 

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ItService } from 'src/app/services/itservices.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 
 @Component({
@@ -488,7 +489,12 @@ export class ServicesComponent {
     return 'assets/webdev.webp';
   }
 
-  constructor() {
+  constructor(private seo: SeoService) {
     this.packages = [];
+    this.seo.setPage({
+      title: 'IT Services Burlington — Repair, Web Dev & Training',
+      description: 'Computer repair, virus removal, web development, data recovery, AI training & more. Serving Burlington, Aldershot, Oakville & Hamilton. Get expert IT help from Geek2Go.ca.',
+      path: '/services'
+    });
   }
 }

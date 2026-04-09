@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,8 +14,12 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ContactComponent {
  profile: any;
   
-  constructor(private profileService: ProfileService, private sanitizer: DomSanitizer) {
-    
+  constructor(private profileService: ProfileService, private sanitizer: DomSanitizer, private seo: SeoService) {
+    this.seo.setPage({
+      title: 'Contact Geek2Go — IT Support Burlington',
+      description: 'Get in touch with Geek2Go.ca for IT support, computer repair, or web development inquiries in Burlington, Aldershot & surrounding areas.',
+      path: '/contact'
+    });
     this.profileService.profile$.subscribe(profile => {
       this.profile = profile;
     });

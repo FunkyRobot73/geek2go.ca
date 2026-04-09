@@ -3,6 +3,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from '../../interfaces/blog';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-blog',
@@ -12,12 +13,18 @@ import { RouterModule } from '@angular/router';
 })
 export class BlogComponent {
   viewBlogService = inject(BlogService);
+  seo = inject(SeoService);
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];
   categories = ['All', 'Comics', 'Music', 'Rants', 'Tech', 'Media'];
   selectedCategory = '';
 
   constructor() {
+    this.seo.setPage({
+      title: 'Tech Blog — Geek Culture, IT Tips & More',
+      description: 'Read the Geek2Go blog for IT tips, tech news, comics, music and geek culture from Burlington\'s own IT expert, Carlos Sousa.',
+      path: '/blogs'
+    });
     this.viewBlogService.viewBlog().subscribe({
       next: (data) => {
         this.blogs = data;

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-about',
@@ -17,10 +18,16 @@ export class AboutComponent {
 
   constructor(
     private profileService: ProfileService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private seo: SeoService
   ) {}
 
   ngOnInit() {
+    this.seo.setPage({
+      title: 'About Carlos Sousa — Burlington IT Expert',
+      description: '25+ years IT experience in Burlington & Aldershot. Meet Carlos Sousa, founder of Geek2Go.ca — your local computer repair and tech support specialist.',
+      path: '/about'
+    });
     this.profileService.profile$.subscribe(profile => {
       this.profile = profile;
       this.initializeData();

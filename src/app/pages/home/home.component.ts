@@ -6,6 +6,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from 'src/app/interfaces/blog';
 import { TACTICAL_TRANSMISSIONS, Transmission } from 'src/app/services/twitter.data';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +22,14 @@ export class HomeComponent implements OnInit {
 
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
+  private seo = inject(SeoService);
 
   ngOnInit() {
+    this.seo.setPage({
+      title: 'IT Support & Computer Repair Burlington',
+      description: 'Expert IT support, computer repair, virus removal, data recovery & web development in Burlington, Aldershot, Oakville & Hamilton. 25+ years experience. Call Geek2Go.ca today!',
+      path: '/'
+    });
     this.profileService.profile$.subscribe(data => {
       this.profile = data;
       this.initializeFeaturedOps();
