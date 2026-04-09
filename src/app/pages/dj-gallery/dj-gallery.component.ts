@@ -1,9 +1,10 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dj-gallery',
-  imports: [CommonModule, NgFor],
+  imports: [CommonModule, RouterModule],
   templateUrl: './dj-gallery.component.html',
   styleUrl: './dj-gallery.component.scss'
 })

@@ -1,11 +1,12 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-contact',
-  imports: [NgFor, CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })

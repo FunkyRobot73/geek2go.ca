@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from '../../interfaces/blog';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
-  imports: [NgFor, CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss'
 })

@@ -1,11 +1,12 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, NgFor],
+  imports: [RouterModule, CommonModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })

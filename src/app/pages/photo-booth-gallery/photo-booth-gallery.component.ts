@@ -1,9 +1,10 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-photo-booth-gallery',
-  imports: [CommonModule, NgFor],
+  imports: [CommonModule, RouterModule],
   templateUrl: './photo-booth-gallery.component.html',
   styleUrl: './photo-booth-gallery.component.scss'
 })
