@@ -150,15 +150,29 @@
         </div>
       </div>
       
-      <div class="twitter-timeline-container" style="max-height: 500px; overflow-y: auto; background-color: #262421;">
-        <a *ngIf="profile"
-           class="twitter-timeline" 
-           data-theme="dark" 
-           data-chrome="noheader nofooter noborders transparent" 
-           data-tweet-limit="5"
-           [href]="profile?.twitter">
-           Loading Transmissions...
-        </a>
+      <!-- Terminal Feed -->
+      <div class="tactical-terminal p-3">
+        <div class="terminal-header d-flex justify-content-between smallest mb-2 text-muted">
+            <span class="monospace">SEC_PROTOCOL: ACTIVE</span>
+            <span class="monospace">NODE: {{ profile?.nameShort | uppercase }}_CON</span>
+        </div>
+        
+        <div class="transmission-list">
+            <div *ngFor="let msg of transmissions" class="transmission-item mb-3 pb-2 border-bottom border-dark animate__animated animate__fadeIn">
+                <div class="d-flex justify-content-between smallest mb-1">
+                    <span class="text-green monospace fw-bold">[{{ msg.timestamp }}]</span>
+                    <span class="status-badge smallest px-2" [class.bg-green-soft]="msg.status === 'CLEAR'">{{ msg.status }}</span>
+                </div>
+                <div class="msg-category smallest text-muted mb-1 monospace">> {{ msg.category }}</div>
+                <p class="smallest text-white mb-0 lh-sm">{{ msg.message }}</p>
+            </div>
+        </div>
+
+        <div class="terminal-footer mt-2 pt-2 border-top border-dark text-center">
+            <a [href]="profile?.twitter" target="_blank" class="btn btn-dark btn-sm w-100 smallest border-dark text-muted hover-green">
+                <i class="fa-brands fa-x-twitter me-2"></i> ARCHIVE_LINK
+            </a>
+        </div>
       </div>
     </div>
 

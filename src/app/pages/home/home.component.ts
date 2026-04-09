@@ -1,10 +1,11 @@
-import { Component, OnInit, inject, AfterViewInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LatestArticlesComponent } from './latest-articles/latest-articles.component';
 import { ProfileService } from 'src/app/services/profile.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from 'src/app/interfaces/blog';
+import { TACTICAL_TRANSMISSIONS, Transmission } from 'src/app/services/twitter.data';
 
 @Component({
   selector: 'app-home',
@@ -12,32 +13,19 @@ import { Blog } from 'src/app/interfaces/blog';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
   profile: any;
   mainFeedArticles: Blog[] = [];
   featuredOps: any[] = [];
+  transmissions: Transmission[] = TACTICAL_TRANSMISSIONS;
 
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
-
-  ngAfterViewInit() {
-    // Re-initialize Twitter widgets if script is loaded
-    if ((window as any).twttr && (window as any).twttr.widgets) {
-      (window as any).twttr.widgets.load();
-    }
-  }
 
   ngOnInit() {
     this.profileService.profile$.subscribe(data => {
       this.profile = data;
       this.initializeFeaturedOps();
-      
-      // Trigger Twitter load after data arrives and DOM updates
-      setTimeout(() => {
-        if ((window as any).twttr && (window as any).twttr.widgets) {
-          (window as any).twttr.widgets.load();
-        }
-      }, 100);
     });
 
     this.blogService.viewBlog().subscribe({
