@@ -5,7 +5,11 @@
 .article-view {
   .body-text {
     line-height: 1.8;
-    color: #bab9b8;
+    color: #bab9b8 !important;
+    
+    ::ng-deep * {
+      color: inherit !important;
+    }
     
     ::ng-deep p {
       margin-bottom: 1.5rem;

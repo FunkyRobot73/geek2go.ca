@@ -1,59 +1,131 @@
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 340px;
   gap: 24px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .main-channel {
-  min-width: 0; // Prevent flex/grid overflow
+  min-width: 0;
 }
 
-.hero-widget {
-  padding: 40px;
-  background: linear-gradient(135deg, #262421 60%, rgba(129, 182, 76, 0.05) 100%);
+// 1. Unified Master Console
+.master-console-widget {
+  padding: 30px;
+  background: linear-gradient(135deg, #262421 80%, rgba(129, 182, 76, 0.05) 100%);
   position: relative;
   overflow: hidden;
   
   &::after {
-    content: '\f441'; // Chess Knight icon from FA
+    content: '\f441'; 
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
     right: -20px;
-    bottom: -20px;
+    top: -20px;
     font-size: 10rem;
-    color: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.01);
     pointer-events: none;
+  }
+
+  .hero-content {
+      position: relative;
+      z-index: 1;
+  }
+
+  .hero-stats {
+    .stat-item {
+      line-height: 1.3;
+      span { display: block; }
+    }
+  }
+
+  .console-section {
+      position: relative;
+      z-index: 1;
   }
 }
 
-.text-green {
-  color: #81b64c;
+// 2. Primary Operations Row
+.op-card {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  transition: all 0.2s;
+
+  &:hover {
+    border-bottom-color: #81b64c;
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .op-icon-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 
-.service-icon-box {
-  background-color: rgba(129, 182, 76, 0.1);
-  padding: 12px;
+// 3. Intel Feed
+.intel-img-wrapper {
+  aspect-ratio: 4/3;
+  overflow: hidden;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 56px;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// 4. Secondary Protocols
+.mini-card {
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.01);
+  
+  &:hover {
+    background-color: rgba(129, 182, 76, 0.05);
+    border-color: #81b64c;
+  }
+}
+
+// Sidebar Profile
+.avatar-frame {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #3d3b38;
+}
+
+.border-green-faint {
+    border-color: rgba(129, 182, 76, 0.2) !important;
 }
 
 .smallest {
   font-size: 0.7rem;
 }
 
-.side-channel {
-  .chess-card {
-    padding: 16px;
-  }
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 
-// Media queries for fluid dashboard
+// Shared section header style
+.section-group {
+    border-top: 1px solid #3d3b38;
+    padding-top: 24px;
+}
+
 @media (max-width: 1100px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -69,9 +141,5 @@
 @media (max-width: 768px) {
   .side-channel {
     grid-template-columns: 1fr;
-  }
-  
-  .hero-widget {
-    padding: 24px;
   }
 }

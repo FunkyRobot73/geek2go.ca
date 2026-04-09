@@ -1,37 +1,96 @@
-<div class="dashboard-grid">
+<div class="dashboard-grid animate__animated animate__fadeIn">
   <!-- MAIN CHANNEL (70%) -->
   <div class="main-channel">
     
-    <!-- Hero Widget -->
-    <div class="chess-card hero-widget mb-4">
-      <div class="hero-content">
+    <!-- MASTER CONSOLE (Combined Hero + Operations) -->
+    <div class="chess-card master-console-widget mb-4">
+      
+      <!-- Console Header (Hero) -->
+      <div class="hero-content mb-4 border-bottom border-dark pb-4">
         <h1 class="display-4 fw-bold">Geek2Go.ca</h1>
         <p class="lead text-muted">{{ profile?.tagline || 'IT Services in Aldershot & Burlington' }}</p>
         <div class="hero-actions mt-3">
           <a routerLink="/contact" class="btn-chess-primary">Contact Now</a>
           <a routerLink="/services" class="btn btn-outline-secondary ms-2" style="border-radius: 4px;">View Services</a>
         </div>
+
+        <!-- Status Console Stats -->
+        <div class="hero-stats mt-4 d-flex flex-wrap gap-4">
+          <div class="stat-item">
+            <span class="smallest text-muted text-uppercase d-block">Longevity</span>
+            <span class="fw-bold">25+ Yrs</span>
+          </div>
+          <div class="stat-item">
+            <span class="smallest text-muted text-uppercase d-block">Sector</span>
+            <span class="fw-bold">Burlington / Aldershot</span>
+          </div>
+          <div class="stat-item">
+            <span class="smallest text-muted text-uppercase d-block">Availability</span>
+            <span class="fw-bold text-green"><i class="fa-solid fa-circle text-green me-1" style="font-size: 0.5rem; vertical-align: middle;"></i> Active </span>
+          </div>
+          <div class="stat-item">
+            <span class="smallest text-muted text-uppercase d-block">Primary</span>
+            <span class="fw-bold">IT Expert</span>
+          </div>
+        </div>
       </div>
+
+      <!-- Primary Operations Row -->
+      <div class="console-section mb-4">
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Primary Operations</h2>
+        <div class="row g-3">
+          <div class="col-md-4" *ngFor="let op of featuredOps">
+            <div class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4" 
+                 [routerLink]="op.link">
+              <div class="op-icon-ring mb-3" [style.color]="op.color">
+                <i [class]="op.icon + ' h2 mb-0'"></i>
+              </div>
+              <h3 class="h6 mb-1">{{ op.title }}</h3>
+              <span class="smallest text-muted">{{ op.subtitle }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auxiliary Protocols (Smaller Services) -->
+      <div class="console-section">
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Auxiliary Protocols</h2>
+        <div class="row g-2">
+          <div class="col-lg-3 col-md-6" *ngFor="let service of profile?.services_more?.slice(2, 6)">
+            <div class="chess-card hoverable h-100 p-2 text-center mini-card" routerLink="/services">
+               <i [class]="service.icon + ' text-green mb-1'"></i>
+               <div class="smallest fw-bold text-truncate">{{ service.title }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Services Widget Group -->
-    <div class="services-widget-group">
+    <!-- 3. INTELLIGENCE FEED (Articles in Main) -->
+    <div class="intel-feed section-group mb-4">
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="h4 mb-0">Our Services</h2>
-        <a routerLink="/services" class="text-green text-decoration-none small">See all <i class="fa-solid fa-arrow-right"></i></a>
+        <h2 class="h4 mb-0"><i class="fa-solid fa-list-ul text-green me-2"></i> Intelligence Feed</h2>
+        <a routerLink="/blogs" class="text-green text-decoration-none small">Access Archive <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       
-      <div class="row g-3">
-        <div class="col-md-6" *ngFor="let service of profile?.services_more?.slice(0, 4)">
-          <div class="chess-card hoverable h-100">
-            <div class="d-flex align-items-start">
-              <div class="service-icon-box me-3">
-                <i [class]="service.icon + ' fa-2x text-green'"></i>
+      <div class="intel-list">
+        <div *ngFor="let blog of mainFeedArticles" class="chess-card hoverable mb-3 p-0 overflow-hidden">
+          <div class="row g-0 align-items-center">
+            <div class="col-3">
+              <div class="intel-img-wrapper">
+                <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+                     class="img-fluid" alt="Intel"
+                     onerror="this.src='assets/ai-sample.jpg'">
               </div>
-              <div>
-                <h3 class="h5 mb-1">{{ service.title }}</h3>
-                <p class="small text-muted mb-0">{{ service.description }}</p>
+            </div>
+            <div class="col-9 p-3">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="smallest text-green fw-bold text-uppercase">{{ blog.catBlog }}</span>
+                <span class="smallest text-muted">Field Report</span>
               </div>
+              <h3 class="h6 mb-0 text-truncate">{{ blog.titleBlog }}</h3>
+              <a [routerLink]="['/blog-single', blog.idBlog]" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -44,31 +103,36 @@
   <div class="side-channel">
     
     <!-- About Widget -->
-    <div class="chess-card mb-4">
-      <h3 class="h5 border-bottom border-dark pb-2 mb-3">About Me</h3>
+    <div class="chess-card mb-4 profile-side-widget">
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Status: Online</h3>
       <div class="about-widget-content">
         <div class="d-flex align-items-center mb-3">
-          <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" class="rounded-circle me-3" width="60" height="60" alt="Carlos Sousa">
+          <div class="avatar-frame me-3">
+             <img [src]="profile?.ownerPhoto2 || 'assets/owner.jpg'" class="img-fluid" alt="Carlos Sousa">
+          </div>
           <div>
-            <h4 class="h6 mb-0">{{ profile?.nameFull }}</h4>
-            <span class="text-muted smallest">{{ profile?.ownerTitle }}</span>
+            <h4 class="smallest fw-bold mb-0 text-white">{{ profile?.nameFull }}</h4>
+            <span class="smallest text-green">{{ profile?.ownerTitle }}</span>
           </div>
         </div>
-        <p class="small text-muted">{{ profile?.aboutUs }}</p>
-        <a routerLink="/about" class="btn btn-dark btn-sm w-100 mt-2">Read My Story</a>
+        <p class="smallest text-muted line-clamp-3 mb-3">{{ profile?.aboutUs }}</p>
+        <a routerLink="/about" class="btn btn-dark btn-sm w-100 py-2 smallest">Full Access Biography</a>
       </div>
     </div>
 
-    <!-- Latest Articles Widget -->
-    <div class="articles-widget">
-        <app-latest-articles></app-latest-articles>
+    <!-- Quick Contact Widget -->
+    <div class="chess-card mb-4 border-green-faint">
+        <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Tactical Support</h3>
+        <p class="smallest text-muted mb-3">Direct transmission line to the lead engineer.</p>
+        <div class="d-grid gap-2">
+            <a [href]="'mailto:' + profile?.email" class="btn btn-dark btn-sm text-green border-dark">Email Support</a>
+            <a routerLink="/contact" class="btn btn-chess-primary btn-sm">Support Ticket</a>
+        </div>
     </div>
 
-    <!-- Quick Contact Widget -->
-    <div class="chess-card mt-4">
-        <h3 class="h5 border-bottom border-dark pb-2 mb-3">Fast Support</h3>
-        <p class="smallest text-muted">Need help right away? Drop me a line and I'll get back to you ASAP.</p>
-        <a [href]="'mailto:' + profile?.email" class="btn btn-outline-success btn-sm w-100">Email Me</a>
+    <!-- Secondary Articles / Sidebar components can go here if needed -->
+    <div class="articles-widget-sidebar">
+        <app-latest-articles></app-latest-articles>
     </div>
 
   </div>
