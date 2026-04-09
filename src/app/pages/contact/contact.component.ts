@@ -41,7 +41,7 @@ export class ContactComponent {
       Note: ${this.profile.subject}
     `;
 
-    const mailtoLink = `mailto:carlos@funkyrobot.ca?subject=Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:carlos@geek2go.ca?subject=Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoLink;
     console.log('Form submitted!');
   }

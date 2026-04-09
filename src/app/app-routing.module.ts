@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'blogs', component: BlogComponent },
   { path: 'gallery', component: GalleryComponent },
-  { path: 'dj-gallery', component: DjGalleryComponent },
-  { path: 'photo-booth-gallery', component: PhotoBoothGalleryComponent },
+  { path: 'geek-gallery', component: DjGalleryComponent },
+  { path: 'social-gallery', component: PhotoBoothGalleryComponent },
   { path: 'blog-single/:id', component: BlogSingleComponent },
   { path: 'hardware', component: HardwareComponent },
   { path: '**', redirectTo: '' }

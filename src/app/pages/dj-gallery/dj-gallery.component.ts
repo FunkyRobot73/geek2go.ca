@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-dj-gallery',
@@ -10,12 +11,18 @@ import { RouterModule } from '@angular/router';
 })
 export class DjGalleryComponent implements OnInit{
 
+  profile: any;
   galleryImages: {src: string, alt: string}[] = [];
   loading = true;
   selectedImage: {src: string, alt: string} | null = null;
   showLightbox = false;
 
+  constructor(private profileService: ProfileService) {}
+
   ngOnInit() {
+    this.profileService.profile$.subscribe(data => {
+      this.profile = data;
+    });
     this.loadGalleryImages();
   }
 

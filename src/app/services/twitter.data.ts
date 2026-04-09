@@ -39,7 +39,7 @@ export const TACTICAL_TRANSMISSIONS: Transmission[] = [
     id: 5,
     timestamp: "05-APR-2026 15:30",
     category: "COMM_TEST",
-    message: "Testing satellite link for the Funky Robot DJ node. Audio levels nominal. Ready for next event deployment.",
+    message: "New social gallery photos uploaded to the archive. Community event captures are now live in the Social Gallery section.",
     status: 'CLEAR'
   }
 ];
