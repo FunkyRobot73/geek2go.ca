@@ -65,39 +65,38 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- 3. INTELLIGENCE FEED (Articles in Main) -->
-    <div class="intel-feed section-group mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="h4 mb-0"><i class="fa-solid fa-list-ul text-green me-2"></i> Intelligence Feed</h2>
-        <a routerLink="/blogs" class="text-green text-decoration-none small">Access Archive <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-      
-      <div class="intel-list">
-        <div *ngFor="let blog of mainFeedArticles" class="chess-card hoverable mb-3 p-0 overflow-hidden">
-          <div class="row g-0 align-items-center">
-            <div class="col-3">
-              <div class="intel-img-wrapper">
-                <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
-                     class="img-fluid" alt="Intel"
-                     onerror="this.src='assets/ai-sample.jpg'">
+      <!-- Intelligence Feed Integration -->
+      <div class="console-section mt-4 pt-4 border-top border-dark">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="smallest text-muted text-uppercase mb-0 font-weight-bold">Intelligence Feed</h2>
+          <a routerLink="/blogs" class="text-green text-decoration-none small">Access Archive <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="intel-list">
+          <div *ngFor="let blog of mainFeedArticles" class="chess-card hoverable mb-2 p-0 overflow-hidden" style="background-color: rgba(0,0,0,0.2) !important;">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <div class="intel-img-wrapper" style="aspect-ratio: 1/1;">
+                  <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+                       class="img-fluid" alt="Intel"
+                       onerror="this.src='assets/ai-sample.jpg'">
+                </div>
               </div>
-            </div>
-            <div class="col-9 p-3">
-              <div class="d-flex justify-content-between mb-1">
-                <span class="smallest text-green fw-bold text-uppercase">{{ blog.catBlog }}</span>
-                <span class="smallest text-muted">Field Report</span>
+              <div class="col-10 p-2">
+                <div class="d-flex justify-content-between mb-0">
+                  <span class="smallest text-green fw-bold text-uppercase">{{ blog.catBlog }}</span>
+                  <span class="smallest text-muted">Field Report</span>
+                </div>
+                <h3 class="smallest fw-bold mb-0 text-truncate text-white">{{ blog.titleBlog }}</h3>
+                <a [routerLink]="['/blog-single', blog.idBlog]" class="stretched-link"></a>
               </div>
-              <h3 class="h6 mb-0 text-truncate">{{ blog.titleBlog }}</h3>
-              <a [routerLink]="['/blog-single', blog.idBlog]" class="stretched-link"></a>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
+    </div> <!-- End Master Console -->
+  </div> <!-- End Main Channel -->
 
   <!-- SIDE CHANNEL (30%) -->
   <div class="side-channel">
