@@ -19,18 +19,20 @@ export class PhotoBoothGalleryComponent implements OnInit {
     this.loadGalleryImages();
   }
 
+  private readonly cities = ['Burlington', 'Aldershot', 'Oakville', 'Hamilton', 'Ancaster', 'Grimsby'];
+
+  private randomCity(): string {
+    return this.cities[Math.floor(Math.random() * this.cities.length)];
+  }
+
   private loadGalleryImages() {
-    // In a real app, you would get these from a service or API
-    // For demo purposes, we'll simulate loading images from assets/pb/
-    // You should replace this with your actual image filenames
-    
-    const imageCount = 20; // Change this to match your actual number of images
+    const imageCount = 20;
     const basePath = 'assets/pb/';
     
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
-        src: `${basePath}pb${i}.webp`, // Adjust naming pattern as needed
-        alt: `Photo Booth Image ${i}`
+        src: `${basePath}pb${i}.webp`,
+        alt: `Geeking Out in ${this.randomCity()}`
       });
     }
     
