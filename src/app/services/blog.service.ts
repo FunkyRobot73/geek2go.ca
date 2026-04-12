@@ -12,7 +12,7 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   // New production backend URL
-  private apiUrl01 = "http://back.geek2go.ca/api/blogs";
+  private apiUrl01 = "https://back.geek2go.ca/api/blogs";
 
   /**
    * Fetch all blogs (mapped for compatibility)
