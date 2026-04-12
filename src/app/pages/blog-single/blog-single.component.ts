@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from 'src/app/services/blog.service';
+import { environment } from 'src/environments/environment';
 import { Blog } from '../../interfaces/blog';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -14,6 +15,7 @@ import { SeoService } from 'src/app/services/seo.service';
   styleUrl: './blog-single.component.scss'
 })
 export class BlogSingleComponent implements OnInit {
+  imageBaseUrl = environment.imageBaseUrl;
 
   
   profile: any;

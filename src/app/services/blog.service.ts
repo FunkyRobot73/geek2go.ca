@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Blog } from '../interfaces/blog';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  // New production backend URL
-  private apiUrl01 = "https://back.geek2go.ca/api/blogs";
+  // Use Central Configuration
+  private apiUrl01 = environment.apiUrl;
 
   /**
    * Fetch all blogs (mapped for compatibility)
@@ -23,7 +24,7 @@ export class BlogService {
         .filter(blog => blog.catBlog?.toLowerCase() !== 'journal')
         .map(blog => ({
           ...blog,
-          idBlog: blog.id.toString() // Mapping 'id' to 'idBlog' for existing components
+          idBlog: blog.id.toString() 
         }))
       ),
       catchError(this.handleError)

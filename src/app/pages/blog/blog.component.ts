@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from '../../interfaces/blog';
+import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from 'src/app/services/seo.service';
@@ -13,6 +14,7 @@ import { SeoService } from 'src/app/services/seo.service';
 })
 export class BlogComponent {
   viewBlogService = inject(BlogService);
+  imageBaseUrl = environment.imageBaseUrl;
   seo = inject(SeoService);
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];

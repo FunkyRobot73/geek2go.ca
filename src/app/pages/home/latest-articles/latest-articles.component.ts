@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common'; // optimizatio
 import { RouterModule } from '@angular/router';
 import { BlogService } from '../../../services/blog.service';
 import { Blog } from '../../../interfaces/blog';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-latest-articles',
@@ -12,6 +13,7 @@ import { Blog } from '../../../interfaces/blog';
     styleUrl: './latest-articles.component.scss'
 })
 export class LatestArticlesComponent implements OnInit {
+    imageBaseUrl = environment.imageBaseUrl;
     latestBlogs: Blog[] = [];
     isLoading = true;
 
