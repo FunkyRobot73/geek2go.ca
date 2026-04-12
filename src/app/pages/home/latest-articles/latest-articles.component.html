@@ -4,13 +4,13 @@
   <div class="articles-list">
     <div class="article-item mb-3 pb-3 border-bottom border-dark-subtle" *ngFor="let blog of latestBlogs.slice(0, 3)">
       <div class="d-flex align-items-center">
-        <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+        <img [src]="'http://back.geek2go.ca/public/uploads/' + blog.image" 
              class="article-thumb rounded me-3" 
              alt="{{blog.titleBlog}}"
              onerror="this.src='assets/ai-sample.webp'">
         <div class="article-info">
           <h4 class="h6 mb-1 text-truncate" style="max-width: 150px;">{{ blog.titleBlog }}</h4>
-          <a [routerLink]="['/blog-single', blog.idBlog]" class="btn btn-link p-0 text-green smallest text-decoration-none">Read Game Log</a>
+          <a [routerLink]="['/blog-single', blog.id]" class="btn btn-link p-0 text-green smallest text-decoration-none">Read Game Log</a>
         </div>
       </div>
     </div>

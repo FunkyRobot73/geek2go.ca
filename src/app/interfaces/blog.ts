@@ -1,21 +1,21 @@
 export interface Blog {
-    idBlog: string,
-    catBlog: string,
-    titleBlog: string,
-    subtitleBlog: string,
-    subtitleBlog01: string,
-    subtitleBlog02: string,
-    subtitleBlog03: string,
-    subtitleBlog04: string,
-    subtitleBlog05: string,
-    bodyBlog: string,
-    bodyBlog01: string,
-    bodyBlog02: string,
-    bodyBlog03: string,
-    bodyBlog04: string,
-    bodyBlog05: string,
-    imageBlog: string,
-    image: string,
-    imageThumbBlog: string,
-    thumbnail: string,
+    id: number;
+    idBlog?: string; // Legacy support
+    catBlog: string;
+    titleBlog: string;
+    subtitleBlog: string;
+    image: string;
+    thumbnail: string;
+    createdAt: string;
+    updatedAt: string;
+    BlogSections?: BlogSection[];
+}
+
+export interface BlogSection {
+    id: number;
+    blogId: number;
+    subtitle: string;
+    body: string;
+    image: string;
+    order_index: number;
 }

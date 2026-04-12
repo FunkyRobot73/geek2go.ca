@@ -13,12 +13,12 @@
         <header class="article-header mb-4 border-bottom border-dark pb-3">
           <div class="d-flex align-items-center justify-content-between mb-3">
              <span class="badge rounded-pill bg-dark border border-dark text-green smallest">{{ blogPost.catBlog }}</span>
-             <span class="smallest text-muted">Node: ARCHIVE_LOG_{{ blogPost.idBlog }}</span>
+             <span class="smallest text-muted">Node: ARCHIVE_LOG_{{ blogPost.id }}</span>
           </div>
           <h1 class="h2 mb-4 fw-bold text-white">{{ blogPost.titleBlog }}</h1>
           
           <div class="article-featured-img-wrapper mb-4 overflow-hidden rounded border border-dark">
-            <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.image" 
+            <img [src]="'http://back.geek2go.ca/public/uploads/' + blogPost.image" 
                  alt="{{blogPost.titleBlog}}"
                  class="img-fluid"
                  onerror="this.src='assets/ai-sample.webp'" />
@@ -26,35 +26,25 @@
         </header>
 
         <section class="article-content">
-          <!-- Main Body -->
+          <!-- Main Body (Legacy metadata or Subtitle) -->
           <div class="content-block mb-4">
             <div [innerHTML]="blogPost.subtitleBlog" class="h5 text-green mb-3 fw-bold"></div>
-            <div [innerHTML]="blogPost.bodyBlog" class="body-text"></div>
           </div>
 
-          <!-- Section 2 -->
-          <div class="content-block mb-4" *ngIf="blogPost.bodyBlog02">
-            <div [innerHTML]="blogPost.subtitleBlog02" class="h5 text-green mb-3 fw-bold"></div>
-            <div [innerHTML]="blogPost.bodyBlog02" class="body-text"></div>
-          </div>
+          <!-- Dynamic Sections (The new relational format) -->
+          <div class="content-block mb-5" *ngFor="let section of blogPost.BlogSections; let i = index">
+            <!-- Section Subtitle -->
+            <div *ngIf="section.subtitle" [innerHTML]="section.subtitle" class="h5 text-green mb-3 fw-bold"></div>
+            
+            <!-- Section Body -->
+            <div *ngIf="section.body" [innerHTML]="section.body" class="body-text mb-4"></div>
 
-          <!-- Mid-article image -->
-          <div class="article-inner-img mb-4 text-center" *ngIf="blogPost.thumbnail">
-             <img [src]="'https://back.funkyrobot.ca/public/' + blogPost.thumbnail" 
-                  alt="Tech Detail"
-                  class="img-fluid rounded border border-dark" />
-          </div>
-
-          <!-- Section 3 -->
-          <div class="content-block mb-4" *ngIf="blogPost.bodyBlog03">
-            <div [innerHTML]="blogPost.subtitleBlog03" class="h5 text-green mb-3 fw-bold"></div>
-            <div [innerHTML]="blogPost.bodyBlog03" class="body-text"></div>
-          </div>
-
-          <!-- Section 4 -->
-          <div class="content-block mb-4" *ngIf="blogPost.bodyBlog04">
-            <div [innerHTML]="blogPost.subtitleBlog04" class="h5 text-green mb-3 fw-bold"></div>
-            <div [innerHTML]="blogPost.bodyBlog04" class="body-text"></div>
+            <!-- Section Image (The new feature!) -->
+            <div class="article-inner-img mb-4 text-center" *ngIf="section.image">
+               <img [src]="'http://back.geek2go.ca/public/uploads/' + section.image" 
+                    alt="Intel Detail {{i + 1}}"
+                    class="img-fluid rounded border border-dark shadow-sm" />
+            </div>
           </div>
         </section>
 
@@ -74,9 +64,9 @@
         <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Latest Intel</h3>
         <div class="related-list p-2">
           <a *ngFor="let recent of recentBlogs.slice(0, 5)" 
-             [routerLink]="['/blog-single', recent.idBlog]"
+             [routerLink]="['/blog-single', recent.id]"
              class="related-item d-flex align-items-center p-2 mb-2 text-decoration-none hover-bg-dark rounded">
-            <img [src]="'https://back.funkyrobot.ca/public/' + recent.image" 
+            <img [src]="'http://back.geek2go.ca/public/uploads/' + recent.image" 
                  class="rounded me-3" width="56" height="42" style="object-fit: cover;"
                  onerror="this.src='assets/ai-sample.webp'">
             <div class="related-info overflow-hidden">

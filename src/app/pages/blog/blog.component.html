@@ -20,7 +20,7 @@
           <!-- Thumbnail -->
           <div class="col-md-3">
             <div class="article-thumb-wrapper">
-              <img [src]="'https://back.funkyrobot.ca/public/' + blog.image" 
+              <img [src]="'http://back.geek2go.ca/public/uploads/' + blog.image" 
                    alt="{{blog.titleBlog}}"
                    class="img-fluid"
                    onerror="this.src='assets/ai-sample.webp'"/>
@@ -37,9 +37,9 @@
             <h3 class="h6 mb-2 fw-bold text-white">{{ blog.titleBlog }}</h3>
             
             <p class="smallest text-muted mb-3 line-clamp-2" 
-               [innerHTML]="(blog.bodyBlog | slice:0:150) + '...'"></p>
+               [innerHTML]="(blog.subtitleBlog | slice:0:150) + '...'"></p>
             
-            <a [routerLink]="['/blog-single', blog.idBlog]" class="btn btn-link p-0 text-green smallest text-decoration-none fw-bold">
+            <a [routerLink]="['/blog-single', blog.id]" class="btn btn-link p-0 text-green smallest text-decoration-none fw-bold">
               Analyze Report <i class="fa-solid fa-arrow-right list-icon ms-1"></i>
             </a>
           </div>
