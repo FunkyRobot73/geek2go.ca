@@ -2,7 +2,7 @@
   <!-- MAIN CHANNEL (70%) -->
   <div class="main-channel">
     
-    <!-- MASTER CONSOLE (Combined Hero + Operations) -->
+    <!-- MASTER CONSOLE (Hero + Main Services) -->
     <div class="chess-card master-console-widget mb-4">
       
       <!-- Console Header (Hero) -->
@@ -17,11 +17,11 @@
         <!-- Status Console Stats -->
         <div class="hero-stats mt-4 d-flex flex-wrap gap-4">
           <div class="stat-item">
-            <span class="smallest text-muted text-uppercase d-block">Longevity</span>
+            <span class="smallest text-muted text-uppercase d-block">Experience</span>
             <span class="fw-bold">25+ Yrs</span>
           </div>
           <div class="stat-item">
-            <span class="smallest text-muted text-uppercase d-block">Sector</span>
+            <span class="smallest text-muted text-uppercase d-block">Area</span>
             <span class="fw-bold">Burlington / Aldershot</span>
           </div>
           <div class="stat-item">
@@ -35,9 +35,8 @@
         </div>
       </div>
 
-      <!-- Primary Operations Row -->
       <div class="console-section mb-4">
-        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Primary Operations</h2>
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Main Services</h2>
         <div class="row g-3">
           <div class="col-md-6 col-lg-3" *ngFor="let op of featuredOps">
             <div class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4" 
@@ -52,9 +51,14 @@
         </div>
       </div>
 
-      <!-- Auxiliary Protocols (Smaller Services) -->
+      <!-- AI Readiness Mission Briefing -->
+      <div class="console-section mb-4" id="ai-labs">
+        <app-ai-diagnostic></app-ai-diagnostic>
+      </div>
+
+      <!-- More Goodies (Smaller Services) -->
       <div class="console-section">
-        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Auxiliary Protocols</h2>
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">More Goodies</h2>
         <div class="row g-2">
           <div class="col-lg-3 col-md-6" *ngFor="let service of profile?.services_more?.slice(2, 6)">
             <div class="chess-card hoverable h-100 p-2 text-center mini-card" routerLink="/services">
@@ -65,10 +69,10 @@
         </div>
       </div>
 
-      <!-- Intelligence Feed Integration -->
+      <!-- Latest Articles -->
       <div class="console-section mt-4 pt-4 border-top border-dark">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h2 class="smallest text-muted text-uppercase mb-0 font-weight-bold">Intelligence Feed</h2>
+          <h2 class="smallest text-muted text-uppercase mb-0 font-weight-bold">Latest Articles</h2>
           <a routerLink="/blogs" class="text-green text-decoration-none small">Access Archive <i class="fa-solid fa-arrow-right"></i></a>
         </div>
         
@@ -85,7 +89,7 @@
               <div class="col-10 p-2">
                 <div class="d-flex justify-content-between mb-0">
                   <span class="smallest text-green fw-bold text-uppercase">{{ blog.catBlog }}</span>
-                  <span class="smallest text-muted">Field Report</span>
+                  <span class="smallest text-muted">Latest Post</span>
                 </div>
                 <h3 class="smallest fw-bold mb-0 text-truncate text-white">{{ blog.titleBlog }}</h3>
                 <a [routerLink]="['/blog-single', blog.idBlog]" class="stretched-link"></a>
@@ -123,7 +127,7 @@
 
     <!-- Quick Contact Widget -->
     <div class="chess-card mb-4 border-green-faint">
-        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Tactical Support</h3>
+        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Quick Help</h3>
         <div class="row g-2">
             <div class="col-6">
                 <a [href]="'mailto:' + profile?.email" class="btn btn-dark btn-sm w-100 text-green border-dark p-1 smallest">Email</a>
@@ -143,10 +147,10 @@
       <div class="p-3 border-bottom border-dark d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
             <i class="fa-brands fa-x-twitter text-white me-2"></i>
-            <span class="smallest text-muted text-uppercase fw-bold" style="letter-spacing: 1px;">Satellite Transmissions</span>
+            <span class="smallest text-muted text-uppercase fw-bold neon-glow" style="letter-spacing: 1px;">Social Feed</span>
         </div>
         <div class="pulse-indicator">
-            <i class="fa-solid fa-wifi text-green animate__animated animate__pulse animate__infinite smallest"></i>
+            <i class="fa-solid fa-wifi text-green animate-pulse-faint smallest"></i>
         </div>
       </div>
 

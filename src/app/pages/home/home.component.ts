@@ -5,12 +5,14 @@ import { LatestArticlesComponent } from './latest-articles/latest-articles.compo
 import { ProfileService } from 'src/app/services/profile.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from 'src/app/interfaces/blog';
-import { TACTICAL_TRANSMISSIONS, Transmission } from 'src/app/services/twitter.data';
+import { PROJECT_UPDATES, Transmission } from 'src/app/services/twitter.data';
 import { SeoService } from 'src/app/services/seo.service';
+
+import { AiDiagnosticComponent } from './ai-diagnostic/ai-diagnostic.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterModule, LatestArticlesComponent],
+  imports: [CommonModule, RouterModule, LatestArticlesComponent, AiDiagnosticComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
   profile: any;
   mainFeedArticles: Blog[] = [];
   featuredOps: any[] = [];
-  transmissions: Transmission[] = TACTICAL_TRANSMISSIONS;
+  transmissions: Transmission[] = PROJECT_UPDATES;
 
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
@@ -60,7 +62,7 @@ export class HomeComponent implements OnInit {
         color: '#fff'
       },
       { 
-        title: 'Agent Support', 
+        title: 'Helpful Bots', 
         subtitle: 'AI-Assisted Remote', 
         icon: 'fa-solid fa-robot',
         link: '/services',
@@ -68,10 +70,17 @@ export class HomeComponent implements OnInit {
       },
       { 
         title: 'Linux Clinic', 
-        subtitle: 'Open-Source Transition', 
+        subtitle: 'Switching to Linux', 
         icon: 'fa-solid fa-linux',
         link: '/services',
         color: '#fff'
+      },
+      { 
+        title: 'Deal Finder', 
+        subtitle: 'Finding tech deals', 
+        icon: 'fa-solid fa-radar',
+        link: '/sourcing-agent',
+        color: '#81b64c'
       }
     ];
   }

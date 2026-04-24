@@ -3,16 +3,16 @@
   <!-- MAIN CHANNEL (70%) -->
   <div class="main-channel">
     
-    <!-- Founder's Log (Bio) -->
+    <!-- My Story (Bio) -->
     <div class="chess-card mb-4 profile-bio">
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="h4 mb-0 text-green border-bottom border-dark pb-2 flex-grow-1">Founder's Log</h2>
-        <span class="smallest text-muted text-uppercase ms-3">Clearance: Level 5</span>
+        <h2 class="h4 mb-0 text-green border-bottom border-dark pb-2 flex-grow-1">My Story</h2>
+        <span class="smallest text-muted text-uppercase ms-3">Authorized View</span>
       </div>
       <div class="bio-text">
         <p class="lead fw-bold mb-4">{{ profile?.bio }}</p>
         <div class="mission-briefing p-3 border-start border-green mb-4" style="background-color: #1a1917;">
-           <p class="smallest text-green text-uppercase mb-1 fw-bold">Primary Objective</p>
+           <p class="smallest text-green text-uppercase mb-1 fw-bold">My Goal</p>
            <p class="mb-0 text-white" style="opacity: 0.8;">{{ profile?.mission }}</p>
         </div>
         <p>{{ profile?.bio1 }}</p>
@@ -23,7 +23,7 @@
 
     <!-- Expertise Grid -->
     <div class="Expertise-Archives section-group mb-4">
-      <h3 class="h5 mb-3"><i class="fa-solid fa-microchip text-green me-2"></i> Field Expertise</h3>
+      <h3 class="h5 mb-3"><i class="fa-solid fa-microchip text-green me-2"></i> Stuff I'm good at</h3>
       <div class="row g-3">
         <div class="col-md-6" *ngFor="let service of servicesData">
           <div class="chess-card hoverable h-100">
@@ -39,7 +39,7 @@
 
     <!-- Media Log (Video) -->
     <div class="video-log section-group" *ngIf="profile?.youtubeVideo">
-        <h3 class="h5 mb-3"><i class="fa-solid fa-play text-green me-2"></i> Visual Briefing</h3>
+        <h3 class="h5 mb-3"><i class="fa-solid fa-play text-green me-2"></i> Check this video</h3>
         <div class="chess-card video-widget p-3">
           <div class="ratio ratio-16x9 mb-3">
             <iframe [src]="getSafeVideoUrl(profile.youtubeVideo)" 
@@ -61,7 +61,7 @@
              class="img-fluid border border-dark p-1" 
              alt="Carlos Sousa"
              style="border-radius: 4px;">
-        <div class="status-badge-mini">ONLINE</div>
+        <div class="status-badge-mini">Online</div>
       </div>
       <h4 class="h6 fw-bold mb-1">{{ profile?.nameFull }}</h4>
       <p class="smallest text-green mb-3 text-uppercase fw-bold">{{ profile?.ownerTitle }}</p>
@@ -74,18 +74,18 @@
           <i [class]="social.icon"></i>
         </a>
       </div>
-      <a [href]="profile?.linkedin" target="_blank" class="btn btn-dark btn-sm w-100 smallest border-dark">Signal Intelligence (LinkedIn)</a>
+      <a [href]="profile?.linkedin" target="_blank" class="btn btn-dark btn-sm w-100 smallest border-dark">Find me on LinkedIn</a>
     </div>
 
     <!-- Vision Widget -->
     <div class="chess-card mb-4 border-green-faint">
-      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Future Outlook</h3>
+      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Looking ahead</h3>
       <p class="smallest mb-0">{{ profile?.vision }}</p>
     </div>
 
     <!-- Value Matrix -->
     <div class="chess-card">
-      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Operational Values</h3>
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">What I believe in</h3>
       <ul class="list-unstyled mb-0 smallest">
         <li *ngFor="let value of profile?.values" class="mb-2 d-flex align-items-start">
           <i class="fa-solid fa-square-check text-green me-2 mt-1"></i> 
@@ -96,14 +96,14 @@
 
     <!-- Location Stats -->
     <div class="chess-card mt-4 border-dark" style="background-color: #1a1917;">
-        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Deployment</h3>
+        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Where I work</h3>
         <div class="d-flex justify-content-between smallest">
-            <span class="text-muted">Sector:</span>
+            <span class="text-muted">Area:</span>
             <span class="text-white">Burlington / Aldershot</span>
         </div>
         <div class="d-flex justify-content-between smallest mt-1">
             <span class="text-muted">Status:</span>
-            <span class="text-green fw-bold">Active</span>
+            <span class="text-green fw-bold">Available</span>
         </div>
     </div>
 

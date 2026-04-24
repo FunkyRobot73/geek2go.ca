@@ -11,6 +11,7 @@ import { ItservicesService } from './services/itservices.service';
 import { ServicesComponent } from './pages/services/services.component';
 import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
 import { HardwareComponent } from './pages/hardware/hardware.component';
+import { SourcingAgentComponent } from './pages/sourcing-agent/sourcing-agent.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'social-gallery', component: PhotoBoothGalleryComponent },
   { path: 'blog-single/:id', component: BlogSingleComponent },
   { path: 'hardware', component: HardwareComponent },
+  { path: 'sourcing-agent', component: SourcingAgentComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -1,0 +1,130 @@
+<div class="dashboard-grid animate__animated animate__fadeIn">
+  
+  <!-- LEFT: MISSION BRIEFING -->
+  <div class="side-channel">
+    <div class="chess-card border-green-faint mb-4">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-radar text-green me-2"></i>
+        <h2 class="h5 mb-0 text-white">Find some gear</h2>
+      </div>
+      
+      <div class="mission-form">
+        <div class="mb-3">
+          <label class="smallest text-muted text-uppercase d-block mb-1">What are you looking for?</label>
+          <input type="text" [(ngModel)]="searchTerm" placeholder="e.g. Github T-Shirt" 
+                 class="form-control bg-dark border-dark text-white smallest py-2">
+        </div>
+        
+        <div class="mb-3">
+          <label class="smallest text-muted text-uppercase d-block mb-1">Max Price (CAD)</label>
+          <div class="d-flex align-items-center">
+            <input type="range" [(ngModel)]="maxPrice" min="5" max="500" step="5" class="form-range flex-grow-1 me-2">
+            <span class="smallest text-green fw-bold" style="min-width: 40px;">${{maxPrice}}</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="smallest text-muted text-uppercase d-block mb-1">Distance (KM)</label>
+          <div class="d-flex align-items-center">
+            <input type="range" [(ngModel)]="radius" min="5" max="100" step="5" class="form-range flex-grow-1 me-2">
+            <span class="smallest text-green fw-bold" style="min-width: 40px;">{{radius}}k</span>
+          </div>
+        </div>
+
+        <button (click)="launchMission()" [disabled]="!searchTerm || isSearching" 
+                class="btn btn-chess-primary w-100 smallest mt-2">
+          <span *ngIf="!isSearching">START SEARCHING</span>
+          <span *ngIf="isSearching" class="animate__animated animate__flash animate__infinite">SEARCHING...</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scraper Status Widget -->
+    <div class="chess-card border-dark" style="background-color: #1a1917;">
+      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Scraper Status</h3>
+      <div class="d-flex justify-content-between smallest mb-1">
+        <span class="text-muted">ID:</span>
+        <span class="text-white">DEAL_FINDER_01</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-1">
+        <span class="text-muted">Location:</span>
+        <span class="text-white">Burlington / Aldershot</span>
+      </div>
+      <div class="d-flex justify-content-between smallest">
+        <span class="text-muted">Status:</span>
+        <span class="text-green fw-bold">ONLINE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: INTELLIGENCE GRID -->
+  <div class="main-channel">
+    <div class="chess-card h-100 p-0 overflow-hidden border-dark">
+      
+      <!-- Grid Header -->
+      <div class="p-3 border-bottom border-dark bg-dark-subtle d-flex justify-content-between align-items-center">
+        <div>
+          <h1 class="h5 mb-0 text-white">Deals Found!</h1>
+          <p class="smallest text-muted mb-0" *ngIf="!results.length">Tell me what to look for...</p>
+          <p class="smallest text-green mb-0" *ngIf="results.length">
+            I found {{results.length}} places that might have "{{searchTerm}}"
+          </p>
+        </div>
+        <div class="radar-ping" *ngIf="isSearching"></div>
+      </div>
+
+      <!-- Grid Content -->
+      <div class="p-4">
+        
+        <!-- Empty State -->
+        <div *ngIf="!results.length && !isSearching" class="text-center py-5">
+           <i class="fa-solid fa-satellite-dish text-muted h1 mb-3" style="opacity: 0.2;"></i>
+           <p class="text-muted small">Type something in the form on the left to start searching.</p>
+        </div>
+
+        <!-- Scanning State -->
+        <div *ngIf="isSearching" class="text-center py-5">
+           <div class="scanner-ring mb-4 mx-auto">
+             <div class="ring-inner"></div>
+             <i class="fa-solid fa-radar h1 text-green pulse-slow"></i>
+           </div>
+           <p class="smallest text-muted text-uppercase">Looking for Canadian deals...</p>
+        </div>
+
+        <!-- Results Grid -->
+        <div *ngIf="results.length && !isSearching" class="row g-3">
+          <div class="col-12" *ngFor="let res of results">
+            <div class="chess-card hoverable border-dark bg-transparent p-3">
+              <div class="row align-items-center">
+                <div class="col-md-4 d-flex align-items-center mb-3 mb-md-0">
+                  <i [class]="res.icon + ' text-green h3 mb-0 me-3'"></i>
+                  <div>
+                    <h3 class="h6 mb-0 text-white">{{res.platform}}</h3>
+                    <span class="badge rounded-pill bg-dark border border-dark-subtle text-green smallest mt-1">{{res.status}}</span>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <p class="smallest text-muted mb-0" style="line-height: 1.4;">{{res.intelligence}}</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <a [href]="res.url" target="_blank" class="btn btn-dark btn-sm w-100 smallest border-dark">VIEW DEALS <i class="fa-solid fa-external-link ms-1"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cheapskate Pro-Tip -->
+        <div *ngIf="results.length && !isSearching" class="mt-4 p-3 border border-dark rounded bg-dark-faint">
+           <h4 class="smallest text-green text-uppercase fw-bold mb-2"><i class="fa-solid fa-lightbulb me-2"></i> How to save money</h4>
+           <p class="smallest text-muted mb-0">
+             These links are set up to only show results from Canadian sites. This means no surprise import fees or crazy exchange rates.
+           </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
