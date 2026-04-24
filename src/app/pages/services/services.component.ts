@@ -18,6 +18,7 @@ export class ServicesComponent {
 
   addOns: { description: string; price: number }[] = [];
   services = [
+    "AI & Open Source",
     "Hardware",
     "Software",
     "WebDev",
@@ -26,7 +27,7 @@ export class ServicesComponent {
     "Training",
     "AI Help"
   ];
-  activeTab: string = 'Hardware';
+  activeTab: string = 'AI & Open Source';
 
   get filteredPackages(): ItService[] {
     return this.packages.filter(pkg => pkg.service === this.activeTab);
@@ -468,6 +469,50 @@ export class ServicesComponent {
         imageSample: 'assets/services/webdev10.webp',
         icon: 'fas fa-terminal',
         service: 'AI Help',
+        price: 149
+      },
+      {
+        id: 41, title: 'Local AI Hubs',
+        description: 'Turn your old hardware into a private, in-home AI server with no subscriptions and total privacy.',
+        details1: 'Installation of local LLMs (Ollama, LocalAI).',
+        details2: 'Hardware optimization for local AI inference.',
+        details3: 'Custom web dashboard for your home network.',
+        imageSample: 'assets/services/ai-hub.webp',
+        icon: 'fas fa-brain',
+        service: 'AI & Open Source',
+        price: 249
+      },
+      {
+        id: 42, title: 'The Business Box',
+        description: 'A complete "De-Googled" business stack running on your own Linux server. No monthly fees.',
+        details1: 'Nextcloud for files, mail, and calendar.',
+        details2: 'Mattermost/RocketChat for secure team chat.',
+        details3: 'AI-assisted document search and automation.',
+        imageSample: 'assets/services/business-box.webp',
+        icon: 'fas fa-archive',
+        service: 'AI & Open Source',
+        price: 499
+      },
+      {
+        id: 43, title: 'Agent Support',
+        description: 'Revolutionary tech support where AI agents triage and solve issues before they cost you time.',
+        details1: 'Automated remote diagnostic agents.',
+        details2: 'Proactive server and workstation monitoring.',
+        details3: 'Direct escalation to a human expert when needed.',
+        imageSample: 'assets/services/agent-support.webp',
+        icon: 'fas fa-robot',
+        service: 'AI & Open Source',
+        price: 99
+      },
+      {
+        id: 44, title: 'Linux Clinic',
+        description: 'Transition smoothly from Windows to Open Source without losing your familiar workflow.',
+        details1: 'White-glove migration of files and settings.',
+        details2: 'Customized desktop environments (Mint, Zorin).',
+        details3: 'Training on open-source alternatives for all tools.',
+        imageSample: 'assets/services/linux-clinic.webp',
+        icon: 'fab fa-linux',
+        service: 'AI & Open Source',
         price: 149
       },
     ]

@@ -39,7 +39,7 @@
       <div class="console-section mb-4">
         <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Primary Operations</h2>
         <div class="row g-3">
-          <div class="col-md-4" *ngFor="let op of featuredOps">
+          <div class="col-md-6 col-lg-3" *ngFor="let op of featuredOps">
             <div class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4" 
                  [routerLink]="op.link">
               <div class="op-icon-ring mb-3" [style.color]="op.color">

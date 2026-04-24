@@ -46,25 +46,32 @@ export class HomeComponent implements OnInit {
   private initializeFeaturedOps() {
     this.featuredOps = [
       { 
-        title: 'System Repair', 
-        subtitle: 'Hardware & OS Recovery', 
+        title: 'Local AI Hubs', 
+        subtitle: 'Revive & Private AI', 
         icon: 'fa-solid fa-microchip',
         link: '/services',
         color: '#81b64c'
       },
       { 
-        title: 'Web Forge', 
-        subtitle: 'Custom Dev & SEO', 
-        icon: 'fa-solid fa-code',
+        title: 'Business Box', 
+        subtitle: 'De-Googled Server', 
+        icon: 'fa-solid fa-server',
         link: '/services',
         color: '#fff'
       },
       { 
-        title: 'Nerd Academy', 
-        subtitle: '1-on-1 Tech Training', 
-        icon: 'fa-solid fa-graduation-cap',
+        title: 'Agent Support', 
+        subtitle: 'AI-Assisted Remote', 
+        icon: 'fa-solid fa-robot',
         link: '/services',
         color: '#81b64c'
+      },
+      { 
+        title: 'Linux Clinic', 
+        subtitle: 'Open-Source Transition', 
+        icon: 'fa-solid fa-linux',
+        link: '/services',
+        color: '#fff'
       }
     ];
   }
