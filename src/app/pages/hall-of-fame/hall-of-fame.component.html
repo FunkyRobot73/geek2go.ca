@@ -1,0 +1,41 @@
+<div class="hall-container">
+  <div class="header">
+    <h1 class="title">GEEK2GO <span>HALL OF FAME</span></h1>
+    <p class="subtitle">A mini-blog celebrating the pioneers of music, tech, and geek culture.</p>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading the legends...</div>
+
+  <div *ngIf="!loading && items.length === 0" class="empty-state">
+    <p>No legends found yet. Check back soon!</p>
+  </div>
+
+  <div class="grid" *ngIf="!loading && items.length > 0">
+    <div class="card" *ngFor="let item of items">
+      <div class="card-image-wrapper">
+        <img [src]="item.imageUrl || 'assets/images/placeholder.jpg'" [alt]="item.title" class="card-image" />
+        <div class="category-badge">{{ item.category }}</div>
+      </div>
+      
+      <div class="card-content">
+        <h2 class="card-title">{{ item.title }}</h2>
+        <h3 class="card-subtitle" *ngIf="item.subtitle">{{ item.subtitle }}</h3>
+        
+        <p class="card-description">{{ item.description }}</p>
+
+        <div class="facts-section" *ngIf="parseFacts(item.facts).length > 0">
+          <h4>Fast Facts</h4>
+          <ul>
+            <li *ngFor="let fact of parseFacts(item.facts)">{{ fact }}</li>
+          </ul>
+        </div>
+
+        <div class="tags" *ngIf="parseTags(item.tags).length > 0">
+          <span class="tag" *ngFor="let tag of parseTags(item.tags)">#{{ tag }}</span>
+        </div>
+
+        <a *ngIf="item.link" [href]="item.link" target="_blank" class="read-more">Learn More &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="admin-container">
+  <h2>Add to Hall of Fame</h2>
+  <p class="subtitle">Enter a new legend into the Geek2Go Hall of Fame.</p>
+
+  <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm" class="admin-form">
+    <div class="form-group">
+      <label for="title">Title / Name *</label>
+      <input type="text" id="title" name="title" [(ngModel)]="item.title" required placeholder="e.g. The Matrix">
+    </div>
+
+    <div class="form-group">
+      <label for="subtitle">Subtitle / Hook</label>
+      <input type="text" id="subtitle" name="subtitle" [(ngModel)]="item.subtitle" placeholder="e.g. 1999 Sci-Fi Masterpiece">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" [(ngModel)]="item.category" placeholder="e.g. Movie, Tech, Game">
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="item.imageUrl" placeholder="https://example.com/image.jpg">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" [(ngModel)]="item.description" rows="4" placeholder="A short snapshot or bio..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="facts">Fast Facts (comma separated)</label>
+      <input type="text" id="facts" name="facts" [(ngModel)]="item.facts" placeholder="e.g. Bullet Time, Directed by Wachowskis">
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags (comma separated)</label>
+      <input type="text" id="tags" name="tags" [(ngModel)]="item.tags" placeholder="e.g. GEEK, SCIFI, CYBERPUNK">
+    </div>
+
+    <div class="form-group">
+      <label for="link">External Link</label>
+      <input type="text" id="link" name="link" [(ngModel)]="item.link" placeholder="https://wikipedia.org/wiki/...">
+    </div>
+
+    <button type="submit" [disabled]="loading" class="btn-submit">
+      {{ loading ? 'Saving...' : 'Add to Hall of Fame' }}
+    </button>
+  </form>
+</div>

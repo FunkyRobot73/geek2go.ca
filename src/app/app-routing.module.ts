@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'blog-single/:id', component: BlogSingleComponent },
   { path: 'hardware', component: HardwareComponent },
   { path: 'sourcing-agent', component: SourcingAgentComponent },
+  { path: 'hall-of-fame', loadComponent: () => import('./pages/hall-of-fame/hall-of-fame.component').then(m => m.HallOfFameComponent) },
+  { path: 'admin/add-hall-of-fame', loadComponent: () => import('./pages/admin/add-hall-of-fame/add-hall-of-fame.component').then(m => m.AddHallOfFameComponent) },
   { path: '**', redirectTo: '' }
 ];
 
