@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HallOfFameService, HallOfFameItem } from '../../services/hall-of-fame.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-hall-of-fame',
@@ -29,6 +30,12 @@ export class HallOfFameComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  getImage(url?: string): string {
+    if (!url) return 'assets/images/placeholder.jpg';
+    if (url.startsWith('http://') || url.startsWith('https://')) return url;
+    return environment.imageBaseUrl + url;
   }
 
   parseFacts(factsStr?: string): string[] {

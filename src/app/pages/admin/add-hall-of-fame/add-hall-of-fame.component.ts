@@ -26,11 +26,18 @@ export class AddHallOfFameComponent {
   loading = false;
   successMessage = '';
   errorMessage = '';
+  selectedFile: File | null = null;
 
   constructor(
     private hallOfFameService: HallOfFameService,
     private router: Router
   ) {}
+
+  onFileSelected(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
 
   onSubmit() {
     if (!this.item.title) {
@@ -42,16 +49,29 @@ export class AddHallOfFameComponent {
     this.errorMessage = '';
     this.successMessage = '';
 
-    // Convert comma-separated facts and tags to JSON string arrays before sending
-    const payload = { ...this.item };
-    if (this.item.facts && typeof this.item.facts === 'string' && !this.item.facts.startsWith('[')) {
-      payload.facts = JSON.stringify(this.item.facts.split(',').map(f => f.trim()).filter(f => f));
-    }
-    if (this.item.tags && typeof this.item.tags === 'string' && !this.item.tags.startsWith('[')) {
-      payload.tags = JSON.stringify(this.item.tags.split(',').map(t => t.trim()).filter(t => t));
+    const formData = new FormData();
+    formData.append('title', this.item.title);
+    if (this.item.subtitle) formData.append('subtitle', this.item.subtitle);
+    if (this.item.category) formData.append('category', this.item.category);
+    if (this.item.description) formData.append('description', this.item.description);
+    if (this.item.link) formData.append('link', this.item.link);
+    
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+    } else if (this.item.imageUrl) {
+      formData.append('imageUrl', this.item.imageUrl);
     }
 
-    this.hallOfFameService.create(payload).subscribe({
+    if (this.item.facts && typeof this.item.facts === 'string') {
+      const factsArr = this.item.facts.split(',').map(f => f.trim()).filter(f => f);
+      formData.append('facts', JSON.stringify(factsArr));
+    }
+    if (this.item.tags && typeof this.item.tags === 'string') {
+      const tagsArr = this.item.tags.split(',').map(t => t.trim()).filter(t => t);
+      formData.append('tags', JSON.stringify(tagsArr));
+    }
+
+    this.hallOfFameService.create(formData).subscribe({
       next: (res) => {
         this.loading = false;
         if (res.success) {

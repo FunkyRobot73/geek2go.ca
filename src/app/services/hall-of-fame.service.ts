@@ -27,12 +27,12 @@ export class HallOfFameService {
     return this.http.get<any>(this.apiUrl);
   }
 
-  create(item: HallOfFameItem): Observable<any> {
-    return this.http.post<any>(this.apiUrl, item);
+  create(data: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, data);
   }
 
-  update(id: number, item: HallOfFameItem): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, item);
+  update(id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, data);
   }
 
   delete(id: number): Observable<any> {
