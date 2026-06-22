@@ -12,7 +12,11 @@
       <div class="chess-card article-view">
         <header class="article-header mb-4 border-bottom border-dark pb-3">
           <div class="d-flex align-items-center justify-content-between mb-3">
-             <span class="badge rounded-pill bg-dark border border-dark text-green smallest">{{ blogPost.catBlog }}</span>
+             <div class="d-flex align-items-center gap-2">
+               <span class="badge rounded-pill bg-dark border border-dark text-green smallest">{{ blogPost.catBlog }}</span>
+               <span class="smallest text-muted">•</span>
+               <span class="smallest text-muted"><i class="far fa-clock"></i> {{ blogPost.readingTime || 1 }} min read</span>
+             </div>
              <span class="smallest text-muted">Node: ARCHIVE_LOG_{{ blogPost.id }}</span>
           </div>
           <h1 class="h2 mb-4 fw-bold text-white">{{ blogPost.titleBlog }}</h1>

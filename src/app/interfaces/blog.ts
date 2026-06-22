@@ -9,6 +9,8 @@ export interface Blog {
     createdAt: string;
     updatedAt: string;
     BlogSections?: BlogSection[];
+    readingTime?: number;
+    wordCount?: number;
 }
 
 export interface BlogSection {
