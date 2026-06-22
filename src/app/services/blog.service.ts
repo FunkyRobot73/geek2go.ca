@@ -19,7 +19,7 @@ export class BlogService {
    * Fetch all blogs (mapped for compatibility)
    */
   viewBlog() {
-    return this.http.get<Blog[]>(this.apiUrl01).pipe(
+    return this.http.get<Blog[]>(`${this.apiUrl01}?site=geek2go.ca`).pipe(
       map(blogs => blogs
         .filter(blog => blog.catBlog?.toLowerCase() !== 'journal')
         .map(blog => ({
