@@ -11,6 +11,7 @@ export interface Blog {
     BlogSections?: BlogSection[];
     readingTime?: number;
     wordCount?: number;
+    Tags?: { id: number; name: string }[];
 }
 
 export interface BlogSection {

@@ -21,6 +21,10 @@
           </div>
           <h1 class="h2 mb-4 fw-bold text-white">{{ blogPost.titleBlog }}</h1>
           
+          <div class="d-flex flex-wrap gap-1 mb-4" *ngIf="blogPost.Tags && blogPost.Tags.length > 0">
+             <span *ngFor="let tag of blogPost.Tags" class="badge rounded-pill bg-dark border border-dark text-muted smallest">#{{ tag.name }}</span>
+          </div>
+          
           <div class="article-featured-img-wrapper mb-4 overflow-hidden rounded border border-dark">
             <img [src]="imageBaseUrl + blogPost.image" 
                  alt="{{blogPost.titleBlog}}"

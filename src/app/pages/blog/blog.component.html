@@ -42,6 +42,10 @@
             
             <p class="smallest text-muted mb-3 line-clamp-2" 
                [innerHTML]="(blog.subtitleBlog | slice:0:150) + '...'"></p>
+
+            <div class="d-flex flex-wrap gap-1 mb-3" *ngIf="blog.Tags && blog.Tags.length > 0">
+              <span *ngFor="let tag of blog.Tags" class="badge rounded-pill bg-dark border border-dark text-muted smallest">#{{ tag.name }}</span>
+            </div>
             
             <a [routerLink]="['/blog-single', blog.id]" class="btn btn-link p-0 text-green smallest text-decoration-none fw-bold">
               Analyze Report <i class="fa-solid fa-arrow-right list-icon ms-1"></i>
