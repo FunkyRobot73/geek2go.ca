@@ -1,4 +1,21 @@
 .article-view {
+  color: #bab9b8;
+
+  // Ensure headings are white
+  h1, .text-white {
+    color: #ffffff !important;
+  }
+
+  // Ensure green text is green
+  .text-green {
+    color: #81b64c !important;
+  }
+
+  // Ensure all paragraphs and other elements inside article view are visible
+  ::ng-deep p, ::ng-deep span, ::ng-deep div {
+    color: inherit;
+  }
+
   .body-text {
     line-height: 1.8;
     color: #bab9b8 !important;

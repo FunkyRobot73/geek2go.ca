@@ -44,13 +44,17 @@ recentBlogs: Blog[] = []; // For sidebar recent posts
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.fetchBlogPost(id);
-    } else {
-      this.error = 'Invalid blog post ID';
-      this.loading = false;
-    }
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.loading = true;
+        this.error = null;
+        this.fetchBlogPost(id);
+      } else {
+        this.error = 'Invalid blog post ID';
+        this.loading = false;
+      }
+    });
   }
 
   fetchBlogPost(id: string): void {
