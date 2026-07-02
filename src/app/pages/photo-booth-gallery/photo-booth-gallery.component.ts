@@ -34,12 +34,12 @@ export class PhotoBoothGalleryComponent implements OnInit {
   }
 
   private loadGalleryImages() {
-    const imageCount = 20;
-    const basePath = 'assets/pb/';
+    const imageCount = 21;
+    const basePath = 'assets/gallery02/';
     
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
-        src: `${basePath}pb${i}.webp`,
+        src: `${basePath}gallery02_${i}.webp`,
         alt: `Geeking Out in ${this.randomCity()}`
       });
     }

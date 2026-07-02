@@ -158,3 +158,25 @@
   overflow: hidden;
   border: 1px solid #3d3b38;
 }
+
+.transmission-feed {
+    .transmission-post {
+        &:last-child {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .hover-green {
+            color: #bab9b8;
+            transition: color 0.15s ease;
+            
+            &:hover {
+                color: #81b64c !important;
+                background-color: transparent !important;
+                border-color: transparent !important;
+            }
+        }
+    }
+}
+

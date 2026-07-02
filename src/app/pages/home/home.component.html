@@ -142,7 +142,7 @@
         <app-latest-articles></app-latest-articles>
     </div>
 
-    <!-- Satellite Transmissions (Live Twitter Feed) -->
+    <!-- Satellite Transmissions (Live Twitter Feed Fallback) -->
     <div class="chess-card twitter-feed-wrapper mb-4 p-0 overflow-hidden">
       <div class="p-3 border-bottom border-dark d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
@@ -154,15 +154,22 @@
         </div>
       </div>
 
-      <div class="twitter-timeline-container">
-        <a class="twitter-timeline"
-           href="https://twitter.com/funkyrobot73"
-           data-theme="dark"
-           data-chrome="noheader nofooter noborders transparent"
-           data-tweet-limit="5"
-           data-dnt="true">
-          Transmissions loading...
-        </a>
+      <div class="twitter-timeline-container p-3">
+        <div class="transmission-feed">
+          <div *ngFor="let post of transmissions.slice(0, 5)" class="transmission-post mb-3 pb-3 border-bottom border-dark-subtle">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="smallest text-green fw-bold monospace">[{{ post.category }}]</span>
+              <span class="smallest text-muted monospace">{{ post.timestamp }}</span>
+            </div>
+            <p class="small text-light mb-2 monospace text-break">{{ post.message }}</p>
+            <div class="d-flex justify-content-between align-items-center smallest monospace text-muted">
+              <span>STATUS: <span class="text-green">{{ post.status }}</span></span>
+              <a [href]="profile?.twitter" target="_blank" class="text-decoration-none hover-green d-flex align-items-center">
+                <i class="fa-brands fa-x-twitter me-1"></i>View on X
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -7,6 +7,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from 'src/app/interfaces/blog';
 import { PROJECT_UPDATES, Transmission } from 'src/app/services/twitter.data';
 import { SeoService } from 'src/app/services/seo.service';
+import { HttpClient } from '@angular/common/http';
 
 import { AiDiagnosticComponent } from './ai-diagnostic/ai-diagnostic.component';
 
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
   private seo = inject(SeoService);
+  private http = inject(HttpClient);
 
   ngOnInit() {
     this.seo.setPage({
@@ -35,12 +37,30 @@ export class HomeComponent implements OnInit {
     this.profileService.profile$.subscribe(data => {
       this.profile = data;
       this.initializeFeaturedOps();
+      this.fetchTransmissions();
     });
 
     this.blogService.viewBlog().subscribe({
       next: (blogs) => {
         // Take latest 3 for the main channel feed
         this.mainFeedArticles = blogs.slice(-3).reverse();
+      }
+    });
+  }
+
+  private fetchTransmissions() {
+    const url = this.profile?.transmissionsJsonUrl;
+    if (!url) {
+      return;
+    }
+    this.http.get<Transmission[]>(url).subscribe({
+      next: (data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          this.transmissions = data;
+        }
+      },
+      error: (err) => {
+        console.warn('Failed to load dynamic transmissions from GitHub, using offline fallback:', err);
       }
     });
   }

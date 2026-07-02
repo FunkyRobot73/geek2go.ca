@@ -39,12 +39,12 @@ export class DjGalleryComponent implements OnInit{
   }
 
   private loadGalleryImages() {
-    const imageCount = 20;
-    const basePath = 'assets/dj/';
+    const imageCount = 22;
+    const basePath = 'assets/gallery01/';
     
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
-        src: `${basePath}dj${i}.webp`,
+        src: `${basePath}gallery01_${i}.webp`,
         alt: `Geeking Out in ${this.randomCity()}`
       });
     }
