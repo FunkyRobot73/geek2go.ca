@@ -8,6 +8,7 @@ import { Blog } from 'src/app/interfaces/blog';
 import { PROJECT_UPDATES, Transmission } from 'src/app/services/twitter.data';
 import { SeoService } from 'src/app/services/seo.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 import { AiDiagnosticComponent } from './ai-diagnostic/ai-diagnostic.component';
 
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   mainFeedArticles: Blog[] = [];
   featuredOps: any[] = [];
   transmissions: Transmission[] = PROJECT_UPDATES;
+  imageBaseUrl = environment.imageBaseUrl;
 
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
