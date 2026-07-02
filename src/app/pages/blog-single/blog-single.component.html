@@ -36,10 +36,6 @@
         <!-- cool section -->
 
         <section class="article-content">
-          <!-- Main Body (Legacy metadata or Subtitle) -->
-          <div class="content-block mb-4">
-            <div [innerHTML]="blogPost.subtitleBlog" class="h5 text-green mb-3 fw-bold"></div>
-          </div>
 
           <!-- Dynamic Sections (The new relational format) -->
           <div class="content-block mb-5" *ngFor="let section of blogPost.BlogSections; let i = index">
