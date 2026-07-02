@@ -17,33 +17,46 @@
       <h2 class="h4 mb-3 border-bottom border-dark pb-3">Send a Message</h2>
       <p class="smallest text-muted mb-4">Have a tech issue, a web dev project, or a question? Drop me a line and I'll get back to you as soon as possible.</p>
       
-      <form action="https://formsubmit.co/carlos@geek2go.ca" method="POST" class="chess-form">
+      <!-- Success Alert -->
+      <div *ngIf="submitSuccess" class="alert alert-success border-0 rounded p-3 mb-4 smallest monospace text-green" style="background-color: rgba(129, 182, 76, 0.1);">
+        <i class="fa-solid fa-circle-check me-2"></i> Message sent successfully! I will get back to you soon.
+      </div>
+      
+      <!-- Error Alert -->
+      <div *ngIf="submitError" class="alert alert-danger border-0 rounded p-3 mb-4 smallest monospace text-danger" style="background-color: rgba(220, 53, 69, 0.1);">
+        <i class="fa-solid fa-triangle-exclamation me-2"></i> {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="submitContact()" #contactForm="ngForm" class="chess-form">
         <div class="row g-3">
           <div class="col-md-6">
             <div class="mb-3">
               <label class="smallest text-muted text-uppercase mb-1 fw-bold">Your Name</label>
-              <input type="text" name="name" class="form-control-chess" placeholder="Your Name" required>
+              <input type="text" name="name" class="form-control-chess" placeholder="Your Name" [(ngModel)]="formData.name" required>
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-3">
               <label class="smallest text-muted text-uppercase mb-1 fw-bold">Email Address</label>
-              <input type="email" name="email" class="form-control-chess" placeholder="name@example.com" required>
+              <input type="email" name="email" class="form-control-chess" placeholder="name@example.com" [(ngModel)]="formData.email" required>
             </div>
           </div>
         </div>
         
         <div class="mb-3">
           <label class="smallest text-muted text-uppercase mb-1 fw-bold">Subject</label>
-          <input type="text" name="subject" class="form-control-chess" placeholder="e.g. Slow computer, virus issue, custom website">
+          <input type="text" name="subject" class="form-control-chess" placeholder="e.g. Slow computer, virus issue, custom website" [(ngModel)]="formData.subject">
         </div>
         
         <div class="mb-4">
           <label class="smallest text-muted text-uppercase mb-1 fw-bold">Message Details</label>
-          <textarea name="message" class="form-control-chess" rows="5" placeholder="How can I help you today?" required></textarea>
+          <textarea name="message" class="form-control-chess" rows="5" placeholder="How can I help you today?" [(ngModel)]="formData.message" required></textarea>
         </div>
         
-        <button type="submit" class="btn-chess-primary w-100 py-3">Send Message</button>
+        <button type="submit" class="btn-chess-primary w-100 py-3 d-flex align-items-center justify-content-center" [disabled]="isSubmitting || !contactForm.valid">
+          <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          {{ isSubmitting ? 'Sending Message...' : 'Send Message' }}
+        </button>
       </form>
     </div>
 

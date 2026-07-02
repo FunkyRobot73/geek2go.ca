@@ -1,27 +1,42 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { ProfileService } from 'src/app/services/profile.service';
 import { SeoService } from 'src/app/services/seo.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
- profile: any;
+export class ContactComponent implements OnInit {
+  profile: any;
+  formData = {
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  };
+  isSubmitting = false;
+  submitSuccess = false;
+  submitError = false;
+  errorMessage = '';
   
-  constructor(private profileService: ProfileService, private sanitizer: DomSanitizer, private seo: SeoService) {
+  constructor(
+    private profileService: ProfileService,
+    private sanitizer: DomSanitizer,
+    private seo: SeoService,
+    private http: HttpClient
+  ) {
     this.seo.setPage({
       title: 'Contact Geek2Go — IT Support Burlington',
       description: 'Get in touch with Geek2Go.ca for IT support, computer repair, or web development inquiries in Burlington, Aldershot & surrounding areas.',
       path: '/contact'
-    });
-    this.profileService.profile$.subscribe(profile => {
-      this.profile = profile;
     });
   }
 
@@ -30,6 +45,7 @@ export class ContactComponent {
       this.profile = profile;
     });
   }
+
   getSafeVideoUrl(url: string) {
     // Convert YouTube URL to embed URL
     const videoId = url.split('v=')[1];
@@ -37,18 +53,32 @@ export class ContactComponent {
     return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 
-  submitForm() {
-    // Handle form submission
-    const emailBody = `
-      Name: ${this.profile.name}
-      Email: ${this.profile.email}
-      Message: ${this.profile.message}
-      Note: ${this.profile.subject}
-    `;
+  submitContact() {
+    this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+    this.errorMessage = '';
 
-    const mailtoLink = `mailto:carlos@geek2go.ca?subject=Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
-    console.log('Form submitted!');
+    const contactUrl = environment.apiUrl.replace('/blogs', '/contact');
+
+    this.http.post(contactUrl, this.formData).subscribe({
+      next: (res: any) => {
+        this.isSubmitting = false;
+        this.submitSuccess = true;
+        // Reset form fields
+        this.formData = {
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        };
+      },
+      error: (err: any) => {
+        this.isSubmitting = false;
+        this.submitError = true;
+        this.errorMessage = err.error?.error || 'Something went wrong. Please try again or reach out directly via phone or email.';
+        console.error('Contact submission error:', err);
+      }
+    });
   }
-
 }
