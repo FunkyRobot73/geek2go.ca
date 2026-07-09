@@ -8,6 +8,8 @@ export interface Blog {
     thumbnail: string;
     createdAt: string;
     updatedAt: string;
+    seoTitle?: string;
+    metaDescription?: string;
     BlogSections?: BlogSection[];
     readingTime?: number;
     wordCount?: number;

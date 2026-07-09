@@ -22,7 +22,9 @@ export class BlogSingleComponent implements OnInit {
   blogPost: Blog | null = null;
   loading: boolean = true;
   error: string | null = null;
-recentBlogs: Blog[] = []; // For sidebar recent posts
+  recentBlogs: Blog[] = []; // For sidebar recent posts
+  prevPost: Blog | null = null;
+  nextPost: Blog | null = null;
 
   constructor(
     private route: ActivatedRoute, 
@@ -36,6 +38,10 @@ recentBlogs: Blog[] = []; // For sidebar recent posts
     this.blogService.viewBlog().subscribe({
       next: (data) => {
         this.recentBlogs = data;
+        const currentId = this.route.snapshot.paramMap.get('id');
+        if (currentId) {
+          this.updateAdjacentPosts(+currentId);
+        }
       },
       error: (err) => {
         console.log(err);
@@ -62,11 +68,12 @@ recentBlogs: Blog[] = []; // For sidebar recent posts
       next: (post) => {
         this.blogPost = post;
         this.seo.setPage({
-          title: post.titleBlog || 'Blog Post — Geek2Go.ca',
-          description: post.subtitleBlog || 'Read the latest from Geek2Go.ca — IT tips, tech news and geek culture from Burlington.',
+          title: post.seoTitle || post.titleBlog || 'Blog Post — Geek2Go.ca',
+          description: post.metaDescription || post.subtitleBlog || 'Read the latest from Geek2Go.ca — IT tips, tech news and geek culture from Burlington.',
           path: `/blog-single/${post.idBlog}`
         });
         this.loading = false;
+        this.updateAdjacentPosts(+id);
       },
       error: (err) => {
         console.error(err);
@@ -74,6 +81,15 @@ recentBlogs: Blog[] = []; // For sidebar recent posts
         this.loading = false;
       }
     });
+  }
+
+  updateAdjacentPosts(currentId: number): void {
+    if (!this.recentBlogs || this.recentBlogs.length === 0) return;
+    const index = this.recentBlogs.findIndex(b => b.id === currentId);
+    if (index === -1) return;
+
+    this.prevPost = index + 1 < this.recentBlogs.length ? this.recentBlogs[index + 1] : null;
+    this.nextPost = index - 1 >= 0 ? this.recentBlogs[index - 1] : null;
   }
 
 }
