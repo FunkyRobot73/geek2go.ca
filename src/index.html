@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en-CA">
 <head>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('geek2go-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="utf-8">
   <title>Geek2Go.ca — IT Support & Computer Repair in Burlington & Aldershot</title>
   <base href="/">

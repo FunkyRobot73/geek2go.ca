@@ -1,12 +1,12 @@
 .chess-footer {
-  border-top: 1px solid #3d3b38;
+  border-top: 1px solid var(--chess-border, #3d3b38);
   
   a {
-    color: #bab9b8;
+    color: var(--chess-text-muted, #bab9b8);
     transition: color 0.2s;
     
     &:hover {
-      color: #81b64c;
+      color: var(--chess-green, #81b64c);
     }
   }
 }

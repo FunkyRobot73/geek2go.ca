@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 4rem 2rem;
   font-family: 'Inter', 'Roboto', sans-serif;
-  color: #f0f0f0;
+  color: var(--chess-text);
 
   .header {
     text-align: center;
@@ -14,7 +14,7 @@
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 0.5rem;
-      color: #fff;
+      color: var(--chess-heading-text);
 
       span {
         background: linear-gradient(135deg, #00f2fe, #4facfe);
@@ -25,7 +25,7 @@
 
     .subtitle {
       font-size: 1.2rem;
-      color: #aaa;
+      color: var(--chess-text-muted);
       max-width: 600px;
       margin: 0 auto;
     }
@@ -34,7 +34,7 @@
   .loading, .empty-state {
     text-align: center;
     font-size: 1.2rem;
-    color: #888;
+    color: var(--chess-text-muted);
     padding: 4rem;
   }
 
@@ -45,8 +45,8 @@
   }
 
   .card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--chess-panel-glass);
+    border: 1px solid var(--chess-border-glass);
     border-radius: 16px;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -104,7 +104,7 @@
         font-size: 1.5rem;
         font-weight: 700;
         margin: 0 0 0.2rem 0;
-        color: #fff;
+        color: var(--chess-heading-text);
       }
 
       .card-subtitle {
@@ -117,13 +117,13 @@
       .card-description {
         font-size: 0.95rem;
         line-height: 1.5;
-        color: #ccc;
+        color: var(--chess-text);
         margin-bottom: 1.5rem;
         flex-grow: 1;
       }
 
       .facts-section {
-        background: rgba(0, 0, 0, 0.2);
+        background: var(--chess-facts-bg);
         padding: 1rem;
         border-radius: 8px;
         margin-bottom: 1.5rem;
@@ -132,14 +132,14 @@
           margin: 0 0 0.5rem 0;
           font-size: 0.9rem;
           text-transform: uppercase;
-          color: #aaa;
+          color: var(--chess-text-muted);
           letter-spacing: 1px;
         }
 
         ul {
           margin: 0;
           padding-left: 1.2rem;
-          color: #ddd;
+          color: var(--chess-text);
           font-size: 0.9rem;
 
           li {
@@ -159,8 +159,8 @@
 
         .tag {
           font-size: 0.8rem;
-          color: #888;
-          background: rgba(255, 255, 255, 0.05);
+          color: var(--chess-text-muted);
+          background: var(--chess-tag-bg);
           padding: 0.2rem 0.6rem;
           border-radius: 4px;
         }
@@ -169,7 +169,7 @@
       .read-more {
         align-self: flex-start;
         display: inline-block;
-        color: #fff;
+        color: var(--chess-heading-text);
         text-decoration: none;
         font-weight: 600;
         font-size: 0.9rem;

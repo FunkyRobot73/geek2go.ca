@@ -11,9 +11,9 @@
       </div>
       <div class="bio-text">
         <p class="lead fw-bold mb-4">{{ profile?.bio }}</p>
-        <div class="mission-briefing p-3 border-start border-green mb-4" style="background-color: #1a1917;">
+        <div class="mission-briefing p-3 border-start border-green mb-4" style="background-color: var(--chess-terminal-bg);">
            <p class="smallest text-green text-uppercase mb-1 fw-bold">My Goal</p>
-           <p class="mb-0 text-white" style="opacity: 0.8;">{{ profile?.mission }}</p>
+           <p class="mb-0" style="opacity: 0.8; color: var(--chess-heading-text);">{{ profile?.mission }}</p>
         </div>
         <p>{{ profile?.bio1 }}</p>
         <p>{{ profile?.bio2 }}</p>
@@ -95,11 +95,11 @@
     </div>
 
     <!-- Location Stats -->
-    <div class="chess-card mt-4 border-dark" style="background-color: #1a1917;">
+    <div class="chess-card mt-4 border-dark" style="background-color: var(--chess-terminal-bg);">
         <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Where I work</h3>
         <div class="d-flex justify-content-between smallest">
             <span class="text-muted">Area:</span>
-            <span class="text-white">Burlington / Aldershot</span>
+            <span style="color: var(--chess-heading-text);">Burlington / Aldershot</span>
         </div>
         <div class="d-flex justify-content-between smallest mt-1">
             <span class="text-muted">Status:</span>

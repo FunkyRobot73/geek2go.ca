@@ -1,11 +1,67 @@
-// --- CHESS.COM DESIGN SYSTEM ---
-$chess-bg: #312e2b;
-$chess-panel: #262421;
-$chess-green: #81b64c;
-$chess-green-hover: #95bb4a;
-$chess-border: #3d3b38;
-$chess-text: #d5d4d3;
-$chess-text-muted: #bab9b8;
+// --- CHESS.COM DESIGN SYSTEM VARIABLES & THEMES ---
+:root {
+  --chess-bg: #312e2b;
+  --chess-panel: #262421;
+  --chess-green: #81b64c;
+  --chess-green-hover: #95bb4a;
+  --chess-green-shadow: #5c8f30;
+  --chess-border: #3d3b38;
+  --chess-text: #d5d4d3;
+  --chess-text-muted: #bab9b8;
+  --chess-heading-text: #ffffff;
+  --chess-navbar-bg: #262421;
+  --chess-navbar-link-color: #bab9b8;
+  --chess-navbar-link-hover-bg: rgba(255, 255, 255, 0.05);
+  --chess-navbar-link-active-bg: rgba(129, 182, 76, 0.1);
+  --chess-navbar-border: #3d3b38;
+  --chess-card-hover: #2e2c29;
+  --chess-terminal-bg: #1a1917;
+  --chess-terminal-border: #3d3b38;
+  --chess-input-bg: #262421;
+  --chess-input-border: #3d3b38;
+  --chess-input-text: #d5d4d3;
+  --chess-input-bg-focus: #2e2c29;
+  --chess-panel-glass: rgba(255, 255, 255, 0.03);
+  --chess-border-glass: rgba(255, 255, 255, 0.05);
+  --chess-facts-bg: rgba(0, 0, 0, 0.2);
+  --chess-tag-bg: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] {
+  --chess-bg: #f5f4f3;
+  --chess-panel: #ffffff;
+  --chess-green: #81b64c;
+  --chess-green-hover: #72a543;
+  --chess-green-shadow: #5c8f30;
+  --chess-border: #e1dfdd;
+  --chess-text: #312e2b;
+  --chess-text-muted: #605e5c;
+  --chess-heading-text: #201f1e;
+  --chess-navbar-bg: #ffffff;
+  --chess-navbar-link-color: #605e5c;
+  --chess-navbar-link-hover-bg: rgba(0, 0, 0, 0.05);
+  --chess-navbar-link-active-bg: rgba(129, 182, 76, 0.1);
+  --chess-navbar-border: #e1dfdd;
+  --chess-card-hover: #faf9f8;
+  --chess-terminal-bg: #f9f8f7;
+  --chess-terminal-border: #e1dfdd;
+  --chess-input-bg: #ffffff;
+  --chess-input-border: #e1dfdd;
+  --chess-input-text: #312e2b;
+  --chess-input-bg-focus: #fcfbfa;
+  --chess-panel-glass: rgba(0, 0, 0, 0.03);
+  --chess-border-glass: rgba(0, 0, 0, 0.08);
+  --chess-facts-bg: rgba(0, 0, 0, 0.04);
+  --chess-tag-bg: rgba(0, 0, 0, 0.05);
+}
+
+$chess-bg: var(--chess-bg);
+$chess-panel: var(--chess-panel);
+$chess-green: var(--chess-green);
+$chess-green-hover: var(--chess-green-hover);
+$chess-border: var(--chess-border);
+$chess-text: var(--chess-text);
+$chess-text-muted: var(--chess-text-muted);
 $sidebar-width: 144px;
 
 // --- DASHBOARD SYSTEM ---
@@ -60,7 +116,7 @@ body, html {
 
 h1, h2, h3, h4, .navbar-brand {
   font-family: 'Outfit', sans-serif;
-  color: #fff;
+  color: var(--chess-heading-text);
 }
 
 // --- LAYOUT WRAPPER ---
@@ -72,8 +128,8 @@ h1, h2, h3, h4, .navbar-brand {
   .sidebar-column {
     width: $sidebar-width;
     flex-shrink: 0;
-    background-color: $chess-panel;
-    border-right: 1px solid $chess-border;
+    background-color: var(--chess-navbar-bg);
+    border-right: 1px solid var(--chess-navbar-border);
     display: flex;
     flex-direction: column;
     z-index: 1000;
@@ -109,7 +165,7 @@ h1, h2, h3, h4, .navbar-brand {
   transition: background-color 0.2s;
   
   &.hoverable:hover {
-    background-color: lighten($chess-panel, 3%);
+    background-color: var(--chess-card-hover);
   }
 }
 
@@ -120,18 +176,18 @@ h1, h2, h3, h4, .navbar-brand {
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 4px;
-  box-shadow: 0 4px 0 darken($chess-green, 15%);
+  box-shadow: 0 4px 0 var(--chess-green-shadow);
   transition: all 0.1s;
   
   &:hover {
     background-color: $chess-green-hover;
     transform: translateY(-1px);
-    box-shadow: 0 5px 0 darken($chess-green, 15%);
+    box-shadow: 0 5px 0 var(--chess-green-shadow);
   }
   
   &:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 darken($chess-green, 15%);
+    box-shadow: 0 2px 0 var(--chess-green-shadow);
   }
 }
 
@@ -164,7 +220,7 @@ h1, h2, h3, h4, .navbar-brand {
 .alert-info {
   background-color: rgba(129, 182, 76, 0.1) !important;
   border: 1px solid rgba(129, 182, 76, 0.2) !important;
-  color: #fff !important;
+  color: var(--chess-text) !important;
 }
 
 // --- TACTICAL UI UTILITIES ---

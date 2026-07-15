@@ -55,6 +55,12 @@
           <span class="link-label">Contact</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link theme-toggle" (click)="toggleTheme()" style="cursor: pointer;">
+          <i class="fa-solid" [class.fa-sun]="isDarkMode" [class.fa-moon]="!isDarkMode"></i>
+          <span class="link-label">{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
+        </a>
+      </li>
     </ul>
   </nav>
 

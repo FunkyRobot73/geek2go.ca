@@ -1,14 +1,14 @@
 .article-view {
-  color: #bab9b8;
+  color: var(--chess-text-muted);
 
-  // Ensure headings are white
+  // Ensure headings are white or heading text color
   h1, .text-white {
-    color: #ffffff !important;
+    color: var(--chess-heading-text) !important;
   }
 
   // Ensure green text is green
   .text-green {
-    color: #81b64c !important;
+    color: var(--chess-green) !important;
   }
 
   // Ensure all paragraphs and other elements inside article view are visible
@@ -18,7 +18,7 @@
 
   .body-text {
     line-height: 1.8;
-    color: #bab9b8 !important;
+    color: var(--chess-text-muted) !important;
     
     ::ng-deep * {
       color: inherit !important;
@@ -31,7 +31,7 @@
 }
 
 .article-header {
-  border-bottom: 1px solid #3d3b38;
+  border-bottom: 1px solid var(--chess-border);
 }
 
 .article-featured-img-wrapper {
@@ -55,7 +55,7 @@
     width: 44px;
     height: 44px;
     padding: 2px;
-    background-color: #312e2b;
+    background-color: var(--chess-bg);
     border-radius: 50%;
 }
 

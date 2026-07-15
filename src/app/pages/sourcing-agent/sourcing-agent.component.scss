@@ -72,7 +72,7 @@
 }
 
 .form-control:focus {
-  background-color: #1a1917 !important;
-  border-color: #81b64c !important;
+  background-color: var(--chess-input-bg-focus) !important;
+  border-color: var(--chess-green, #81b64c) !important;
   box-shadow: none !important;
 }

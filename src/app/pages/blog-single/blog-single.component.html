@@ -57,15 +57,15 @@
         <!-- Next/Prev Navigation -->
         <div class="d-flex justify-content-between align-items-center mt-5 pt-4 border-top border-dark gap-3">
           <div>
-            <a *ngIf="prevPost" [routerLink]="['/blog-single', prevPost.id]" class="btn btn-dark border-dark text-start p-3 d-block w-100 hover-bg-dark rounded text-decoration-none" style="min-width: 180px; max-width: 300px; border-color: #333 !important; background-color: #151412;">
+            <a *ngIf="prevPost" [routerLink]="['/blog-single', prevPost.id]" class="btn btn-dark border-dark text-start p-3 d-block w-100 hover-bg-dark rounded text-decoration-none" style="min-width: 180px; max-width: 300px; border-color: var(--chess-border) !important; background-color: var(--chess-panel);">
               <div class="smallest text-muted text-uppercase mb-1"><i class="fa-solid fa-arrow-left me-1"></i> Older Intel</div>
-              <div class="smallest fw-bold text-white text-truncate">{{ prevPost.titleBlog }}</div>
+              <div class="smallest fw-bold text-truncate" style="color: var(--chess-heading-text);">{{ prevPost.titleBlog }}</div>
             </a>
           </div>
           <div>
-            <a *ngIf="nextPost" [routerLink]="['/blog-single', nextPost.id]" class="btn btn-dark border-dark text-end p-3 d-block w-100 hover-bg-dark rounded text-decoration-none" style="min-width: 180px; max-width: 300px; border-color: #333 !important; background-color: #151412;">
+            <a *ngIf="nextPost" [routerLink]="['/blog-single', nextPost.id]" class="btn btn-dark border-dark text-end p-3 d-block w-100 hover-bg-dark rounded text-decoration-none" style="min-width: 180px; max-width: 300px; border-color: var(--chess-border) !important; background-color: var(--chess-panel);">
               <div class="smallest text-green text-uppercase mb-1">Newer Intel <i class="fa-solid fa-arrow-right ms-1"></i></div>
-              <div class="smallest fw-bold text-white text-truncate">{{ nextPost.titleBlog }}</div>
+              <div class="smallest fw-bold text-truncate" style="color: var(--chess-heading-text);">{{ nextPost.titleBlog }}</div>
             </a>
           </div>
         </div>
@@ -92,7 +92,7 @@
                  class="rounded me-3" width="56" height="42" style="object-fit: cover;"
                  onerror="this.src='assets/ai-sample.webp'">
             <div class="related-info overflow-hidden">
-               <h4 class="smallest fw-bold text-white mb-0 text-truncate">{{ recent.titleBlog }}</h4>
+               <h4 class="smallest fw-bold mb-0 text-truncate" style="color: var(--chess-heading-text);">{{ recent.titleBlog }}</h4>
                <span class="smallest text-muted text-uppercase">{{ recent.catBlog }}</span>
             </div>
           </a>
@@ -103,7 +103,7 @@
       </div>
 
       <!-- Quick Action Widget -->
-      <div class="chess-card mb-4 border-green-faint" style="background-color: #1a1917;">
+      <div class="chess-card mb-4 border-green-faint" style="background-color: var(--chess-terminal-bg);">
         <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Questions?</h3>
         <p class="smallest text-muted mb-3">Does this intel require clarification? Dispatch a direct inquiry.</p>
         <a routerLink="/contact" class="btn-chess-primary btn-sm w-100">Contact Carlos</a>

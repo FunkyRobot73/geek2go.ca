@@ -1,7 +1,7 @@
 // 1. Unified Master Console
 .master-console-widget {
   padding: 30px;
-  background: linear-gradient(135deg, #262421 80%, rgba(129, 182, 76, 0.05) 100%);
+  background: linear-gradient(135deg, var(--chess-panel) 80%, rgba(129, 182, 76, 0.05) 100%);
   position: relative;
   overflow: hidden;
   
@@ -99,7 +99,7 @@
 }
 
 .tactical-terminal, .twitter-timeline-container {
-    background-color: #1a1917;
+    background-color: var(--chess-terminal-bg);
     max-height: 480px;
     overflow-y: auto;
     
@@ -107,14 +107,14 @@
         width: 4px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #3d3b38;
+        background-color: var(--chess-border);
         border-radius: 4px;
     }
 }
 
 .twitter-feed-wrapper {
-    background-color: #262421 !important;
-    border-color: rgba(255, 255, 255, 0.05) !important;
+    background-color: var(--chess-panel) !important;
+    border-color: var(--chess-border) !important;
 }
 
 .avatar-frame {
@@ -135,8 +135,8 @@
     border-radius: 2px;
     font-size: 0.65rem;
     font-weight: bold;
-    background-color: #312e2b;
-    color: #bab9b8;
+    background-color: var(--chess-bg);
+    color: var(--chess-text-muted);
     
     &.bg-green-soft {
         background-color: rgba(129, 182, 76, 0.1) !important;
@@ -156,7 +156,7 @@
   height: 48px;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid #3d3b38;
+  border: 1px solid var(--chess-border);
 }
 
 .transmission-feed {

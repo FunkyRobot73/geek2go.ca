@@ -78,7 +78,7 @@
   
   .img-container {
     position: relative;
-    border: 1px solid #3d3b38;
+    border: 1px solid var(--chess-border);
     background-color: #000;
     line-height: 0;
   }
@@ -92,7 +92,7 @@
 
 .lightbox-btn {
   background: rgba(38, 36, 33, 0.8);
-  border: 1px solid #3d3b38;
+  border: 1px solid var(--chess-border);
   color: #fff;
   cursor: pointer;
   display: flex;
