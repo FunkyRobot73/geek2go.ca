@@ -537,8 +537,8 @@ export class ServicesComponent {
   constructor(private seo: SeoService) {
     this.packages = [];
     this.seo.setPage({
-      title: 'IT Services Burlington — Repair, Web Dev & Training',
-      description: 'Computer repair, virus removal, web development, data recovery, AI training & more. Serving Burlington, Aldershot, Oakville & Hamilton. Get expert IT help from Geek2Go.ca.',
+      title: 'Open Source Solutions & Custom Web Dev Burlington',
+      description: 'Migrate to open-source software, setup custom Linux apps, boost SEO, build custom websites, and recycle hardware. Get expert budget technology support from Geek2Go.ca.',
       path: '/services'
     });
   }
