@@ -25,6 +25,12 @@
   --chess-border-glass: rgba(255, 255, 255, 0.05);
   --chess-facts-bg: rgba(0, 0, 0, 0.2);
   --chess-tag-bg: rgba(255, 255, 255, 0.05);
+  
+  --chess-btn-dark-bg: #3d3b38;
+  --chess-btn-dark-border: #4d4b4a;
+  --chess-btn-dark-text: #d5d4d3;
+  --chess-btn-dark-hover-bg: #4d4b4a;
+  --chess-btn-dark-hover-border: #605e5c;
 }
 
 [data-theme="light"] {
@@ -53,6 +59,12 @@
   --chess-border-glass: rgba(0, 0, 0, 0.08);
   --chess-facts-bg: rgba(0, 0, 0, 0.04);
   --chess-tag-bg: rgba(0, 0, 0, 0.05);
+  
+  --chess-btn-dark-bg: #e1dfdd;
+  --chess-btn-dark-border: #d2d0ce;
+  --chess-btn-dark-text: #312e2b;
+  --chess-btn-dark-hover-bg: #d2d0ce;
+  --chess-btn-dark-hover-border: #c8c6c4;
 }
 
 $chess-bg: var(--chess-bg);
@@ -206,6 +218,19 @@ h1, h2, h3, h4, .navbar-brand {
   background-color: $chess-panel !important;
   border-color: $chess-border !important;
   color: $chess-text !important;
+}
+
+.btn-dark {
+  background-color: var(--chess-btn-dark-bg) !important;
+  border-color: var(--chess-btn-dark-border) !important;
+  color: var(--chess-btn-dark-text) !important;
+  transition: all 0.2s;
+  
+  &:hover, &:focus, &:active {
+    background-color: var(--chess-btn-dark-hover-bg) !important;
+    border-color: var(--chess-btn-dark-hover-border) !important;
+    color: var(--chess-heading-text, #ffffff) !important;
+  }
 }
 
 .text-muted, .text-secondary {

@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
         subtitle: 'De-Googled Server', 
         icon: 'fa-solid fa-server',
         link: '/services',
-        color: '#fff'
+        color: 'var(--chess-heading-text)'
       },
       { 
         title: 'Helpful Bots', 
@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
         subtitle: 'Switching to Linux', 
         icon: 'fa-solid fa-linux',
         link: '/services',
-        color: '#fff'
+        color: 'var(--chess-heading-text)'
       },
       { 
         title: 'Deal Finder', 
