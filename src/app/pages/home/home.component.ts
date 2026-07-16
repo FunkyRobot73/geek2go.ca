@@ -96,13 +96,6 @@ export class HomeComponent implements OnInit {
         icon: 'fa-solid fa-linux',
         link: '/services',
         color: 'var(--chess-heading-text)'
-      },
-      { 
-        title: 'Deal Finder', 
-        subtitle: 'Hardware Recycling', 
-        icon: 'fa-solid fa-radar',
-        link: '/sourcing-agent',
-        color: '#81b64c'
       }
     ];
   }
