@@ -6,7 +6,9 @@ import { GalleryService } from 'src/app/services/gallery.service';
 
 interface GalleryImage {
   src: string;
-  alt: string;
+  alt: string; // The ALT is the title
+  title: string;
+  blurb: string;
   category: string;
 }
 
@@ -50,7 +52,9 @@ export class GalleryComponent implements OnInit {
           const sortedItems = items.sort((a, b) => (a.order || 0) - (b.order || 0));
           this.galleryImages = sortedItems.map(item => ({
             src: this.galleryService.getImageUrl(item.image),
-            alt: item.blurb || item.title || `Gallery Item in ${this.randomCity()}`,
+            alt: item.title || 'Geek Moment',
+            title: item.title || 'Geek Moment',
+            blurb: item.blurb || '',
             category: item.category || 'tech'
           }));
           this.loading = false;
@@ -70,18 +74,24 @@ export class GalleryComponent implements OnInit {
     
     // Load from gallery01 (comics/geek)
     for (let i = 1; i <= 22; i++) {
+      const city = this.randomCity();
       this.galleryImages.push({
         src: `assets/gallery01/gallery01_${i}.webp`,
-        alt: `Geeking Out - Comic Archive Log #${i}`,
+        alt: `Comic Event Log #${i}`,
+        title: `Comic Event Log #${i}`,
+        blurb: `Carlos geeking out at local Burlington event #${i} in ${city}.`,
         category: 'comics'
       });
     }
 
     // Load from gallery02 (tech/open source)
     for (let i = 1; i <= 21; i++) {
+      const city = this.randomCity();
       this.galleryImages.push({
         src: `assets/gallery02/gallery02_${i}.webp`,
-        alt: `Open Source Setup in ${this.randomCity()} #${i}`,
+        alt: `Open Source Tech Setup #${i}`,
+        title: `Open Source Tech Setup #${i}`,
+        blurb: `Setting up license-free systems in ${city} for local small business #${i}.`,
         category: 'tech'
       });
     }

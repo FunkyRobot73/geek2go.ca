@@ -57,6 +57,19 @@
   }
 }
 
+.photo-details {
+  padding: 4px;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
 // Lightbox
 .lightbox-overlay {
   position: fixed;

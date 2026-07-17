@@ -23,14 +23,18 @@
     </div>
 
     <div *ngIf="!loading && filteredImages.length > 0" class="chess-grid photo-grid">
-      <div class="photo-item chess-card p-1" 
+      <div class="photo-item chess-card p-2 d-flex flex-column" 
            *ngFor="let image of filteredImages; let i = index"
            (click)="openLightbox(image)">
-        <div class="image-inner">
+        <div class="image-inner mb-2">
           <img [src]="image.src" [alt]="image.alt">
           <div class="photo-overlay">
             <i class="fa-solid fa-magnifying-glass-plus text-green"></i>
           </div>
+        </div>
+        <div class="photo-details mt-auto">
+          <h4 class="smallest fw-bold text-white mb-1 text-truncate">{{ image.title }}</h4>
+          <p class="smallest text-muted mb-0 text-truncate-2" style="font-size: 0.75rem;">{{ image.blurb }}</p>
         </div>
       </div>
     </div>
@@ -51,8 +55,9 @@
         </div>
         
         <div class="lightbox-meta text-center mt-3">
-          <p class="smallest text-white mb-0 fw-bold">{{selectedImage?.alt}}</p>
-          <span class="smallest badge bg-dark border border-secondary mt-1 text-uppercase">{{selectedImage?.category}}</span>
+          <h4 class="h5 text-white mb-1">{{selectedImage?.title}}</h4>
+          <p class="smallest text-white mb-2" style="opacity: 0.8;">{{selectedImage?.blurb}}</p>
+          <span class="smallest badge bg-dark border border-secondary text-uppercase">{{selectedImage?.category}}</span>
         </div>
       </div>
     </div>
