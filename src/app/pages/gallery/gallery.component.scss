@@ -1,0 +1,137 @@
+.dashboard-page {
+  padding: 10px 0;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.photo-item {
+  cursor: pointer;
+  overflow: hidden;
+  
+  .image-inner {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 2px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover {
+    border-color: #81b64c;
+    
+    img {
+      transform: scale(1.05);
+    }
+    
+    .photo-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  
+  i {
+    font-size: 1.5rem;
+  }
+}
+
+// Lightbox
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.lightbox-content-chess {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  
+  .img-container {
+    position: relative;
+    border: 1px solid var(--chess-border);
+    background-color: #000;
+    line-height: 0;
+  }
+}
+
+.lightbox-img-chess {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-btn {
+  background: rgba(38, 36, 33, 0.8);
+  border: 1px solid var(--chess-border);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: #81b64c;
+    border-color: #81b64c;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  
+  &.prev { left: -60px; }
+  &.next { right: -60px; }
+}
+
+@media (max-width: 992px) {
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+    &.prev { left: 10px; }
+    &.next { right: 10px; }
+  }
+}

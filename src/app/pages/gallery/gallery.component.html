@@ -1,2 +1,96 @@
-<app-geek-gallery></app-geek-gallery>
-<app-tech-gallery></app-tech-gallery>
+<div class="dashboard-grid animate__animated animate__fadeIn">
+  <!-- MAIN CHANNEL (70%) -->
+  <div class="main-channel">
+    
+    <header class="section-header mb-4 d-flex justify-content-between align-items-end flex-wrap gap-3">
+      <div>
+        <h1 class="h2 mb-0 text-white">Visual Archives: Project Gallery</h1>
+        <p class="text-muted smallest mb-0">Open Source setups, server configurations, custom websites, and community logs.</p>
+      </div>
+      
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filters d-flex gap-2">
+        <button class="btn btn-sm" [class.btn-chess-primary]="activeFilter === 'all'" [class.btn-outline-secondary]="activeFilter !== 'all'" (click)="setFilter('all')">All</button>
+        <button class="btn btn-sm" [class.btn-chess-primary]="activeFilter === 'tech'" [class.btn-outline-secondary]="activeFilter !== 'tech'" (click)="setFilter('tech')">Tech & Open Source</button>
+        <button class="btn btn-sm" [class.btn-chess-primary]="activeFilter === 'comics'" [class.btn-outline-secondary]="activeFilter !== 'comics'" (click)="setFilter('comics')">Geek & Comics</button>
+      </div>
+    </header>
+
+    <div *ngIf="loading" class="text-center py-5">
+      <div class="spinner-border text-green" role="status">
+         <span class="visually-hidden">Syncing...</span>
+      </div>
+    </div>
+
+    <div *ngIf="!loading && filteredImages.length > 0" class="chess-grid photo-grid">
+      <div class="photo-item chess-card p-1" 
+           *ngFor="let image of filteredImages; let i = index"
+           (click)="openLightbox(image)">
+        <div class="image-inner">
+          <img [src]="image.src" [alt]="image.alt">
+          <div class="photo-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus text-green"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="!loading && filteredImages.length === 0" class="text-center py-5 chess-card border-dark">
+      <p class="text-muted mb-0">No images archived under this category yet.</p>
+    </div>
+
+    <!-- Lightbox Modal (Chess Themed) -->
+    <div class="lightbox-overlay" *ngIf="showLightbox" (click)="closeLightbox()">
+      <div class="lightbox-content-chess" (click)="$event.stopPropagation()">
+        <button class="lightbox-btn close-btn" (click)="closeLightbox()">&times;</button>
+        
+        <div class="img-container">
+          <img [src]="selectedImage?.src" [alt]="selectedImage?.alt" class="lightbox-img-chess">
+          <button class="lightbox-btn nav-btn prev" (click)="navigateLightbox(-1)">‹</button>
+          <button class="lightbox-btn nav-btn next" (click)="navigateLightbox(1)">›</button>
+        </div>
+        
+        <div class="lightbox-meta text-center mt-3">
+          <p class="smallest text-white mb-0 fw-bold">{{selectedImage?.alt}}</p>
+          <span class="smallest badge bg-dark border border-secondary mt-1 text-uppercase">{{selectedImage?.category}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDE CHANNEL (30%) -->
+  <div class="side-channel">
+    
+    <!-- Archive Metadata -->
+    <div class="chess-card mb-4 border-green-faint">
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Archive Metadata</h3>
+      <div class="d-flex justify-content-between smallest mb-2">
+        <span class="text-muted">Type:</span>
+        <span class="text-white">Database Gallery</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-2">
+        <span class="text-muted">Source:</span>
+        <span class="text-white">API Sync Node</span>
+      </div>
+      <div class="d-flex justify-content-between smallest">
+        <span class="text-muted">Status:</span>
+        <span class="text-green fw-bold">ONLINE_SECURE</span>
+      </div>
+    </div>
+
+    <!-- Description Card -->
+    <div class="chess-card mb-4 border-dark">
+        <h3 class="smallest text-muted text-uppercase mb-2 fw-bold">Archive Brief</h3>
+        <p class="smallest text-white mb-0" style="opacity: 0.75;">
+          A visual log showcasing custom Linux servers, private AI hubs, open-source tool installations, hardware recycling milestones, and comic collection events.
+        </p>
+    </div>
+
+    <!-- Quick Support -->
+    <div class="chess-card text-center border-dark">
+        <p class="smallest text-muted mb-2">Want to build something similar?</p>
+        <a routerLink="/contact" class="btn btn-chess-primary btn-sm w-100 smallest">Get In Touch</a>
+    </div>
+
+  </div>
+</div>
