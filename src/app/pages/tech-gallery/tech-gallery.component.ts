@@ -35,7 +35,7 @@ export class TechGalleryComponent implements OnInit {
   }
 
   private loadGalleryImages() {
-    this.galleryService.getGalleryItems('geek2go.ca', 'photo-booth').subscribe({
+    this.galleryService.getGalleryItems('geek2go.ca', 'tech').subscribe({
       next: (items) => {
         if (items && items.length > 0) {
           const sortedItems = items.sort((a, b) => (a.order || 0) - (b.order || 0));
