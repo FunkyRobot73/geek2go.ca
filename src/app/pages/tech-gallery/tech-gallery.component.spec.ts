@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { PhotoBoothGalleryComponent } from './photo-booth-gallery.component';
+import { TechGalleryComponent } from './tech-gallery.component';
 
-describe('PhotoBoothGalleryComponent', () => {
-  let component: PhotoBoothGalleryComponent;
-  let fixture: ComponentFixture<PhotoBoothGalleryComponent>;
+describe('TechGalleryComponent', () => {
+  let component: TechGalleryComponent;
+  let fixture: ComponentFixture<TechGalleryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PhotoBoothGalleryComponent],
+      imports: [TechGalleryComponent],
       providers: [
         provideRouter([])
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PhotoBoothGalleryComponent);
+    fixture = TestBed.createComponent(TechGalleryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,8 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
-import { DjGalleryComponent } from './pages/dj-gallery/dj-gallery.component';
-import { PhotoBoothGalleryComponent } from './pages/photo-booth-gallery/photo-booth-gallery.component';
+import { GeekGalleryComponent } from './pages/geek-gallery/geek-gallery.component';
+import { TechGalleryComponent } from './pages/tech-gallery/tech-gallery.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ItservicesService } from './services/itservices.service';
 import { ServicesComponent } from './pages/services/services.component';
@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'blogs', component: BlogComponent },
   { path: 'gallery', component: GalleryComponent },
-  { path: 'geek-gallery', component: DjGalleryComponent },
-  { path: 'social-gallery', component: PhotoBoothGalleryComponent },
+  { path: 'geek-gallery', component: GeekGalleryComponent },
+  { path: 'social-gallery', component: TechGalleryComponent },
   { path: 'blog-single/:id', component: BlogSingleComponent },
   { path: 'hardware', component: HardwareComponent },
   { path: 'hall-of-fame', loadComponent: () => import('./pages/hall-of-fame/hall-of-fame.component').then(m => m.HallOfFameComponent) },

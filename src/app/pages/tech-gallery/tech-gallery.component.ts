@@ -2,21 +2,22 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SeoService } from 'src/app/services/seo.service';
+import { GalleryService } from 'src/app/services/gallery.service';
 
 @Component({
-  selector: 'app-photo-booth-gallery',
+  selector: 'app-tech-gallery',
   imports: [CommonModule, RouterModule],
-  templateUrl: './photo-booth-gallery.component.html',
-  styleUrl: './photo-booth-gallery.component.scss'
+  templateUrl: './tech-gallery.component.html',
+  styleUrl: './tech-gallery.component.scss'
 })
-export class PhotoBoothGalleryComponent implements OnInit {
+export class TechGalleryComponent implements OnInit {
 
   galleryImages: {src: string, alt: string}[] = [];
   loading = true;
   selectedImage: {src: string, alt: string} | null = null;
   showLightbox = false;
 
-  constructor(private seo: SeoService) {}
+  constructor(private seo: SeoService, private galleryService: GalleryService) {}
 
   ngOnInit() {
     this.seo.setPage({
@@ -34,20 +35,38 @@ export class PhotoBoothGalleryComponent implements OnInit {
   }
 
   private loadGalleryImages() {
+    this.galleryService.getGalleryItems('geek2go.ca', 'photo-booth').subscribe({
+      next: (items) => {
+        if (items && items.length > 0) {
+          const sortedItems = items.sort((a, b) => (a.order || 0) - (b.order || 0));
+          this.galleryImages = sortedItems.map(item => ({
+            src: this.galleryService.getImageUrl(item.image),
+            alt: item.blurb || item.title || `Geeking Out in ${this.randomCity()}`
+          }));
+          this.loading = false;
+        } else {
+          this.loadStaticGalleryImages();
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching dynamic gallery items, falling back to static:', err);
+        this.loadStaticGalleryImages();
+      }
+    });
+  }
+
+  private loadStaticGalleryImages() {
     const imageCount = 21;
     const basePath = 'assets/gallery02/';
     
+    this.galleryImages = [];
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
         src: `${basePath}gallery02_${i}.webp`,
         alt: `Geeking Out in ${this.randomCity()}`
       });
     }
-    
-    // Simulate loading delay
-    setTimeout(() => {
-      this.loading = false;
-    }, 500);
+    this.loading = false;
   }
 
   openLightbox(image: {src: string, alt: string}) {

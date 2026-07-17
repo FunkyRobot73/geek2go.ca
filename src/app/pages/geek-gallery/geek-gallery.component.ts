@@ -3,14 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { SeoService } from 'src/app/services/seo.service';
+import { GalleryService } from 'src/app/services/gallery.service';
 
 @Component({
-  selector: 'app-dj-gallery',
+  selector: 'app-geek-gallery',
   imports: [CommonModule, RouterModule],
-  templateUrl: './dj-gallery.component.html',
-  styleUrl: './dj-gallery.component.scss'
+  templateUrl: './geek-gallery.component.html',
+  styleUrl: './geek-gallery.component.scss'
 })
-export class DjGalleryComponent implements OnInit{
+export class GeekGalleryComponent implements OnInit{
 
   profile: any;
   galleryImages: {src: string, alt: string}[] = [];
@@ -18,7 +19,11 @@ export class DjGalleryComponent implements OnInit{
   selectedImage: {src: string, alt: string} | null = null;
   showLightbox = false;
 
-  constructor(private profileService: ProfileService, private seo: SeoService) {}
+  constructor(
+    private profileService: ProfileService, 
+    private seo: SeoService,
+    private galleryService: GalleryService
+  ) {}
 
   ngOnInit() {
     this.seo.setPage({
@@ -39,20 +44,38 @@ export class DjGalleryComponent implements OnInit{
   }
 
   private loadGalleryImages() {
+    this.galleryService.getGalleryItems('geek2go.ca', 'dj').subscribe({
+      next: (items) => {
+        if (items && items.length > 0) {
+          const sortedItems = items.sort((a, b) => (a.order || 0) - (b.order || 0));
+          this.galleryImages = sortedItems.map(item => ({
+            src: this.galleryService.getImageUrl(item.image),
+            alt: item.blurb || item.title || `Geeking Out in ${this.randomCity()}`
+          }));
+          this.loading = false;
+        } else {
+          this.loadStaticGalleryImages();
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching dynamic gallery items, falling back to static:', err);
+        this.loadStaticGalleryImages();
+      }
+    });
+  }
+
+  private loadStaticGalleryImages() {
     const imageCount = 22;
     const basePath = 'assets/gallery01/';
     
+    this.galleryImages = [];
     for (let i = 1; i <= imageCount; i++) {
       this.galleryImages.push({
         src: `${basePath}gallery01_${i}.webp`,
         alt: `Geeking Out in ${this.randomCity()}`
       });
     }
-    
-    // Simulate loading delay
-    setTimeout(() => {
-      this.loading = false;
-    }, 500);
+    this.loading = false;
   }
 
   openLightbox(image: {src: string, alt: string}) {

@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { DjGalleryComponent } from './dj-gallery.component';
+import { GeekGalleryComponent } from './geek-gallery.component';
 
-describe('DjGalleryComponent', () => {
-  let component: DjGalleryComponent;
-  let fixture: ComponentFixture<DjGalleryComponent>;
+describe('GeekGalleryComponent', () => {
+  let component: GeekGalleryComponent;
+  let fixture: ComponentFixture<GeekGalleryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DjGalleryComponent],
+      imports: [GeekGalleryComponent],
       providers: [
         provideRouter([])
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DjGalleryComponent);
+    fixture = TestBed.createComponent(GeekGalleryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { PhotoBoothGalleryComponent } from "../photo-booth-gallery/photo-booth-gallery.component";
-import { DjGalleryComponent } from "../dj-gallery/dj-gallery.component";
+import { TechGalleryComponent } from "../tech-gallery/tech-gallery.component";
+import { GeekGalleryComponent } from "../geek-gallery/geek-gallery.component";
 
 @Component({
   selector: 'app-gallery',
-  imports: [PhotoBoothGalleryComponent, DjGalleryComponent],
+  imports: [TechGalleryComponent, GeekGalleryComponent],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss'
 })
