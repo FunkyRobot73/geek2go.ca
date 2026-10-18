@@ -69,32 +69,32 @@ export class HomeComponent implements OnInit {
 
   private initializeFeaturedOps() {
     this.featuredOps = [
-      { 
-        title: 'Local AI Hubs', 
-        subtitle: 'Private & Subscription-Free', 
+      {
+        title: 'What is OpenSource?',
+        subtitle: 'You do not need to spend a fortune to have good technology.',
         icon: 'fa-solid fa-brain',
-        link: '/services',
+        link: 'https://www.youtube.com/watch?v=29w_rM2C7a4',
         color: '#81b64c'
       },
-      { 
-        title: 'Business Box', 
-        subtitle: 'De-Googled Linux Server', 
+      {
+        title: 'What is Linux?',
+        subtitle: 'Ditch the License Fee',
         icon: 'fa-solid fa-server',
-        link: '/services',
+        link: 'https://www.youtube.com/watch?v=JgXn4xG5f6A',
         color: 'var(--chess-heading-text)'
       },
-      { 
-        title: 'Custom Coding', 
-        subtitle: 'Linux, Web & SEO Scripts', 
+      {
+        title: 'What is Linux Mint?',
+        subtitle: 'A Friendly Face',
         icon: 'fa-solid fa-code',
-        link: '/services',
+        link: 'https://www.youtube.com/watch?v=tV6Xn4xG5f6A',
         color: '#81b64c'
       },
-      { 
-        title: 'Linux Clinic', 
-        subtitle: 'Ditch License Fees', 
+      {
+        title: 'Ditch subscription fees',
+        subtitle: 'Why pay for software? ... Why ??',
         icon: 'fa-solid fa-linux',
-        link: '/services',
+        link: 'https://www.youtube.com/watch?v=Y-yC3j4QJnA',
         color: 'var(--chess-heading-text)'
       }
     ];

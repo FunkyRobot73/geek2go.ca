@@ -39,14 +39,27 @@
         <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Main Services</h2>
         <div class="row g-3">
           <div class="col-md-6 col-lg-3" *ngFor="let op of featuredOps">
-            <div class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4" 
-                 [routerLink]="op.link">
+            <a *ngIf="op.link?.startsWith('http'); else internalLink"
+               [href]="op.link"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4 text-decoration-none">
               <div class="op-icon-ring mb-3" [style.color]="op.color">
                 <i [class]="op.icon + ' h2 mb-0'"></i>
               </div>
               <h3 class="h6 mb-1">{{ op.title }}</h3>
               <span class="smallest text-muted">{{ op.subtitle }}</span>
-            </div>
+            </a>
+            <ng-template #internalLink>
+              <div class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4" 
+                   [routerLink]="op.link">
+                <div class="op-icon-ring mb-3" [style.color]="op.color">
+                  <i [class]="op.icon + ' h2 mb-0'"></i>
+                </div>
+                <h3 class="h6 mb-1">{{ op.title }}</h3>
+                <span class="smallest text-muted">{{ op.subtitle }}</span>
+              </div>
+            </ng-template>
           </div>
         </div>
       </div>
