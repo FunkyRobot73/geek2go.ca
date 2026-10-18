@@ -162,24 +162,188 @@
   border: 1px solid var(--chess-border);
 }
 
-.transmission-feed {
-    .transmission-post {
-        &:last-child {
-            border-bottom: none !important;
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
-        }
+.oss-savers-widget {
+  background: var(--chess-panel) !important;
+  border: 1px solid var(--chess-border) !important;
+  padding: 0 !important;
 
-        .hover-green {
-            color: #bab9b8;
-            transition: color 0.15s ease;
-            
-            &:hover {
-                color: #81b64c !important;
-                background-color: transparent !important;
-                border-color: transparent !important;
-            }
-        }
+  .oss-header {
+    background: linear-gradient(135deg, rgba(129, 182, 76, 0.14) 0%, rgba(0, 0, 0, 0.25) 100%);
+  }
+
+  .oss-header-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(129, 182, 76, 0.18);
+    border: 1px solid rgba(129, 182, 76, 0.35);
+    color: #81b64c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .oss-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--chess-heading-text);
+    line-height: 1.2;
+  }
+
+  .oss-subtitle {
+    font-size: 0.7rem;
+    color: var(--chess-text-muted);
+    display: block;
+  }
+
+  .oss-total-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #81b64c, #5c8f30);
+    padding: 4px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(129, 182, 76, 0.3);
+  }
+
+  .oss-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .oss-item-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--chess-terminal-bg);
+    border: 1px solid var(--chess-border);
+    border-left: 3px solid rgba(129, 182, 76, 0.45);
+    border-radius: 6px;
+    padding: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: rgba(129, 182, 76, 0.5);
+      border-left-color: #81b64c;
+      background-color: var(--chess-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+
+      .oss-ext-icon {
+        opacity: 1;
+        transform: translate(2px, -2px);
+        color: #81b64c;
+      }
+
+      .oss-app-icon-wrap {
+        background: rgba(129, 182, 76, 0.2);
+        border-color: #81b64c;
+        color: #81b64c;
+      }
     }
+  }
+
+  .oss-item-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .oss-app-icon-wrap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--chess-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #81b64c;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    .oss-rank {
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      background: #262421;
+      border: 1px solid var(--chess-border);
+      color: var(--chess-text-muted);
+      font-size: 0.58rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+      line-height: 1.1;
+    }
+  }
+
+  .oss-app-meta {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .oss-app-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--chess-heading-text);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .oss-ext-icon {
+    font-size: 0.65rem;
+    opacity: 0.4;
+    transition: all 0.2s ease;
+  }
+
+  .oss-save-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #81b64c;
+    background: rgba(129, 182, 76, 0.12);
+    border: 1px solid rgba(129, 182, 76, 0.3);
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .oss-replaces {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+    font-size: 0.72rem;
+
+    .replaces-label {
+      color: var(--chess-text-muted);
+    }
+
+    .replaces-target {
+      color: #e06c75;
+      text-decoration: line-through;
+      font-weight: 500;
+    }
+  }
+
+  .oss-app-desc {
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: var(--chess-text-muted);
+  }
+
+  .oss-cta-btn {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
 }
 

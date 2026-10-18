@@ -159,36 +159,58 @@
     </div>
 
     <!-- Top 5 Open Source Money Savers -->
-    <div class="chess-card twitter-feed-wrapper mb-4 p-0 overflow-hidden">
-      <div class="p-3 border-bottom border-dark d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-piggy-bank text-green me-2"></i>
-          <span class="smallest text-muted text-uppercase fw-bold neon-glow" style="letter-spacing: 1px;">Top 5 Open
-            Source Savers</span>
-        </div>
-        <div class="pulse-indicator">
-          <span class="smallest text-green fw-bold monospace">$0/MO</span>
+    <div class="chess-card oss-savers-widget mb-4 p-0 overflow-hidden">
+      <!-- Header -->
+      <div class="oss-header p-3 border-bottom border-dark">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div class="d-flex align-items-center gap-2">
+            <div class="oss-header-icon">
+              <i class="fa-solid fa-sack-dollar"></i>
+            </div>
+            <div>
+              <h3 class="oss-title mb-0">Ditch Subscriptions</h3>
+              <span class="oss-subtitle">Top 5 Free Open-Source Swaps</span>
+            </div>
+          </div>
+          <span class="oss-total-pill">Save $790+/yr</span>
         </div>
       </div>
 
-      <div class="twitter-timeline-container p-3">
-        <div class="transmission-feed">
-          <div *ngFor="let post of transmissions.slice(0, 5)"
-            class="transmission-post mb-3 pb-3 border-bottom border-dark-subtle">
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              <span class="smallest text-green fw-bold monospace">[{{ post.category }}]</span>
-              <span class="smallest text-muted monospace">{{ post.timestamp }}</span>
+      <!-- App Cards List -->
+      <div class="oss-list p-3">
+        <a *ngFor="let app of transmissions.slice(0, 5); let i = index"
+           [href]="app.link"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="oss-item-card">
+          <div class="oss-item-top">
+            <div class="oss-app-icon-wrap">
+              <span class="oss-rank">#{{ i + 1 }}</span>
+              <i [class]="app.icon"></i>
             </div>
-            <p class="small text-light mb-2 monospace text-break">{{ post.message }}</p>
-            <div class="d-flex justify-content-between align-items-center smallest monospace text-muted">
-              <span>SAVES: <span class="text-green">{{ post.status }}</span></span>
-              <a [href]="post.link" target="_blank" rel="noopener noreferrer"
-                class="text-decoration-none hover-green d-flex align-items-center">
-                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Get Free App
-              </a>
+            <div class="oss-app-meta">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="oss-app-name mb-0">
+                  {{ app.name }}
+                  <i class="fa-solid fa-arrow-up-right-from-square oss-ext-icon"></i>
+                </h4>
+                <span class="oss-save-badge">Save {{ app.savings }}</span>
+              </div>
+              <div class="oss-replaces">
+                <span class="replaces-label">Replaces</span>
+                <span class="replaces-target">{{ app.replaces }}</span>
+              </div>
             </div>
           </div>
-        </div>
+          <p class="oss-app-desc mb-0">{{ app.message }}</p>
+        </a>
+      </div>
+
+      <!-- Footer CTA -->
+      <div class="oss-footer px-3 pb-3">
+        <a routerLink="/contact" class="btn btn-dark btn-sm w-100 oss-cta-btn">
+          <i class="fa-brands fa-linux text-green me-2"></i>Want help switching? Let's talk
+        </a>
       </div>
     </div>
 
