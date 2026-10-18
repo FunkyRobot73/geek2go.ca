@@ -1,8 +1,10 @@
 .ai-diagnostic-widget {
   background-color: var(--chess-terminal-bg) !important;
   
-  .diagnostic-header {
+  .diagnostic-header,
+  .diagnostic-footer {
     background-color: var(--chess-navbar-bg);
+    border-color: var(--chess-border) !important;
   }
 
   .options-grid {

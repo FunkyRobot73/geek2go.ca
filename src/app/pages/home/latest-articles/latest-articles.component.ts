@@ -22,11 +22,8 @@ export class LatestArticlesComponent implements OnInit {
     ngOnInit(): void {
         this.blogService.viewBlog().subscribe({
             next: (blogs) => {
-                // Filter for "Tech" category
-                const techBlogs = blogs.filter(blog => blog.catBlog?.toLowerCase() === 'tech');
-
-                // Take the latest 2
-                this.latestBlogs = techBlogs.slice(-2).reverse();
+                // Take the latest 5 across all categories (backend returns newest first)
+                this.latestBlogs = blogs.slice(0, 5);
                 this.isLoading = false;
             },
             error: (err) => {

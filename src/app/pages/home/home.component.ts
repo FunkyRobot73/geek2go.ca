@@ -41,8 +41,11 @@ export class HomeComponent implements OnInit {
 
     this.blogService.viewBlog().subscribe({
       next: (blogs) => {
-        // Take latest 3 for the main channel feed
-        this.mainFeedArticles = blogs.slice(-3).reverse();
+        // Filter for Tech articles (backend returns newest first via createdAt DESC)
+        const techBlogs = blogs.filter(blog => blog.catBlog?.toLowerCase().includes('tech'));
+        const nonComicBlogs = blogs.filter(blog => !blog.catBlog?.toLowerCase().includes('comic'));
+        const source = techBlogs.length >= 3 ? techBlogs : (nonComicBlogs.length > 0 ? nonComicBlogs : blogs);
+        this.mainFeedArticles = source.slice(0, 3);
       }
     });
   }

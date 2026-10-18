@@ -92,7 +92,7 @@ export const PROFILE_DATA = {
      { title: 'Data Security', description: 'Robust protection for your sensitive personal and business data.', icon: 'fas fa-lock', link: 'https://haveibeenpwned.com/' },
      { title: 'Internet Speed Test', description: 'Test your real download, upload, and latency speeds.', icon: 'fas fa-gauge-high', link: 'https://www.speedtest.net/' },
      { title: 'Free App Finder', description: 'Find free & open-source replacements for any paid program.', icon: 'fas fa-cubes', link: 'https://alternativeto.net/' },
-     { title: 'PC Part Checker', description: 'Check hardware compatibility and Canadian component prices.', icon: 'fas fa-microchip', link: 'https://ca.pcpartpicker.com/' },
+     { title: 'Portable Apps', description: 'Run your favorite free apps from a USB stick with no installation.', icon: 'fas fa-briefcase', link: 'https://portableapps.com/' },
      { title: 'Browser Privacy Test', description: 'See if your browser is leaking tracking data (by EFF).', icon: 'fas fa-user-secret', link: 'https://coveryourtracks.eff.org/' },
      { title: 'IT Consulting', description: 'Strategic advice to help you leverage the best tech for growth.', icon: 'fas fa-lightbulb', link: 'https://distrowatch.com/' },
      { title: 'E-commerce Solutions', description: 'Seamless online stores that make selling simple.', icon: 'fas fa-shopping-cart', link: 'https://woocommerce.com/' },

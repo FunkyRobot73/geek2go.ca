@@ -2,7 +2,7 @@
   <h3 class="h5 border-bottom border-dark pb-2 mb-3">Recent Activity</h3>
   
   <div class="articles-list">
-    <div class="article-item mb-3 pb-3 border-bottom border-dark-subtle" *ngFor="let blog of latestBlogs.slice(0, 3)">
+    <div class="article-item mb-3 pb-3 border-bottom border-dark-subtle" *ngFor="let blog of latestBlogs.slice(0, 5)">
       <div class="d-flex align-items-center">
         <img [src]="imageBaseUrl + blog.image" 
              class="article-thumb rounded me-3" 
