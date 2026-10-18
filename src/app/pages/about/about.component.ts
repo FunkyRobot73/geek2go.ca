@@ -44,19 +44,32 @@ export class AboutComponent {
 
     this.servicesData = [
       { 
+        title: 'Geek2Go', 
+        site: 'geek2go.ca',
+        link: 'https://geek2go.ca',
+        description: this.profile?.shortBlurb || 'Open source solutions, computer repair, Linux setups, and SEO.', 
+        icon: 'fas fa-laptop-code' 
+      },
+      { 
         title: 'DJ Services', 
-        description: this.profile?.djBlurb || 'Professional music mixing for your event', 
+        site: 'funkyrobot.ca',
+        link: 'https://funkyrobot.ca',
+        description: this.profile?.djBlurb || 'Professional music mixing and high-energy entertainment for your event.', 
         icon: 'fas fa-music' 
       },
       { 
-        title: 'Photo Booth', 
-        description: this.profile?.photoboothBlurb || 'Fun photo experiences for your guests', 
-        icon: 'fas fa-camera' 
+        title: 'iSellComics', 
+        site: 'isellcomics.ca',
+        link: 'https://isellcomics.ca',
+        description: 'Comic book collecting, vintage back issues, graphic novels, and geek culture treasures.', 
+        icon: 'fas fa-book-open' 
       },
       { 
-        title: 'Full Service', 
-        description: this.profile?.shortBlurb || 'Complete event entertainment solutions', 
-        icon: 'fas fa-star' 
+        title: 'Photo Booth', 
+        site: 'funkyrobot.ca',
+        link: 'https://funkyrobot.ca',
+        description: this.profile?.photoboothBlurb || 'State-of-the-art photo booth fun with props and instant prints.', 
+        icon: 'fas fa-camera' 
       }
     ];
   }

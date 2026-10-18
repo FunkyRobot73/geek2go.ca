@@ -26,13 +26,20 @@
       <h3 class="h5 mb-3"><i class="fa-solid fa-microchip text-green me-2"></i> Stuff I'm good at</h3>
       <div class="row g-3">
         <div class="col-md-6" *ngFor="let service of servicesData">
-          <div class="chess-card hoverable h-100">
-            <div class="d-flex align-items-center mb-2">
-              <i [class]="service.icon + ' text-green me-3 h4 mb-0'"></i>
-              <h3 class="h6 mb-0">{{ service.title }}</h3>
+          <a [href]="service.link" target="_blank" rel="noopener noreferrer"
+             class="chess-card hoverable h-100 d-block text-decoration-none">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="d-flex align-items-center">
+                <i [class]="service.icon + ' text-green me-3 h4 mb-0'"></i>
+                <h3 class="h6 mb-0 text-white">{{ service.title }}</h3>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-green smallest opacity-75"></i>
             </div>
-            <p class="smallest text-muted mb-0">{{ service.description }}</p>
-          </div>
+            <p class="smallest text-muted mb-2">{{ service.description }}</p>
+            <div class="smallest text-green fw-bold">
+              <i class="fa-solid fa-link me-1"></i>{{ service.site }}
+            </div>
+          </a>
         </div>
       </div>
     </div>
