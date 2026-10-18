@@ -1,10 +1,10 @@
 <div class="dashboard-grid animate__animated animate__fadeIn">
   <!-- MAIN CHANNEL (70%) -->
   <div class="main-channel">
-    
+
     <!-- MASTER CONSOLE (Hero + Main Services) -->
     <div class="chess-card master-console-widget mb-4">
-      
+
       <!-- Console Header (Hero) -->
       <div class="hero-content mb-4 border-bottom border-dark pb-4">
         <h1 class="display-4 fw-bold">Geek2Go.ca</h1>
@@ -26,7 +26,8 @@
           </div>
           <div class="stat-item">
             <span class="smallest text-muted text-uppercase d-block">Availability</span>
-            <span class="fw-bold text-green"><i class="fa-solid fa-circle text-green me-1" style="font-size: 0.5rem; vertical-align: middle;"></i> Active </span>
+            <span class="fw-bold text-green"><i class="fa-solid fa-circle text-green me-1"
+                style="font-size: 0.5rem; vertical-align: middle;"></i> Active </span>
           </div>
           <div class="stat-item">
             <span class="smallest text-muted text-uppercase d-block">Primary</span>
@@ -36,14 +37,12 @@
       </div>
 
       <div class="console-section mb-4">
-        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Main Services</h2>
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Main Questions</h2>
         <div class="row g-3">
           <div class="col-md-6 col-lg-3" *ngFor="let op of featuredOps">
-            <a *ngIf="op.link?.startsWith('http'); else internalLink"
-               [href]="op.link"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4 text-decoration-none">
+            <a *ngIf="op.link?.startsWith('http'); else internalLink" [href]="op.link" target="_blank"
+              rel="noopener noreferrer"
+              class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4 text-decoration-none">
               <div class="op-icon-ring mb-3" [style.color]="op.color">
                 <i [class]="op.icon + ' h2 mb-0'"></i>
               </div>
@@ -51,8 +50,9 @@
               <span class="smallest text-muted">{{ op.subtitle }}</span>
             </a>
             <ng-template #internalLink>
-              <div class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4" 
-                   [routerLink]="op.link">
+              <div
+                class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4"
+                [routerLink]="op.link">
                 <div class="op-icon-ring mb-3" [style.color]="op.color">
                   <i [class]="op.icon + ' h2 mb-0'"></i>
                 </div>
@@ -75,8 +75,8 @@
         <div class="row g-2">
           <div class="col-lg-3 col-md-6" *ngFor="let service of profile?.services_more?.slice(2, 6)">
             <div class="chess-card hoverable h-100 p-2 text-center mini-card" routerLink="/services">
-               <i [class]="service.icon + ' text-green mb-1'"></i>
-               <div class="smallest fw-bold text-truncate">{{ service.title }}</div>
+              <i [class]="service.icon + ' text-green mb-1'"></i>
+              <div class="smallest fw-bold text-truncate">{{ service.title }}</div>
             </div>
           </div>
         </div>
@@ -86,17 +86,18 @@
       <div class="console-section mt-4 pt-4 border-top border-dark">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h2 class="smallest text-muted text-uppercase mb-0 font-weight-bold">Latest Articles</h2>
-          <a routerLink="/blogs" class="text-green text-decoration-none small">Access Archive <i class="fa-solid fa-arrow-right"></i></a>
+          <a routerLink="/blogs" class="text-green text-decoration-none small">Access Archive <i
+              class="fa-solid fa-arrow-right"></i></a>
         </div>
-        
+
         <div class="intel-list">
-          <div *ngFor="let blog of mainFeedArticles" class="chess-card hoverable mb-2 p-0 overflow-hidden" style="background-color: rgba(0,0,0,0.2) !important;">
+          <div *ngFor="let blog of mainFeedArticles" class="chess-card hoverable mb-2 p-0 overflow-hidden"
+            style="background-color: rgba(0,0,0,0.2) !important;">
             <div class="row g-0 align-items-center">
               <div class="col-2">
                 <div class="intel-img-wrapper" style="aspect-ratio: 1/1;">
-                  <img [src]="imageBaseUrl + blog.image" 
-                       class="img-fluid" alt="Intel"
-                       onerror="this.src='assets/ai-sample.webp'">
+                  <img [src]="imageBaseUrl + blog.image" class="img-fluid" alt="Intel"
+                    onerror="this.src='assets/ai-sample.webp'">
                 </div>
               </div>
               <div class="col-10 p-2">
@@ -118,19 +119,20 @@
 
   <!-- SIDE CHANNEL (30%) -->
   <div class="side-channel">
-    
+
     <!-- About Widget -->
     <div class="chess-card mb-4 profile-side-widget">
       <div class="about-widget-content">
         <div class="d-flex align-items-center mb-0">
           <div class="avatar-frame me-3">
-             <img [src]="profile?.ownerPhoto2 || 'assets/owner.webp'" class="img-fluid" alt="Carlos Sousa">
+            <img [src]="profile?.ownerPhoto2 || 'assets/owner.webp'" class="img-fluid" alt="Carlos Sousa">
           </div>
           <div class="flex-grow-1">
             <h4 class="smallest fw-bold mb-0 text-white">{{ profile?.nameFull }}</h4>
             <div class="d-flex justify-content-between align-items-center">
               <span class="smallest text-green">{{ profile?.ownerTitle }}</span>
-              <span class="smallest text-muted"><i class="fa-solid fa-circle text-green me-1" style="font-size: 0.4rem;"></i> Online</span>
+              <span class="smallest text-muted"><i class="fa-solid fa-circle text-green me-1"
+                  style="font-size: 0.4rem;"></i> Online</span>
             </div>
           </div>
         </div>
@@ -140,36 +142,39 @@
 
     <!-- Quick Contact Widget -->
     <div class="chess-card mb-4 border-green-faint">
-        <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Quick Help</h3>
-        <div class="row g-2">
-            <div class="col-6">
-                <a [href]="'mailto:' + profile?.email" class="btn btn-dark btn-sm w-100 text-green border-dark p-1 smallest">Email</a>
-            </div>
-            <div class="col-6">
-                <a routerLink="/contact" class="btn btn-chess-primary btn-sm w-100 p-1 smallest">Ticket</a>
-            </div>
+      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Quick Help</h3>
+      <div class="row g-2">
+        <div class="col-6">
+          <a [href]="'mailto:' + profile?.email"
+            class="btn btn-dark btn-sm w-100 text-green border-dark p-1 smallest">Email</a>
         </div>
+        <div class="col-6">
+          <a routerLink="/contact" class="btn btn-chess-primary btn-sm w-100 p-1 smallest">Ticket</a>
+        </div>
+      </div>
     </div>
 
     <div class="articles-widget-sidebar mb-4">
-        <app-latest-articles></app-latest-articles>
+      <app-latest-articles></app-latest-articles>
     </div>
 
     <!-- Satellite Transmissions (Live Twitter Feed Fallback) -->
     <div class="chess-card twitter-feed-wrapper mb-4 p-0 overflow-hidden">
       <div class="p-3 border-bottom border-dark d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <i class="fa-brands fa-x-twitter text-white me-2"></i>
-            <span class="smallest text-muted text-uppercase fw-bold neon-glow" style="letter-spacing: 1px;">Social Feed</span>
+          <i class="fa-brands fa-x-twitter text-white me-2"></i>
+          <span class="smallest text-muted text-uppercase fw-bold neon-glow" style="letter-spacing: 1px;">Social
+            Feed</span>
         </div>
         <div class="pulse-indicator">
-            <i class="fa-solid fa-wifi text-green animate-pulse-faint smallest"></i>
+          <i class="fa-solid fa-wifi text-green animate-pulse-faint smallest"></i>
         </div>
       </div>
 
       <div class="twitter-timeline-container p-3">
         <div class="transmission-feed">
-          <div *ngFor="let post of transmissions.slice(0, 5)" class="transmission-post mb-3 pb-3 border-bottom border-dark-subtle">
+          <div *ngFor="let post of transmissions.slice(0, 5)"
+            class="transmission-post mb-3 pb-3 border-bottom border-dark-subtle">
             <div class="d-flex justify-content-between align-items-center mb-1">
               <span class="smallest text-green fw-bold monospace">[{{ post.category }}]</span>
               <span class="smallest text-muted monospace">{{ post.timestamp }}</span>
@@ -177,7 +182,8 @@
             <p class="small text-light mb-2 monospace text-break">{{ post.message }}</p>
             <div class="d-flex justify-content-between align-items-center smallest monospace text-muted">
               <span>STATUS: <span class="text-green">{{ post.status }}</span></span>
-              <a [href]="profile?.twitter" target="_blank" class="text-decoration-none hover-green d-flex align-items-center">
+              <a [href]="profile?.twitter" target="_blank"
+                class="text-decoration-none hover-green d-flex align-items-center">
                 <i class="fa-brands fa-x-twitter me-1"></i>View on X
               </a>
             </div>
