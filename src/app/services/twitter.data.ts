@@ -3,57 +3,49 @@ export interface Transmission {
   timestamp: string;
   category: string;
   message: string;
-  status: 'CLEAR' | 'ENCRYPTED' | 'DECRYPTING';
+  status: string;
+  link?: string;
 }
 
 export const PROJECT_UPDATES: Transmission[] = [
   {
-    id: 7,
-    timestamp: "24-APR-2026 11:45",
-    category: "NEW_FEATURE",
-    message: "The Deal Finder (Bounty Board) is now live! Go find some tech gear at a good price.",
-    status: 'CLEAR'
-  },
-  {
-    id: 6,
-    timestamp: "24-APR-2026 11:15",
-    category: "AI_STUFF",
-    message: "Added the AI Checker tool to the home page. See if your computer is ready for local AI.",
-    status: 'CLEAR'
-  },
-  {
     id: 1,
-    timestamp: "09-APR-2026 14:15",
-    category: "UPDATE",
-    message: "Finished moving everything to the new 70/30 layout. Everything looks much cleaner now.",
-    status: 'CLEAR'
+    category: "#1 LIBREOFFICE",
+    timestamp: "VS. MICROSOFT 365",
+    message: "Full office suite for word processing, spreadsheets, and presentations. Compatible with Word & Excel files with zero annual subscription.",
+    status: "~$100/YR",
+    link: "https://www.libreoffice.org"
   },
   {
     id: 2,
-    timestamp: "08-APR-2026 23:45",
-    category: "FIX",
-    message: "Fixed a couple of memory leaks in the blog feed. Site should be faster now.",
-    status: 'CLEAR'
+    category: "#2 GIMP & INKSCAPE",
+    timestamp: "VS. ADOBE CREATIVE CLOUD",
+    message: "Pro-grade photo retouching, image composition, and vector graphics design without Adobe's hefty monthly fees.",
+    status: "~$260/YR",
+    link: "https://www.gimp.org"
   },
   {
     id: 3,
-    timestamp: "07-APR-2026 18:22",
-    category: "BLOG",
-    message: "Just posted a new article: 'The Art of the IT Side-Hustle'. Check it out in the blog section.",
-    status: 'CLEAR'
+    category: "#3 KDENLIVE",
+    timestamp: "VS. PREMIERE PRO",
+    message: "Powerful multi-track video editor for Linux, Windows, and Mac. No watermarks, no paywalls, and runs great on older hardware.",
+    status: "~$260/YR",
+    link: "https://kdenlive.org"
   },
   {
     id: 4,
-    timestamp: "06-APR-2026 11:05",
-    category: "HARDWARE",
-    message: "Just finished a custom PC build for a local client. Turned out great!",
-    status: 'CLEAR'
+    category: "#4 NEXTCLOUD",
+    timestamp: "VS. DROPBOX & GOOGLE ONE",
+    message: "Turn an old PC into your own private cloud for file syncing, photos, calendars, and docs—with zero monthly storage fees.",
+    status: "~$120/YR",
+    link: "https://nextcloud.com"
   },
   {
     id: 5,
-    timestamp: "05-APR-2026 15:30",
-    category: "PHOTOS",
-    message: "Uploaded some new photos to the gallery. Take a look at some of my recent projects.",
-    status: 'CLEAR'
+    category: "#5 BITWARDEN",
+    timestamp: "VS. 1PASSWORD & LASTPASS",
+    message: "Open-source password manager that keeps your logins encrypted and synced across all your phones, browsers, and PCs.",
+    status: "~$50/YR",
+    link: "https://bitwarden.com"
   }
 ];
