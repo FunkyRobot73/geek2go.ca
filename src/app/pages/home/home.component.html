@@ -37,27 +37,27 @@
       </div>
 
       <div class="console-section mb-4">
-        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Main Questions</h2>
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Ask Yourself...</h2>
         <div class="row g-3">
           <div class="col-md-6 col-lg-3" *ngFor="let op of featuredOps">
             <a *ngIf="op.link?.startsWith('http'); else internalLink" [href]="op.link" target="_blank"
               rel="noopener noreferrer"
-              class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4 text-decoration-none">
+              class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4 px-3 text-decoration-none h-100">
               <div class="op-icon-ring mb-3" [style.color]="op.color">
                 <i [class]="op.icon + ' h2 mb-0'"></i>
               </div>
-              <h3 class="h6 mb-1">{{ op.title }}</h3>
-              <span class="smallest text-muted">{{ op.subtitle }}</span>
+              <h3 class="h6 mb-3">{{ op.title }}</h3>
+              <span class="smallest text-muted d-block">{{ op.subtitle }}</span>
             </a>
             <ng-template #internalLink>
               <div
-                class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4"
+                class="chess-card op-card hoverable text-center d-flex flex-column align-items-center justify-content-center py-4 px-3 h-100"
                 [routerLink]="op.link">
                 <div class="op-icon-ring mb-3" [style.color]="op.color">
                   <i [class]="op.icon + ' h2 mb-0'"></i>
                 </div>
-                <h3 class="h6 mb-1">{{ op.title }}</h3>
-                <span class="smallest text-muted">{{ op.subtitle }}</span>
+                <h3 class="h6 mb-3">{{ op.title }}</h3>
+                <span class="smallest text-muted d-block">{{ op.subtitle }}</span>
               </div>
             </ng-template>
           </div>
@@ -69,15 +69,17 @@
         <app-ai-diagnostic></app-ai-diagnostic>
       </div>
 
-      <!-- More Goodies (Smaller Services) -->
+      <!-- Useful Links -->
       <div class="console-section">
-        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">More Goodies</h2>
+        <h2 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Useful Links</h2>
         <div class="row g-2">
-          <div class="col-lg-3 col-md-6" *ngFor="let service of profile?.services_more?.slice(2, 6)">
-            <div class="chess-card hoverable h-100 p-2 text-center mini-card" routerLink="/services">
+          <div class="col-lg-3 col-md-6" *ngFor="let service of profile?.services_more?.slice(2, 10)">
+            <a [href]="service.link" target="_blank" rel="noopener noreferrer"
+              class="chess-card hoverable h-100 p-2 text-center mini-card d-block text-decoration-none"
+              style="color: inherit;">
               <i [class]="service.icon + ' text-green mb-1'"></i>
               <div class="smallest fw-bold text-truncate">{{ service.title }}</div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
