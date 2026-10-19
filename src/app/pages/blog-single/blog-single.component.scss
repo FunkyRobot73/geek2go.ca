@@ -66,3 +66,33 @@
 .smallest {
   font-size: 0.75rem;
 }
+
+.author-signature-card {
+  background-color: var(--chess-panel, #121316);
+  border-color: var(--chess-border, rgba(255, 255, 255, 0.1)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  .author-avatar {
+    object-fit: cover;
+    border-color: var(--chess-green, #81b64c) !important;
+  }
+
+  .letter-spacing-1 {
+    letter-spacing: 0.1em;
+  }
+
+  .hover-text-white:hover {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .hover-text-green {
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+    
+    &:hover {
+      color: var(--chess-green, #81b64c) !important;
+      transform: translateY(-2px);
+    }
+  }
+}
