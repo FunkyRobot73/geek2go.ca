@@ -56,13 +56,13 @@ export const PROFILE_DATA = {
   longBlurb: "Geek2go.ca is your launchpad for digital independence. We believe that technology should be accessible, affordable, and license-free. Whether you need a custom website, high-impact SEO, or a complete 'De-Googled' open-source server to replace expensive monthly subscriptions, we have you covered. We work closely with our clients to reuse old hardware, build custom scripts, and transition workflows to Linux. At Geek2go.ca, we put 25+ years of coding and hacking expertise at your service. Contact us today to start saving money and owning your tech.",
   aboutUs: "Geek2Go.ca is where 25+ years of coding and open-source expertise meets budget-conscious tech hacking. Based in Burlington, I help individuals and businesses cut costs, ditch recurring licenses, and deploy custom scripts, websites, and SEO. My goal is to make open-source software work for everyone.",
   mission: "To empower my neighbors in Burlington and beyond to save money, reuse hardware, and achieve digital independence using high-quality open-source software, custom coding, and Linux.",
-  vision: "To build a community of budget-conscious tech users who utilize open-source software, custom programs, and recycled hardware to defeat rising subscription fees.",
+  vision: "Listen...  I'm just one of those guys, Jack of all trades and master of none, but with tech.  What i don't know I can figure out easily.",
   values: [
-    "Customer Satisfaction",
-    "Creativity",
-    "Professionalism",
-    "Integrity",
-    "Fun"
+    "Customer is almost always wrong",
+    "There's a free version of that",
+    "There is a better way to do it",
+    "New isn't always better",
+    "It's not broken, you're just doing it wrong"
   ],
   services: [
     "Website Development",
