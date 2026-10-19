@@ -10,6 +10,8 @@ export interface Blog {
     updatedAt: string;
     seoTitle?: string;
     metaDescription?: string;
+    slug?: string;
+    site?: string;
     BlogSections?: BlogSection[];
     readingTime?: number;
     wordCount?: number;

@@ -96,3 +96,37 @@
     }
   }
 }
+
+.share-intel-bar {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: var(--chess-border, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+
+  .share-btn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: var(--chess-text-muted, #8b949e);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--chess-green, #81b64c);
+      border-color: var(--chess-green) !important;
+      transform: translateY(-2px);
+    }
+  }
+
+  .copy-link-wrap button {
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--chess-green) !important;
+      color: #fff;
+    }
+  }
+}

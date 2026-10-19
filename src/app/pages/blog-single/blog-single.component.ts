@@ -63,17 +63,51 @@ export class BlogSingleComponent implements OnInit {
     });
   }
 
-  fetchBlogPost(id: string): void {
-    this.blogService.getBlogPost(+id).subscribe({
+  linkCopied: boolean = false;
+
+  get currentUrl(): string {
+    if (typeof window !== 'undefined') {
+      return window.location.href;
+    }
+    return `https://geek2go.ca/blog-single/${this.blogPost?.id || ''}`;
+  }
+
+  copyPostLink(): void {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(this.currentUrl).then(() => {
+        this.linkCopied = true;
+        setTimeout(() => {
+          this.linkCopied = false;
+        }, 2500);
+      });
+    }
+  }
+
+  getShareUrl(platform: 'twitter' | 'linkedin' | 'facebook'): string {
+    const url = encodeURIComponent(this.currentUrl);
+    const title = encodeURIComponent(this.blogPost?.titleBlog || 'Read this post on Geek2Go.ca');
+
+    switch (platform) {
+      case 'twitter':
+        return `https://twitter.com/intent/tweet?text=${title}&url=${url}&via=funkyrobot73`;
+      case 'linkedin':
+        return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+      case 'facebook':
+        return `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    }
+  }
+
+  fetchBlogPost(identifier: string): void {
+    this.blogService.getBlogPost(identifier).subscribe({
       next: (post) => {
         this.blogPost = post;
         this.seo.setPage({
           title: post.seoTitle || post.titleBlog || 'Blog Post — Geek2Go.ca',
           description: post.metaDescription || post.subtitleBlog || 'Read the latest from Geek2Go.ca — IT tips, tech news and geek culture from Burlington.',
-          path: `/blog-single/${post.idBlog}`
+          path: `/blog-single/${post.slug || post.idBlog}`
         });
         this.loading = false;
-        this.updateAdjacentPosts(+id);
+        this.updateAdjacentPosts(post.id);
       },
       error: (err) => {
         console.error(err);

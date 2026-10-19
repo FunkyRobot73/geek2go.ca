@@ -22,7 +22,7 @@ export class BlogService {
     return this.http.get<Blog[]>(`${this.apiUrl01}?site=geek2go.ca`).pipe(
       map(blogs => blogs
         .filter(blog => blog.catBlog?.toLowerCase() !== 'journal')
-        .map(blog => ({
+        .map((blog: Blog): Blog => ({
           ...blog,
           idBlog: blog.id.toString() 
         }))
@@ -32,11 +32,11 @@ export class BlogService {
   }
 
   /**
-   * Fetch a single blog post by ID
+   * Fetch a single blog post by ID or Slug
    */
-  getBlogPost(id: number) {
+  getBlogPost(id: number | string) {
     return this.http.get<Blog>(`${this.apiUrl01}/${id}`).pipe(
-      map(blog => ({
+      map((blog: Blog): Blog => ({
         ...blog,
         idBlog: blog.id.toString()
       })),

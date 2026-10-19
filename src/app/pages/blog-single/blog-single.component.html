@@ -54,6 +54,33 @@
           </div>
         </section>
 
+        <!-- Social Share & Copy Link Bar -->
+        <div class="share-intel-bar mt-5 pt-3 pb-3 border-top border-bottom border-dark d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2">
+            <span class="smallest text-green text-uppercase fw-bold letter-spacing-1">
+              <i class="fa-solid fa-share-nodes me-1"></i> Share Intel:
+            </span>
+            <div class="d-flex gap-2">
+              <a [href]="getShareUrl('twitter')" target="_blank" rel="noopener" class="btn btn-dark btn-sm border-dark share-btn" title="Share on X">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a [href]="getShareUrl('linkedin')" target="_blank" rel="noopener" class="btn btn-dark btn-sm border-dark share-btn" title="Share on LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a [href]="getShareUrl('facebook')" target="_blank" rel="noopener" class="btn btn-dark btn-sm border-dark share-btn" title="Share on Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="copy-link-wrap">
+            <button type="button" class="btn btn-dark btn-sm border-dark d-flex align-items-center gap-2 px-3" (click)="copyPostLink()">
+              <i class="fa-solid" [class.fa-check]="linkCopied" [class.text-green]="linkCopied" [class.fa-link]="!linkCopied"></i>
+              <span class="smallest">{{ linkCopied ? 'Link Copied to Clipboard!' : 'Copy Link' }}</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Author Signature Card -->
         <aside class="author-signature-card mt-5 p-4 rounded border border-dark" itemscope itemtype="https://schema.org/Person">
           <div class="d-flex flex-column flex-md-row gap-4 align-items-center align-items-md-start">
