@@ -56,28 +56,28 @@ export class HomeComponent implements OnInit {
         title: 'What is OpenSource?',
         subtitle: 'You do not need to spend a fortune to have good technology.',
         icon: 'fa-solid fa-unlock-keyhole',
-        link: 'https://www.youtube.com/watch?v=29w_rM2C7a4',
+        link: 'https://www.youtube.com/watch?v=PVD1LNDxOnc',
         color: '#81b64c'
       },
       {
         title: 'What is Linux?',
         subtitle: 'Ditch the License Fee',
         icon: 'fa-brands fa-linux',
-        link: 'https://www.youtube.com/watch?v=JgXn4xG5f6A',
+        link: 'https://www.youtube.com/watch?v=eQbIxEw3AI0',
         color: 'var(--chess-heading-text)'
       },
       {
         title: 'What is Linux Mint?',
         subtitle: 'A Friendly Face',
         icon: 'fa-solid fa-leaf',
-        link: 'https://www.youtube.com/watch?v=tV6Xn4xG5f6A',
+        link: 'https://www.youtube.com/watch?v=n1jT9leP8sE&t=17s',
         color: '#81b64c'
       },
       {
         title: 'Ditch subscription fees',
         subtitle: 'Why pay for software? ... Why ??',
         icon: 'fa-solid fa-piggy-bank',
-        link: 'https://www.youtube.com/watch?v=Y-yC3j4QJnA',
+        link: 'https://www.youtube.com/watch?v=eS-e_O4egsU',
         color: 'var(--chess-heading-text)'
       }
     ];
