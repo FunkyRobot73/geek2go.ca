@@ -28,6 +28,13 @@
       </div>
     </div>
 
+    <!-- Load More Pagination -->
+    <div class="text-center my-4" *ngIf="hasMorePhotos()">
+      <button type="button" class="btn btn-outline-light rounded-pill px-4 py-2 smallest fw-bold" (click)="loadMore()">
+        <i class="fa-solid fa-circle-chevron-down me-2 text-green"></i> Load More Archives ({{ remainingPhotosCount() }} remaining)
+      </button>
+    </div>
+
     <!-- Lightbox Modal (Chess Themed) -->
     <div class="lightbox-overlay" *ngIf="showLightbox" (click)="closeLightbox()">
       <div class="lightbox-content-chess" (click)="$event.stopPropagation()">

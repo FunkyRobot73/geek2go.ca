@@ -12,10 +12,14 @@ import { GalleryService } from 'src/app/services/gallery.service';
 })
 export class TechGalleryComponent implements OnInit {
 
+  allGalleryImages: {src: string, thumbSrc?: string, alt: string}[] = [];
   galleryImages: {src: string, thumbSrc?: string, alt: string}[] = [];
   loading = true;
   selectedImage: {src: string, thumbSrc?: string, alt: string} | null = null;
   showLightbox = false;
+
+  pageSize = 12;
+  currentPage = 1;
 
   constructor(private seo: SeoService, private galleryService: GalleryService) {}
 
@@ -39,11 +43,13 @@ export class TechGalleryComponent implements OnInit {
       next: (items) => {
         if (items && items.length > 0) {
           const sortedItems = items.sort((a, b) => (a.order || 0) - (b.order || 0));
-          this.galleryImages = sortedItems.map(item => ({
+          this.allGalleryImages = sortedItems.map(item => ({
             thumbSrc: this.galleryService.getThumbnailUrl(item.thumbnail, item.image),
             src: this.galleryService.getImageUrl(item.image),
             alt: item.blurb || item.title || `Geeking Out in ${this.randomCity()}`
           }));
+          this.currentPage = 1;
+          this.updateVisibleImages();
           this.loading = false;
         } else {
           this.loadStaticGalleryImages();
@@ -60,14 +66,35 @@ export class TechGalleryComponent implements OnInit {
     const imageCount = 21;
     const basePath = 'assets/gallery02/';
     
-    this.galleryImages = [];
+    this.allGalleryImages = [];
     for (let i = 1; i <= imageCount; i++) {
-      this.galleryImages.push({
-        src: `${basePath}gallery02_${i}.webp`,
+      const src = `${basePath}gallery02_${i}.webp`;
+      this.allGalleryImages.push({
+        src,
+        thumbSrc: src,
         alt: `Geeking Out in ${this.randomCity()}`
       });
     }
+    this.currentPage = 1;
+    this.updateVisibleImages();
     this.loading = false;
+  }
+
+  updateVisibleImages() {
+    this.galleryImages = this.allGalleryImages.slice(0, this.currentPage * this.pageSize);
+  }
+
+  loadMore() {
+    this.currentPage++;
+    this.updateVisibleImages();
+  }
+
+  hasMorePhotos(): boolean {
+    return this.galleryImages.length < this.allGalleryImages.length;
+  }
+
+  remainingPhotosCount(): number {
+    return this.allGalleryImages.length - this.galleryImages.length;
   }
 
   openLightbox(image: {src: string, alt: string}) {
