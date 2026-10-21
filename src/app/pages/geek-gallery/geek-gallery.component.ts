@@ -14,9 +14,9 @@ import { GalleryService } from 'src/app/services/gallery.service';
 export class GeekGalleryComponent implements OnInit{
 
   profile: any;
-  galleryImages: {src: string, alt: string}[] = [];
+  galleryImages: {src: string, thumbSrc?: string, alt: string}[] = [];
   loading = true;
-  selectedImage: {src: string, alt: string} | null = null;
+  selectedImage: {src: string, thumbSrc?: string, alt: string} | null = null;
   showLightbox = false;
 
   constructor(
@@ -49,6 +49,7 @@ export class GeekGalleryComponent implements OnInit{
         if (items && items.length > 0) {
           const sortedItems = items.sort((a, b) => (a.order || 0) - (b.order || 0));
           this.galleryImages = sortedItems.map(item => ({
+            thumbSrc: this.galleryService.getThumbnailUrl(item.thumbnail, item.image),
             src: this.galleryService.getImageUrl(item.image),
             alt: item.blurb || item.title || `Geeking Out in ${this.randomCity()}`
           }));

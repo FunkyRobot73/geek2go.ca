@@ -20,7 +20,7 @@
            *ngFor="let image of galleryImages; let i = index"
            (click)="openLightbox(image)">
         <div class="image-inner">
-          <img [src]="image.src" [alt]="image.alt">
+          <img [src]="image.thumbSrc || image.src" [alt]="image.alt">
           <div class="photo-overlay">
             <i class="fa-solid fa-magnifying-glass-plus text-green"></i>
           </div>

@@ -9,6 +9,7 @@ export interface GalleryItem {
   blurb: string;
   date: string;
   image: string;
+  thumbnail?: string;
   category: string;
   site: string;
   order: number;
@@ -29,6 +30,12 @@ export class GalleryService {
   getImageUrl(filename: string): string {
     if (!filename) return '';
     return `${environment.imageBaseUrl}${filename}`;
+  }
+
+  getThumbnailUrl(thumbnail?: string, fallbackImage?: string): string {
+    const target = thumbnail || fallbackImage;
+    if (!target) return '';
+    return `${environment.imageBaseUrl}${target}`;
   }
 
   getGalleryItems(site?: string, category?: string): Observable<GalleryItem[]> {
