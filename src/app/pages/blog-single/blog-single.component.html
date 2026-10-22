@@ -17,7 +17,7 @@
                <span class="smallest text-muted">•</span>
                <span class="smallest text-muted"><i class="far fa-clock"></i> {{ blogPost.readingTime || 1 }} min read</span>
              </div>
-             <span class="smallest text-muted">Node: ARCHIVE_LOG_{{ blogPost.id }}</span>
+             <span class="smallest text-muted">Article #{{ blogPost.id }}</span>
           </div>
           <h1 class="h2 mb-4 fw-bold text-white">{{ blogPost.titleBlog }}</h1>
           
@@ -48,7 +48,7 @@
             <!-- Section Image (The new feature!) -->
             <div class="article-inner-img mb-4 text-center" *ngIf="section.image">
                <img [src]="imageBaseUrl + section.image" 
-                    alt="Intel Detail {{i + 1}}"
+                    alt="Article Image {{i + 1}}"
                     class="img-fluid rounded border border-dark shadow-sm" />
             </div>
           </div>
@@ -58,7 +58,7 @@
         <div class="share-intel-bar mt-5 pt-3 pb-3 border-top border-bottom border-dark d-flex flex-wrap justify-content-between align-items-center gap-3">
           <div class="d-flex align-items-center gap-2">
             <span class="smallest text-green text-uppercase fw-bold letter-spacing-1">
-              <i class="fa-solid fa-share-nodes me-1"></i> Share Intel:
+              <i class="fa-solid fa-share-nodes me-1"></i> Share This Post:
             </span>
             <div class="d-flex gap-2">
               <a [href]="getShareUrl('twitter')" target="_blank" rel="noopener" class="btn btn-dark btn-sm border-dark share-btn" title="Share on X">
@@ -98,7 +98,7 @@
 
             <div class="author-details flex-grow-1 text-center text-md-start">
               <div class="author-header mb-1">
-                <span class="smallest text-muted text-uppercase letter-spacing-1">Dispatch Author</span>
+                <span class="smallest text-muted text-uppercase letter-spacing-1">Written by</span>
                 <h3 class="h5 fw-bold text-white mb-1" itemprop="name">Carlos Sousa</h3>
               </div>
 
@@ -148,13 +148,13 @@
         <div class="d-flex justify-content-between align-items-center mt-5 pt-4 border-top border-dark gap-3">
           <div>
             <a *ngIf="prevPost" [routerLink]="['/blog-single', prevPost.id]" class="btn btn-dark border-dark text-start p-3 d-block w-100 hover-bg-dark rounded text-decoration-none" style="min-width: 180px; max-width: 300px; border-color: var(--chess-border) !important; background-color: var(--chess-panel);">
-              <div class="smallest text-muted text-uppercase mb-1"><i class="fa-solid fa-arrow-left me-1"></i> Older Intel</div>
+              <div class="smallest text-muted text-uppercase mb-1"><i class="fa-solid fa-arrow-left me-1"></i> Older Article</div>
               <div class="smallest fw-bold text-truncate" style="color: var(--chess-heading-text);">{{ prevPost.titleBlog }}</div>
             </a>
           </div>
           <div>
             <a *ngIf="nextPost" [routerLink]="['/blog-single', nextPost.id]" class="btn btn-dark border-dark text-end p-3 d-block w-100 hover-bg-dark rounded text-decoration-none" style="min-width: 180px; max-width: 300px; border-color: var(--chess-border) !important; background-color: var(--chess-panel);">
-              <div class="smallest text-green text-uppercase mb-1">Newer Intel <i class="fa-solid fa-arrow-right ms-1"></i></div>
+              <div class="smallest text-green text-uppercase mb-1">Newer Article <i class="fa-solid fa-arrow-right ms-1"></i></div>
               <div class="smallest fw-bold text-truncate" style="color: var(--chess-heading-text);">{{ nextPost.titleBlog }}</div>
             </a>
           </div>
@@ -162,7 +162,7 @@
 
         <footer class="mt-5 pt-4 border-top border-dark">
           <a routerLink="/blogs" class="btn btn-dark btn-sm border-dark">
-            <i class="fa-solid fa-arrow-left me-2"></i> Return to Feed Archive
+            <i class="fa-solid fa-arrow-left me-2"></i> Back to All Articles
           </a>
         </footer>
       </div>
@@ -173,12 +173,12 @@
       
       <!-- Related Feed Widget -->
       <div class="chess-card mb-4 p-0 overflow-hidden">
-        <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Latest Intel</h3>
+        <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Recent Articles</h3>
         <div class="related-list p-2">
           <a *ngFor="let recent of recentBlogs.slice(0, 5)" 
              [routerLink]="['/blog-single', recent.id]"
              class="related-item d-flex align-items-center p-2 mb-2 text-decoration-none hover-bg-dark rounded">
-            <img [src]="'http://back.geek2go.ca/public/uploads/' + recent.image" 
+            <img [src]="imageBaseUrl + recent.image" 
                  class="rounded me-3" width="56" height="42" style="object-fit: cover;"
                  onerror="this.src='assets/ai-sample.webp'">
             <div class="related-info overflow-hidden">
@@ -188,14 +188,14 @@
           </a>
         </div>
         <div class="p-3 pt-0">
-            <a routerLink="/blogs" class="btn btn-dark btn-sm w-100 border-dark smallest">Browse Full Archive</a>
+            <a routerLink="/blogs" class="btn btn-dark btn-sm w-100 border-dark smallest">Browse All Articles</a>
         </div>
       </div>
 
       <!-- Quick Action Widget -->
       <div class="chess-card mb-4 border-green-faint" style="background-color: var(--chess-terminal-bg);">
         <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Questions?</h3>
-        <p class="smallest text-muted mb-3">Does this intel require clarification? Dispatch a direct inquiry.</p>
+        <p class="smallest text-muted mb-3">Have questions about this article or need tech help? Feel free to reach out.</p>
         <a routerLink="/contact" class="btn-chess-primary btn-sm w-100">Contact Carlos</a>
       </div>
 
@@ -216,7 +216,7 @@
       <div class="chess-card text-center py-5">
         <i class="fa-solid fa-triangle-exclamation h1 text-danger mb-3"></i>
         <p class="text-white">{{ error }}</p>
-        <a routerLink="/blogs" class="btn btn-dark btn-sm">Return to Archive</a>
+        <a routerLink="/blogs" class="btn btn-dark btn-sm">Back to Articles</a>
       </div>
   </div>
 </div>

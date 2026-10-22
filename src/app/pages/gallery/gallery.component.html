@@ -4,7 +4,7 @@
     
     <header class="section-header mb-4 d-flex justify-content-between align-items-end flex-wrap gap-3">
       <div>
-        <h1 class="h2 mb-0 text-white">Visual Archives: Project Gallery</h1>
+        <h1 class="h2 mb-0 text-white">Project Gallery</h1>
         <p class="text-muted smallest mb-0">Open Source setups, server configurations, custom websites, and community logs.</p>
       </div>
       
@@ -40,7 +40,7 @@
     </div>
     
     <div *ngIf="!loading && filteredImages.length === 0" class="text-center py-5 chess-card border-dark">
-      <p class="text-muted mb-0">No images archived under this category yet.</p>
+      <p class="text-muted mb-0">No images found in this category yet.</p>
     </div>
 
     <!-- Lightbox Modal (Chess Themed) -->
@@ -68,24 +68,24 @@
     
     <!-- Archive Metadata -->
     <div class="chess-card mb-4 border-green-faint">
-      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Archive Metadata</h3>
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Gallery Info</h3>
       <div class="d-flex justify-content-between smallest mb-2">
         <span class="text-muted">Type:</span>
         <span class="text-white">Database Gallery</span>
       </div>
       <div class="d-flex justify-content-between smallest mb-2">
         <span class="text-muted">Source:</span>
-        <span class="text-white">API Sync Node</span>
+        <span class="text-white">Live Database</span>
       </div>
       <div class="d-flex justify-content-between smallest">
         <span class="text-muted">Status:</span>
-        <span class="text-green fw-bold">ONLINE_SECURE</span>
+        <span class="text-green fw-bold">Active</span>
       </div>
     </div>
 
     <!-- Description Card -->
     <div class="chess-card mb-4 border-dark">
-        <h3 class="smallest text-muted text-uppercase mb-2 fw-bold">Archive Brief</h3>
+        <h3 class="smallest text-muted text-uppercase mb-2 fw-bold">About The Projects</h3>
         <p class="smallest text-white mb-0" style="opacity: 0.75;">
           A visual log showcasing custom Linux servers, private AI hubs, open-source tool installations, hardware recycling milestones, and comic collection events.
         </p>

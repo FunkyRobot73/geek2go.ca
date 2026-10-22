@@ -6,10 +6,10 @@
     <header class="section-header mb-4 d-flex justify-content-between align-items-end">
       <div>
         <h1 class="h2 mb-0" style="color: var(--chess-heading-text);">The Nerd Feed</h1>
-        <p class="text-muted smallest mb-0">Intel Archive: Code, Comics, and Everything In-Between</p>
+        <p class="text-muted smallest mb-0">Code, Tech Tips, Open-Source, and Everything In-Between</p>
       </div>
       <div class="status-box smallest p-2 border border-dark rounded" style="background-color: var(--chess-terminal-bg);">
-        <span class="text-muted">Node:</span> <span class="text-green fw-bold">INTELLIGENCE_LIST</span>
+        <span class="text-green fw-bold"><i class="fa-solid fa-circle text-green me-1" style="font-size: 0.5rem; vertical-align: middle;"></i> Latest Posts</span>
       </div>
     </header>
 
@@ -35,7 +35,7 @@
                 <span class="smallest text-muted">•</span>
                 <span class="smallest text-muted"><i class="far fa-clock"></i> {{ blog.readingTime || 1 }} min read</span>
               </div>
-              <span class="smallest text-muted">Field Report</span>
+              <span class="smallest text-muted">Article</span>
             </div>
             
             <h3 class="h6 mb-2 fw-bold" style="color: var(--chess-heading-text);">{{ blog.titleBlog }}</h3>
@@ -48,7 +48,7 @@
             </div>
             
             <a [routerLink]="['/blog-single', blog.id]" class="btn btn-link p-0 text-green smallest text-decoration-none fw-bold">
-              Analyze Report <i class="fa-solid fa-arrow-right list-icon ms-1"></i>
+              Read Article <i class="fa-solid fa-arrow-right list-icon ms-1"></i>
             </a>
           </div>
         </div>
@@ -57,8 +57,8 @@
       <!-- Empty State -->
       <div *ngIf="filteredBlogs.length === 0" class="chess-card text-center py-5">
         <i class="fa-solid fa-folder-open h1 text-muted mb-3 d-block"></i>
-        <p class="text-muted">No logs found in this category.</p>
-        <button class="btn btn-dark btn-sm" (click)="filterByCategory('All')">Reset Archives</button>
+        <p class="text-muted">No articles found in this category.</p>
+        <button class="btn btn-dark btn-sm" (click)="filterByCategory('All')">Show All</button>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
     
     <!-- Category Filter Card -->
     <div class="chess-card mb-4 p-0 overflow-hidden">
-        <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Inquiry Sectors</h3>
+        <h3 class="smallest text-muted text-uppercase p-3 mb-0 font-weight-bold border-bottom border-dark">Categories</h3>
         <div class="vertical-nav">
           <button *ngFor="let cat of categories" 
                   class="nav-vertical-item w-100 text-start border-0 bg-transparent py-3 px-3 d-flex align-items-center"
@@ -83,9 +83,9 @@
 
     <!-- Feed Stats Component -->
     <div class="chess-card mb-4 border-green-faint">
-      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Archive Stats</h3>
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">Quick Stats</h3>
       <div class="d-flex justify-content-between smallest mb-2">
-        <span class="text-muted">Total Logs:</span>
+        <span class="text-muted">Total Articles:</span>
         <span style="color: var(--chess-heading-text);">{{ blogs.length }}</span>
       </div>
       <div class="d-flex justify-content-between smallest">
@@ -96,8 +96,8 @@
 
     <!-- Quick Support -->
     <div class="chess-card border-dark text-center" style="background-color: var(--chess-terminal-bg);">
-        <p class="smallest text-muted mb-3">Looking for specific intel? Dispatch an inquiry.</p>
-        <a routerLink="/contact" class="btn btn-chess-primary btn-sm w-100 smallest">Contact Expert</a>
+        <p class="smallest text-muted mb-3">Looking for something specific or need tech help? Drop me a line.</p>
+        <a routerLink="/contact" class="btn btn-chess-primary btn-sm w-100 smallest">Get in Touch</a>
     </div>
 
   </div>
