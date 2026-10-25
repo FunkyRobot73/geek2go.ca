@@ -133,7 +133,7 @@
         </div>
         <div *ngIf="item.websiteUrl" class="detail-item">
           <span class="label"><i class="fas fa-globe"></i> Website:</span>
-          <span class="val"><a [href]="item.websiteUrl" target="_blank" rel="noopener">{{ item.websiteUrl }}</a></span>
+          <span class="val"><a [href]="directoryService.formatUrl(item.websiteUrl)" target="_blank" rel="noopener">{{ item.websiteUrl }}</a></span>
         </div>
       </div>
 

@@ -63,6 +63,17 @@ export class DirectoryService {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 
+  // URL helper to ensure absolute external links (prevent relative pathing)
+  formatUrl(url?: string): string {
+    if (!url) return '';
+    const trimmed = url.trim();
+    if (!trimmed) return '';
+    if (/^https?:\/\//i.test(trimmed)) {
+      return trimmed;
+    }
+    return `https://${trimmed}`;
+  }
+
   // Image helper for cards & admin view
   resolveImageUrl(path?: string): string {
     if (!path) {
