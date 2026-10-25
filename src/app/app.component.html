@@ -27,4 +27,20 @@
     </div>
     <app-footer></app-footer>
   </main>
+
+  <!-- Floating Mobile Quick-Action Dock (Only visible on screens <= 768px) -->
+  <nav class="mobile-action-dock" aria-label="Quick contact actions">
+    <a [href]="'tel:' + (profile.phone || '4168323546')" class="dock-btn dock-call" title="Call Carlos directly">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call</span>
+    </a>
+    <a routerLink="/contact" class="dock-btn dock-msg" (click)="closeMobileMenu()" title="Send Carlos a message">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Message</span>
+    </a>
+    <a routerLink="/directory" class="dock-btn dock-dir" (click)="closeMobileMenu()" title="Browse Burlington Dads Directory">
+      <i class="fa-solid fa-address-book"></i>
+      <span>Dads Hub</span>
+    </a>
+  </nav>
 </div>

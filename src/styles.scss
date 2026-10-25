@@ -176,6 +176,10 @@ h1, h2, h3, h4, .navbar-brand {
   }
 }
 
+.mobile-action-dock {
+  display: none;
+}
+
 // --- RESPONSIVE MOBILE LAYOUT (<= 768px) ---
 @media (max-width: 768px) {
   body, html {
@@ -197,8 +201,8 @@ h1, h2, h3, h4, .navbar-brand {
       display: flex !important;
       align-items: center;
       justify-content: space-between;
-      height: 58px;
-      padding: 0 16px;
+      height: calc(56px + max(0px, env(safe-area-inset-top, 0px)));
+      padding: max(6px, env(safe-area-inset-top, 6px)) 16px 6px;
       background-color: var(--chess-navbar-bg);
       border-bottom: 1px solid var(--chess-navbar-border);
       position: sticky;
@@ -226,12 +230,13 @@ h1, h2, h3, h4, .navbar-brand {
         border: none;
         color: var(--chess-navbar-link-color, #bab9b8);
         font-size: 1.25rem;
-        padding: 8px;
+        width: 44px;
+        height: 44px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 6px;
+        border-radius: 8px;
         transition: color 0.2s, background-color 0.2s;
 
         &:hover, &:active {
@@ -247,7 +252,7 @@ h1, h2, h3, h4, .navbar-brand {
       inset: 0;
       background: rgba(0, 0, 0, 0.65);
       z-index: 1040;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(3px);
     }
 
     .sidebar-column {
@@ -264,6 +269,8 @@ h1, h2, h3, h4, .navbar-brand {
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5);
       overflow-y: auto;
+      padding-top: max(10px, env(safe-area-inset-top, 0px));
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
 
       &.open {
         transform: translateX(0);
@@ -274,10 +281,100 @@ h1, h2, h3, h4, .navbar-brand {
       width: 100% !important;
       max-width: 100% !important;
       flex-grow: 1;
-      padding: 16px 12px;
+      padding: 16px 12px calc(80px + max(10px, env(safe-area-inset-bottom, 10px))) !important;
       overflow-y: visible;
       overflow-x: hidden;
     }
+  }
+
+  // Floating Mobile Quick-Action Bar
+  .mobile-action-dock {
+    display: flex !important;
+    position: fixed;
+    bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    max-width: 380px;
+    background: rgba(38, 36, 33, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+    border-radius: 9999px;
+    padding: 6px 14px;
+    z-index: 1010;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-sizing: border-box;
+
+    .dock-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--chess-navbar-link-color, #bab9b8);
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 700;
+      min-width: 60px;
+      min-height: 44px;
+      justify-content: center;
+      transition: all 0.2s;
+
+      i {
+        font-size: 1.15rem;
+      }
+
+      &:hover, &:active {
+        color: #fff;
+      }
+
+      &.dock-call {
+        color: #81b64c;
+        &:hover, &:active {
+          color: #95bb4a;
+        }
+      }
+    }
+  }
+
+  // Mobile card padding reduction (14px-16px instead of 20px)
+  .chess-card {
+    padding: 16px 14px !important;
+    border-radius: 8px !important;
+  }
+
+  // Stack section headers neatly on mobile
+  .section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+
+    .status-box {
+      align-self: flex-start;
+    }
+  }
+
+  // 16px font size on inputs to prevent iOS Safari auto-zooming
+  .form-control-chess,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  select,
+  textarea {
+    font-size: 16px !important;
+    min-height: 46px;
+  }
+
+  // 44px minimum touch targets
+  .btn-chess-primary,
+  .btn-dark {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

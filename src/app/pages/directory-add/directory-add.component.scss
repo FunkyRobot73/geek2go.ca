@@ -384,6 +384,12 @@
 
 @media (max-width: 640px) {
   .submit-page-container {
+    padding: 0 1rem 5rem;
+
+    .form-header h1 {
+      font-size: 1.85rem;
+    }
+
     .directory-form {
       padding: 1.25rem;
 
@@ -395,6 +401,19 @@
         margin-left: -1.25rem;
         margin-right: -1.25rem;
         padding: 1.25rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-size: 16px !important;
+        min-height: 46px;
+      }
+
+      .form-submit-footer .btn-submit {
+        width: 100%;
+        min-height: 48px;
+        padding: 0.9rem 1.5rem;
       }
     }
   }

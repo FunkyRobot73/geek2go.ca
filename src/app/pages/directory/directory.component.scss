@@ -170,6 +170,15 @@
       .category-scroll-container {
         overflow-x: auto;
         padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        mask-image: linear-gradient(to right, black 86%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 86%, transparent 100%);
+
+        @media (min-width: 900px) {
+          mask-image: none;
+          -webkit-mask-image: none;
+        }
 
         &::-webkit-scrollbar {
           height: 4px;
@@ -195,11 +204,15 @@
             background: #1e293b;
             color: #94a3b8;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 0.45rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 9999px;
-            font-size: 0.84rem;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
+            scroll-snap-align: start;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
             transition: all 0.2s;
 
             &:hover {
@@ -514,7 +527,7 @@
 @media (max-width: 768px) {
   .directory-page {
     .directory-hero {
-      padding: 3rem 1rem 2.5rem;
+      padding: 2.5rem 1rem 2rem;
 
       .hero-content h1 {
         font-size: 2.1rem;
@@ -523,6 +536,24 @@
 
     .directory-grid {
       grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .directory-page {
+    .biz-card {
+      padding: 1.25rem 1rem !important;
+
+      .card-footer {
+        flex-direction: column;
+        gap: 0.6rem;
+
+        .btn-action {
+          width: 100%;
+          min-height: 44px;
+        }
+      }
     }
   }
 }
