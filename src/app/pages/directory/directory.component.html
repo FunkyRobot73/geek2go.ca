@@ -1,0 +1,146 @@
+<div class="directory-page">
+
+  <!-- Hero Section -->
+  <section class="directory-hero">
+    <div class="hero-content">
+      <span class="community-pill">
+        <i class="fas fa-users"></i> Burlington Dads Community
+      </span>
+      <h1>Burlington Dads <span class="gradient-text">Business Directory</span></h1>
+      <p class="hero-desc">
+        A community hub of trusted local trades, services, and professionals run by local dads in Burlington and surrounding areas. Support local families first!
+      </p>
+
+      <div class="hero-cta-wrap">
+        <a routerLink="/directory/join" class="btn btn-primary-cta">
+          <i class="fas fa-plus-circle"></i> Add Your Services
+        </a>
+        <a href="#browse-section" class="btn btn-secondary-cta">
+          <i class="fas fa-search"></i> Browse Directory
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Directory Container -->
+  <main id="browse-section" class="directory-container">
+
+    <!-- Search & Filter Controls -->
+    <div class="controls-panel">
+      <!-- Search Input -->
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (keyup.enter)="onSearch()"
+          placeholder="Search by trade, plumber, electrician, dad's name..."
+        />
+        <button *ngIf="searchQuery" (click)="clearSearch()" class="btn-clear">&times;</button>
+        <button (click)="onSearch()" class="btn-search">Search</button>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-scroll-container">
+        <div class="category-pills">
+          <button 
+            *ngFor="let cat of categories" 
+            class="cat-pill" 
+            [class.active]="selectedCategory === cat"
+            (click)="onCategorySelect(cat)">
+            {{ cat }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="state-panel">
+      <div class="loading-spinner"></div>
+      <p>Finding local dad businesses...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="!loading && errorMessage" class="state-panel error-panel">
+      <i class="fas fa-exclamation-triangle state-icon"></i>
+      <p>{{ errorMessage }}</p>
+      <button (click)="fetchListings()" class="btn-retry">Try Again</button>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loading && !errorMessage && listings.length === 0" class="state-panel empty-panel">
+      <div class="empty-icon-wrap">👨‍🔧</div>
+      <h3>No listings found</h3>
+      <p *ngIf="searchQuery || selectedCategory !== 'All'">
+        No dad businesses found for "{{ searchQuery || selectedCategory }}". Try clearing your search or picking another category.
+      </p>
+      <p *ngIf="!searchQuery && selectedCategory === 'All'">
+        Be the first dad to add your business or trade to the community!
+      </p>
+      <a routerLink="/directory/join" class="btn btn-add-first">
+        <i class="fas fa-plus"></i> Add Your Business Now
+      </a>
+    </div>
+
+    <!-- Listings Grid -->
+    <div *ngIf="!loading && listings.length > 0" class="directory-grid">
+      <div *ngFor="let item of listings" class="biz-card">
+        
+        <div class="card-header">
+          <div class="avatar-box">
+            <img [src]="directoryService.resolveImageUrl(item.imageUrl)" [alt]="item.businessName" />
+          </div>
+          <div class="header-info">
+            <span class="category-tag">{{ item.category }}</span>
+            <h3 class="biz-name">{{ item.businessName }}</h3>
+            <p class="contact-name">
+              <i class="fas fa-user-circle"></i> {{ item.contactName }}
+            </p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <p *ngIf="item.tagline" class="biz-tagline">"{{ item.tagline }}"</p>
+          <p class="biz-description">{{ item.description }}</p>
+
+          <!-- Group Member Offer / Discount -->
+          <div *ngIf="item.dadDiscount" class="offer-callout">
+            <div class="offer-tag"><i class="fas fa-gift"></i> Burlington Dads Member Perk:</div>
+            <div class="offer-val">{{ item.dadDiscount }}</div>
+          </div>
+
+          <div class="service-area">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{ item.serviceArea || 'Burlington & Area' }}</span>
+          </div>
+        </div>
+
+        <!-- Contact Actions Footer -->
+        <div class="card-footer">
+          <a *ngIf="item.phone" [href]="'tel:' + item.phone" class="btn-action call-btn" title="Call">
+            <i class="fas fa-phone-alt"></i> Call
+          </a>
+          <a [href]="'mailto:' + item.email" class="btn-action email-btn" title="Email">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+          <a *ngIf="item.websiteUrl" [href]="item.websiteUrl" target="_blank" rel="noopener noreferrer" class="btn-action web-btn" title="Website">
+            <i class="fas fa-external-link-alt"></i> Website
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Community Callout -->
+    <section class="bottom-callout">
+      <div class="callout-inner">
+        <h2>Are you a Burlington Dad in business?</h2>
+        <p>Get discovered by thousands of local dads looking for trusted help with home renovations, auto repair, professional services, and more.</p>
+        <a routerLink="/directory/join" class="btn btn-callout">
+          <i class="fas fa-user-plus"></i> Add Your Business Free
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>

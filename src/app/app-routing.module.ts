@@ -23,7 +23,10 @@ const routes: Routes = [
   { path: 'social-gallery', component: TechGalleryComponent },
   { path: 'blog-single/:id', component: BlogSingleComponent },
   { path: 'hardware', component: HardwareComponent },
+  { path: 'directory', loadComponent: () => import('./pages/directory/directory.component').then(m => m.DirectoryComponent) },
+  { path: 'directory/join', loadComponent: () => import('./pages/directory-add/directory-add.component').then(m => m.DirectoryAddComponent) },
   { path: 'hall-of-fame', loadComponent: () => import('./pages/hall-of-fame/hall-of-fame.component').then(m => m.HallOfFameComponent) },
+  { path: 'admin/directory', loadComponent: () => import('./pages/admin/directory-admin/directory-admin.component').then(m => m.DirectoryAdminComponent) },
   { path: 'admin/add-hall-of-fame', loadComponent: () => import('./pages/admin/add-hall-of-fame/add-hall-of-fame.component').then(m => m.AddHallOfFameComponent) },
   { path: '**', redirectTo: '' }
 ];

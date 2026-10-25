@@ -1,0 +1,213 @@
+<div class="directory-admin-container">
+  <header class="admin-header">
+    <div class="header-titles">
+      <span class="badge-tag">Community Hub</span>
+      <h1>Burlington Dads Directory <span class="highlight">Moderation</span></h1>
+      <p class="subtitle">Review new dad business submissions, cross-reference membership, and manage active listings.</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/directory" target="_blank" class="btn btn-outline">
+        <i class="fas fa-external-link-alt"></i> View Public Directory
+      </a>
+      <a routerLink="/directory/join" target="_blank" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Submit Form
+      </a>
+    </div>
+  </header>
+
+  <!-- Notification Banner -->
+  <div *ngIf="actionMessage" class="alert-banner" [ngClass]="actionMessage.type">
+    <span>{{ actionMessage.text }}</span>
+    <button (click)="actionMessage = null" class="btn-close">&times;</button>
+  </div>
+
+  <!-- Navigation Filters & Stats Bar -->
+  <div class="filters-bar">
+    <div class="status-pills">
+      <button 
+        class="filter-pill" 
+        [class.active]="activeFilter === 'pending'"
+        (click)="setFilter('pending')">
+        🟡 Pending Approvals
+        <span class="count-chip pending-chip">{{ counts.pending }}</span>
+      </button>
+
+      <button 
+        class="filter-pill" 
+        [class.active]="activeFilter === 'approved'"
+        (click)="setFilter('approved')">
+        🟢 Active & Approved
+        <span class="count-chip approved-chip">{{ counts.approved }}</span>
+      </button>
+
+      <button 
+        class="filter-pill" 
+        [class.active]="activeFilter === 'rejected'"
+        (click)="setFilter('rejected')">
+        🔴 Rejected
+        <span class="count-chip rejected-chip">{{ counts.rejected }}</span>
+      </button>
+
+      <button 
+        class="filter-pill" 
+        [class.active]="activeFilter === 'all'"
+        (click)="setFilter('all')">
+        All Submissions
+        <span class="count-chip default-chip">{{ counts.total }}</span>
+      </button>
+    </div>
+
+    <div class="search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="Search dad, business, or category..."
+      />
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="state-container">
+    <div class="spinner"></div>
+    <p>Loading directory listings...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading && filteredListings.length === 0" class="state-container empty-state">
+    <div class="empty-icon">📋</div>
+    <h3>No listings found</h3>
+    <p *ngIf="activeFilter === 'pending'">All caught up! No pending submissions waiting for review.</p>
+    <p *ngIf="activeFilter !== 'pending'">No records matching this filter.</p>
+  </div>
+
+  <!-- Listings List -->
+  <div *ngIf="!loading && filteredListings.length > 0" class="listings-grid">
+    <div 
+      *ngFor="let item of filteredListings" 
+      class="listing-card"
+      [ngClass]="'status-' + item.status">
+      
+      <div class="card-top">
+        <div class="avatar-wrap">
+          <img [src]="directoryService.resolveImageUrl(item.imageUrl)" [alt]="item.businessName" />
+        </div>
+        <div class="title-meta">
+          <div class="status-badge" [ngClass]="'badge-' + item.status">
+            {{ item.status | uppercase }}
+          </div>
+          <h3>{{ item.businessName }}</h3>
+          <p class="contact-line">
+            <i class="fas fa-user-circle"></i> <strong>{{ item.contactName }}</strong>
+            <span class="category-pill">{{ item.category }}</span>
+          </p>
+          <span class="submitted-date">Submitted: {{ item.createdAt | date:'mediumDate' }}</span>
+        </div>
+      </div>
+
+      <!-- Tagline & Description -->
+      <div class="card-content">
+        <p *ngIf="item.tagline" class="tagline">"{{ item.tagline }}"</p>
+        <p class="description">{{ item.description }}</p>
+      </div>
+
+      <!-- Dad Group Discount if present -->
+      <div *ngIf="item.dadDiscount" class="perk-box">
+        <div class="perk-title">🎁 Burlington Dads Perk / Discount:</div>
+        <div class="perk-text">{{ item.dadDiscount }}</div>
+      </div>
+
+      <!-- Contact & Service Details -->
+      <div class="details-grid">
+        <div class="detail-item">
+          <span class="label"><i class="fas fa-map-marker-alt"></i> Area:</span>
+          <span class="val">{{ item.serviceArea || 'Burlington' }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label"><i class="fas fa-envelope"></i> Email:</span>
+          <span class="val"><a [href]="'mailto:' + item.email">{{ item.email }}</a></span>
+        </div>
+        <div *ngIf="item.phone" class="detail-item">
+          <span class="label"><i class="fas fa-phone"></i> Phone:</span>
+          <span class="val"><a [href]="'tel:' + item.phone">{{ item.phone }}</a></span>
+        </div>
+        <div *ngIf="item.websiteUrl" class="detail-item">
+          <span class="label"><i class="fas fa-globe"></i> Website:</span>
+          <span class="val"><a [href]="item.websiteUrl" target="_blank" rel="noopener">{{ item.websiteUrl }}</a></span>
+        </div>
+      </div>
+
+      <!-- Facebook Group Cross-Reference Box -->
+      <div class="fb-verify-box">
+        <div class="verify-header">
+          <i class="fab fa-facebook"></i>
+          <span>Burlington Dads Verification:</span>
+        </div>
+        <div class="verify-content">
+          <ng-container *ngIf="item.fbProfile; else noFbProfile">
+            <span class="profile-input-text">{{ item.fbProfile }}</span>
+            <a 
+              [href]="getFbLink(item.fbProfile)" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-verify-fb">
+              <i class="fas fa-external-link-alt"></i> Verify Facebook Profile
+            </a>
+          </ng-container>
+          <ng-template #noFbProfile>
+            <span class="no-profile-text">No direct Facebook URL provided</span>
+            <a 
+              [href]="'https://www.facebook.com/search/people/?q=' + item.contactName" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-verify-fb">
+              <i class="fas fa-search"></i> Search "{{ item.contactName }}" on Facebook
+            </a>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- Admin Notes Field -->
+      <div class="admin-notes-row">
+        <input 
+          type="text" 
+          [(ngModel)]="item.adminNotes" 
+          placeholder="Private admin note (e.g., 'Checked group Oct 24, legit dad')"
+        />
+        <button 
+          (click)="saveNotes(item)" 
+          [disabled]="processingId === item.id" 
+          class="btn btn-save-note">
+          Save Note
+        </button>
+      </div>
+
+      <!-- Card Action Buttons -->
+      <div class="card-actions">
+        <button 
+          *ngIf="item.status !== 'approved'" 
+          (click)="approveListing(item)" 
+          [disabled]="processingId === item.id"
+          class="btn btn-approve">
+          <i class="fas fa-check"></i> Approve Listing
+        </button>
+
+        <button 
+          *ngIf="item.status !== 'rejected'" 
+          (click)="rejectListing(item)" 
+          [disabled]="processingId === item.id"
+          class="btn btn-reject">
+          <i class="fas fa-ban"></i> Reject
+        </button>
+
+        <button 
+          (click)="deleteListing(item)" 
+          [disabled]="processingId === item.id"
+          class="btn btn-delete">
+          <i class="fas fa-trash-alt"></i> Delete
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
