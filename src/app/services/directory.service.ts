@@ -29,6 +29,11 @@ export class DirectoryService {
     return this.http.get<{ success: boolean; listings: DirectoryListing[] }>(this.apiUrl, { params });
   }
 
+  // Public: Get distinct categories from backend
+  getCategories(): Observable<{ success: boolean; categories: string[] }> {
+    return this.http.get<{ success: boolean; categories: string[] }>(`${this.apiUrl}/categories`);
+  }
+
   // Public: Submit listing
   submitListing(formData: FormData): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/submit`, formData);

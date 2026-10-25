@@ -20,7 +20,7 @@ export class DirectoryComponent implements OnInit {
   selectedCategory = 'All';
   searchQuery = '';
 
-  categories: string[] = [
+  baseCategories: string[] = [
     'All',
     'Plumbing',
     'Electrical',
@@ -29,19 +29,44 @@ export class DirectoryComponent implements OnInit {
     'Roofing & Siding',
     'Landscaping & Lawn Care',
     'Automotive & Detailing',
+    'DJ & Entertainment',
+    'Event Rentals',
+    'Photo Booth',
+    'Comic Books & Collectibles',
+    'SEO & Digital Marketing',
     'Accounting & Tax',
     'Mortgages & Real Estate',
     'Legal Services',
     'IT & Tech Support',
     'Photography & Media',
     'Fitness & Health',
-    'Other Local Services'
   ];
+
+  categories: string[] = [...this.baseCategories];
 
   constructor(public directoryService: DirectoryService) {}
 
   ngOnInit(): void {
+    this.fetchCategories();
     this.fetchListings();
+  }
+
+  fetchCategories(): void {
+    this.directoryService.getCategories().subscribe({
+      next: (res) => {
+        if (res.success && res.categories) {
+          this.mergeCategories(res.categories);
+        }
+      },
+      error: () => {
+        // Fallback to base categories on error
+      }
+    });
+  }
+
+  mergeCategories(newCats: string[]): void {
+    const combined = Array.from(new Set([...this.baseCategories, ...newCats]));
+    this.categories = combined;
   }
 
   fetchListings(): void {
@@ -53,6 +78,8 @@ export class DirectoryComponent implements OnInit {
         this.loading = false;
         if (res.success) {
           this.listings = res.listings;
+          const listingCats = res.listings.map(l => l.category).filter(Boolean);
+          this.mergeCategories(listingCats);
         }
       },
       error: (err) => {

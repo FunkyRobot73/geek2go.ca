@@ -20,13 +20,18 @@ export class DirectoryAddComponent {
     'Roofing & Siding',
     'Landscaping & Lawn Care',
     'Automotive & Detailing',
+    'DJ & Music Entertainment',
+    'Event Rentals & Party Supplies',
+    'Photo Booth Services',
+    'Comic Books, Toys & Collectibles',
+    'SEO & Digital Marketing',
     'Accounting & Tax',
     'Mortgages & Real Estate',
     'Legal Services',
     'IT & Tech Support',
     'Photography & Media',
     'Fitness & Health',
-    'Other Local Services'
+    'Other (Enter Custom Service)'
   ];
 
   formData = {
@@ -44,6 +49,9 @@ export class DirectoryAddComponent {
     website_url_hp: '', // Honeypot trap
   };
 
+  customCategory = '';
+  isCustomCategory = false;
+
   selectedFile: File | null = null;
   imagePreviewUrl: string | null = null;
 
@@ -52,6 +60,13 @@ export class DirectoryAddComponent {
   errorMessage = '';
 
   constructor(public directoryService: DirectoryService) {}
+
+  onCategoryChange(): void {
+    this.isCustomCategory = (this.formData.category === 'Other (Enter Custom Service)');
+    if (!this.isCustomCategory) {
+      this.customCategory = '';
+    }
+  }
 
   onFileSelected(event: any): void {
     if (event.target.files && event.target.files.length > 0) {
@@ -77,8 +92,10 @@ export class DirectoryAddComponent {
   }
 
   onSubmit(): void {
-    if (!this.formData.businessName || !this.formData.contactName || !this.formData.category || !this.formData.description || !this.formData.email) {
-      this.errorMessage = 'Please complete all required fields (Business Name, Your Name, Category, Description, and Email).';
+    const finalCategory = this.isCustomCategory ? this.customCategory.trim() : this.formData.category.trim();
+
+    if (!this.formData.businessName || !this.formData.contactName || !finalCategory || !this.formData.description || !this.formData.email) {
+      this.errorMessage = 'Please complete all required fields (Business Name, Your Name, Category / Service, Description, and Email).';
       return;
     }
 
@@ -88,7 +105,7 @@ export class DirectoryAddComponent {
     const payload = new FormData();
     payload.append('businessName', this.formData.businessName);
     payload.append('contactName', this.formData.contactName);
-    payload.append('category', this.formData.category);
+    payload.append('category', finalCategory);
     payload.append('description', this.formData.description);
     payload.append('email', this.formData.email);
 
