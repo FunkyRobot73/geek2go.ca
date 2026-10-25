@@ -185,11 +185,18 @@
       <!-- Card Action Buttons -->
       <div class="card-actions">
         <button 
+          (click)="openEdit(item)" 
+          [disabled]="processingId === item.id"
+          class="btn btn-edit">
+          <i class="fas fa-pencil-alt"></i> Edit
+        </button>
+
+        <button 
           *ngIf="item.status !== 'approved'" 
           (click)="approveListing(item)" 
           [disabled]="processingId === item.id"
           class="btn btn-approve">
-          <i class="fas fa-check"></i> Approve Listing
+          <i class="fas fa-check"></i> Approve
         </button>
 
         <button 
@@ -208,6 +215,127 @@
         </button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- Edit Listing Modal Overlay -->
+  <div *ngIf="editingItem" class="edit-modal-backdrop" (click)="closeEdit()">
+    <div class="edit-modal-dialog" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <span class="badge-tag">Admin Edit</span>
+          <h2>Edit: <span class="highlight">{{ editingItem.businessName }}</span></h2>
+        </div>
+        <button type="button" class="btn-modal-close" (click)="closeEdit()" aria-label="Close edit modal">&times;</button>
+      </div>
+
+      <form (ngSubmit)="saveEdit()" class="modal-body">
+        <div class="modal-grid two-col">
+          <div class="field-group">
+            <label>Business / Trade Name *</label>
+            <input type="text" [(ngModel)]="editForm.businessName" name="editBusinessName" required />
+          </div>
+
+          <div class="field-group">
+            <label>Dad Contact Name *</label>
+            <input type="text" [(ngModel)]="editForm.contactName" name="editContactName" required />
+          </div>
+        </div>
+
+        <div class="modal-grid two-col">
+          <div class="field-group">
+            <label>Category / Trade *</label>
+            <input type="text" [(ngModel)]="editForm.category" name="editCategory" list="adminCategories" required />
+            <datalist id="adminCategories">
+              <option *ngFor="let c of categories" [value]="c"></option>
+            </datalist>
+          </div>
+
+          <div class="field-group">
+            <label>Status *</label>
+            <select [(ngModel)]="editForm.status" name="editStatus">
+              <option value="pending">🟡 Pending</option>
+              <option value="approved">🟢 Approved</option>
+              <option value="rejected">🔴 Rejected</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Short Tagline</label>
+          <input type="text" [(ngModel)]="editForm.tagline" name="editTagline" placeholder="e.g. Master Electrician serving Burlington" />
+        </div>
+
+        <div class="field-group">
+          <label>Services Description *</label>
+          <textarea [(ngModel)]="editForm.description" name="editDescription" rows="4" required></textarea>
+        </div>
+
+        <div class="modal-grid two-col">
+          <div class="field-group">
+            <label>Phone Number</label>
+            <input type="tel" [(ngModel)]="editForm.phone" name="editPhone" placeholder="e.g. (905) 555-0199" />
+          </div>
+
+          <div class="field-group">
+            <label>Email *</label>
+            <input type="email" [(ngModel)]="editForm.email" name="editEmail" required />
+          </div>
+        </div>
+
+        <div class="modal-grid two-col">
+          <div class="field-group">
+            <label>Website URL</label>
+            <input type="text" [(ngModel)]="editForm.websiteUrl" name="editWebsite" placeholder="https://example.com" />
+          </div>
+
+          <div class="field-group">
+            <label>Service Area</label>
+            <input type="text" [(ngModel)]="editForm.serviceArea" name="editServiceArea" placeholder="e.g. Burlington & Area" />
+          </div>
+        </div>
+
+        <div class="modal-grid two-col">
+          <div class="field-group">
+            <label>Facebook Profile / Group Name</label>
+            <input type="text" [(ngModel)]="editForm.fbProfile" name="editFbProfile" />
+          </div>
+
+          <div class="field-group">
+            <label>Burlington Dads Perk / Discount</label>
+            <input type="text" [(ngModel)]="editForm.dadDiscount" name="editDadDiscount" placeholder="e.g. 10% off for group members" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Admin Notes (Private)</label>
+          <input type="text" [(ngModel)]="editForm.adminNotes" name="editAdminNotes" placeholder="e.g. Verified in Burlington Dads Oct 25" />
+        </div>
+
+        <div class="field-group image-edit-group">
+          <label>Logo / Photo</label>
+          <div class="image-edit-controls">
+            <img [src]="editImagePreview || directoryService.resolveImageUrl(editForm.imageUrl)" class="edit-preview-thumb" alt="Preview" />
+            <div class="file-btns">
+              <label class="btn-browse-file">
+                <i class="fas fa-upload"></i> Upload New Image
+                <input type="file" (change)="onEditFileSelected($event)" accept="image/*" style="display:none;" />
+              </label>
+              <button type="button" class="btn-default-avatar" (click)="resetToDefaultAvatar()">
+                <i class="fas fa-undo"></i> Use Cartoon Dad Avatar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" (click)="closeEdit()" [disabled]="isSavingEdit">Cancel</button>
+          <button type="submit" class="btn btn-primary" [disabled]="isSavingEdit">
+            <span *ngIf="!isSavingEdit"><i class="fas fa-save"></i> Save Changes</span>
+            <span *ngIf="isSavingEdit"><i class="fas fa-spinner fa-spin"></i> Saving...</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

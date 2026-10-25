@@ -536,6 +536,15 @@
           cursor: not-allowed;
         }
 
+        &.btn-edit {
+          background: #3b82f6;
+          color: #fff;
+
+          &:hover:not(:disabled) {
+            background: #2563eb;
+          }
+        }
+
         &.btn-approve {
           background: #10b981;
           color: #fff;
@@ -602,6 +611,191 @@
       &:hover {
         background: rgba(255, 255, 255, 0.05);
         color: #fff;
+      }
+    }
+  }
+
+  // Edit Modal Styles
+  .edit-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .edit-modal-dialog {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      background: #1e293b;
+      z-index: 10;
+
+      .badge-tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border-radius: 9999px;
+        background: rgba(59, 130, 246, 0.2);
+        color: #60a5fa;
+        margin-bottom: 0.25rem;
+      }
+
+      h2 {
+        font-size: 1.35rem;
+        font-weight: 800;
+        margin: 0;
+        color: #fff;
+
+        .highlight {
+          color: #38bdf8;
+        }
+      }
+
+      .btn-modal-close {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+
+      .modal-grid.two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        @media (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .field-group {
+        margin-bottom: 1.25rem;
+
+        label {
+          display: block;
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: #cbd5e1;
+          margin-bottom: 0.35rem;
+        }
+
+        input, select, textarea {
+          width: 100%;
+          box-sizing: border-box;
+          background: #0f172a;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 8px;
+          padding: 0.65rem 0.85rem;
+          color: #fff;
+          font-size: 0.9rem;
+          outline: none;
+
+          &:focus {
+            border-color: #38bdf8;
+          }
+        }
+      }
+
+      .image-edit-controls {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        background: #0f172a;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        .edit-preview-thumb {
+          width: 64px;
+          height: 64px;
+          border-radius: 10px;
+          object-fit: cover;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .file-btns {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          .btn-browse-file {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #2563eb;
+            color: #fff;
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: fit-content;
+
+            &:hover {
+              background: #1d4ed8;
+            }
+          }
+
+          .btn-default-avatar {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cbd5e1;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: fit-content;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.14);
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
   }
