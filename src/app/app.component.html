@@ -1,8 +1,26 @@
-<div class="chess-layout">
-  <aside class="sidebar-column">
-    <app-navbar></app-navbar>
+<div class="chess-layout" [class.mobile-menu-open]="isMobileMenuOpen">
+  <!-- Mobile Header Bar (Only visible on screens <= 768px) -->
+  <header class="mobile-header">
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a class="mobile-logo" routerLink="/" (click)="closeMobileMenu()">
+      <span class="logo-text">Geek2Go</span>
+    </a>
+    <button class="mobile-theme-btn" (click)="toggleTheme()" [attr.aria-label]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+      <i class="fa-solid" [class.fa-sun]="isDarkMode" [class.fa-moon]="!isDarkMode"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Backdrop Overlay -->
+  <div class="mobile-backdrop" *ngIf="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+  <!-- Navigation Column / Drawer -->
+  <aside class="sidebar-column" [class.open]="isMobileMenuOpen">
+    <app-navbar (navItemClicked)="closeMobileMenu()"></app-navbar>
   </aside>
 
+  <!-- Main Scrollable Content Area -->
   <main class="main-content-column">
     <div class="content-wrapper">
       <router-outlet></router-outlet>

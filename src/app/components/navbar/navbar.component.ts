@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 
@@ -11,11 +11,17 @@ import { ThemeService } from '../../services/theme.service';
 export class NavbarComponent {
   private themeService = inject(ThemeService);
 
+  @Output() navItemClicked = new EventEmitter<void>();
+
   get isDarkMode(): boolean {
     return this.themeService.theme() === 'dark';
   }
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  onNavClick(): void {
+    this.navItemClicked.emit();
   }
 }

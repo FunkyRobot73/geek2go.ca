@@ -347,3 +347,50 @@
   }
 }
 
+// --- MOBILE RESPONSIVE OPTIMIZATIONS (<= 768px) ---
+@media (max-width: 768px) {
+  .master-console-widget {
+    padding: 20px 16px !important;
+
+    .hero-content {
+      margin-bottom: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+
+      h1 {
+        font-size: 2.2rem !important;
+      }
+
+      .lead {
+        font-size: 1rem !important;
+      }
+    }
+
+    .hero-stats {
+      gap: 12px 24px !important;
+
+      .stat-item {
+        flex: 1 1 40%;
+      }
+    }
+  }
+
+  .op-card {
+    padding: 16px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .btn, a {
+      width: 100%;
+      text-align: center;
+      margin: 0 !important;
+    }
+  }
+}
+
+

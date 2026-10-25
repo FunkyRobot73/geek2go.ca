@@ -1,56 +1,59 @@
 <div class="sidebar-container">
   <div class="sidebar-header">
-    <a class="sidebar-logo" routerLink="/">
+    <a class="sidebar-logo" routerLink="/" (click)="onNavClick()">
       <span class="logo-text">Geek2Go</span>
     </a>
+    <button class="btn-close-drawer d-md-none" (click)="onNavClick()" aria-label="Close navigation drawer">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
   </div>
 
   <nav class="sidebar-nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onNavClick()">
           <i class="fa-solid fa-house"></i>
           <span class="link-label">Home</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/services" routerLinkActive="active">
+        <a class="nav-link" routerLink="/services" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-gears"></i>
           <span class="link-label">Services</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/directory" routerLinkActive="active">
+        <a class="nav-link" routerLink="/directory" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-address-book"></i>
           <span class="link-label">Dads Directory</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/" [fragment]="'ai-labs'" routerLinkActive="active">
+        <a class="nav-link" routerLink="/" [fragment]="'ai-labs'" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-hourglass-half"></i>
           <span class="link-label">Coming Soon</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+        <a class="nav-link" routerLink="/gallery" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-images"></i>
           <span class="link-label">Gallery</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/blogs" routerLinkActive="active">
+        <a class="nav-link" routerLink="/blogs" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-newspaper"></i>
           <span class="link-label">Articles</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-user-astronaut"></i>
           <span class="link-label">About</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/contact" routerLinkActive="active">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="onNavClick()">
           <i class="fa-solid fa-envelope"></i>
           <span class="link-label">Contact</span>
         </a>

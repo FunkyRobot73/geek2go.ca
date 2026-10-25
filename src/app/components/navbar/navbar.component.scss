@@ -9,6 +9,10 @@
 .sidebar-header {
   padding: 0 1rem 2rem 1rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   
   .sidebar-logo {
     text-decoration: none;
@@ -22,6 +26,25 @@
       background: linear-gradient(45deg, var(--chess-heading-text, #fff), #81b64c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .btn-close-drawer {
+    display: none;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--chess-navbar-link-color, #bab9b8);
+    font-size: 1.35rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover {
+      color: #fff;
     }
   }
 }
@@ -98,15 +121,30 @@
   }
 }
 
-// Hide mobile toggler logic for now as we are doing a permanent desktop sidebar
-// Mobile responsiveness would need a different approach (bottom nav or overlay)
+// Mobile drawer view adjustments
 @media (max-width: 768px) {
-  .sidebar-container {
-    padding: 0.5rem 0;
+  .sidebar-header {
+    justify-content: space-between;
+    padding: 0.75rem 1rem 1.5rem 1rem;
+
+    .btn-close-drawer {
+      display: block;
+      position: static;
+      transform: none;
+    }
   }
+
   .nav-link {
-    padding: 8px 0;
-    i { font-size: 1.25rem; }
-    .link-label { display: none; }
+    flex-direction: row;
+    gap: 14px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+
+    i {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+      width: 24px;
+      text-align: center;
+    }
   }
 }
