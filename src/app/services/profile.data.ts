@@ -21,7 +21,7 @@ export const PROFILE_DATA = {
   logo5: "assets/logo5.webp",
   tagline: "Open Source & Budget Tech for Everybody!",
   address: "Burlington, Ontario, Canada",   
-  email: "carlos@geek2go.ca",
+  email: "tech@geek2go.ca",
   phone: "(416) 832-3546",
   twitter: "https://twitter.com/funkyrobot73",
   transmissionsJsonUrl: "https://raw.githubusercontent.com/funkyrobot73/geek2go-feed/main/feed.json",
