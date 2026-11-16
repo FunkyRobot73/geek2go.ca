@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LatestArticlesComponent } from './latest-articles/latest-articles.component';
 import { ProfileService } from 'src/app/services/profile.service';
 import { BlogService } from 'src/app/services/blog.service';
@@ -10,10 +10,11 @@ import { SeoService } from 'src/app/services/seo.service';
 import { environment } from 'src/environments/environment';
 
 import { AiDiagnosticComponent } from './ai-diagnostic/ai-diagnostic.component';
+import { PrintLabComponent } from './print-lab/print-lab.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterModule, LatestArticlesComponent, AiDiagnosticComponent],
+  imports: [CommonModule, RouterModule, LatestArticlesComponent, AiDiagnosticComponent, PrintLabComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -27,16 +28,28 @@ export class HomeComponent implements OnInit {
   private profileService = inject(ProfileService);
   private blogService = inject(BlogService);
   private seo = inject(SeoService);
+  private route = inject(ActivatedRoute);
 
   ngOnInit() {
     this.seo.setPage({
-      title: 'IT Support & Computer Repair Burlington',
-      description: 'Expert IT support, computer repair, virus removal, data recovery & web development in Burlington, Aldershot, Oakville & Hamilton. 25+ years experience. Call Geek2Go.ca today!',
+      title: 'IT Support, 3D Printing & Computer Repair Burlington',
+      description: 'Expert IT support, 3D printing & rapid prototyping (Bambu Lab A1), computer repair, virus removal, data recovery & web development in Burlington & Aldershot. Geek2Go.ca',
       path: '/'
     });
     this.profileService.profile$.subscribe(data => {
       this.profile = data;
       this.initializeFeaturedOps();
+    });
+
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        setTimeout(() => {
+          const el = document.getElementById(fragment);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 150);
+      }
     });
 
     this.blogService.viewBlog().subscribe({

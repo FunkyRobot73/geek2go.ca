@@ -1,0 +1,102 @@
+.print-lab-widget {
+  background-color: var(--chess-terminal-bg) !important;
+
+  .lab-header,
+  .lab-footer {
+    background-color: var(--chess-navbar-bg);
+    border-color: var(--chess-border) !important;
+  }
+
+  .letter-spacing-1 {
+    letter-spacing: 1px;
+  }
+
+  .border-green-faint {
+    border-color: rgba(129, 182, 76, 0.3) !important;
+  }
+
+  .bg-card-faint {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .intro-callout {
+    background: linear-gradient(135deg, rgba(129, 182, 76, 0.08) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-color: rgba(129, 182, 76, 0.25) !important;
+  }
+
+  .bg-green {
+    background-color: #81b64c !important;
+  }
+
+  .pulse-dot {
+    animation: pulse-dot-anim 1.8s infinite;
+    display: inline-block;
+    font-size: 0.55rem;
+    vertical-align: middle;
+  }
+
+  .icon-wrap {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: rgba(129, 182, 76, 0.1);
+  }
+
+  .chess-card.hoverable {
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    &:hover {
+      border-color: #81b64c !important;
+      background-color: rgba(129, 182, 76, 0.05) !important;
+      transform: translateY(-2px);
+    }
+  }
+
+  .specs-panel,
+  .process-panel,
+  .model-sources {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-color: var(--chess-border) !important;
+  }
+
+  .spec-card {
+    background-color: var(--chess-panel);
+    border-color: var(--chess-border) !important;
+    transition: border-color 0.2s ease;
+    &:hover {
+      border-color: rgba(129, 182, 76, 0.5) !important;
+    }
+  }
+
+  .step-number {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-family: monospace;
+    opacity: 0.85;
+  }
+
+  code {
+    background-color: rgba(129, 182, 76, 0.15);
+    color: #81b64c;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.8em;
+  }
+}
+
+@keyframes pulse-dot-anim {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

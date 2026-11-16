@@ -1,0 +1,156 @@
+<div class="chess-card print-lab-widget overflow-hidden p-0 border-green-faint">
+  
+  <!-- Header -->
+  <div class="lab-header p-3 border-bottom border-dark d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div class="d-flex align-items-center">
+      <i class="fa-solid fa-cube text-green me-2 h5 mb-0"></i>
+      <div>
+        <span class="smallest text-muted text-uppercase fw-bold letter-spacing-1 d-block">Geek2Go Maker Workshop</span>
+        <h2 class="h6 fw-bold text-white mb-0">3D Printing & Rapid Prototyping</h2>
+      </div>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <span class="badge rounded-pill bg-dark border border-dark-subtle text-green smallest">
+        <i class="fa-solid fa-circle text-green me-1 pulse-dot"></i> Bambu Lab A1 Online
+      </span>
+      <span class="smallest text-muted d-none d-sm-inline">Burlington & Aldershot</span>
+    </div>
+  </div>
+
+  <!-- Body Content -->
+  <div class="lab-body p-4">
+
+    <!-- Hero / Intro Callout -->
+    <div class="intro-callout p-3 mb-4 rounded border border-dark">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-8">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-green text-dark fw-bold smallest">NEW IN THE LAB</span>
+            <span class="smallest text-green fw-bold">Bambu Lab A1 + AMS Lite</span>
+          </div>
+          <h3 class="h5 fw-bold text-white mb-2">Have a broken plastic part or a cool 3D model? Let's print it.</h3>
+          <p class="smallest text-muted mb-0">
+            I just brought the <strong>Bambu Lab A1</strong> with the AMS Lite multi-color system into the workshop! 
+            With speeds up to 500 mm/s and precision down to 0.08mm, I can turn digital models into physical objects same-day. 
+            From hard-to-find replacement parts to custom tech mounts and multi-color geek projects, let's bring your ideas to life right here in Burlington.
+          </p>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <a routerLink="/contact" [queryParams]="{ subject: '3D Printing Request' }" class="btn btn-chess-primary w-100 py-2">
+            <i class="fa-solid fa-file-arrow-up me-2"></i>Request a 3D Print
+          </a>
+          <span class="smallest text-muted d-block mt-1">Local pickup or fast delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Capabilities Grid (4 Cards) -->
+    <h3 class="smallest text-muted text-uppercase fw-bold mb-3">What We Print & Fabricate</h3>
+    <div class="row g-3 mb-4">
+      <div class="col-md-6" *ngFor="let feat of features">
+        <div class="chess-card hoverable h-100 p-3 border-dark bg-card-faint d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="icon-wrap">
+                <i [class]="feat.icon + ' text-green h5 mb-0'"></i>
+              </div>
+              <h4 class="small fw-bold text-white mb-0">{{ feat.title }}</h4>
+            </div>
+            <span *ngIf="feat.badge" class="badge bg-dark border border-secondary text-green smallest">{{ feat.badge }}</span>
+          </div>
+          <span class="smallest text-green fw-bold mb-2">{{ feat.subtitle }}</span>
+          <p class="smallest text-muted mb-0 flex-grow-1">{{ feat.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs & Hardware Strip -->
+    <div class="specs-panel p-3 mb-4 rounded border border-dark">
+      <h3 class="smallest text-muted text-uppercase fw-bold mb-3">
+        <i class="fa-solid fa-microchip text-green me-1"></i> Workshop Specifications
+      </h3>
+      <div class="row g-2">
+        <div class="col-6 col-md-4 col-lg-2" *ngFor="let spec of specs">
+          <div class="spec-card p-2 text-center rounded border border-dark h-100">
+            <i [class]="spec.icon + ' text-green mb-1 smallest d-block'"></i>
+            <span class="smallest text-muted d-block">{{ spec.label }}</span>
+            <span class="smallest fw-bold text-white d-block text-truncate" [title]="spec.value">{{ spec.value }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Simple Steps Process -->
+    <div class="process-panel p-3 mb-4 rounded border border-dark">
+      <h3 class="smallest text-muted text-uppercase fw-bold mb-3">
+        <i class="fa-solid fa-list-check text-green me-1"></i> How It Works
+      </h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="step-item d-flex gap-2">
+            <div class="step-number text-green fw-bold">01</div>
+            <div>
+              <h4 class="smallest fw-bold text-white mb-1">Pick or Send Your File</h4>
+              <p class="smallest text-muted mb-0">
+                Send an <code>.STL</code>, <code>.3MF</code>, or <code>.STEP</code> file, or link a free model from MakerWorld, Printables, or Thingiverse.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-item d-flex gap-2">
+            <div class="step-number text-green fw-bold">02</div>
+            <div>
+              <h4 class="smallest fw-bold text-white mb-1">Slice & Instant Quote</h4>
+              <p class="smallest text-muted mb-0">
+                I'll slice the model, recommend materials (PLA, PETG, TPU), and give you an upfront, transparent cost based on weight & print time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-item d-flex gap-2">
+            <div class="step-number text-green fw-bold">03</div>
+            <div>
+              <h4 class="smallest fw-bold text-white mb-1">Fast Local Turnaround</h4>
+              <p class="smallest text-muted mb-0">
+                Printed fast on the Bambu Lab A1 and inspected for quality. Ready for local pickup in Aldershot or Burlington delivery!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free 3D Model Repositories Links -->
+    <div class="model-sources p-3 rounded border border-dark d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2">
+        <i class="fa-solid fa-compass text-green h5 mb-0"></i>
+        <div>
+          <span class="smallest text-white fw-bold d-block">Need inspiration or a free 3D design?</span>
+          <span class="smallest text-muted">Browse millions of free community models ready to print on the A1:</span>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap gap-2">
+        <a *ngFor="let hub of modelHubs" [href]="hub.link" target="_blank" rel="noopener noreferrer"
+           class="btn btn-dark btn-sm border-dark smallest text-decoration-none d-flex align-items-center gap-1">
+          <i [class]="hub.icon + ' text-green'"></i>
+          <span>{{ hub.name }}</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-muted ms-1" style="font-size: 0.65rem;"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Stats / CTA -->
+  <div class="lab-footer px-3 py-2 border-top border-dark d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div class="smallest text-muted">
+      <span class="text-green me-1">●</span> Local 3D Printing Service • Aldershot, Burlington & Surrounding Areas
+    </div>
+    <div class="smallest text-muted">
+      No minimum order quantities • Custom requests welcome
+    </div>
+  </div>
+
+</div>
