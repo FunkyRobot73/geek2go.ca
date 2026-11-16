@@ -1,0 +1,444 @@
+<div class="dashboard-grid animate__animated animate__fadeIn">
+
+  <!-- MAIN CHANNEL (70%) -->
+  <div class="main-channel">
+
+    <!-- Header Section -->
+    <header class="section-header mb-4 d-flex justify-content-between align-items-end flex-wrap gap-2">
+      <div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <span class="smallest text-green text-uppercase fw-bold letter-spacing-1">Geek2Go Fabrication Workshop</span>
+          <span class="smallest text-muted">• Aldershot, Burlington</span>
+        </div>
+        <h1 class="h2 mb-0 fw-bold text-white">3D Printing & Rapid Prototyping</h1>
+      </div>
+      <div class="status-box smallest p-2 border border-dark rounded d-flex align-items-center gap-2" style="background-color: var(--chess-terminal-bg);">
+        <i class="fa-solid fa-circle text-green pulse-dot"></i>
+        <span>Bambu Lab A1: <strong class="text-green">Online & Ready</strong></span>
+      </div>
+    </header>
+
+    <!-- Bambu Lab A1 Spotlight Hero Banner -->
+    <div class="chess-card mb-4 hero-banner border-green-faint p-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-green text-dark fw-bold smallest">NEW HARDWARE</span>
+            <span class="smallest text-green fw-bold">Bambu Lab A1 + AMS Lite</span>
+          </div>
+          <h2 class="h4 fw-bold text-white mb-2">Turn digital models into precision physical parts in hours.</h2>
+          <p class="smallest text-muted mb-3">
+            I recently upgraded the Geek2Go workshop with the state-of-the-art <strong>Bambu Lab A1</strong> and <strong>AMS Lite 4-Color system</strong>. 
+            Capable of hitting blazing speeds up to 500 mm/s with active flow rate compensation and full auto-calibration, 
+            we produce smooth, durable, and dimensionally accurate prints without long corporate lead times or high minimum orders.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#quote-form" class="btn btn-chess-primary btn-sm px-3 py-2">
+              <i class="fa-solid fa-file-arrow-up me-1"></i> Request a Print Quote
+            </a>
+            <a href="#materials" class="btn btn-dark btn-sm border-dark px-3 py-2">
+              <i class="fa-solid fa-layer-group text-green me-1"></i> Explore Materials
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="printer-stats-box p-3 rounded border border-dark" style="background-color: rgba(0, 0, 0, 0.25);">
+            <div class="d-flex justify-content-between smallest mb-2 pb-2 border-bottom border-dark">
+              <span class="text-muted"><i class="fa-solid fa-gauge-high text-green me-1"></i> Max Speed:</span>
+              <span class="fw-bold text-white">500 mm/s</span>
+            </div>
+            <div class="d-flex justify-content-between smallest mb-2 pb-2 border-bottom border-dark">
+              <span class="text-muted"><i class="fa-solid fa-palette text-green me-1"></i> Multi-Color:</span>
+              <span class="fw-bold text-white">4 Colors (AMS)</span>
+            </div>
+            <div class="d-flex justify-content-between smallest mb-2 pb-2 border-bottom border-dark">
+              <span class="text-muted"><i class="fa-solid fa-vector-square text-green me-1"></i> Volume:</span>
+              <span class="fw-bold text-white">256 × 256 × 256 mm</span>
+            </div>
+            <div class="d-flex justify-content-between smallest">
+              <span class="text-muted"><i class="fa-solid fa-microscope text-green me-1"></i> Precision:</span>
+              <span class="fw-bold text-green">0.08 mm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="category-nav mb-3 d-flex flex-wrap gap-2">
+      <button *ngFor="let cat of categories"
+              type="button"
+              class="btn btn-sm"
+              [class.btn-chess-primary]="activeCategory === cat"
+              [class.btn-dark]="activeCategory !== cat"
+              (click)="setCategory(cat)">
+        {{ cat }}
+      </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row g-3 mb-5">
+      <div class="col-md-6" *ngFor="let project of filteredProjects">
+        <div class="chess-card hoverable h-100 p-3 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="project-icon-wrap">
+                <i [class]="project.icon + ' text-green'"></i>
+              </div>
+              <div>
+                <h3 class="h6 fw-bold text-white mb-0">{{ project.title }}</h3>
+                <span class="smallest text-green fw-bold">{{ project.subtitle }}</span>
+              </div>
+            </div>
+            <span *ngIf="project.badge" class="badge bg-dark border border-secondary text-green smallest">
+              {{ project.badge }}
+            </span>
+          </div>
+
+          <p class="smallest text-muted my-2 flex-grow-1">
+            {{ project.description }}
+          </p>
+
+          <div class="project-footer pt-2 mt-2 border-top border-dark d-flex justify-content-between align-items-center smallest">
+            <span class="text-muted">
+              <i class="fa-solid fa-cube me-1"></i> {{ project.material }}
+            </span>
+            <span class="text-green fw-bold">
+              <i class="fa-solid fa-clock me-1"></i> {{ project.turnaround }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Materials Guide Section -->
+    <div class="materials-section mb-5" id="materials">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <h2 class="h5 fw-bold text-white mb-0">Filament Materials & Engineering Guide</h2>
+          <span class="smallest text-muted">We choose the exact plastic engineered for your application</span>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4" *ngFor="let mat of materials">
+          <div class="chess-card h-100 p-3 d-flex flex-column" [class.border-green-faint]="mat.popular">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <i [class]="mat.icon + ' text-green h5 mb-0'"></i>
+                <h3 class="h6 fw-bold text-white mb-0">{{ mat.name }}</h3>
+              </div>
+              <span *ngIf="mat.popular" class="badge bg-green text-dark smallest fw-bold">Most Popular</span>
+            </div>
+            <span class="smallest text-green fw-bold mb-2">{{ mat.tag }}</span>
+
+            <ul class="list-unstyled smallest text-muted mb-3 flex-grow-1">
+              <li *ngFor="let feat of mat.features" class="mb-1 d-flex align-items-center gap-1">
+                <i class="fa-solid fa-check text-green smallest"></i>
+                <span>{{ feat }}</span>
+              </li>
+            </ul>
+
+            <div class="material-meta pt-2 border-top border-dark smallest">
+              <div class="mb-1"><strong class="text-white">Best for:</strong> <span class="text-muted">{{ mat.bestFor }}</span></div>
+              <div><strong class="text-white">Temp:</strong> <span class="text-green">{{ mat.temp }}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Step How It Works -->
+    <div class="chess-card p-4 mb-5 border-dark" style="background-color: var(--chess-terminal-bg);">
+      <h2 class="h5 fw-bold text-white mb-1">
+        <i class="fa-solid fa-wand-magic-sparkles text-green me-2"></i>How Local 3D Printing Works
+      </h2>
+      <p class="smallest text-muted mb-4">Straightforward, no-nonsense printing from digital idea to physical part</p>
+
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="step-card p-3 rounded border border-dark h-100" style="background-color: var(--chess-panel);">
+            <div class="step-badge text-green fw-bold mb-2">01</div>
+            <h3 class="smallest fw-bold text-white mb-1">Find or Export Model</h3>
+            <p class="smallest text-muted mb-0">
+              Provide an <code>.STL</code>, <code>.3MF</code>, or <code>.STEP</code> file, or link any free model from MakerWorld or Printables.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="step-card p-3 rounded border border-dark h-100" style="background-color: var(--chess-panel);">
+            <div class="step-badge text-green fw-bold mb-2">02</div>
+            <h3 class="smallest fw-bold text-white mb-1">Slice & Consultation</h3>
+            <p class="smallest text-muted mb-0">
+              I optimize print orientation, infill geometry, and wall layers for maximum strength and budget efficiency.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="step-card p-3 rounded border border-dark h-100" style="background-color: var(--chess-panel);">
+            <div class="step-badge text-green fw-bold mb-2">03</div>
+            <h3 class="smallest fw-bold text-white mb-1">High-Speed Print</h3>
+            <p class="smallest text-muted mb-0">
+              Produced on the Bambu Lab A1 with precision motion control, auto-bed leveling, and active flow calibration.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="step-card p-3 rounded border border-dark h-100" style="background-color: var(--chess-panel);">
+            <div class="step-badge text-green fw-bold mb-2">04</div>
+            <h3 class="smallest fw-bold text-white mb-1">Pick Up Locally</h3>
+            <p class="smallest text-muted mb-0">
+              Ready for convenient pickup in Aldershot or fast delivery across Burlington and surrounding Hamilton areas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free Model Repositories Directory -->
+    <div class="chess-card p-4 mb-5 border-dark">
+      <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+        <div>
+          <h2 class="h5 fw-bold text-white mb-0">Browse Free 3D Models Online</h2>
+          <span class="smallest text-muted">Pick a model you like, send the link, and I'll slice and print it!</span>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6" *ngFor="let hub of modelHubs">
+          <a [href]="hub.url" target="_blank" rel="noopener noreferrer"
+             class="chess-card hoverable h-100 p-3 d-block text-decoration-none border-dark"
+             style="background-color: var(--chess-terminal-bg);">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <i [class]="hub.icon + ' text-green h5 mb-0'"></i>
+                <h3 class="h6 fw-bold text-white mb-0">{{ hub.name }}</h3>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-dark border border-secondary text-green smallest">{{ hub.badge }}</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-muted smallest"></i>
+              </div>
+            </div>
+            <p class="smallest text-muted mb-0">{{ hub.description }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Request a Print Form -->
+    <div class="chess-card p-4 border-green-faint mb-4" id="quote-form">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <i class="fa-solid fa-paper-plane text-green h5 mb-0"></i>
+        <div>
+          <h2 class="h5 fw-bold text-white mb-0">Request a 3D Print Quote</h2>
+          <span class="smallest text-muted">Tell me what you need printed — I'll respond within hours with a fast quote</span>
+        </div>
+      </div>
+
+      <!-- Success Alert -->
+      <div *ngIf="submitSuccess" class="alert alert-success border-0 rounded p-3 mb-3 smallest" style="background-color: rgba(129, 182, 76, 0.2); color: #95bb4a;">
+        <i class="fa-solid fa-circle-check me-2"></i>
+        <strong>Request received!</strong> I will review your model/request and reply shortly.
+      </div>
+
+      <!-- Error Alert -->
+      <div *ngIf="submitError" class="alert alert-danger border-0 rounded p-3 mb-3 smallest" style="background-color: rgba(220, 53, 69, 0.2); color: #ff6b6b;">
+        <i class="fa-solid fa-triangle-exclamation me-2"></i>
+        {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="submitPrintRequest()" #printForm="ngForm" class="row g-3">
+        <div class="col-md-6">
+          <label class="smallest text-muted text-uppercase fw-bold mb-1">Your Name *</label>
+          <input type="text"
+                 class="form-control chess-input"
+                 [(ngModel)]="requestForm.name"
+                 name="name"
+                 placeholder="e.g. Alex Henderson"
+                 required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="smallest text-muted text-uppercase fw-bold mb-1">Your Email *</label>
+          <input type="email"
+                 class="form-control chess-input"
+                 [(ngModel)]="requestForm.email"
+                 name="email"
+                 placeholder="e.g. alex@example.com"
+                 required />
+        </div>
+
+        <div class="col-md-8">
+          <label class="smallest text-muted text-uppercase fw-bold mb-1">Link to Model or File (MakerWorld / Printables / Google Drive)</label>
+          <input type="url"
+                 class="form-control chess-input"
+                 [(ngModel)]="requestForm.modelUrl"
+                 name="modelUrl"
+                 placeholder="https://makerworld.com/en/models/..." />
+        </div>
+
+        <div class="col-md-4">
+          <label class="smallest text-muted text-uppercase fw-bold mb-1">Material Preference</label>
+          <select class="form-select chess-input" [(ngModel)]="requestForm.material" name="material">
+            <option value="PLA">PLA (Standard / Rigid)</option>
+            <option value="PLA Tough">PLA Tough (Impact Resistant)</option>
+            <option value="PETG">PETG (Durable / Weather / Heat)</option>
+            <option value="TPU">TPU (Flexible Rubber-like)</option>
+            <option value="Unsure">Not sure - Recommend one</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="smallest text-muted text-uppercase fw-bold mb-1">Project Details / Infill / Colors *</label>
+          <textarea class="form-control chess-input"
+                    rows="3"
+                    [(ngModel)]="requestForm.description"
+                    name="description"
+                    placeholder="Describe your part, dimensions, color preferences (up to 4 colors with AMS), or any specific strength needs..."
+                    required></textarea>
+        </div>
+
+        <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <span class="smallest text-muted">
+            <i class="fa-solid fa-lock text-green me-1"></i> No spam, honest pricing, fast Burlington turnaround.
+          </span>
+          <button type="submit" class="btn btn-chess-primary px-4 py-2" [disabled]="isSubmitting">
+            <i class="fa-solid fa-paper-plane me-1" *ngIf="!isSubmitting"></i>
+            <span *ngIf="isSubmitting"><i class="fa-solid fa-spinner fa-spin me-1"></i> Sending...</span>
+            <span *ngIf="!isSubmitting">Send Print Request</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div> <!-- End Main Channel -->
+
+  <!-- SIDE CHANNEL (30%) -->
+  <div class="side-channel">
+
+    <!-- Machine Specifications Card -->
+    <div class="chess-card mb-4 border-green-faint">
+      <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom border-dark">
+        <i class="fa-solid fa-cube text-green h5 mb-0"></i>
+        <div>
+          <h3 class="smallest text-muted text-uppercase fw-bold mb-0">Workshop Machine</h3>
+          <span class="small fw-bold text-white">Bambu Lab A1 Spec Sheet</span>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between smallest mb-2 pb-1 border-bottom border-dark">
+        <span class="text-muted">Max Velocity:</span>
+        <span class="text-white fw-bold">500 mm/s</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-2 pb-1 border-bottom border-dark">
+        <span class="text-muted">Max Accel:</span>
+        <span class="text-white fw-bold">10,000 mm/s²</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-2 pb-1 border-bottom border-dark">
+        <span class="text-muted">Build Chamber:</span>
+        <span class="text-white fw-bold">256 × 256 × 256 mm</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-2 pb-1 border-bottom border-dark">
+        <span class="text-muted">Extruder:</span>
+        <span class="text-white fw-bold">All-Metal Direct Drive</span>
+      </div>
+      <div class="d-flex justify-content-between smallest mb-2 pb-1 border-bottom border-dark">
+        <span class="text-muted">AMS System:</span>
+        <span class="text-green fw-bold">4-Color Multi-Filament</span>
+      </div>
+      <div class="d-flex justify-content-between smallest">
+        <span class="text-muted">Layer Height:</span>
+        <span class="text-white fw-bold">0.08mm - 0.28mm</span>
+      </div>
+    </div>
+
+    <!-- Burlington Local Advantage -->
+    <div class="chess-card mb-4 border-dark">
+      <h3 class="smallest text-muted text-uppercase mb-3 font-weight-bold">
+        <i class="fa-solid fa-location-dot text-green me-1"></i> Why Local Printing Wins
+      </h3>
+      <ul class="list-unstyled smallest mb-0">
+        <li class="mb-2 d-flex align-items-start gap-2">
+          <i class="fa-solid fa-check text-green mt-1"></i>
+          <div>
+            <strong class="text-white d-block">Zero Minimum Orders</strong>
+            <span class="text-muted">Print a single 50¢ replacement latch or a full production run.</span>
+          </div>
+        </li>
+        <li class="mb-2 d-flex align-items-start gap-2">
+          <i class="fa-solid fa-check text-green mt-1"></i>
+          <div>
+            <strong class="text-white d-block">Same-Day / Next-Day</strong>
+            <span class="text-muted">Skip the 2-week shipping wait from online print farms.</span>
+          </div>
+        </li>
+        <li class="mb-2 d-flex align-items-start gap-2">
+          <i class="fa-solid fa-check text-green mt-1"></i>
+          <div>
+            <strong class="text-white d-block">Hands-On Slicing Advice</strong>
+            <span class="text-muted">25+ years tech experience to ensure mechanical parts don't snap under load.</span>
+          </div>
+        </li>
+        <li class="d-flex align-items-start gap-2">
+          <i class="fa-solid fa-check text-green mt-1"></i>
+          <div>
+            <strong class="text-white d-block">Local Pickup in Aldershot</strong>
+            <span class="text-muted">Convenient pickup or local drop-off in Burlington & Hamilton.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Infill & Strength Matrix -->
+    <div class="chess-card mb-4 border-dark" style="background-color: var(--chess-terminal-bg);">
+      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">
+        <i class="fa-solid fa-shield-halved text-green me-1"></i> Infill & Strength Guide
+      </h3>
+      <div class="mb-2 p-2 rounded border border-dark" style="background-color: var(--chess-panel);">
+        <div class="d-flex justify-content-between smallest mb-1">
+          <span class="fw-bold text-white">15% Gyroid</span>
+          <span class="text-green">Standard</span>
+        </div>
+        <p class="smallest text-muted mb-0">Even strength in all directions. Ideal for desk items, covers, and general use.</p>
+      </div>
+
+      <div class="mb-2 p-2 rounded border border-dark" style="background-color: var(--chess-panel);">
+        <div class="d-flex justify-content-between smallest mb-1">
+          <span class="fw-bold text-white">40%+ & 4 Walls</span>
+          <span class="text-green">Structural</span>
+        </div>
+        <p class="smallest text-muted mb-0">High rigidity for brackets, wall mounts, and car interior clips.</p>
+      </div>
+
+      <div class="p-2 rounded border border-dark" style="background-color: var(--chess-panel);">
+        <div class="d-flex justify-content-between smallest mb-1">
+          <span class="fw-bold text-white">100% Solid</span>
+          <span class="text-green">Max Load</span>
+        </div>
+        <p class="smallest text-muted mb-0">Maximum density for replacement plastic gears, threaded nuts, and pins.</p>
+      </div>
+    </div>
+
+    <!-- Quick Help / Direct Contact -->
+    <div class="chess-card border-green-faint">
+      <h3 class="smallest text-muted text-uppercase mb-2 font-weight-bold">Questions?</h3>
+      <p class="smallest text-muted mb-3">
+        Not sure if your part can be printed or need help finding a file? Reach out directly:
+      </p>
+      <div class="row g-2">
+        <div class="col-6">
+          <a [href]="'tel:' + (profile?.phone || '4168323546')" class="btn btn-dark btn-sm w-100 text-green border-dark p-2 smallest">
+            <i class="fa-solid fa-phone me-1"></i> Call
+          </a>
+        </div>
+        <div class="col-6">
+          <a routerLink="/contact" [queryParams]="{ subject: '3D Printing Inquiry' }" class="btn btn-chess-primary btn-sm w-100 p-2 smallest">
+            <i class="fa-solid fa-envelope me-1"></i> Message
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End Side Channel -->
+
+</div>

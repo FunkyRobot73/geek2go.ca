@@ -1,0 +1,99 @@
+.hero-banner {
+  background: linear-gradient(135deg, rgba(129, 182, 76, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border-radius: 8px;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
+.border-green-faint {
+  border-color: rgba(129, 182, 76, 0.3) !important;
+}
+
+.bg-green {
+  background-color: #81b64c !important;
+}
+
+.pulse-dot {
+  animation: pulse-dot-anim 1.8s infinite;
+  display: inline-block;
+  font-size: 0.55rem;
+  vertical-align: middle;
+}
+
+.project-icon-wrap {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: rgba(129, 182, 76, 0.12);
+  font-size: 1.1rem;
+}
+
+.chess-card.hoverable {
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  &:hover {
+    border-color: #81b64c !important;
+    background-color: rgba(129, 182, 76, 0.04) !important;
+    transform: translateY(-2px);
+  }
+}
+
+.step-badge {
+  font-size: 1.5rem;
+  font-family: monospace;
+  line-height: 1;
+}
+
+.chess-input {
+  background-color: var(--chess-input-bg) !important;
+  border-color: var(--chess-input-border) !important;
+  color: var(--chess-input-text) !important;
+  border-radius: 4px;
+  font-size: 0.85rem;
+
+  &:focus {
+    border-color: #81b64c !important;
+    box-shadow: 0 0 0 0.2rem rgba(129, 182, 76, 0.25) !important;
+    background-color: var(--chess-input-bg-focus) !important;
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+[data-theme="light"] {
+  .chess-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  .hero-banner {
+    background: linear-gradient(135deg, rgba(129, 182, 76, 0.12) 0%, rgba(255, 255, 255, 0.8) 100%);
+  }
+}
+
+code {
+  background-color: rgba(129, 182, 76, 0.15);
+  color: #81b64c;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+@keyframes pulse-dot-anim {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

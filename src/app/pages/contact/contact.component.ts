@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -26,6 +26,8 @@ export class ContactComponent implements OnInit {
   submitSuccess = false;
   submitError = false;
   errorMessage = '';
+
+  private route = inject(ActivatedRoute);
   
   constructor(
     private profileService: ProfileService,
@@ -43,6 +45,12 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.profileService.profile$.subscribe(profile => {
       this.profile = profile;
+    });
+
+    this.route.queryParams.subscribe(params => {
+      if (params['subject']) {
+        this.formData.subject = params['subject'];
+      }
     });
   }
 

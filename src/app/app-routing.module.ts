@@ -28,7 +28,8 @@ const routes: Routes = [
   { path: 'hall-of-fame', loadComponent: () => import('./pages/hall-of-fame/hall-of-fame.component').then(m => m.HallOfFameComponent) },
   { path: 'admin/directory', loadComponent: () => import('./pages/admin/directory-admin/directory-admin.component').then(m => m.DirectoryAdminComponent) },
   { path: 'admin/add-hall-of-fame', loadComponent: () => import('./pages/admin/add-hall-of-fame/add-hall-of-fame.component').then(m => m.AddHallOfFameComponent) },
-  { path: '3d-printing', redirectTo: '' },
+  { path: '3d-printing', loadComponent: () => import('./pages/printing/printing.component').then(m => m.PrintingComponent) },
+  { path: 'printing', redirectTo: '3d-printing' },
   { path: '**', redirectTo: '' }
 ];
 

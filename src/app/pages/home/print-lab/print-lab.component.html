@@ -10,6 +10,9 @@
       </div>
     </div>
     <div class="d-flex align-items-center gap-2">
+      <a routerLink="/3d-printing" class="btn btn-dark btn-sm border-dark smallest text-green text-decoration-none">
+        Full Page <i class="fa-solid fa-arrow-right ms-1"></i>
+      </a>
       <span class="badge rounded-pill bg-dark border border-dark-subtle text-green smallest">
         <i class="fa-solid fa-circle text-green me-1 pulse-dot"></i> Bambu Lab A1 Online
       </span>
@@ -36,8 +39,11 @@
           </p>
         </div>
         <div class="col-lg-4 text-center text-lg-end">
-          <a routerLink="/contact" [queryParams]="{ subject: '3D Printing Request' }" class="btn btn-chess-primary w-100 py-2">
-            <i class="fa-solid fa-file-arrow-up me-2"></i>Request a 3D Print
+          <a routerLink="/3d-printing" class="btn btn-chess-primary w-100 py-2 mb-2">
+            <i class="fa-solid fa-cube me-2"></i>Explore 3D Print Lab
+          </a>
+          <a routerLink="/contact" [queryParams]="{ subject: '3D Printing Request' }" class="btn btn-dark btn-sm border-dark w-100 py-1 smallest">
+            <i class="fa-solid fa-file-arrow-up me-1 text-green"></i>Request a Print
           </a>
           <span class="smallest text-muted d-block mt-1">Local pickup or fast delivery</span>
         </div>
