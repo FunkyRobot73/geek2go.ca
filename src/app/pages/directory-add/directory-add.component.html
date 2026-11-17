@@ -6,21 +6,21 @@
         <i class="fas fa-arrow-left"></i> Back to Directory
       </a>
       <div>
-        <a href="https://www.facebook.com/groups/theburlingtondads" target="_blank" rel="noopener noreferrer" class="hub-pill" title="Visit The Burlington Dads on Facebook">
-          <i class="fab fa-facebook"></i> The Burlington Dads Group (7.3K Members) <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75em;"></i>
-        </a>
+        <span class="hub-pill">
+          <i class="fas fa-map-marker-alt"></i> Burlington & Halton Region
+        </span>
       </div>
       <h1>Add Your Business or Trade</h1>
       <p class="intro-p">
-        Are you a dad in business? Connect with local fathers and families looking for trusted plumbers, electricians, accountants, handymen, and pros in Burlington and Halton.
+        Do you run a business or offer services in the Burlington area? Connect with local residents and families looking for trusted plumbers, electricians, accountants, handymen, and pros in Burlington and Halton.
       </p>
       <div class="moderation-notice">
         <i class="fas fa-shield-alt"></i>
-        <span><strong>Quality Guaranteed:</strong> Every listing is reviewed by an admin and cross-referenced with the Burlington Dads group before going live.</span>
+        <span><strong>Quality Guaranteed:</strong> Every listing is reviewed by an admin before going live to keep spam out and maintain community trust.</span>
       </div>
       <div class="disclaimer-notice">
         <i class="fas fa-info-circle"></i>
-        <span><strong>Community Notice & Disclaimer:</strong> Carlos Sousa and Geek2Go.ca are not affiliated with or officially associated with <em>The Burlington Dads</em> Facebook group, other than being one of its 7.3K local members. Listing in this directory does not constitute a personal recommendation or endorsement. <em>(Ratings system to follow!)</em></span>
+        <span><strong>Community Notice & Disclaimer:</strong> Geek2Go.ca provides this directory as a free local resource. Listing here does not constitute a personal recommendation or endorsement. <em>(Ratings system to follow!)</em></span>
       </div>
     </header>
 
@@ -59,7 +59,7 @@
           </div>
 
           <div class="form-group">
-            <label>Your Name (Dad's Name) <span class="req">*</span></label>
+            <label>Your Name (Contact Name) <span class="req">*</span></label>
             <input 
               type="text" 
               [(ngModel)]="formData.contactName" 
@@ -109,7 +109,7 @@
             [(ngModel)]="formData.description" 
             name="description" 
             rows="4" 
-            placeholder="Tell fellow dads what you do, your licenses, insurance, residential vs commercial, warranty, etc."
+            placeholder="Tell potential clients what you do, your licenses, insurance, residential vs commercial, warranty, etc."
             required></textarea>
         </div>
       </div>
@@ -164,31 +164,31 @@
       </div>
 
       <div class="form-section highlight-section">
-        <h3>3. Burlington Dads Connection</h3>
+        <h3>3. Social & Special Offers</h3>
 
         <div class="form-group">
-          <label>Facebook Profile Link or Group Name</label>
+          <label>Facebook / Social Media Link (Optional)</label>
           <div class="input-helper">
-            Provide your Facebook profile link (or your exact name in the Burlington Dads group) so Carlos can quickly verify your membership.
+            Provide a link to your Facebook business page, profile, or Instagram so clients can view your social presence.
           </div>
           <input 
             type="text" 
             [(ngModel)]="formData.fbProfile" 
             name="fbProfile" 
-            placeholder="https://facebook.com/yourprofile or your Facebook display name" 
+            placeholder="https://facebook.com/yourbusiness or your social handle" 
           />
         </div>
 
         <div class="form-group">
-          <label>Exclusive Burlington Dads Offer / Perk (Optional)</label>
+          <label>Special Offer / Community Perk (Optional)</label>
           <div class="input-helper">
-            Dads love supporting dads! Offer an incentive for fellow group members (e.g. 10% off labor, free diagnostic fee, waived estimate).
+            Attract local customers with a special incentive (e.g. 10% off labor, free estimate, waived diagnostic fee).
           </div>
           <input 
             type="text" 
             [(ngModel)]="formData.dadDiscount" 
             name="dadDiscount" 
-            placeholder="e.g. 10% discount on labor for Burlington Dads members" 
+            placeholder="e.g. 10% discount on labor for local residents" 
           />
         </div>
       </div>
@@ -197,7 +197,7 @@
         <h3>4. Photo or Logo</h3>
         <p class="section-p">
           Upload your company logo, headshot, or a photo of your van/work. 
-          <strong>If you don't have one, no worries!</strong> We will automatically assign you our signature cartoon dad avatar.
+          <strong>If you don't have one, no worries!</strong> We will automatically assign you a default friendly avatar.
         </p>
 
         <div class="upload-box-container">
@@ -241,7 +241,7 @@
       <div class="review-box">
         <h4><i class="fas fa-clock"></i> What happens next?</h4>
         <p>
-          To maintain high trust in the community and keep spam away, an admin will verify your Burlington Dads membership and approve your listing shortly.
+          To maintain high quality and keep spam away, an admin will review and approve your listing shortly before it appears in the directory.
         </p>
       </div>
       <div class="success-actions">

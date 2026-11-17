@@ -3,12 +3,12 @@
   <!-- Hero Section -->
   <section class="directory-hero">
     <div class="hero-content">
-      <a href="https://www.facebook.com/groups/theburlingtondads" target="_blank" rel="noopener noreferrer" class="community-pill" title="Visit The Burlington Dads on Facebook">
-        <i class="fab fa-facebook"></i> The Burlington Dads Facebook Group (7.3K Members) <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75em;"></i>
-      </a>
-      <h1>Burlington Dads <span class="gradient-text">Business Directory</span></h1>
+      <span class="community-pill">
+        <i class="fas fa-map-marker-alt"></i> Burlington, Ontario & Surrounding Area
+      </span>
+      <h1>Burlington <span class="gradient-text">Business Directory</span></h1>
       <p class="hero-desc">
-        A community hub of trusted local trades, services, and professionals run by local dads in Burlington and surrounding areas. Support local families first!
+        A community hub of trusted local trades, services, and professionals in Burlington, Aldershot, and surrounding areas. Support local businesses first!
       </p>
 
       <div class="hero-cta-wrap">
@@ -24,7 +24,7 @@
       <div class="community-disclaimer">
         <div class="disclaimer-icon"><i class="fas fa-shield-alt"></i></div>
         <div class="disclaimer-text">
-          <strong>Community Notice & Disclaimer:</strong> Carlos Sousa and Geek2Go.ca are not affiliated with or officially associated with <em>The Burlington Dads</em> Facebook group, other than being one of its 7.3K local members. Listings on this site are community-submitted; Geek2Go.ca does not personally recommend or endorse any individual or business listed here. <em>(A community ratings & review system will follow soon!)</em>
+          <strong>Community Notice & Disclaimer:</strong> Geek2Go.ca provides this directory as a free local resource for Burlington and surrounding areas. Listings on this site are community-submitted; Geek2Go.ca does not personally recommend or endorse any individual or business listed here. <em>(A community ratings & review system will follow soon!)</em>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
           type="text" 
           [(ngModel)]="searchQuery" 
           (keyup.enter)="onSearch()"
-          placeholder="Search by trade, plumber, electrician, dad's name..."
+          placeholder="Search by trade, plumber, electrician, business name..."
         />
         <button *ngIf="searchQuery" (click)="clearSearch()" class="btn-clear">&times;</button>
         <button (click)="onSearch()" class="btn-search">Search</button>
@@ -65,7 +65,7 @@
     <!-- Loading State -->
     <div *ngIf="loading" class="state-panel">
       <div class="loading-spinner"></div>
-      <p>Finding local dad businesses...</p>
+      <p>Finding local businesses...</p>
     </div>
 
     <!-- Error State -->
@@ -80,10 +80,10 @@
       <div class="empty-icon-wrap">👨‍🔧</div>
       <h3>No listings found</h3>
       <p *ngIf="searchQuery || selectedCategory !== 'All'">
-        No dad businesses found for "{{ searchQuery || selectedCategory }}". Try clearing your search or picking another category.
+        No businesses found for "{{ searchQuery || selectedCategory }}". Try clearing your search or picking another category.
       </p>
       <p *ngIf="!searchQuery && selectedCategory === 'All'">
-        Be the first dad to add your business or trade to the community!
+        Be the first to add your business or trade to the directory!
       </p>
       <a routerLink="/directory/join" class="btn btn-add-first">
         <i class="fas fa-plus"></i> Add Your Business Now
@@ -113,7 +113,7 @@
 
           <!-- Group Member Offer / Discount -->
           <div *ngIf="item.dadDiscount" class="offer-callout">
-            <div class="offer-tag"><i class="fas fa-gift"></i> Burlington Dads Member Perk:</div>
+            <div class="offer-tag"><i class="fas fa-gift"></i> Special Offer / Local Perk:</div>
             <div class="offer-val">{{ item.dadDiscount }}</div>
           </div>
 
@@ -142,8 +142,8 @@
     <!-- Bottom Community Callout -->
     <section class="bottom-callout">
       <div class="callout-inner">
-        <h2>Are you a Burlington Dad in business?</h2>
-        <p>Get discovered by thousands of local dads looking for trusted help with home renovations, auto repair, professional services, and more.</p>
+        <h2>Do you run a business in the Burlington area?</h2>
+        <p>Get discovered by local residents and families looking for trusted help with home renovations, auto repair, professional services, and more.</p>
         <a routerLink="/directory/join" class="btn btn-callout">
           <i class="fas fa-user-plus"></i> Add Your Business Free
         </a>
