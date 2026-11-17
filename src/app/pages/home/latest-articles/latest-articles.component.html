@@ -7,6 +7,9 @@
         <img [src]="imageBaseUrl + blog.image" 
              class="article-thumb rounded me-3" 
              alt="{{blog.titleBlog}}"
+             loading="lazy"
+             width="60"
+             height="60"
              onerror="this.src='assets/ai-sample.webp'">
         <div class="article-info">
           <h4 class="h6 mb-1 text-truncate" style="max-width: 150px;">{{ blog.titleBlog }}</h4>

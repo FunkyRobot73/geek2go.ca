@@ -1,3 +1,11 @@
+// --- FONTAWESOME SCSS WITH FONT-DISPLAY: SWAP ---
+$fa-font-display: swap;
+$fa-font-path: "../webfonts";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+
 // --- CHESS.COM DESIGN SYSTEM VARIABLES & THEMES ---
 :root {
   --chess-bg: #312e2b;
