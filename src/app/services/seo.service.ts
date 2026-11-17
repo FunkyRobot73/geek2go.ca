@@ -6,7 +6,7 @@ export class SeoService {
 
   private readonly siteName = 'Geek2Go.ca';
   private readonly siteUrl  = 'https://www.geek2go.ca';
-  private readonly ogImage  = 'https://www.geek2go.ca/assets/logo.png';
+  private readonly ogImage  = 'https://www.geek2go.ca/assets/Geek2go-01.webp';
 
   constructor(private title: Title, private meta: Meta) {}
 
