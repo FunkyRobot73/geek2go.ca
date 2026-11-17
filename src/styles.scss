@@ -131,53 +131,75 @@ h1, h2, h3, h4, .navbar-brand {
   color: var(--chess-heading-text);
 }
 
-// --- LAYOUT WRAPPER ---
-.chess-layout {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-
-  .mobile-header {
-    display: none;
-  }
-
-  .mobile-backdrop {
-    display: none;
-  }
-  
-  .sidebar-column {
-    width: $sidebar-width;
-    flex-shrink: 0;
-    background-color: var(--chess-navbar-bg);
-    border-right: 1px solid var(--chess-navbar-border);
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-  }
-  
-  .main-content-column {
-    flex-grow: 1;
-    overflow-y: auto;
-    position: relative;
-    padding: 24px;
-    background-color: $chess-bg;
-    
-    // Custom scrollbar
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-    &::-webkit-scrollbar-track {
-      background: $chess-bg;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: #4d4b4a;
-      border-radius: 4px;
-    }
-  }
+// --- ICON STABILITY (Prevent webfont pop-in CLS) ---
+i.fa-solid,
+i.fa-brands,
+i.fa-regular,
+.fa-solid,
+.fa-brands,
+.fa-regular {
+  display: inline-block;
+  min-width: 1em;
+  min-height: 1em;
+  text-align: center;
+  line-height: 1;
 }
 
-.mobile-action-dock {
-  display: none;
+// --- DESKTOP LAYOUT WRAPPER (min-width: 769px) ---
+@media (min-width: 769px) {
+  .chess-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+
+    .mobile-header {
+      display: none !important;
+    }
+
+    .mobile-backdrop {
+      display: none !important;
+    }
+    
+    .sidebar-column {
+      width: $sidebar-width;
+      flex-shrink: 0;
+      background-color: var(--chess-navbar-bg);
+      border-right: 1px solid var(--chess-navbar-border);
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      position: static !important;
+      transform: none !important;
+      box-shadow: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    .main-content-column {
+      flex-grow: 1;
+      overflow-y: auto;
+      position: relative;
+      padding: 24px;
+      background-color: $chess-bg;
+      
+      // Custom scrollbar
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background: $chess-bg;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #4d4b4a;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .mobile-action-dock {
+    display: none !important;
+  }
 }
 
 // --- RESPONSIVE MOBILE LAYOUT (<= 768px) ---

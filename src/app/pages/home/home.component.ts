@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LatestArticlesComponent } from './latest-articles/latest-articles.component';
 import { ProfileService } from 'src/app/services/profile.service';
+import { PROFILE_DATA } from 'src/app/services/profile.data';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from 'src/app/interfaces/blog';
 import { PROJECT_UPDATES, Transmission } from 'src/app/services/twitter.data';
@@ -12,6 +13,37 @@ import { environment } from 'src/environments/environment';
 import { AiDiagnosticComponent } from './ai-diagnostic/ai-diagnostic.component';
 import { PrintLabComponent } from './print-lab/print-lab.component';
 
+const DEFAULT_FEATURED_OPS = [
+  {
+    title: 'What is OpenSource?',
+    subtitle: 'You do not need to spend a fortune to have good technology.',
+    icon: 'fa-solid fa-unlock-keyhole',
+    link: 'https://www.youtube.com/watch?v=PVD1LNDxOnc',
+    color: '#81b64c'
+  },
+  {
+    title: 'What is Linux?',
+    subtitle: 'Ditch the License Fee',
+    icon: 'fa-brands fa-linux',
+    link: 'https://www.youtube.com/watch?v=eQbIxEw3AI0',
+    color: 'var(--chess-heading-text)'
+  },
+  {
+    title: 'What is Linux Mint?',
+    subtitle: 'A Friendly Face',
+    icon: 'fa-solid fa-leaf',
+    link: 'https://www.youtube.com/watch?v=n1jT9leP8sE&t=17s',
+    color: '#81b64c'
+  },
+  {
+    title: 'Ditch subscription fees',
+    subtitle: 'Why pay for software? ... Why ??',
+    icon: 'fa-solid fa-piggy-bank',
+    link: 'https://www.youtube.com/watch?v=eS-e_O4egsU',
+    color: 'var(--chess-heading-text)'
+  }
+];
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule, RouterModule, LatestArticlesComponent, AiDiagnosticComponent, PrintLabComponent],
@@ -19,9 +51,9 @@ import { PrintLabComponent } from './print-lab/print-lab.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  profile: any;
+  profile: any = PROFILE_DATA;
   mainFeedArticles: Blog[] = [];
-  featuredOps: any[] = [];
+  featuredOps: any[] = DEFAULT_FEATURED_OPS;
   transmissions: Transmission[] = PROJECT_UPDATES;
   imageBaseUrl = environment.imageBaseUrl;
 
@@ -37,8 +69,9 @@ export class HomeComponent implements OnInit {
       path: '/'
     });
     this.profileService.profile$.subscribe(data => {
-      this.profile = data;
-      this.initializeFeaturedOps();
+      if (data) {
+        this.profile = data;
+      }
     });
 
     this.route.fragment.subscribe(fragment => {
@@ -61,38 +94,5 @@ export class HomeComponent implements OnInit {
         this.mainFeedArticles = source.slice(0, 3);
       }
     });
-  }
-
-  private initializeFeaturedOps() {
-    this.featuredOps = [
-      {
-        title: 'What is OpenSource?',
-        subtitle: 'You do not need to spend a fortune to have good technology.',
-        icon: 'fa-solid fa-unlock-keyhole',
-        link: 'https://www.youtube.com/watch?v=PVD1LNDxOnc',
-        color: '#81b64c'
-      },
-      {
-        title: 'What is Linux?',
-        subtitle: 'Ditch the License Fee',
-        icon: 'fa-brands fa-linux',
-        link: 'https://www.youtube.com/watch?v=eQbIxEw3AI0',
-        color: 'var(--chess-heading-text)'
-      },
-      {
-        title: 'What is Linux Mint?',
-        subtitle: 'A Friendly Face',
-        icon: 'fa-solid fa-leaf',
-        link: 'https://www.youtube.com/watch?v=n1jT9leP8sE&t=17s',
-        color: '#81b64c'
-      },
-      {
-        title: 'Ditch subscription fees',
-        subtitle: 'Why pay for software? ... Why ??',
-        icon: 'fa-solid fa-piggy-bank',
-        link: 'https://www.youtube.com/watch?v=eS-e_O4egsU',
-        color: 'var(--chess-heading-text)'
-      }
-    ];
   }
 }

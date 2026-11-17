@@ -65,6 +65,17 @@
     background-color: var(--chess-panel);
     border-color: var(--chess-border) !important;
     transition: border-color 0.2s ease;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      min-height: 18px;
+      line-height: 18px;
+    }
+
     &:hover {
       border-color: rgba(129, 182, 76, 0.5) !important;
     }

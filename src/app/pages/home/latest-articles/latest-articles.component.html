@@ -1,7 +1,7 @@
-<div class="chess-card latest-articles-widget" *ngIf="!isLoading && latestBlogs.length > 0">
+<div class="chess-card latest-articles-widget">
   <h3 class="h5 border-bottom border-dark pb-2 mb-3">Recent Activity</h3>
   
-  <div class="articles-list">
+  <div class="articles-list" *ngIf="!isLoading && latestBlogs.length > 0">
     <div class="article-item mb-3 pb-3 border-bottom border-dark-subtle" *ngFor="let blog of latestBlogs.slice(0, 5)">
       <div class="d-flex align-items-center">
         <img [src]="imageBaseUrl + blog.image" 
@@ -15,6 +15,10 @@
       </div>
     </div>
   </div>
+
+  <div *ngIf="isLoading" class="p-3 text-center smallest text-muted">
+    <i class="fa-solid fa-spinner fa-spin me-2 text-green"></i> Loading articles...
+  </div>
   
-  <a routerLink="/blogs" class="btn btn-dark btn-sm w-100">View All Articles</a>
+  <a routerLink="/blogs" class="btn btn-dark btn-sm w-100 mt-2">View All Articles</a>
 </div>
