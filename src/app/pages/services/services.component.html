@@ -36,7 +36,7 @@
               <span class="badge rounded-pill bg-dark border border-dark-subtle text-green smallest">${{ pkg.price }}</span>
             </div>
             <h3 class="h6 mt-3 mb-1 fw-bold">{{ pkg.title }}</h3>
-            <span class="smallest text-muted">{{ pkg.price < 300 ? 'Flat Rate' : 'Per Day (8 Hours)' }}</span>
+            <span class="smallest text-muted">{{ pkg.rateType || (pkg.price < 300 ? 'Flat Rate' : 'Per Day (8 Hours)') }}</span>
           </div>
           
           <div class="package-body flex-grow-1">

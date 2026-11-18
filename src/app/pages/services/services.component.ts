@@ -25,7 +25,9 @@ export class ServicesComponent {
     "Recycling",
     "Resale",
     "Training",
-    "AI Help"
+    "AI Help",
+    "Rentals",
+    "Other"
   ];
   activeTab: string = 'AI & Open Source';
 
@@ -514,6 +516,42 @@ export class ServicesComponent {
         icon: 'fab fa-linux',
         service: 'AI & Open Source',
         price: 149
+      },
+      {
+        id: 45, title: 'Dog Sitting',
+        description: 'Attentive, loving dog sitting service in a safe, comfortable setting while you are away.',
+        details1: '$50 a day per dog',
+        details2: '$25 each additional dog',
+        details3: 'Daily routine, playtime, feeding, and photo updates.',
+        imageSample: 'assets/services/webdev01.webp',
+        icon: 'fas fa-dog',
+        service: 'Other',
+        price: 50,
+        rateType: 'Per Day'
+      },
+      {
+        id: 46, title: 'Dog Walking',
+        description: 'Reliable, caring dog walking service to keep your furry friend exercised and happy.',
+        details1: '$20 per walk / visit',
+        details2: 'Paced specifically for your dog’s age and energy level.',
+        details3: 'Fresh water refill and visit summary included.',
+        imageSample: 'assets/services/webdev02.webp',
+        icon: 'fas fa-paw',
+        service: 'Other',
+        price: 20,
+        rateType: 'Per Visit'
+      },
+      {
+        id: 47, title: 'Van Rental',
+        description: 'Convenient cargo van rental for moves, furniture hauling, material pickups, and errands.',
+        details1: '$35 an hour plus gas',
+        details2: 'Generous cargo space for big loads and heavy gear.',
+        details3: 'Flexible hourly booking with simple handover.',
+        imageSample: 'assets/services/webdev03.webp',
+        icon: 'fas fa-truck',
+        service: 'Rentals',
+        price: 35,
+        rateType: 'Per Hour (+ gas)'
       },
     ]
   }
