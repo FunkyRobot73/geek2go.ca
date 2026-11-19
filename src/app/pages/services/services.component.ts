@@ -18,7 +18,8 @@ export class ServicesComponent {
 
   addOns: { description: string; price: number }[] = [];
   services = [
-    "AI & Open Source",
+    "Open Source",
+    "3D Printing",
     "Hardware",
     "Software",
     "WebDev",
@@ -29,7 +30,7 @@ export class ServicesComponent {
     "Rentals",
     "Other"
   ];
-  activeTab: string = 'AI & Open Source';
+  activeTab: string = 'Open Source';
 
   get filteredPackages(): ItService[] {
     return this.packages.filter(pkg => pkg.service === this.activeTab);
@@ -479,9 +480,9 @@ export class ServicesComponent {
         details1: 'Installation of local LLMs (Ollama, LocalAI).',
         details2: 'Hardware optimization for local AI inference.',
         details3: 'Custom web dashboard for your home network.',
-        imageSample: 'assets/services/ai-hub.webp',
+        imageSample: 'assets/services/webdev10.webp',
         icon: 'fas fa-brain',
-        service: 'AI & Open Source',
+        service: 'AI Help',
         price: 249
       },
       {
@@ -490,9 +491,9 @@ export class ServicesComponent {
         details1: 'Nextcloud for files, mail, and calendar.',
         details2: 'Mattermost/RocketChat for secure team chat.',
         details3: 'AI-assisted document search and automation.',
-        imageSample: 'assets/services/business-box.webp',
+        imageSample: 'assets/services/webdev03.webp',
         icon: 'fas fa-archive',
-        service: 'AI & Open Source',
+        service: 'Open Source',
         price: 499
       },
       {
@@ -501,9 +502,9 @@ export class ServicesComponent {
         details1: 'Automated remote diagnostic agents.',
         details2: 'Proactive server and workstation monitoring.',
         details3: 'Direct escalation to a human expert when needed.',
-        imageSample: 'assets/services/agent-support.webp',
+        imageSample: 'assets/services/webdev08.webp',
         icon: 'fas fa-robot',
-        service: 'AI & Open Source',
+        service: 'AI Help',
         price: 99
       },
       {
@@ -512,9 +513,9 @@ export class ServicesComponent {
         details1: 'White-glove migration of files and settings.',
         details2: 'Customized desktop environments (Mint, Zorin).',
         details3: 'Training on open-source alternatives for all tools.',
-        imageSample: 'assets/services/linux-clinic.webp',
+        imageSample: 'assets/services/webdev06.webp',
         icon: 'fab fa-linux',
-        service: 'AI & Open Source',
+        service: 'Open Source',
         price: 149
       },
       {
@@ -553,6 +554,177 @@ export class ServicesComponent {
         price: 35,
         rateType: 'Per Hour (+ gas)'
       },
+      {
+        id: 48, title: 'Home Assistant & Local Automation',
+        description: 'Private, subscription-free home automation powered by open-source Home Assistant running locally.',
+        details1: 'Home Assistant OS installation & setup on dedicated hardware.',
+        details2: 'Integration for Zigbee, Z-Wave, Philips Hue, and smart plugs.',
+        details3: '100% local privacy with zero monthly cloud subscriptions.',
+        imageSample: 'assets/services/webdev04.webp',
+        icon: 'fas fa-house-laptop',
+        service: 'Open Source',
+        price: 199
+      },
+      {
+        id: 49, title: 'Open Source Cloud & Office Migration',
+        description: 'Break free from monthly Microsoft 365 and Google Workspace subscriptions with self-hosted open-source tools.',
+        details1: 'Nextcloud Hub setup for files, contacts, calendar, and office docs.',
+        details2: 'Complete data export from cloud providers and local migration.',
+        details3: 'Full client configuration on Windows, Mac, Linux, and mobile.',
+        imageSample: 'assets/services/webdev01.webp',
+        icon: 'fas fa-folder-open',
+        service: 'Open Source',
+        price: 299
+      },
+      {
+        id: 50, title: 'Custom Linux Server Setup',
+        description: 'Dedicated or repurposed PC Linux servers configured for backups, file sharing, media (Jellyfin), or containerized apps.',
+        details1: 'Debian / Ubuntu Server installation with Docker setup.',
+        details2: 'Automated local and encrypted off-site backups.',
+        details3: 'Network share configuration (Samba/NFS) for all household devices.',
+        imageSample: 'assets/services/webdev09.webp',
+        icon: 'fas fa-server',
+        service: 'Open Source',
+        price: 249
+      },
+      {
+        id: 57, title: 'Network-Wide Ad Blocker (Pi-hole)',
+        description: 'Block invasive ads, trackers, and malicious phishing domains across your whole house or office before they even reach your screens.',
+        details1: 'Pi-hole or AdGuard Home installation on a Raspberry Pi or Mini PC.',
+        details2: 'Router DNS integration to protect smart TVs, phones, tablets & PCs.',
+        details3: 'Faster browsing speeds, lower data usage, and complete privacy.',
+        imageSample: 'assets/services/webdev06.webp',
+        icon: 'fas fa-shield-virus',
+        service: 'Open Source',
+        price: 129
+      },
+      {
+        id: 58, title: 'Jellyfin Private Media Server',
+        description: 'Enjoy your own personal Netflix and Spotify with Jellyfin—100% free open-source media streaming with zero subscription fees.',
+        details1: 'Jellyfin server setup with automatic movie/music metadata fetching.',
+        details2: 'Hardware transcoding enabled for smooth 4K playback.',
+        details3: 'Client apps installed on Apple TV, Android TV, FireStick, phones & laptops.',
+        imageSample: 'assets/services/webdev08.webp',
+        icon: 'fas fa-photo-film',
+        service: 'Open Source',
+        price: 179
+      },
+      {
+        id: 59, title: 'Private Vaultwarden Password Manager',
+        description: 'Take back ownership of your passwords, passkeys, and sensitive logins with a lightweight, secure self-hosted Bitwarden server.',
+        details1: 'Vaultwarden container setup with HTTPS/SSL encryption.',
+        details2: 'Migration of passwords from 1Password, LastPass, or web browsers.',
+        details3: 'Automated encrypted daily backups to external storage or cloud.',
+        imageSample: 'assets/services/webdev10.webp',
+        icon: 'fas fa-key',
+        service: 'Open Source',
+        price: 149
+      },
+      {
+        id: 60, title: 'Proxmox & TrueNAS Home Lab',
+        description: 'Turn surplus desktop PCs or servers into an enterprise-grade virtualization or network-attached storage (NAS) beast.',
+        details1: 'Proxmox VE or TrueNAS SCALE bare-metal installation.',
+        details2: 'ZFS RAID storage configuration for rock-solid drive redundancy.',
+        details3: 'Docker & LXC container environments ready for any self-hosted app.',
+        imageSample: 'assets/services/webdev12.webp',
+        icon: 'fas fa-network-wired',
+        service: 'Open Source',
+        price: 299
+      },
+      {
+        id: 61, title: 'OPNsense / pfSense Firewall & VPN',
+        description: 'Ditch insecure consumer ISP routers in favor of enterprise open-source network routing, firewalling, and private remote access.',
+        details1: 'OPNsense / pfSense installation on dedicated mini PC hardware.',
+        details2: 'WireGuard VPN setup to securely access your home network anywhere.',
+        details3: 'VLAN segmentation for IoT devices, guest Wi-Fi, and main workstations.',
+        imageSample: 'assets/services/webdev13.webp',
+        icon: 'fas fa-lock',
+        service: 'Open Source',
+        price: 249
+      },
+      {
+        id: 62, title: 'Paperless-ngx Digital Archive',
+        description: 'Eliminate paper clutter forever with an automated, searchable open-source document management system with optical character recognition.',
+        details1: 'Paperless-ngx installation with automatic PDF indexing and tagging.',
+        details2: 'Multi-language OCR so every scanned receipt, contract, or bill is instantly searchable.',
+        details3: 'Network scanner or email inbox auto-ingest configuration.',
+        imageSample: 'assets/services/webdev14.webp',
+        icon: 'fas fa-file-invoice',
+        service: 'Open Source',
+        price: 189
+      },
+      {
+        id: 51, title: 'Custom 3D Printing & Prototyping',
+        description: 'Fast, high-precision 3D printing on our Bambu Lab A1 from your 3D files or models from MakerWorld, Printables, and Thingiverse.',
+        details1: 'High-speed printing up to 500 mm/s with precision down to 0.08 mm.',
+        details2: 'Choice of standard PLA, high-impact PLA Tough, or durable PETG.',
+        details3: 'Quick turnaround with local Burlington / Aldershot pickup.',
+        imageSample: 'assets/services/webdev11.webp',
+        icon: 'fas fa-cube',
+        service: '3D Printing',
+        price: 20,
+        rateType: 'Starting at'
+      },
+      {
+        id: 52, title: 'Broken Part Reproduction & Repair',
+        description: 'Save appliances, tools, and equipment by replacing discontinued or broken plastic gears, knobs, latches, and brackets.',
+        details1: 'Digital caliper measurements and 3D modeling from broken pieces.',
+        details2: 'Printed in high-strength PETG or heat-resistant filaments.',
+        details3: 'Huge savings compared to replacing entire appliances.',
+        imageSample: 'assets/services/webdev12.webp',
+        icon: 'fas fa-gears',
+        service: '3D Printing',
+        price: 45,
+        rateType: 'Starting at'
+      },
+      {
+        id: 53, title: 'Multi-Color AMS Prints & Badges',
+        description: 'Eye-catching multi-color 3D printing with automated filament switching powered by the Bambu AMS Lite 4-color system.',
+        details1: 'Up to 4 vibrant colors fused in a single monolithic print.',
+        details2: 'Custom desk nameplates, 2D/3D business logos, and gamer tags.',
+        details3: 'Crisp layer lines and zero paint bleeding.',
+        imageSample: 'assets/services/webdev13.webp',
+        icon: 'fas fa-palette',
+        service: '3D Printing',
+        price: 35,
+        rateType: 'Starting at'
+      },
+      {
+        id: 54, title: 'Tech Mounts & Desk Organization',
+        description: 'Declutter your workspace with custom brackets, mounts, and holders engineered to fit your specific devices.',
+        details1: 'VESA monitor mounts for Mini PCs, NUCs, Raspberry Pis & routers.',
+        details2: 'Under-desk headphone hangers, laptop docks & power brick cradles.',
+        details3: 'Custom snap-fit cable raceways and desktop cable combs.',
+        imageSample: 'assets/services/webdev14.webp',
+        icon: 'fas fa-desktop',
+        service: '3D Printing',
+        price: 25,
+        rateType: 'Starting at'
+      },
+      {
+        id: 55, title: 'Flexible TPU Parts & Dampers',
+        description: 'Flexible, rubber-like 95A TPU prints designed for heavy impact resistance, vibration damping, and weatherproofing.',
+        details1: 'Vibration absorbing feet for PC chassis, subwoofers, and audio gear.',
+        details2: 'Custom protective corner bumpers, tool grips, and waterproof gaskets.',
+        details3: 'Bendable, indestructible, and chemical/UV resistant.',
+        imageSample: 'assets/services/webdev02.webp',
+        icon: 'fas fa-arrows-spin',
+        service: '3D Printing',
+        price: 30,
+        rateType: 'Starting at'
+      },
+      {
+        id: 56, title: '3D CAD Design & Slicing Service',
+        description: 'Turn your napkin sketch, idea, or concept into a functional, production-ready 3D CAD model optimized for 3D printing.',
+        details1: 'Parametric CAD modeling with tight tolerance fitting.',
+        details2: 'Bambu Studio slicing optimization for strength, infill, and speed.',
+        details3: 'STL, STEP, and 3MF production files delivered to keep.',
+        imageSample: 'assets/services/webdev03.webp',
+        icon: 'fas fa-drafting-compass',
+        service: '3D Printing',
+        price: 60,
+        rateType: 'Per Design'
+      },
     ]
   }
 
@@ -575,8 +747,8 @@ export class ServicesComponent {
   constructor(private seo: SeoService) {
     this.packages = [];
     this.seo.setPage({
-      title: 'Open Source Solutions & Custom Web Dev Burlington',
-      description: 'Migrate to open-source software, setup custom Linux apps, boost SEO, build custom websites, and recycle hardware. Get expert budget technology support from Geek2Go.ca.',
+      title: 'Open Source Solutions, 3D Printing & Custom Web Dev Burlington',
+      description: 'Migrate to open-source software, setup custom Linux apps, 3D printing & rapid prototyping, AI help, boost SEO, build custom websites, and recycle hardware. Get expert budget technology support from Geek2Go.ca.',
       path: '/services'
     });
   }
